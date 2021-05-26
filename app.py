@@ -3,6 +3,7 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
+
 if os.path.exists("env.py"):
     import env
 
@@ -20,8 +21,10 @@ DATABASE = os.environ.get("MONGO_DBNAME")
 RECIPES = "recipes"
 
 
-for recipe in all_recipes:
-    print(recipe)
+@app.route("/")
+def load_home():
+    return render_template('index.html')
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
