@@ -25,6 +25,13 @@ also a platform where users can share their own recipes with the sites community
 ### Structure
 
   #### Pages
+  1. [Homepage](/index.html)
+  1. [Recipes Page](/index.html)
+  1. [Single_recipe Template](/index.html)
+  1. [Create_recipe Page](/index.html)
+  1. [Account Page](/index.html)
+  1. [About Page](/index.html)
+  1. [Contact Page](/index.html)
 
 ### Skeleton
  
