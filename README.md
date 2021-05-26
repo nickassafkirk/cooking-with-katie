@@ -34,6 +34,23 @@ also a platform where users can share their own recipes with the sites community
 
 
   #### - User Stories:
+  * As a new user I want to understand the site's intention immediately.
+  * As a new user I want to be able to navigate between site pages and sections easily.
+  * As a user I want to be be able to view the site on mobile, tablet and desktop devices.
+  * As a new user I want to learn about the business owner's background.
+  * As a user I expect to be able to view lot's of different recipes.
+  * As a user I want to be able to search and filter recipes by specific criteria.
+  * As a user I expect recipes to be ;abelled and categorised by an intuitive taxonomy.
+  * As a user I expect recipes to be easy to read, understand and reproduce at home.
+  * As a user I want to be able to add my recipes to the site to share with other users.
+  * As a return user I want to be able to update and delete my submitted recipes.
+  * As a new user I want to create an account easily.
+  * As a return user I want to be able to log into my account conveniently.
+  * As a current user I want to be able to logout easily to secure my account.
+  * As an ongoing user I want to be able to save my favourite recipes.
+  * As an existing user I want to be able to rate recipes that I've tried myself.
+
+
 
 ---
 ### Scope
