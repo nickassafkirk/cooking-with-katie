@@ -100,6 +100,48 @@ link to testing.md file
 Vendor prefixes were added to the main stylesheet using autoprefixer to ensure styles are applied as consistently as possible across different browse
 
 ---
+## Database
+---
+
+This data-driven project uses MongoDB to store and manage user and site data. 
+There are three main data objects for this project:
+1. Users
+1. Recipes
+1. Categories
+
+### Schema
+---
+
+1. #### Users:
+   user_id: varchar auto    
+   username: varchar (25)   
+   password: varchar (50)
+   first_name: varchar (50) 
+   last_name: varchar (50)  
+   user_favourites: list    
+   user_recipes: list   
+   is_admin: boolean    
+
+2. #### Recipes:
+   recipe_id: varchar auto  
+   created_by: varchar (username)
+   title: varchar(30)   
+   intro: varchar(250)  
+   ingredients:list of objects [{"ingredient": value, "quantity": value},... ]   
+   instructions: list of objects[{"step[n]": instruction},...]   
+   meal_type: varchar (10)   
+   cuisine: varchar (20)    
+   prep_time: int   
+   cook_time: int   
+   rating: int
+
+3. #### Categories:
+   category: id 
+   cuisine: varchar(20)  
+   meal_type: varchar(20)    
+
+  
+---
 ## Credits
 ---
 ### Content Credits
