@@ -23,14 +23,34 @@ header{
     color: var(--txt-light);
 }
 
+.banner__container{
+    padding: 2%;
+}
+
+.banner__inner{
+    background-color: var(--bg-main);
+    color: var(--txt-dark);
+    width: 60%;
+    margin: auto;
+    padding: 2%;
+    border: 2px solid var(--txt-dark);
+}
+
 .navbar a{
     color: var(--txt-light);
 }
 
 .navbar-brand{
     font-family: 'Abril Fatface', cursive;
-    font-size: 2em;
+    font-size: 3em;
     color: var(--txt-light);
+    margin-left: 5%;
+}
+
+.navbar-collapse{
+    justify-content: flex-end;
+    margin-right: 5%;
+    margin-left: auto;
 }
 
 footer{
