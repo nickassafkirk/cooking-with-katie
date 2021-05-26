@@ -23,10 +23,14 @@ header{
     color: var(--txt-light);
 }
 
+.navbar a{
+    color: var(--txt-light);
+}
+
 .navbar-brand{
     font-family: 'Abril Fatface', cursive;
     font-size: 2em;
-    color: var(--txt-light)
+    color: var(--txt-light);
 }
 
 footer{
