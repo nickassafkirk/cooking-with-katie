@@ -45,3 +45,10 @@ footer{
 .footer__social-icons i{
     margin: 2%;
 }
+
+.footer__social-heading{
+    border-bottom: 2px solid var(--txt-light);
+    padding-bottom: 0.5%;
+    width: 30%;
+    margin: 0 auto;
+}
