@@ -1,10 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Fjalla+One&family=Montserrat&display=swap');
+
 :root{
     --green-main: #1b5e20;
     --green-dark: #003300;
     --green-light: #4c8c4a;
     --bg-main: #efebe9;
     --bg-beige: #e5e0be;
-    --txt-main: #efefef;
+    --txt-light: #efefef;
     --txt-dark: #111;
     --accent-main: #ab47bc;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--txt-dark);
+    font-size: 16px;
+}
+
+header{
+    background-color: var(--green-main);
+    color: var(--txt-light);
+}
+
+.navbar-brand{
+    font-family: 'Abril Fatface', cursive;
+    font-size: 2em;
+    color: var(--txt-light)
+}
+
+footer{
+    background-color: var(--green-main);
+    color: var(--txt-light);
+    text-align: center; 
+    margin: 5% auto;
+    padding: 5%;
+}
+
+.footer__social-icons{
+    font-size: 3em;
+    margin-top: 1em;
+}
+
+.footer__social-icons i{
+    margin: 2%;
 }
