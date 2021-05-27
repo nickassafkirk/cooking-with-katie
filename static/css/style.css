@@ -18,6 +18,22 @@ body{
     font-size: 16px;
 }
 
+.page-title{
+    margin: 1% auto;
+    width: 98%;
+    padding: 2%;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: var(--green-dark);
+    color: var(--txt-light)
+}
+
+.page-content-container{
+    width: 98%;
+    margin: 0 auto;
+}
+
+/* Header Styles */
 header{
     background-color: var(--green-main);
     color: var(--txt-light);
@@ -36,6 +52,7 @@ header{
     border: 2px solid var(--txt-dark);
 }
 
+/* Navbar styles */ 
 .navbar a{
     color: var(--txt-light);
 }
@@ -53,6 +70,30 @@ header{
     margin-left: auto;
 }
 
+/* index.html */
+
+/* Recipes.html */
+.recipe-thumbnail{
+    margin: 1%;
+    padding: 2%;
+    text-align: center;
+    background-color: #fff;
+    border: 2px solid var(--green-dark);
+    border-radius: 3px;
+}
+
+.recipe-thumbnail img{
+    width: 90%;
+    height: 200px;
+    margin: 2%;
+}
+
+.recipe-owner{
+    text-align: left;
+    margin-left: 1em;
+}
+
+/* Footer Styles */
 footer{
     background-color: var(--green-main);
     color: var(--txt-light);
