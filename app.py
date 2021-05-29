@@ -103,6 +103,20 @@ def sign_in():
     return render_template("sign_in.html")
 
 
+@app.route("/account/<username>")
+def account(username):
+    # grab the session user's username from db
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    # square bracket at end denotes that
+    # we only want to return the username from the user
+
+    if session["user"]:
+        return render_template("account.html", username=username)
+
+    return redirect(url_for("login"))
+
+
 @app.route("/recipes")
 def recipes():
     recipes = list(mongo.db.recipes.find())
