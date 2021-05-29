@@ -32,7 +32,15 @@ def load_home():
 
 @app.route("/sign_up")
 def sign_up():
-    
+    if request == "POST":
+
+        user_exists = mongo.db.users.find_one(
+            {'username': request.form.get('username').lower()}
+        )
+        if user_exists:
+            flash("Username taken, sign-in or try another username")
+            return redirect(url_for('sign_up'))
+
     return render_template("sign_up.html")
 
 
@@ -51,9 +59,9 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 def check_image_extension(filename):
 
-    if not "." in filename:
+    if "." not in filename:
         return False
-    
+
     ext = filename.rsplit(".", 1)[1]
 
     if ext.upper() in app.config["ACCEPTED_IMG_EXTENSIONS"]:
@@ -68,7 +76,7 @@ def add_recipe():
     if request.method == "POST":
 
         if request.files:
-            
+
             image = request.files["select-image"]
 
             if image.filename == "":
