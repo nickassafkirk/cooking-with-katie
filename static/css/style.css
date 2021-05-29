@@ -105,12 +105,12 @@ header .navbar a{
 
 /* sign_up.html */
 
-#sign-up-container{
+#sign-up-container, #sign-in-container{
     width: 75%;
     margin: 2% auto;
 }
 
-#sign-up-container form{
+#sign-up-container form, #sign-in-container form{
     margin: 0 2% 2% 2%;
 }
 
@@ -128,7 +128,7 @@ header .navbar a{
 }
 
 
-#sign-up-form button{ 
+#sign-up-form button, #sign-in-form button{ 
     background-color: var(--accent-mint);
     Text-transform: uppercase;
     color: var(--txt-light);
@@ -137,7 +137,7 @@ header .navbar a{
     text-shadow: 2px 2px var(--txt-dark);
 }
 
-#sign-up-form button:hover{
+#sign-up-form button:hover, #sign-in-form button:hover{
     background-color: #f759d4;
 }
 
