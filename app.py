@@ -6,6 +6,8 @@ from flask import (
 
 from flask_pymongo import PyMongo
 
+from werkzeug.security import generate_password_hash, check_password_hash
+
 from werkzeug.utils import secure_filename
 
 if os.path.exists("env.py"):
@@ -56,7 +58,7 @@ def sign_up():
         # create new user object
         new_user = {
             "username": request.form.get('username-sign-up').lower(),
-            "password": valid_password,
+            "password": generate_password_hash(valid_password),
             "first_name": request.form.get('fname-sign-up').lower(),
             "last_name": request.form.get('lname-sign-up').lower(),
             "email_address": request.form.get('email-sign-up'),
