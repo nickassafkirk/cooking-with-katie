@@ -91,7 +91,7 @@ def sign_in():
             {'username': request.form.get('username-sign-in').lower()})
         if existing_user:
             if check_password_hash(
-                    existing_user.password, request.form.get("password-sign-in")):
+                    existing_user["password"], request.form.get("password-sign-in")):
                 session["user"] = request.form.get('username-sign-in').lower()
                 flash("Welcome back {}".format(request.form.get('username-sign-in')))
                 return redirect(
