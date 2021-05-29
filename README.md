@@ -150,6 +150,10 @@ There are three main data objects for this project:
 
 ### Code Credits
 
+1. Simple Image Upload Functionality:    
+   - To enable the functionality to allow users to upload an image to their recipes, I followed a tutorial from on Julian Nash in 
+   [this youtube video](https://www.youtube.com/watch?v=6WruncSoCdI&list=LL7yGGnZb8BruqiOeC1KZ2Qg)
+
 ---
 ## Deployment
 ---
