@@ -116,6 +116,21 @@ header .navbar a{
     font-weight: 700;
 }
 
+/* add-recipe */
+
+#add_recipe-form .col, #add_recipe-form label{
+    text-align: center;
+}
+
+#add_recipe-form .col{
+    margin: 1% auto;
+}
+
+#add_recipe-form input, #add_recipe-form textarea {
+    margin: 1% auto;
+    padding: 1%;
+}
+
 /* sign_up.html */
 
 #sign-up-container, #sign-in-container{

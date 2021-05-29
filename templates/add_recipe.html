@@ -3,19 +3,82 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <h2>upload file</h2>
+        <h2>Add Your Recipe</h2>
         <hr>
-        <form action="/add_recipe" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <label>Select Image</label>
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" name="select-image" id="select-image">
-                    <label for="select-image" class="custom-file-label">Select Image...</label>
+
+        <!-- Add Recipe Form-->
+        <form action="/add_recipe" method="POST" enctype="multipart/form-data" class="row mx-auto" id="add_recipe-form">
+            <div class="row">
+                <label for="title">Recipe Title</label>
+                <input type="text" name="title" id="title">
+            </div>
+            <div class="row">
+                <textarea name="intro" id="intro" cols="30" rows="10" placeholder="Enter Brief Description"></textarea>
+            </div>
+            <div class="row">
+                <label>Ingredients</label>
+                <hr>
+                <div class="row ingredient-n">
+                    <div class="col">
+                        <label for="ingredient-1">Ingredient</label>
+                        <input type="text" name="ingredient-1">
+                    </div>
+                    <div class="col">
+                        <label for="ingredient-quantity-1">Weight (Optional)</label>
+                        <input type="text" name="ingredient-quantity-1">
+                    </div>
+                </div>
+                <div class="row ingredient-n">
+                    <div class="col">
+                        <label for="ingredient-2">Ingredient</label>
+                        <input type="text" name="ingredient-2">
+                    </div>
+                    <div class="col">
+                        <label for="ingredient-quantity-2">Weight (Optional)</label>
+                        <input type="text" name="ingredient-quantity-2">
+                    </div>
+                </div>
+                <div class="row ingredient-n">
+                    <div class="col">
+                        <label for="ingredient-3">Ingredient</label>
+                        <input type="text" name="ingredient-3">
+                    </div>
+                    <div class="col">
+                        <label for="ingredient-quantity-3">Weight (Optional)</label>
+                        <input type="text" name="ingredient-quantity-3">
+                    </div>
+                </div>
+                <div class="row ingredient-n">
+                    <div class="col">
+                        <label for="ingredient-4">Ingredient</label>
+                        <input type="text" name="ingredient-4">
+                    </div>
+                    <div class="col">
+                        <label for="ingredient-quantity-4">Weight (Optional)</label>
+                        <input type="text" name="ingredient-quantity-4">
+                    </div>
+                </div>
+                <div class="row ingredient-n">
+                    <div class="col">
+                        <label for="ingredient-5">Ingredient</label>
+                        <input type="text" name="ingredient-5">
+                    </div>
+                    <div class="col">
+                        <label for="ingredient-quantity-5">Weight (Optional)</label>
+                        <input type="text" name="ingredient-quantity-5">
+                    </div>
                 </div>
             </div>
-            <button clas="btn btn-primary" type="submit">Upload File</button>
-            
-        
+            <div class="row">
+                <textarea name="instructions" id="instructions" cols="30" rows="10" placeholder="Enter cooking instructions please separate each step with a new line"></textarea>
+            </div>
+            <div class="row d-none">
+              <label for="select-image" class="custom-file-label">Select Image...</label>
+              <input type="file" class="custom-file-input" name="select-image" id="select-image">
+            </div>
+            <div class="row">
+              <button class="btn btn-primary" type="submit">Upload File</button>
+            </div>
         </form>
     </div>
 </div>
