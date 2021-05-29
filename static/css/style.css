@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Fjalla+One&family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap&family=Abril+Fatface&family=Fjalla+One&family=Montserrat&display=swap');
 
 :root{
     --green-main: #1b5e20;
@@ -6,9 +6,11 @@
     --green-light: #4c8c4a;
     --bg-main: #efebe9;
     --bg-beige: #e5e0be;
+    --bg-sunset: #ecdba2;
     --txt-light: #efefef;
     --txt-dark: #111;
-    --accent-main: #ab47bc;
+    --txt-cute: #f759d4;
+    --accent: #ab47bc;
 }
 
 body{
@@ -24,7 +26,7 @@ body{
     padding: 2%;
     text-align: center;
     text-transform: uppercase;
-    background-color: var(--green-dark);
+    background-color: var(--bg-sunset);
     color: var(--txt-light)
 }
 
@@ -35,8 +37,7 @@ body{
 
 /* Header Styles */
 header{
-    background-color: var(--green-main);
-    color: var(--txt-light);
+    background-color: var(--bg-sunset);
 }
 
 .banner__container{
@@ -53,14 +54,19 @@ header{
 }
 
 /* Navbar styles */ 
-.navbar a{
-    color: var(--txt-light);
+header .navbar a{
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 1.8em;
+    font-weight: 700;
+    text-shadow: 2px 2px #fff;
+    color: var(--txt-dark);
 }
 
-.navbar-brand{
-    font-family: 'Abril Fatface', cursive;
+.navbar-custom .navbar-brand{
+    font-family: 'Dancing script', cursive;
     font-size: 3em;
-    color: var(--txt-light);
+    font-weight: 700;
+    color: rgb(216, 62, 170);
     margin-left: 5%;
 }
 
@@ -78,7 +84,7 @@ header{
     padding: 2%;
     text-align: center;
     background-color: #fff;
-    border: 2px solid var(--green-dark);
+    border: 2px solid var(--accent-main);
     border-radius: 3px;
 }
 
@@ -95,8 +101,11 @@ header{
 
 /* Footer Styles */
 footer{
-    background-color: var(--green-main);
-    color: var(--txt-light);
+    background-color: var(--bg-sunset);
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--txt-dark);
+    text-shadow: 2px 2px #fff;
     text-align: center; 
     margin: 5% auto;
     padding: 5%;
@@ -112,7 +121,7 @@ footer{
 }
 
 .footer__social-heading{
-    border-bottom: 2px solid var(--txt-light);
+    border-bottom: 2px solid var(--txt-cute);
     padding-bottom: 0.5%;
     width: 30%;
     margin: 0 auto;
