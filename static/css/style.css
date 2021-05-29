@@ -11,6 +11,7 @@
     --txt-dark: #111;
     --txt-cute: #f759d4;
     --accent: #ab47bc;
+    --accent-mint: #3deec8;
 }
 
 body{
@@ -99,6 +100,44 @@ header .navbar a{
 .recipe-owner{
     text-align: left;
     margin-left: 1em;
+}
+
+/* sign_up.html */
+
+#sign-up-container{
+    width: 75%;
+    margin: 2% auto;
+}
+
+#sign-up-container form{
+    margin: 0 2% 2% 2%;
+}
+
+.form-heading{
+    text-align: center;
+    padding: 2% 0px;
+    margin-bottom: 2%;
+    Text-transform: uppercase;
+    color: var(--txt-light);
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 1.8em;
+    font-weight: 700;
+    text-shadow: 2px 2px var(--txt-dark);
+    background-color: var(--accent-mint);
+}
+
+
+#sign-up-form button{ 
+    background-color: var(--accent-mint);
+    Text-transform: uppercase;
+    color: var(--txt-light);
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 1.4em;
+    text-shadow: 2px 2px var(--txt-dark);
+}
+
+#sign-up-form button:hover{
+    background-color: #f759d4;
 }
 
 /* Footer Styles */
