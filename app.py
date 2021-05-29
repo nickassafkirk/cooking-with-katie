@@ -82,6 +82,27 @@ def sign_up():
     return render_template("sign_up.html")
 
 
+@app.route("/sign_in", methods=["GET", "POST"])
+def sign_in():
+    if request.method == "POST":
+
+        # check if username already exists in DB
+        existing_user = mongo.db.users.find_one(
+            {'username': request.form.get('username-sign-in').lower()})
+        if existing_user:
+            if check_password_hash(
+                    existing_user.password, request.form.get("password-sign-in")):
+                session["user"] = request.form.get('username-sign-in').lower()
+                flash("Welcome back {}".format(request.form.get('username-sign-in')))
+                return redirect(
+                    url_for("account", username=session["user"]))
+        else:
+            flash("Username not found")
+            return redirect(url_for('sign_in'))
+
+    return render_template("sign_in.html")
+
+
 @app.route("/recipes")
 def recipes():
     recipes = list(mongo.db.recipes.find())
