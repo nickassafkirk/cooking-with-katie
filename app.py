@@ -34,12 +34,39 @@ def load_home():
 def sign_up():
     if request == "POST":
 
+        # check if username already exists in DB
         user_exists = mongo.db.users.find_one(
-            {'username': request.form.get('username').lower()}
+            {'username': request.form.get('username-sign-up').lower()}
         )
         if user_exists:
             flash("Username taken, sign-in or try another username")
             return redirect(url_for('sign_up'))
+
+        # check if passwords match
+        password = request.form.get('password-sign-up')
+        confirm_password = request.form.get('conf-password-sign-up')
+
+        if password == confirm_password:
+            valid_password = password
+
+        else:
+            flash("Your passwords do not match!")
+            return redirect(url_for('sign_up'))
+
+        # create new user object
+        new_user = {
+            "username": request.form.get('username-sign-up').lower(),
+            "password": valid_password,
+            "first_name": request.form.get('fname-sign-up').lower(),
+            "last_name": request.form.get('lname-sign-up').lower(),
+            "email_address": request.form.get('email-sign-up'),
+            "is_admin": False,
+            "favourites": [],
+            "user_recipes": []
+        }
+
+        # add new_user to DB
+        mongo.db.users.insert_one(new_user)
 
     return render_template("sign_up.html")
 
