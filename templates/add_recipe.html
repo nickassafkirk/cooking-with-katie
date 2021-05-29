@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h2>upload file</h2>
+        <hr>
+        <form action="/add_recipe" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Select Image</label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="select-image" id="select-image">
+                    <label for="select-image" class="custom-file-label">Select Image...</label>
+                </div>
+            </div>
+            <button clas="btn btn-primary" type="submit">Upload File</button>
+            
+        
+        </form>
+    </div>
+</div>
+
+{% endblock %}
