@@ -30,6 +30,12 @@ def load_home():
     return render_template('index.html')
 
 
+@app.route("/sign_up")
+def sign_up():
+    
+    return render_template("sign_up.html")
+
+
 @app.route("/recipes")
 def recipes():
     recipes = list(mongo.db.recipes.find())
