@@ -95,6 +95,7 @@ header .navbar a{
     width: 90%;
     height: 200px;
     margin: 2%;
+    object-fit: cover;
 }
 
 .recipe-owner{
