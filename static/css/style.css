@@ -103,6 +103,19 @@ header .navbar a{
     margin-left: 1em;
 }
 
+.recipe-thumbnail__metadata{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+}
+
+.recipe-thumbnail__metadata p{
+    color: #fff;
+    font-weight: 700;
+}
+
 /* sign_up.html */
 
 #sign-up-container, #sign-in-container{
