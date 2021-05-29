@@ -42,6 +42,8 @@ header{
 
 .banner__container{
     padding: 2%;
+    display: flex;
+    justify-items: flex-end;
 }
 
 .banner__inner{
