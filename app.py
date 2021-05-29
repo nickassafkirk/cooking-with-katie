@@ -32,9 +32,9 @@ def load_home():
     return render_template('index.html')
 
 
-@app.route("/sign_up")
+@app.route("/sign_up", methods=["GET", "POST"])
 def sign_up():
-    if request == "POST":
+    if request.method == "POST":
 
         # check if username already exists in DB
         user_exists = mongo.db.users.find_one(
@@ -70,6 +70,10 @@ def sign_up():
         # add new_user to DB
         mongo.db.users.insert_one(new_user)
 
+        # add session cookie
+        session["user"] = request.form.get('username-sign-up').lower()
+        flash("Sign Up Successful!")
+        return redirect(url_for('sign_up'))
     return render_template("sign_up.html")
 
 
