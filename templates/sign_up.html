@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid w-75 my-5 bg-light">
+    <div class="row">
+        <div class="col-12 text-center py-3">
+            <h3>Sign Up</h3>
+            <hr>
+        </div>
+    </div>
+<form action="{{ url_for('sign_up') }}" method="POST" class="row g-3 p-3">
+  <div class="col-md-6">
+    <label for="fname-sign-up" class="form-label">First name</label>
+    <input type="text" class="form-control" id="fname-sign-up" name="fname-sign-up" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="lname-sign-up" class="form-label">Last name</label>
+    <input type="text" class="form-control" id="lname-sign-up" name="lname-sign-up" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="username-sign-up" class="form-label">Username</label>
+    <div class="input-group has-validation">
+      <input type="text" class="form-control" id="username-sign-up" name="username-sign-up" 
+      aria-describedby="username-sign-upFeedback" required>
+      <div id="username-sign-upFeedback" class="invalid-feedback">
+        Please choose a username.
+      </div>
+    </div>
+  </div>  
+  <div class="col-md-6">
+    <label for="email-sign-up" class="form-label">Email</label>
+    <div class="input-group has-validation">
+      <input type="email" class="form-control" id="email-sign-up" name="email-sign-up" 
+      aria-describedby="email-sign-upFeedback" required>
+      <div id="email-sign-upFeedback" class="invalid-feedback">
+        Please enter a valid email.
+      </div>
+    </div>
+  </div>  
+  <div class="col-md-6">
+    <label for="password-sign-up" class="form-label">Password</label>
+    <div class="input-group has-validation">
+      <input type="password" class="form-control" id="password-sign-up" name="password-sign-up" 
+      aria-describedby="password-sign-upFeedback" required>
+      <div id="password-sign-upFeedback" class="invalid-feedback">
+        Please select a password
+      </div>
+    </div>
+  </div>  
+  <div class="col-md-6">
+    <label for="conf-password-sign-up" class="form-label">Confirm Password</label>
+    <div class="input-group has-validation">
+      <input type="password" class="form-control" id="conf-password-sign-up" name="conf-password-sign-up"
+      aria-describedby="conf-password-sign-upFeedback" required>
+      <div id="conf-password-sign-upFeedback" class="invalid-feedback">
+        Please confirm password
+      </div>
+    </div>
+  </div>  
+  <div class="col-12 text-center py-3">
+    <button class="btn btn-primary w-50" type="submit">Sign Up</button>
+  </div>
+</form>
+</div>
+{% endblock %}
