@@ -142,7 +142,7 @@ header .navbar a{
     border-radius: 5px;
 }
 
-#ingredientsContainer, #instructionsContainer{
+#ingredientsContainer, #instructionsContainer, #additional-container, #image-container{
     display: flex;
     flex-direction: column;
     border: 2px solid #fff;
@@ -150,10 +150,12 @@ header .navbar a{
     padding: 2%;
 }
 
-#additionalContainer{
+#additional-container{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     text-align: center;
+    padding: 2%;
 }
 
 .ingredient-n{
