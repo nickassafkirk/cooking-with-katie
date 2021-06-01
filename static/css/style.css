@@ -121,10 +121,7 @@ header .navbar a{
 #add_recipe-form{
     margin: 1% auto;
     padding: 1%;
-}
-
-#add_recipe-form h4{
-    margin: 2% auto;
+    background-color: var(--accent-mint)
 }
 
 #add_recipe-form label{
@@ -134,6 +131,9 @@ header .navbar a{
 
 #add_recipe-form input, #add_recipe-form textarea{
     width: 100%;
+    padding: 1%;
+    border: 2px solid var(--accent-mint);
+    border-radius: 5px;
 }
 
 #ingredientsContainer{
@@ -144,7 +144,7 @@ header .navbar a{
 .ingredient-n{
     margin: 1% 0; 
     padding: 0% 2% 2% 2%;
-    border: 1px solid #555;
+   border: 2px solid var(--accent-mint);
     border-radius: 5px;
     
 }
