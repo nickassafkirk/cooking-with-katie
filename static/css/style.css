@@ -165,7 +165,7 @@ header .navbar a{
     text-align: center;
 }
 
-#add_recipe-form p{
+#add_recipe-form p, #add_recipe-form button{
     margin: 2% auto 0 auto;
     padding: 1%;
     width: 50%;
