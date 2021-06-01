@@ -15,7 +15,7 @@
             <div class="row">
                 <textarea name="intro" id="intro" cols="30" rows="10" placeholder="Enter Brief Description"></textarea>
             </div>
-            <div class="row" id="ingredients-input">
+            <div class="row" id="ingredientsContainer">
                 <label>Ingredients</label>
                 <hr>
                 <div class="row ingredient-n">
@@ -70,6 +70,11 @@
                 </div>
             </div>
             <div class="row">
+                <button type="button" class="btn btn-info" id="addRows">
+                    Add rows
+                </button>
+            </div>
+            <div class="row">
                 <textarea name="instructions" id="instructions" cols="30" rows="10" placeholder="Enter cooking instructions please separate each step with a new line"></textarea>
             </div>
             <div class="row d-none">
@@ -85,29 +90,3 @@
 
 {% endblock %}
 
-<script>
-    const addRows = document.querySelector("#addRows");
-    addRows.addEventListener("click", addMoreRows(5));
-    const ingredientsInput = document.getElementById("ingredients-input");
-    let newIngredientRow = `<div class="row ingredient-n">
-                    <div class="col">
-                        <label for="ingredient-${i}">Ingredient</label>
-                        <input type="text" name="ingredient-${i}">
-                    </div>
-                    <div class="col">
-                        <label for="ingredient-quantity-${i}">Weight (Optional)</label>
-                        <input type="text" name="ingredient-quantity-${i}">
-                    </div>
-                </div>`;
-
-    function addMorerows(n) {
-        let i = document.querySelectorAll(ingredient-n).length;
-        for (i, i < i + 5, i++) {
-            
-            ingredientsInput.appendChild("newIngredientRow");
-
-        }
-
-
-    }
-</script>
