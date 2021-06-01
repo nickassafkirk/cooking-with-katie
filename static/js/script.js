@@ -30,5 +30,5 @@ function addInstructionRows(){
         <label for="step-${numberOfInstructions + 1}" class="instructions-n__label">Step ${numberOfInstructions + 1}:</label>
         <textarea name="step-${numberOfInstructions + 1}" id="step-${numberOfInstructions + 1}" cols="50" rows="1"></textarea>`
     const instructionsContainer = document.getElementById("instructionsContainer");
-    
+    instructionsContainer.insertBefore(newInstructionRow, document.querySelectorAll(".button-container")[1]);
 };
