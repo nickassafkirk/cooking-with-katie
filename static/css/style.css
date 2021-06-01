@@ -120,13 +120,19 @@ header .navbar a{
 
 #add_recipe-form{
     margin: 1% auto;
-    padding: 1%;
+    padding: 2%;
     background-color: var(--accent-mint)
 }
 
 #add_recipe-form label{
     display: block;
     margin: 1% auto;
+}
+
+#add_recipe-form h3{
+    margin: 2% 0;
+    text-shadow: 2px 2px var(--txt-light);
+    text-align: center;
 }
 
 #add_recipe-form input, #add_recipe-form textarea{
@@ -136,17 +142,17 @@ header .navbar a{
     border-radius: 5px;
 }
 
-#ingredientsContainer{
+#ingredientsContainer, #instructionsContainer{
     display: flex;
     flex-direction: column;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    padding: 2%;
 }
 
 .ingredient-n{
-    margin: 1% 0; 
-    padding: 0% 2% 2% 2%;
    border: 2px solid var(--accent-mint);
-    border-radius: 5px;
-    
+    border-radius: 5px; 
 }
 
 .button-container{
@@ -154,8 +160,12 @@ header .navbar a{
 }
 
 #add_recipe-form button{
-    margin: 1% auto;
+    margin: 2% auto 0 auto;
+    padding: 1%;
     width: 50%;
+    background-color: var(--txt-cute);
+    text-transform: uppercase;
+    color: var(--txt-light);
 }
 
 /* sign_up.html */
