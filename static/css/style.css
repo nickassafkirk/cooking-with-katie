@@ -118,17 +118,44 @@ header .navbar a{
 
 /* add-recipe */
 
-#add_recipe-form .col, #add_recipe-form label{
+#add_recipe-form{
+    margin: 1% auto;
+    padding: 1%;
+}
+
+#add_recipe-form h4{
+    margin: 2% auto;
+}
+
+#add_recipe-form label{
+    display: block;
+    margin: 1% auto;
+}
+
+#add_recipe-form input, #add_recipe-form textarea{
+    width: 100%;
+}
+
+#ingredientsContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.ingredient-n{
+    margin: 1% 0; 
+    padding: 0% 2% 2% 2%;
+    border: 1px solid #555;
+    border-radius: 5px;
+    
+}
+
+.button-container{
     text-align: center;
 }
 
-#add_recipe-form .col{
+#add_recipe-form button{
     margin: 1% auto;
-}
-
-#add_recipe-form input, #add_recipe-form textarea {
-    margin: 1% auto;
-    padding: 1%;
+    width: 50%;
 }
 
 /* sign_up.html */

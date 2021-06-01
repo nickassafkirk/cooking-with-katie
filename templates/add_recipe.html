@@ -1,91 +1,105 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <h2>Add Your Recipe</h2>
-        <hr>
-
-        <!-- Add Recipe Form-->
-        <form action="/add_recipe" method="POST" enctype="multipart/form-data" class="row mx-auto" id="add_recipe-form">
-            <div class="row">
-                <label for="title">Recipe Title</label>
-                <input type="text" name="title" id="title">
-            </div>
-            <div class="row">
-                <textarea name="intro" id="intro" cols="30" rows="10" placeholder="Enter Brief Description"></textarea>
-            </div>
-            <div class="row" id="ingredientsContainer">
-                <label>Ingredients</label>
-                <hr>
-                <div class="row ingredient-n">
-                    <div class="col">
-                        <label for="ingredient-1">Ingredient</label>
-                        <input type="text" name="ingredient-1">
-                    </div>
-                    <div class="col">
-                        <label for="ingredient-quantity-1">Weight (Optional)</label>
-                        <input type="text" name="ingredient-quantity-1">
-                    </div>
+<div class="container m-5">
+    
+            <h2>Add Your Recipe</h2>
+            <hr>
+        
+            <form action="/add_recipe" method="POST" enctype="multipart/form-data" id="add_recipe-form">
+                <div>
+                    <label for="title" class="form-label">1: Add Recipe Title</label>
+                    <input type="text" name="title" id="title" placeholder="Enter Recipe Title">
                 </div>
-                <div class="row ingredient-n">
-                    <div class="col">
+                <div>
+                    <label for="intro" class="form-label">2: Add Recipe Description</label>
+                    <textarea name="intro" id="intro" cols="auto" rows="5"
+                        placeholder="Enter Brief Description"></textarea>
+                </div>
+                <div class="form-section__heading">
+                    <label>3: Add Recipe Ingredients</label>
+                </div>
+                
+                <div id="ingredientsContainer">
+                    
+                    <div class="ingredient-n">
+
+                        <label for="ingredient-1" class="form-label">Ingredient</label>
+                        <input type="text" name="ingredient-1">
+
+
+                        <label for="ingredient-quantity-1" class="form-label">Weight</label>
+                        <input type="text" name="ingredient-quantity-1" placeholder="Optional">
+
+                    </div>
+                    <div class=" ingredient-n">
+
                         <label for="ingredient-2">Ingredient</label>
                         <input type="text" name="ingredient-2">
+
+                        <label for="ingredient-quantity-2">Weight</label>
+                        <input type="text" name="ingredient-quantity-2" placeholder="Optional">
+
                     </div>
-                    <div class="col">
-                        <label for="ingredient-quantity-2">Weight (Optional)</label>
-                        <input type="text" name="ingredient-quantity-2">
-                    </div>
-                </div>
-                <div class="row ingredient-n">
-                    <div class="col">
+                    <div class=" ingredient-n">
+
                         <label for="ingredient-3">Ingredient</label>
                         <input type="text" name="ingredient-3">
+
+                        <label for="ingredient-quantity-3">Weight</label>
+                        <input type="text" name="ingredient-quantity-3" placeholder="Optional">
+
                     </div>
-                    <div class="col">
-                        <label for="ingredient-quantity-3">Weight (Optional)</label>
-                        <input type="text" name="ingredient-quantity-3">
-                    </div>
-                </div>
-                <div class="row ingredient-n">
-                    <div class="col">
+                    <div class="ingredient-n">
+
                         <label for="ingredient-4">Ingredient</label>
                         <input type="text" name="ingredient-4">
+
+                        <label for="ingredient-quantity-4">Weight</label>
+                        <input type="text" name="ingredient-quantity-4" placeholder="Optional">
+
                     </div>
-                    <div class="col">
-                        <label for="ingredient-quantity-4">Weight (Optional)</label>
-                        <input type="text" name="ingredient-quantity-4">
-                    </div>
-                </div>
-                <div class="row ingredient-n">
-                    <div class="col">
+                    <div class="ingredient-n">
+
                         <label for="ingredient-5">Ingredient</label>
                         <input type="text" name="ingredient-5">
-                    </div>
-                    <div class="col">
-                        <label for="ingredient-quantity-5">Weight (Optional)</label>
-                        <input type="text" name="ingredient-quantity-5">
+
+                        <label for="ingredient-quantity-5">Weight</label>
+                        <input type="text" name="ingredient-quantity-5" placeholder="Optional">
+
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <button type="button" class="btn btn-info" id="addRows">
-                    Add rows
-                </button>
-            </div>
-            <div class="row">
-                <textarea name="instructions" id="instructions" cols="30" rows="10" placeholder="Enter cooking instructions please separate each step with a new line"></textarea>
-            </div>
-            <div class="row d-none">
-              <label for="select-image" class="custom-file-label">Select Image...</label>
-              <input type="file" class="custom-file-input" name="select-image" id="select-image">
-            </div>
-            <div class="row">
-              <button class="btn btn-primary" type="submit">Upload File</button>
-            </div>
-        </form>
-    </div>
+                <div class="button-container">
+                    <button type="button" class="btn btn-info" id="addIngredientRows">
+                        Add more ingredients
+                    </button>
+                </div>
+                <div class="form-section__heading">
+                    <label>4: Add Cooking Instructions</label>
+                    <hr>
+                </div>
+                <div id="ingredientsContainer">
+                    <div class="instruction-n">
+                        <label for="step-1" class="instructions-n__label">Step 1:</label>
+                        <textarea name="step-1" id="step-1" cols="50" rows="1"></textarea>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button type="button" class="btn btn-info" id="addInstructionRows">
+                        Add more instructions
+                    </button>
+                </div>
+
+                <div class="d-none">
+                    <label for="select-image" class="custom-file-label">Select Image...</label>
+                    <input type="file" class="custom-file-input" name="select-image" id="select-image">
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="submit">Upload File</button>
+                </div>
+            </form>
+
+        
 </div>
 
 {% endblock %}
