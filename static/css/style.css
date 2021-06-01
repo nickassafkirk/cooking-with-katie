@@ -142,6 +142,10 @@ header .navbar a{
     border-radius: 5px;
 }
 
+#add_recipe-form input, #add_recipe-form select{
+    height: 3em;
+}
+
 #ingredientsContainer, #instructionsContainer, #additional-container, #image-container{
     display: flex;
     flex-direction: column;
