@@ -162,6 +162,11 @@ header .navbar a{
     padding: 2%;
 }
 
+#additional-container div{
+    flex-basis: 25%;
+    flex-grow: 2;
+}
+
 .ingredient-n{
    border: 2px solid var(--accent-mint);
     border-radius: 5px; 
