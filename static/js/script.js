@@ -23,7 +23,7 @@ function addMoreRows() {
 };
 
 const addInstructionsButton = document.getElementById("addInstructionsButton");
-addIngredientsButton.addEventListener("click", addInstructionRows);
+addInstructionsButton.addEventListener("click", addInstructionRows);
 
 function addInstructionRows(){
     console.log("Test why is this happening?")
