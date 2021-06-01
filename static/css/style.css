@@ -135,7 +135,7 @@ header .navbar a{
     text-align: center;
 }
 
-#add_recipe-form input, #add_recipe-form textarea{
+#add_recipe-form input, #add_recipe-form textarea, #add_recipe-form select{
     width: 100%;
     padding: 1%;
     border: 2px solid var(--accent-mint);
@@ -148,6 +148,12 @@ header .navbar a{
     border: 2px solid #fff;
     border-radius: 5px;
     padding: 2%;
+}
+
+#additionalContainer{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
 }
 
 .ingredient-n{

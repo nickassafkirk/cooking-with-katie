@@ -108,12 +108,43 @@
                 </p>
             </div>
         </div>
-
-
-
+        <div class="form-section__heading">
+            <h3>5: Additional Information</h3>
+        </div>
+        <div class="row" id="additionalContainer">
+            <div class="col">
+                <label for="prep-time">Prep Time (Mins)</label>
+                <input type="number" name="prep-time">
+            </div>
+            <div class="col">
+                <label for="cook-time">Cook Time (Mins)</label>
+                <input type="number" name="cook-time">
+            </div>
+            <div class="col">
+                <label for="category">Select Category</label>
+                <select name="category" id="category">
+                    <option value="" selected disabled hidden>Select Category</option>
+                    <option value="Breakfas">Breakfast</option>
+                    <option value="Lunch/Dinner">Lunch/Dinner</option>
+                    <option value="Dessert">Dessert</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="cuisine">Select Cuisine</label>
+                <select name="cuisine" id="cuisine">
+                    <option value="" selected disabled hidden>Select Cuisine</option>
+                    <option value="French">French</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Thai">Thai</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="Vietnamese">Vietnamese</option>
+                    <option value="Indian">Indian</option>
+                    <option value="Middle-Eastern">Middle-Eastern</option>
+                </select>
+            </div>   
+        </div>
+        
     </form>
-
-
 </div>
 
 {% endblock %}
