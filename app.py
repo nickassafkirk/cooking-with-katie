@@ -123,6 +123,14 @@ def account(username):
     return redirect(url_for("login"))
 
 
+@app.route("/logout")
+def logout():
+    # remove user from session cookies
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("sign_in"))
+
+
 @app.route("/recipes")
 def recipes():
     recipes = list(mongo.db.recipes.find())
