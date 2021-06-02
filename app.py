@@ -175,6 +175,7 @@ def add_recipe():
         instructions_list = []
         ingredient_name, ingredient_quantity = None, None
         single_ingredient = {}
+        single_instruction = {}
 
         form_items = request.form.items()
         for key, val in form_items:
@@ -185,7 +186,10 @@ def add_recipe():
             if ingredient_name and ingredient_quantity:
                 single_ingredient = {ingredient_name.lower(): ingredient_quantity.lower()}
                 ingredients_list.append(single_ingredient)
-        print(ingredients_list)
+            if key.startswith("step"):
+                if key and val !="":
+                    single_instruction = {key: val}
+                    instructions_list.append(single_instruction)
 
         recipe = {
             "created_by": session["user"],
