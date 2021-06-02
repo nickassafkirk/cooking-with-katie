@@ -24,6 +24,7 @@ mongo = PyMongo(app)
 
 MONGO_URI = os.environ.get("MONGO_URI")
 DATABASE = os.environ.get("MONGO_DBNAME")
+USER_UPLOADS = os.environ.get("USER_UPLOADS")
 RECIPES = "recipes"
 
 
@@ -175,12 +176,16 @@ def add_recipe():
         ingredient_name, ingredient_quantity = None, None
         single_ingredient = {}
 
-        for key, val in request.form.items():
+        form_items = request.form.items()
+        for key, val in form_items:
             if key.startswith("ingredient"):
                 ingredient_name = val
-                if ingredient_name != "":
-                    ingredients_list.append(ingredient_name)
-            print(ingredients_list)
+            if key.startswith("quantity"):
+                ingredient_quantity = val
+            if ingredient_name and ingredient_quantity:
+                single_ingredient = {ingredient_name.lower(): ingredient_quantity.lower()}
+                ingredients_list.append(single_ingredient)
+        print(ingredients_list)
 
         recipe = {
             "created_by": session["user"],
