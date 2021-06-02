@@ -92,9 +92,12 @@ def sign_in():
             {'username': request.form.get('username-sign-in').lower()})
         if existing_user:
             if check_password_hash(
-                    existing_user["password"], request.form.get("password-sign-in")):
-                session["user"] = request.form.get('username-sign-in').lower()
-                flash("Welcome back {}".format(request.form.get('username-sign-in')))
+                    existing_user["password"], request.form.get(
+                        "password-sign-in")):
+                session["user"] = request.form.get(
+                    'username-sign-in').lower()
+                flash("Welcome back {}".format(request.form.get(
+                    'username-sign-in')))
                 return redirect(
                     url_for("account", username=session["user"]))
         else:
@@ -124,7 +127,8 @@ def recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
-# credit "Julian nash" from https://www.youtube.com/watch?v=6WruncSoCdI&list=LL7yGGnZb8BruqiOeC1KZ2Qg
+# credit "Julian nash"
+# https://www.youtube.com/watch?v=6WruncSoCdI&list=LL7yGGnZb8BruqiOeC1KZ2Qg
 
 app.config["IMAGE_UPLOADS"] = "/workspace/cooking-with-katie/static/img/uploads"
 app.config["ACCEPTED_IMG_EXTENSIONS"] = ["PNG", "JPG", "JPEG", "GIF"]
@@ -142,6 +146,7 @@ def check_image_extension(filename):
         return True
     else:
         return False
+
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
@@ -184,10 +189,11 @@ def add_recipe():
             if key.startswith("quantity"):
                 ingredient_quantity = val
             if ingredient_name and ingredient_quantity:
-                single_ingredient = {ingredient_name.lower(): ingredient_quantity.lower()}
+                single_ingredient = {
+                    ingredient_name.lower(): ingredient_quantity.lower()}
                 ingredients_list.append(single_ingredient)
             if key.startswith("step"):
-                if key and val !="":
+                if key and val != "":
                     single_instruction = {key: val}
                     instructions_list.append(single_instruction)
 
