@@ -81,7 +81,7 @@ def sign_up():
         # add session cookie
         session["user"] = request.form.get('username-sign-up').lower()
         flash("Sign Up Successful!")
-        return redirect(url_for('sign_up'))
+        return redirect(url_for('account', username=session["user"]))
     return render_template("sign_up.html")
 
 
@@ -92,16 +92,15 @@ def sign_in():
         # check if username already exists in DB
         existing_user = mongo.db.users.find_one(
             {'username': request.form.get('username-sign-in').lower()})
+        print(existing_user)
         if existing_user:
-            if check_password_hash(
-                    existing_user["password"], request.form.get(
-                        "password-sign-in")):
-                session["user"] = request.form.get(
-                    'username-sign-in').lower()
-                flash("Welcome back {}".format(request.form.get(
-                    'username-sign-in')))
-                return redirect(
-                    url_for("account", username=session["user"]))
+            if check_password_hash(existing_user["password"], request.form.get("password-sign-in")):
+                session["user"] = request.form.get('username-sign-in').lower()
+                flash("Welcome back {}".format(request.form.get('username-sign-in')))
+                return redirect(url_for("account", username=session["user"]))
+            else:
+                flash("password doesn't match")
+                return redirect(url_for('sign_in'))
         else:
             flash("Username not found")
             return redirect(url_for('sign_in'))
@@ -109,7 +108,7 @@ def sign_in():
     return render_template("sign_in.html")
 
 
-@app.route("/account/<username>")
+@app.route("/account/<username>", methods=["GET", "POST"])
 def account(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
@@ -120,7 +119,7 @@ def account(username):
     if session["user"]:
         return render_template("account.html", username=username)
 
-    return redirect(url_for("login"))
+    return redirect(url_for("sign_in"))
 
 
 @app.route("/logout")
