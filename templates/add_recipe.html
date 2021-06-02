@@ -27,8 +27,8 @@
                     <input type="text" name="ingredient-1">
                 </div>
                 <div class="col">
-                    <label for="ingredient-quantity-1" class="form-label">Weight</label>
-                    <input type="text" name="ingredient-quantity-1" placeholder="Optional">
+                    <label for="quantity-1" class="form-label">Weight</label>
+                    <input type="text" name="quantity-1" placeholder="Optional">
                 </div>
             </div>
             <div class="ingredient-n row">
@@ -37,8 +37,8 @@
                     <input type="text" name="ingredient-2">
                 </div>
                 <div class="col">
-                    <label for="ingredient-quantity-2">Weight</label>
-                    <input type="text" name="ingredient-quantity-2" placeholder="Optional">
+                    <label for="quantity-2">Weight</label>
+                    <input type="text" name="quantity-2" placeholder="Optional">
                 </div>
             </div>
             <div class="ingredient-n row">
@@ -47,8 +47,8 @@
                     <input type="text" name="ingredient-3">
                 </div>
                 <div class="col">
-                    <label for="ingredient-quantity-3">Weight</label>
-                    <input type="text" name="ingredient-quantity-3" placeholder="Optional">
+                    <label for="quantity-3">Weight</label>
+                    <input type="text" name="quantity-3" placeholder="Optional">
                 </div>
             </div>
             <div class="ingredient-n row">
@@ -57,8 +57,8 @@
                     <input type="text" name="ingredient-4">
                 </div>
                 <div class="col">
-                    <label for="ingredient-quantity-4">Weight</label>
-                    <input type="text" name="ingredient-quantity-4" placeholder="Optional">
+                    <label for="quantity-4">Weight</label>
+                    <input type="text" name="quantity-4" placeholder="Optional">
                 </div>
             </div>
             <div class="ingredient-n row">
@@ -67,8 +67,8 @@
                     <input type="text" name="ingredient-5">
                 </div>
                 <div class="col">
-                    <label for="ingredient-quantity-5">Weight</label>
-                    <input type="text" name="ingredient-quantity-5" placeholder="Optional">
+                    <label for="quantity-5">Weight</label>
+                    <input type="text" name="quantity-5" placeholder="Optional">
                 </div>
             </div>
             <div class="button-container">
@@ -146,16 +146,16 @@
         <div class="form-section__heading">
             <h3>6: Upload Image</h3>
         </div>
-        <div id="image-container">
-            <label for="upload-image-url">Upload Image</label>
-            <input type="text" name="upload-image-url" id="upload-image-url" placeholder="Paste Image URL">
+        <div>
+            <label for="select-image" class="custom-file-label">Select Image...</label>
+            <input type="file" class="custom-file-input" name="select-image" id="select-image">
         </div>
         <div class="button-container">
             <button type="submit" class="btn" id="add-recipe__submit-button">
                 Post Recipe
             </button>
         </div>
-    </form>
+        </form>
 </div>
 
 {% endblock %}

@@ -2,7 +2,7 @@ import os
 
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for, send_from_directory)
 
 from flask_pymongo import PyMongo
 
@@ -142,34 +142,18 @@ def check_image_extension(filename):
     else:
         return False
 
-
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
-
     if request.method == "POST":
 
-        ingredients_list = []
-        instructions_list = []
-
-        recipe = {
-            "created_by": session["user"],
-            "title": request.form.get("title"),
-            "intro": request.form.get("intro"),
-            "ingredients": ingredients_list,
-            "instructions": instructions_list,
-            "prep_time": request.form.get("prep-time"),
-            "cook_time": request.form.get("cook-time"),
-            "rating": "no rating",
-            "category": request.form.get("category"),
-            "cusine": request.form.get("cuisine"),
-            "image": request.form.get("upload-image-url")
-        }
-
         # image upload below
+        image = None
+        filename = None
 
         if request.files:
 
             image = request.files["select-image"]
+            print(image)
 
             if image.filename == "":
                 print("Image must have a filename")
@@ -183,10 +167,36 @@ def add_recipe():
                 filename = secure_filename(image.filename)
 
                 image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
-
             print("Image saved")
 
-            return redirect(request.url)
+        # create ingredient object
+        ingredients_list = []
+        instructions_list = []
+        ingredient_name, ingredient_quantity = None, None
+        single_ingredient = {}
+
+        for key, val in request.form.items():
+            if key.startswith("ingredient"):
+                ingredient_name = val
+                if ingredient_name != "":
+                    ingredients_list.append(ingredient_name)
+            print(ingredients_list)
+
+        recipe = {
+            "created_by": session["user"],
+            "title": request.form.get("title"),
+            "intro": request.form.get("intro"),
+            "ingredients": ingredients_list,
+            "instructions": instructions_list,
+            "prep_time": request.form.get("prep-time"),
+            "cook_time": request.form.get("cook-time"),
+            "rating": "no rating",
+            "category": request.form.get("category"),
+            "cuisine": request.form.get("cuisine"),
+            "image": f"https://cooking-with-katie.herokuapp.com/static/img/uploads/{filename}"
+        }
+
+        print(recipe)
 
     return render_template("add_recipe.html")
 
