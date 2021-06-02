@@ -220,6 +220,9 @@ def add_recipe():
         }
 
         print(recipe)
+        mongo.db.recipes.insert_one(recipe)
+        flash("Recipe successfully uploaded")
+
     return render_template("add_recipe.html")
 
 
