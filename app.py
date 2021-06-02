@@ -1,5 +1,7 @@
 import os
 
+import datetime
+
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for, send_from_directory)
@@ -197,8 +199,14 @@ def add_recipe():
                     single_instruction = {key: val}
                     instructions_list.append(single_instruction)
 
+        # date_created
+
+        date_created = datetime.datetime.now()
+        date_created = date_created.strftime("%d/%m/%y")
+
         recipe = {
             "created_by": session["user"],
+            "date_created": date_created,
             "title": request.form.get("title"),
             "intro": request.form.get("intro"),
             "ingredients": ingredients_list,
@@ -212,7 +220,6 @@ def add_recipe():
         }
 
         print(recipe)
-
     return render_template("add_recipe.html")
 
 
