@@ -148,6 +148,25 @@ def add_recipe():
 
     if request.method == "POST":
 
+        ingredients_list = []
+        instructions_list = []
+
+        recipe = {
+            "created_by": session["user"],
+            "title": request.form.get("title"),
+            "intro": request.form.get("intro"),
+            "ingredients": ingredients_list,
+            "instructions": instructions_list,
+            "prep_time": request.form.get("prep-time"),
+            "cook_time": request.form.get("cook-time"),
+            "rating": "no rating",
+            "category": request.form.get("category"),
+            "cusine": request.form.get("cuisine"),
+            "image": request.form.get("upload-image-url")
+        }
+
+        # image upload below
+
         if request.files:
 
             image = request.files["select-image"]
