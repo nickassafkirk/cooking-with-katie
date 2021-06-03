@@ -108,6 +108,13 @@ header .navbar a{
     margin-left: 5%;
 }
 
+.logo{
+    font-family: 'Dancing script', cursive;
+    font-size: 1em;
+    font-weight: 700;
+    color: rgb(216, 62, 170);
+}
+
 .navbar-collapse{
     justify-content: flex-end;
     margin-right: 5%;
