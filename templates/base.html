@@ -24,7 +24,7 @@
             </div>
             {% if session.user %}
               <div class="account__mini">
-                  <a href="{{ url_for('account', username=username) }}">My Account</a> / <a href="{{ url_for('logout')}}">Logout</a>
+                  <a href="{{ url_for('account', username=session['user']) }}">My Account</a> / <a href="{{ url_for('logout')}}">Logout</a>
               </div>
             {% else %}
               <div class="login__mini">
