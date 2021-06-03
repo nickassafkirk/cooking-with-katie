@@ -15,7 +15,11 @@
                     <p class="btn btn-success"><i class="fas fa-utensils"></i> | {{ recipe.category | capitalize }}</p>
                     <p class="btn btn-info"><i class="fas fa-globe-africa"></i> | {{ recipe.cuisine | capitalize }}</p>
                 </div>
-                <p>By: {{ recipe.created_by }}</p> 
+                {% if recipe.created_by == "admin" %}
+                <p>Uploaded by: Cooking with Katie on {{ recipe.date_created }}</p>
+                {% else %}
+                <p>Uploaded by: {{ recipe.created_by }} on {{ recipe.date_created }}</p> 
+                {% endif %}
                 
             </div>
         {% endfor %}
