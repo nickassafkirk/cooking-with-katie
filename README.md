@@ -146,7 +146,17 @@ There are three main data objects for this project:
 ---
 ### Content Credits
 
+1. [Pancake recipe](https://www.bbcgoodfood.com/recipes/easy-pancakes)
+Content was copied from https://www.bbcgoodfood.com/recipes/easy-pancakes
+
 ### Image/Media Credits
+
+1. [Pancake image](https://unsplash.com/photos/TkzdkVn1AyA)
+   credit Mae Mu from Unsplash
+
+2. [Knife Image Header Banner](https://unsplash.com/photos/m1meZgcUYEk)]
+   credit Kevin Doran from Unsplash
+
 
 ### Code Credits
 
