@@ -14,7 +14,16 @@
                 <p class="btn btn-success"><i class="fas fa-utensils"></i> | {{ recipe.category | capitalize }}</p>
                 <p class="btn btn-info"><i class="fas fa-globe-africa"></i> | {{ recipe.cuisine | capitalize }}</p>
             </div>
-            
+            <div>
+                <h4>Ingredients</h4>
+                <ul>
+                    {% for ingredient in recipe.ingredients %}
+                    {% for key in ingredient.keys() %}
+                    <li>{{ key }} | {{ ingredient[key] }}</li>
+                    {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
 
