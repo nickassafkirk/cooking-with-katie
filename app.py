@@ -138,6 +138,13 @@ def recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
+@app.route("/recipe/<recipe>")
+def recipe(recipe):
+    recipe = mongo.db.recipes.find_one({"title": recipe})
+    print(recipe)
+    return render_template("recipe.html", recipe=recipe)
+
+
 # credit "Julian nash"
 # https://www.youtube.com/watch?v=6WruncSoCdI&list=LL7yGGnZb8BruqiOeC1KZ2Qg
 
