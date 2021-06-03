@@ -116,8 +116,10 @@ def account(username):
     # square bracket at end denotes that
     # we only want to return the username from the user
 
+    user_recipes = list(mongo.db.recipes.find())
+
     if session["user"]:
-        return render_template("account.html", username=username)
+        return render_template("account.html", username=username, user_recipes=user_recipes)
 
     return redirect(url_for("sign_in"))
 

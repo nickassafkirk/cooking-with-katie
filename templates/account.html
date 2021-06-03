@@ -13,6 +13,16 @@
         <div class="col-md-6">
             <h4>Recipes</h4>
             <!-- Submitted recipes -->
+            {% for recipe in user_recipes %}
+            {% if recipe.created_by == username %}
+            <div><a href="#" class="text-red">{{ recipe.title }}</a></div>
+            {% else %}
+            <div>
+                <p>You haven't added any recipes, <a href="">add recipe here</a></p>
+            </div>
+              
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
 </div>
