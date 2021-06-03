@@ -6,7 +6,16 @@
         <div class="m-4 text-center">
             <img src="{{ recipe.image }}" alt="{{recipe.title}}" class="h-50">
         </div>
-        
+        <div class="m-4">
+            <p><em>By:</em> {{ recipe.created_by }} <em>Uploaded:</em> {{ recipe.date_created }}</p>
+            <div class="recipe-thumbnail__metadata">
+                <p class="btn btn-warning"><i class="fas fa-mortar-pestle"></i> | {{ recipe.prep_time }}</p>
+                <p class="btn btn-danger"><i class="far fa-clock"></i> | {{ recipe.cook_time }}</p>
+                <p class="btn btn-success"><i class="fas fa-utensils"></i> | {{ recipe.category | capitalize }}</p>
+                <p class="btn btn-info"><i class="fas fa-globe-africa"></i> | {{ recipe.cuisine | capitalize }}</p>
+            </div>
+            
+        </div>
     </div>
 
     <div class="p-5">
