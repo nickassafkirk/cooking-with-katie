@@ -6,6 +6,15 @@
         {% for recipe in recipes %}
             <div class="col-6 col-md-4 col-lg-3 recipe-thumbnail">
                 <h4>{{ recipe.title }}</h4>
+                <div>
+                    {% for i in range(recipe.rating | int) %}
+                      <span><i class="fas fa-star"></i></span>
+                    {% else %}
+                      {% for i in range(5) %}
+                        <span><i class="far fa-star" style="color: rgba(0,0,0,0.3)"></i></span>
+                      {% endfor %}
+                    {% endfor %}
+                </div>
                 <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
                 <p class="recipe-intro">{{ recipe.intro }}</p>
                 <hr>
