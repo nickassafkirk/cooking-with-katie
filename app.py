@@ -242,6 +242,27 @@ def add_recipe():
     return render_template("add_recipe.html")
 
 
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    if request.method == "POST":
+        
+        update = {
+            "created_by": session["user"],
+            "date_created": date_created,
+            "title": request.form.get("title"),
+            "intro": request.form.get("intro"),
+            "ingredients": ingredients_list,
+            "instructions": instructions_list,
+            "prep_time": request.form.get("prep-time"),
+            "cook_time": request.form.get("cook-time"),
+            "rating": "no rating",
+            "category": request.form.get("category"),
+            "cuisine": request.form.get("cuisine"),
+            "image": f"https://cooking-with-katie.herokuapp.com/static/img/uploads/{filename}"
+        }
+    return render_template("edit_recipe,html", recipe=recipe, cuisine=cuisine)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=(os.environ.get("PORT")),
