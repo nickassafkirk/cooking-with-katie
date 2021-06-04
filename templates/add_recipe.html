@@ -133,13 +133,9 @@
                 <label for="cuisine">Select Cuisine</label>
                 <select name="cuisine" id="cuisine">
                     <option value="" selected disabled hidden>Select Cuisine</option>
-                    <option value="French">French</option>
-                    <option value="Italian">Italian</option>
-                    <option value="Thai">Thai</option>
-                    <option value="Chinese">Chinese</option>
-                    <option value="Vietnamese">Vietnamese</option>
-                    <option value="Indian">Indian</option>
-                    <option value="Middle-Eastern">Middle-Eastern</option>
+                    {% for genre in cuisine_options %}
+                      <option value="{{ genre.cuisine }}">{{ genre.cuisine | capitalize }}</option>
+                    {% endfor %}                 
                 </select>
             </div>   
         </div>
@@ -157,6 +153,8 @@
         </div>
         </form>
 </div>
+
+
 
 {% endblock %}
 

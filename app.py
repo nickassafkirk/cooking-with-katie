@@ -168,6 +168,7 @@ def check_image_extension(filename):
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+
     if request.method == "POST":
 
         # image upload below
@@ -238,8 +239,11 @@ def add_recipe():
         print(recipe)
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe successfully uploaded")
+    # cuisine options
+    cuisine_options = list(mongo.db.cuisine.find())
+    print(cuisine_options)
 
-    return render_template("add_recipe.html")
+    return render_template("add_recipe.html", cuisine_options=cuisine_options)
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
