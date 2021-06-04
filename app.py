@@ -168,6 +168,12 @@ def check_image_extension(filename):
         return False
 
 
+def get_todays_date():
+    todays_date = datetime.datetime.now()
+    todays_date.strftime("%d/%m/%y")
+    return todays_date
+
+
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
 
@@ -218,10 +224,8 @@ def add_recipe():
                     single_instruction = {key: val}
                     instructions_list.append(single_instruction)
 
-        # date_created
-
-        date_created = datetime.datetime.now()
-        date_created = date_created.strftime("%d/%m/%y")
+        # Generate date_created
+        date_created = get_todays_date()
 
         recipe = {
             "created_by": session["user"],
