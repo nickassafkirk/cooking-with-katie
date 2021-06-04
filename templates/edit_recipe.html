@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="/add_recipe" method="POST" enctype="multipart/form-data" id="add_recipe-form">
+        <div>
+            <label for="title" class="form-label">
+                <h3>1: Add Recipe Title</h3>
+            </label>
+            <input type="text" name="title" id="title" placeholder="Enter Recipe Title">
+        </div>
+        <div>
+            <label for="intro" class="form-label">
+                <h3>2: Add Recipe Description</h3>
+            </label>
+            <textarea name="intro" id="intro" cols="auto" rows="5" placeholder="Enter Brief Description"></textarea>
+        </div>
+        <div class="form-section__heading">
+            <h3>3: Add Recipe Ingredients</h3>
+        </div>
+
+        <div id="ingredientsContainer">
+
+            <div class="ingredient-n row">
+                <div class="col">
+                    <label for="ingredient-1" class="form-label">Ingredient</label>
+                    <input type="text" name="ingredient-1">
+                </div>
+                <div class="col">
+                    <label for="quantity-1" class="form-label">Weight</label>
+                    <input type="text" name="quantity-1" placeholder="Optional">
+                </div>
+            </div>
+            <div class="ingredient-n row">
+                <div class="col">
+                    <label for="ingredient-2">Ingredient</label>
+                    <input type="text" name="ingredient-2">
+                </div>
+                <div class="col">
+                    <label for="quantity-2">Weight</label>
+                    <input type="text" name="quantity-2" placeholder="Optional">
+                </div>
+            </div>
+            <div class="ingredient-n row">
+                <div class="col">
+                    <label for="ingredient-3">Ingredient</label>
+                    <input type="text" name="ingredient-3">
+                </div>
+                <div class="col">
+                    <label for="quantity-3">Weight</label>
+                    <input type="text" name="quantity-3" placeholder="Optional">
+                </div>
+            </div>
+            <div class="ingredient-n row">
+                <div class="col">
+                    <label for="ingredient-4">Ingredient</label>
+                    <input type="text" name="ingredient-4">
+                </div>
+                <div class="col">
+                    <label for="quantity-4">Weight</label>
+                    <input type="text" name="quantity-4" placeholder="Optional">
+                </div>
+            </div>
+            <div class="ingredient-n row">
+                <div class="col">
+                    <label for="ingredient-5">Ingredient</label>
+                    <input type="text" name="ingredient-5">
+                </div>
+                <div class="col">
+                    <label for="quantity-5">Weight</label>
+                    <input type="text" name="quantity-5" placeholder="Optional">
+                </div>
+            </div>
+            <div class="button-container">
+                <p class="btn" id="addIngredientsButton">
+                    Add more ingredients
+                </p>
+            </div>
+        </div>
+
+        <div class="form-section__heading">
+            <h3>4: Add Cooking Instructions</h3>
+        </div>
+        <div id="instructionsContainer">
+            <div class="instruction-n">
+                <label for="step-1" class="instructions-n__label">Step 1:</label>
+                <textarea name="step-1" id="step-1" cols="50" rows="1"></textarea>
+            </div>
+            <div class="instruction-n">
+                <label for="step-2" class="instructions-n__label">Step 2:</label>
+                <textarea name="step-2" id="step-2" cols="50" rows="1"></textarea>
+            </div>
+            <div class="instruction-n">
+                <label for="step-3" class="instructions-n__label">Step 3:</label>
+                <textarea name="step-3" id="step-3" cols="50" rows="1"></textarea>
+            </div>
+            <div class="instruction-n">
+                <label for="step-4" class="instructions-n__label">Step 4:</label>
+                <textarea name="step-4" id="step-4" cols="50" rows="1"></textarea>
+            </div>
+            <div class="instruction-n">
+                <label for="step-5" class="instructions-n__label">Step 5:</label>
+                <textarea name="step-5" id="step-5" cols="50" rows="1"></textarea>
+            </div>
+            <div class="button-container">
+                <p class="btn" id="addInstructionsButton">
+                    Add more instructions
+                </p>
+            </div>
+        </div>
+        <div class="form-section__heading">
+            <h3>5: Additional Information</h3>
+        </div>
+        <div id="additional-container">
+            <div>
+                <label for="prep-time">Prep Time (Mins)</label>
+                <input type="number" name="prep-time">
+            </div>
+            <div>
+                <label for="cook-time">Cook Time (Mins)</label>
+                <input type="number" name="cook-time">
+            </div>
+            <div>
+                <label for="category">Select Category</label>
+                <select name="category" id="category">
+                    <option value="" selected disabled hidden>Select Category</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="lunch/dinner">Lunch/Dinner</option>
+                    <option value="dessert">Dessert</option>
+                </select>
+            </div>
+            <div>
+                <label for="cuisine">Select Cuisine</label>
+                <select name="cuisine" id="cuisine">
+                    <option value="{{ recipe.cuisine }}" selected >{{ recipe.cuisine | capitalize }}</option>
+                    {% for genre in cuisine_options %}
+                    <option value="{{ genre.cuisine }}">{{ genre.cuisine | capitalize }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="form-section__heading">
+            <h3>6: Upload New Image</h3>
+        </div>
+        <div>
+            <div>
+                <img src="{{ recipe.image }}" alt="existing image">
+            </div>
+            <label for="select-image" class="custom-file-label">Select Image...</label>
+            <input type="file" class="custom-file-input" name="select-image" id="select-image">
+        </div>
+        <div class="button-container">
+            <button type="submit" class="btn" id="add-recipe__submit-button">
+                Post Recipe
+            </button>
+        </div>
+    </form>
+{% endblock %}
