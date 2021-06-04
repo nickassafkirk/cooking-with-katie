@@ -12,6 +12,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 from werkzeug.utils import secure_filename
 
+from bson.objectid import ObjectId
+
 if os.path.exists("env.py"):
     import env
 
@@ -249,7 +251,55 @@ def add_recipe():
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
-        
+        # image upload below
+        image = None
+        filename = None
+
+        if request.files:
+
+            image = request.files["select-image"]
+            print(image)
+
+            if image.filename == "":
+                print("Image must have a filename")
+                return redirect(request.url)
+
+            if not check_image_extension(image.filename):
+                print("That image extension is not allowed")
+                return redirect(request.url)
+
+            else:
+                filename = secure_filename(image.filename)
+
+                image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
+            print("Image saved")
+
+        # create ingredient object
+        ingredients_list = []
+        instructions_list = []
+        ingredient_name, ingredient_quantity = None, None
+        single_ingredient = {}
+        single_instruction = {}
+
+        form_items = request.form.items()
+        for key, val in form_items:
+            if key.startswith("ingredient"):
+                ingredient_name = val
+            if key.startswith("quantity"):
+                ingredient_quantity = val
+            if ingredient_name and ingredient_quantity:
+                single_ingredient = {
+                    ingredient_name.lower(): ingredient_quantity.lower()}
+                ingredients_list.append(single_ingredient)
+            if key.startswith("step"):
+                if key and val != "":
+                    single_instruction = {key: val}
+                    instructions_list.append(single_instruction)
+
+        # date_created
+
+        date_created = datetime.datetime.now()
+        date_created = date_created.strftime("%d/%m/%y")
         update = {
             "created_by": session["user"],
             "date_created": date_created,
@@ -264,7 +314,14 @@ def edit_recipe(recipe_id):
             "cuisine": request.form.get("cuisine"),
             "image": f"https://cooking-with-katie.herokuapp.com/static/img/uploads/{filename}"
         }
-    return render_template("edit_recipe,html", recipe=recipe, cuisine=cuisine)
+
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update)
+
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})    
+    cuisine_options = list(mongo.db.cuisine.find())
+    print(cuisine_options)
+
+    return render_template("edit_recipe,html", recipe=recipe, cuisine_options=cuisine_options)
 
 
 if __name__ == "__main__":
