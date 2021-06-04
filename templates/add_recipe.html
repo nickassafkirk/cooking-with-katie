@@ -5,14 +5,20 @@
 
     <h2>Add Your Recipe</h2>
     <hr>
+    <p>Follow the steps to add your own recipe for other readers to try and enjoy.</p>
+    <p>Remember to provide clear instructions to guide chefs of all levels and to add great images to show off your recipes.</p>
 
     <form action="/add_recipe" method="POST" enctype="multipart/form-data" id="add_recipe-form">
         <div>
-            <label for="title" class="form-label"><h3>1: Add Recipe Title</h3></label>
+            <label for="title" class="form-label">
+                <h3>1: Add Recipe Title</h3>
+            </label>
             <input type="text" name="title" id="title" placeholder="Enter Recipe Title">
         </div>
         <div>
-            <label for="intro" class="form-label"><h3>2: Add Recipe Description</h3></label>
+            <label for="intro" class="form-label">
+                <h3>2: Add Recipe Description</h3>
+            </label>
             <textarea name="intro" id="intro" cols="auto" rows="5" placeholder="Enter Brief Description"></textarea>
         </div>
         <div class="form-section__heading">
@@ -134,10 +140,10 @@
                 <select name="cuisine" id="cuisine">
                     <option value="" selected disabled hidden>Select Cuisine</option>
                     {% for genre in cuisine_options %}
-                      <option value="{{ genre.cuisine }}">{{ genre.cuisine | capitalize }}</option>
-                    {% endfor %}                 
+                    <option value="{{ genre.cuisine }}">{{ genre.cuisine | capitalize }}</option>
+                    {% endfor %}
                 </select>
-            </div>   
+            </div>
         </div>
         <div class="form-section__heading">
             <h3>6: Upload Image</h3>
@@ -151,7 +157,7 @@
                 Post Recipe
             </button>
         </div>
-        </form>
+    </form>
 </div>
 
 
