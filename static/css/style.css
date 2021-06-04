@@ -265,6 +265,38 @@ header .navbar a{
     background-color: #f759d4;
 }
 
+/* Account styles */
+
+.account-recipe__container{
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.account-container__heading{
+    flex-basis: 100%;
+
+}
+
+.account-recipe{
+    flex-basis: 40%;
+    padding: 2%;
+    margin: 2%;
+    border: 2px solid var(--txt-dark);
+    border-radius: 3px;
+}
+
+.account-recipe img{
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+}
+
+.account-recipe .btn{
+    width: 45%;
+}
+
 /* Footer Styles */
 footer{
     background-color: var(--bg-sunset);

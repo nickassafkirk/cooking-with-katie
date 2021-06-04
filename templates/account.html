@@ -3,19 +3,20 @@
 {% block content %}
 <div class="container-fluid text-center my-3">
     <div class="row">
-        <div class="col-12">
-            <h3>Welcome back {{ username }}</h3>
-        </div>
         <div class="col-md-6">
             <h4>Account Details</h4>
-            <!-- Disbaled form -->
         </div>
-        <div class="col-md-6">
-            <h4>Recipes</h4>
+        <div class="col-md-6 account-recipe__container">
+            <div class="account-container__heading"><h4>Your Recipes</h4></div>
             <!-- Submitted recipes -->
             {% for recipe in user_recipes %}
             {% if recipe.created_by == username %}
-            <div><a href="#" class="text-red">{{ recipe.title }}</a></div>
+            <div class="account-recipe">
+                <a href="#" class="text-red">{{ recipe.title }}</a>
+                <p><img src="{{ recipe.image }}" alt="{{ recipe.title }}"></p> 
+                <a href="#" class="btn btn-success">Edit Recipe</a> 
+                <a href="#" class="btn btn-danger">Delete Recipe</a>
+            </div>
             {% else %}
             <div>
                 <p>You haven't added any recipes, <a href="">add recipe here</a></p>
