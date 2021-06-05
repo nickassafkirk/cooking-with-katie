@@ -39,7 +39,8 @@ def load_home():
 
 @app.route("/index")
 def index():
-    return render_template('index.html')
+    recipes = list(mongo.db.recipes.find())
+    return render_template('index.html', recipes=recipes)
 
 
 @app.route("/sign_up", methods=["GET", "POST"])

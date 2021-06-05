@@ -46,4 +46,16 @@
         </form>
     </div>
 </div>
+<div class="container-fluid">
+    <div class="row">
+        {% for recipe in recipes %}
+        <div class="col-6 col-md-4 top-recipes">
+            <div>
+                <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+                <h4>{{ recipe.title }}</h4>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
