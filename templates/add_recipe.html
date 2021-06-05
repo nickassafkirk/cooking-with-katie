@@ -130,9 +130,9 @@
                 <label for="category">Select Category</label>
                 <select name="category" id="category">
                     <option value="" selected disabled hidden>Select Category</option>
-                    <option value="Breakfast">Breakfast</option>
-                    <option value="lunch/dinner">Lunch/Dinner</option>
-                    <option value="dessert">Dessert</option>
+                    {% for category in categories %}
+                      <option value="{{ category.name }}">{{ category.name | capitalize}}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div>
@@ -140,7 +140,7 @@
                 <select name="cuisine" id="cuisine">
                     <option value="" selected disabled hidden>Select Cuisine</option>
                     {% for genre in cuisine_options %}
-                    <option value="{{ genre.cuisine }}">{{ genre.cuisine | capitalize }}</option>
+                      <option value="{{ genre.cuisine }}">{{ genre.cuisine | capitalize }}</option>
                     {% endfor %}
                 </select>
             </div>
