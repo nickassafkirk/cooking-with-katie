@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<!-- Carousel -->
+<!-- Hero Banner Section -->
 <div class="container-fluid hero-container">
     <div class="row">
         <div class="col-12 col-md-7 hero-main">
@@ -34,6 +34,16 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="subscribe-index-container">
+        <h3>Subscribe</h3>
+        <p>Sign-up to our newsletter to be the first to hear about new recipes, events and partner offers!</p>
+        <form action="" method="POST" id="subscribe-index">
+            <input type="email" name="subscribe" placeholder="Enter your email address">
+            <button type="submit" class="btn btn-subscribe">Subscribe <i class="far fa-paper-plane"></i></button>
+        </form>
     </div>
 </div>
 {% endblock %}
