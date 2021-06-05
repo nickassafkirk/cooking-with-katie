@@ -3,18 +3,18 @@
 <form action="/add_recipe" method="POST" enctype="multipart/form-data" id="add_recipe-form">
         <div>
             <label for="title" class="form-label">
-                <h3>1: Add Recipe Title</h3>
+                <h3>1: Edit Recipe Title</h3>
             </label>
             <input type="text" name="title" id="title" placeholder="Enter Recipe Title">
         </div>
         <div>
             <label for="intro" class="form-label">
-                <h3>2: Add Recipe Description</h3>
+                <h3>2: Edit Recipe Description</h3>
             </label>
             <textarea name="intro" id="intro" cols="auto" rows="5" placeholder="Enter Brief Description"></textarea>
         </div>
         <div class="form-section__heading">
-            <h3>3: Add Recipe Ingredients</h3>
+            <h3>3: Edit Recipe Ingredients</h3>
         </div>
 
         <div id="ingredientsContainer">
@@ -77,29 +77,15 @@
         </div>
 
         <div class="form-section__heading">
-            <h3>4: Add Cooking Instructions</h3>
+            <h3>4: Edit Cooking Instructions</h3>
         </div>
         <div id="instructionsContainer">
+            {% for instruction in recipe.instructions %}
             <div class="instruction-n">
-                <label for="step-1" class="instructions-n__label">Step 1:</label>
-                <textarea name="step-1" id="step-1" cols="50" rows="1"></textarea>
+                <label for="step-{{ loop.index | int }}" class="instructions-n__label">Step {{ loop.index | int }}:</label>
+                <textarea name="step-{{ loop.index | int }}" id="step-{{ loop.index }}" cols="50" rows="1">{{ instruction }}</textarea>
             </div>
-            <div class="instruction-n">
-                <label for="step-2" class="instructions-n__label">Step 2:</label>
-                <textarea name="step-2" id="step-2" cols="50" rows="1"></textarea>
-            </div>
-            <div class="instruction-n">
-                <label for="step-3" class="instructions-n__label">Step 3:</label>
-                <textarea name="step-3" id="step-3" cols="50" rows="1"></textarea>
-            </div>
-            <div class="instruction-n">
-                <label for="step-4" class="instructions-n__label">Step 4:</label>
-                <textarea name="step-4" id="step-4" cols="50" rows="1"></textarea>
-            </div>
-            <div class="instruction-n">
-                <label for="step-5" class="instructions-n__label">Step 5:</label>
-                <textarea name="step-5" id="step-5" cols="50" rows="1"></textarea>
-            </div>
+            {% endfor %}
             <div class="button-container">
                 <p class="btn" id="addInstructionsButton">
                     Add more instructions
@@ -107,16 +93,16 @@
             </div>
         </div>
         <div class="form-section__heading">
-            <h3>5: Additional Information</h3>
+            <h3>5: Edit Additional Information</h3>
         </div>
         <div id="additional-container">
             <div>
                 <label for="prep-time">Prep Time (Mins)</label>
-                <input type="number" name="prep-time">
+                <input type="number" name="prep-time" value="{{ recipe.prep_time }}">
             </div>
             <div>
                 <label for="cook-time">Cook Time (Mins)</label>
-                <input type="number" name="cook-time">
+                <input type="number" name="cook-time" value="{{ recipe.cook_time }}">
             </div>
             <div>
                 <label for="category">Select Category</label>
@@ -138,11 +124,11 @@
             </div>
         </div>
         <div class="form-section__heading">
-            <h3>6: Upload New Image</h3>
+            <h3>6: Edit Images</h3>
         </div>
         <div>
             <div>
-                <img src="{{ recipe.image }}" alt="existing image">
+                <img src="{{ recipe.image }}" alt="existing image" class="thumbnail-img">
             </div>
             <label for="select-image" class="custom-file-label">Select Image...</label>
             <input type="file" class="custom-file-input" name="select-image" id="select-image">
