@@ -237,6 +237,36 @@ header .navbar a{
   margin-left: 2%;
 }
 
+/* Top Recipes */
+
+.top-recipes{
+    margin: 2% auto;;
+}
+
+.top-recipes div{
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+}
+
+.top-recipes div::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 350px;
+    width: 350px;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.top-recipes img{
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    z-index: 2;
+}
+
 /* Recipes.html */
 .recipe-thumbnail{
     margin: 1%;
@@ -264,7 +294,6 @@ header .navbar a{
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    
 }
 
 .recipe-thumbnail__metadata p{
