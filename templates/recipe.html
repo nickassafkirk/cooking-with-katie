@@ -1,22 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container my-5">
-    <h1 class="text-center p-5">{{ recipe.title }}</h1>
+<div class="container my-3 mx-auto">
+    <h1 class="text-center p-2">{{ recipe.title }}</h1>
+    {% if recipe.created_by == session['user'] or "admin" %}
+    {% if recipe.created_by == "admin" %}
+<p class="text-center">Recipe added by: <span class="logo">Cooking with Katie</span> on {{ recipe.date_created }}</p>
+    {% else %}
+    <p class="text-center">Recipe added by: {{ recipe.created_by }} on {{ recipe.date_created }}</p>
+    {% endif %}
+    <div class="text-center">
+        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-success">Edit Recipe</a>
+        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>
+    </div>
+    {% endif %}
     <div>
         <div class="m-4 text-center">
             <img src="{{ recipe.image }}" alt="{{recipe.title}}" class="h-50">
         </div>
         <div class="m-4">
-            {% if recipe.created_by == "admin" %}
-                <p>Recipe by: <span class="logo">Cooking with Katie</span> {{ recipe.date_created }}</p>
-                {% else %}
-                <p>Recipe by: {{ recipe.created_by }} {{ recipe.date_created }}</p> 
-                {% endif %}
-            <div class="recipe-thumbnail__metadata">
-                <p class="btn btn-warning"><i class="fas fa-mortar-pestle"></i> | {{ recipe.prep_time }}</p>
-                <p class="btn btn-danger"><i class="far fa-clock"></i> | {{ recipe.cook_time }}</p>
-                <p class="btn btn-success"><i class="fas fa-utensils"></i> | {{ recipe.category | capitalize }}</p>
-                <p class="btn btn-info"><i class="fas fa-globe-africa"></i> | {{ recipe.cuisine | capitalize }}</p>
+            <div class="recipe-thumbnail__metadata d-flex justify-content-center">
+                <p class="btn btn-warning m-2"><i class="fas fa-mortar-pestle"></i> | {{ recipe.prep_time }}</p>
+                <p class="btn btn-danger m-2"><i class="far fa-clock"></i> | {{ recipe.cook_time }}</p>
+                <p class="btn btn-success m-2"><i class="fas fa-utensils"></i> | {{ recipe.category | capitalize }}</p>
+                <p class="btn btn-info m-2"><i class="fas fa-globe-africa"></i> | {{ recipe.cuisine | capitalize }}</p>
             </div>
         </div>
     </div>
