@@ -103,6 +103,18 @@ header{
     margin: 0 auto;
     text-align: center;
 }
+
+.login-area a{
+    font-size: 1.3em;
+    font-weight: bolder;
+    color: var(--txt-dark);
+    text-shadow: 2px 2px #fff;
+    text-decoration: none;
+}
+
+.login-area a:hover{
+    color: var(--txt-cute);
+}
     
 
 /* Navbar styles */ 
