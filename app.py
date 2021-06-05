@@ -325,7 +325,7 @@ def edit_recipe(recipe_id):
     cuisine_options = list(mongo.db.cuisine.find())
     print(cuisine_options)
 
-    return render_template("edit_recipe,html", recipe=recipe, cuisine_options=cuisine_options)
+    return render_template("edit_recipe.html", recipe=recipe, cuisine_options=cuisine_options)
 
 
 if __name__ == "__main__":
