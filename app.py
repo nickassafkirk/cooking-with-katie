@@ -252,6 +252,14 @@ def add_recipe():
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+
+     # get static values
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    categories = list(mongo.db.categories.find()) 
+    cuisine_options = list(mongo.db.cuisine.find())
+    created_date = recipe["date_created"]
+    rating = recipe["rating"]
+
     if request.method == "POST":
         # image upload below
         image = None
@@ -275,13 +283,6 @@ def edit_recipe(recipe_id):
 
                 image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
             print("Image saved")
-
-        # get static values
-        recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-        categories = list(mongo.db.categories.find())  
-        cuisine_options = list(mongo.db.cuisine.find())
-        created_date = recipe.date_created
-        rating = recipe.rating
 
         # create ingredient object
         ingredients_list = []
@@ -320,7 +321,7 @@ def edit_recipe(recipe_id):
             "image": f"https://cooking-with-katie.herokuapp.com/static/img/uploads/{filename}"
         }
 
-        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update) 
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update)
 
     return render_template("edit_recipe.html", recipe=recipe, cuisine_options=cuisine_options, categories=categories)
 
