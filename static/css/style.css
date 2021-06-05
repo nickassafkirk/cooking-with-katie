@@ -42,17 +42,24 @@ header{
 }
 
 .banner__container{
-    padding: 2%;
+    padding-top: 1%;
+    padding-bottom: 2%;
     display: flex;
-    justify-items: flex-end;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.flex-empty{
+    flex-basis: 20%;
 }
 
 .banner__inner{
+    flex-basis: 60%;
     position: relative;
     background-color: var(--bg-main);
     color: var(--txt-dark);
     width: 60%;
-    height: 5vh;
+    height: 15vh;
     margin: auto;
     padding: 2%;
     border: 2px solid var(--txt-dark);
@@ -88,6 +95,13 @@ header{
     width: 100%;
     z-index: 3;
     object-fit: cover;
+}
+
+.login-area{
+    flex-basis: 20%;
+    align-self: center;
+    margin: 0 auto;
+    text-align: center;
 }
     
 
