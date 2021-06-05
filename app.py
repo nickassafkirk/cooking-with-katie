@@ -170,8 +170,7 @@ def check_image_extension(filename):
 
 def get_todays_date():
     todays_date = datetime.datetime.now()
-    todays_date.strftime("%d/%m/%y")
-    return todays_date
+    return todays_date.strftime("%d/%m/%y")
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
@@ -207,7 +206,6 @@ def add_recipe():
         instructions_list = []
         ingredient_name, ingredient_quantity = None, None
         single_ingredient = {}
-        single_instruction = {}
 
         form_items = request.form.items()
         for key, val in form_items:
@@ -220,9 +218,8 @@ def add_recipe():
                     ingredient_name.lower(): ingredient_quantity.lower()}
                 ingredients_list.append(single_ingredient)
             if key.startswith("step"):
-                if key and val != "":
-                    single_instruction = {key: val}
-                    instructions_list.append(single_instruction)
+                if val != "":
+                    instructions_list.append(val)
 
         # Generate date_created
         date_created = get_todays_date()

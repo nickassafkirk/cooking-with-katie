@@ -5,13 +5,13 @@
             <label for="title" class="form-label">
                 <h3>1: Edit Recipe Title</h3>
             </label>
-            <input type="text" name="title" id="title" placeholder="Enter Recipe Title">
+            <input type="text" name="title" id="title" value="{{ recipe.title }}">
         </div>
         <div>
             <label for="intro" class="form-label">
                 <h3>2: Edit Recipe Description</h3>
             </label>
-            <textarea name="intro" id="intro" cols="auto" rows="5" placeholder="Enter Brief Description"></textarea>
+            <textarea name="intro" id="intro" cols="auto" rows="5" placeholder="Enter Brief Description">{{ recipe.intro }}</textarea>
         </div>
         <div class="form-section__heading">
             <h3>3: Edit Recipe Ingredients</h3>
@@ -104,7 +104,7 @@
         </div>
         <div class="button-container">
             <button type="submit" class="btn" id="add-recipe__submit-button">
-                Post Recipe
+                Update Recipe
             </button>
         </div>
     </form>
