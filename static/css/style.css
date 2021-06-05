@@ -287,7 +287,7 @@ header .navbar a{
     border-radius: 3px;
 }
 
-.account-recipe img{
+.thumbnail-img{
     height: 150px;
     width: 150px;
     object-fit: cover;
