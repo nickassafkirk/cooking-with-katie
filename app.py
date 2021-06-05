@@ -276,6 +276,13 @@ def edit_recipe(recipe_id):
                 image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
             print("Image saved")
 
+        # get static values
+        recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+        categories = list(mongo.db.categories.find())  
+        cuisine_options = list(mongo.db.cuisine.find())
+        created_date = recipe.date_created
+        rating = recipe.rating
+
         # create ingredient object
         ingredients_list = []
         instructions_list = []
@@ -298,31 +305,22 @@ def edit_recipe(recipe_id):
                     single_instruction = {key: val}
                     instructions_list.append(single_instruction)
 
-        # date_created
-
-        date_created = datetime.datetime.now()
-        date_created = date_created.strftime("%d/%m/%y")
         update = {
             "created_by": session["user"],
-            "date_created": date_created,
+            "date_created": created_date,
             "title": request.form.get("title"),
             "intro": request.form.get("intro"),
             "ingredients": ingredients_list,
             "instructions": instructions_list,
             "prep_time": request.form.get("prep-time"),
             "cook_time": request.form.get("cook-time"),
-            "rating": "no rating",
+            "rating": rating,
             "category": request.form.get("category"),
             "cuisine": request.form.get("cuisine"),
             "image": f"https://cooking-with-katie.herokuapp.com/static/img/uploads/{filename}"
         }
 
-        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update)
-    
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    categories = list(mongo.db.categories.find())  
-    cuisine_options = list(mongo.db.cuisine.find())
-    print(cuisine_options)
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update) 
 
     return render_template("edit_recipe.html", recipe=recipe, cuisine_options=cuisine_options, categories=categories)
 
