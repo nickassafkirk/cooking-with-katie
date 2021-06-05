@@ -113,6 +113,7 @@ header .navbar a{
     font-size: 1.4em;
     font-weight: 700;
     color: rgb(216, 62, 170);
+    text-shadow: 2px 2px #fff;
 }
 
 .navbar-collapse{
@@ -122,6 +123,57 @@ header .navbar a{
 }
 
 /* index.html */
+
+.hero-main, .hero-split{
+    position: relative;
+    z-index: 1;
+}
+
+.hero-main{
+    margin: 2rem auto;
+}
+
+.hero-main::after, .hero-split::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-main__img{
+  height: 40vh; 
+  width: 100%; 
+  object-fit: cover;
+}
+
+.hero-caption{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 5;
+    transform: translate(-50%, -50%);
+    color: var(--txt-light);
+    text-align: center;
+}
+
+.hero-caption .logo{
+    font-size: 6em;
+}
+
+.hero-split{
+  height: 20vh;
+  margin: 1rem auto;
+}
+
+.hero-split__img{
+  height: 100%; 
+  width: 100%; 
+  object-fit: cover;
+}
 
 /* Recipes.html */
 .recipe-thumbnail{
