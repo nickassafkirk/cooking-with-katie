@@ -13,8 +13,8 @@
             {% if recipe.created_by == username %}
             <div class="account-recipe">
                 <a href="#" class="text-red">{{ recipe.title }}</a>
-                <p><img src="{{ recipe.image }}" alt="{{ recipe.title }}"></p> 
-                <a href="#" class="btn btn-success">Edit Recipe</a> 
+                <p><img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img"></p> 
+                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-success">Edit Recipe</a> 
                 <a href="#" class="btn btn-danger">Delete Recipe</a>
             </div>
             {% else %}
