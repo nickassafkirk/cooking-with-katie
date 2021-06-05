@@ -124,6 +124,10 @@ header .navbar a{
 
 /* index.html */
 
+.hero-container{
+    background-color: var(--bg-sunset);
+}
+
 .hero-main, .hero-split{
     position: relative;
     z-index: 1;
@@ -145,7 +149,7 @@ header .navbar a{
 }
 
 .hero-main__img{
-  height: 40vh; 
+  height: 60vh; 
   width: 100%; 
   object-fit: cover;
 }
@@ -161,11 +165,11 @@ header .navbar a{
 }
 
 .hero-caption .logo{
-    font-size: 6em;
+    font-size: 4em;
 }
 
 .hero-split{
-  height: 20vh;
+  height: 30vh;
   margin: 1rem auto;
 }
 

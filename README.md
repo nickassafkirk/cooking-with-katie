@@ -152,10 +152,16 @@ Content was copied from https://www.bbcgoodfood.com/recipes/easy-pancakes
 ### Image/Media Credits
 
 1. [Pancake image](https://unsplash.com/photos/TkzdkVn1AyA)
-   credit Mae Mu from Unsplash
+   Credit Mae Mu from [Unsplash.com](https://unsplash.com/)
 
-2. [Knife Image Header Banner](https://unsplash.com/photos/m1meZgcUYEk)]
-   credit Kevin Doran from Unsplash
+2. [Knife Image Header Banner](https://unsplash.com/photos/m1meZgcUYEk)
+   Credit Kevin Doran from [Unsplash.com](https://unsplash.com/)
+
+3. [Hero Image Main](https://www.pexels.com/photo/happy-woman-with-rolling-pin-cooking-at-home-3769999/)
+   Credit Andrea Piacquadio from [Pexels.com](https://www.pexels.com/)
+
+4. [Banana Bread Hero Sub Image](https://unsplash.com/photos/iNqQyOw8mx0)
+   Credit Chelsea shapouri from [Unsplash.com](https://unsplash.com/)
 
 
 ### Code Credits
