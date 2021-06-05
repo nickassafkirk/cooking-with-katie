@@ -164,6 +164,11 @@ Content was copied from https://www.bbcgoodfood.com/recipes/easy-pancakes
    - To enable the functionality to allow users to upload an image to their recipes, I followed a tutorial from on Julian Nash in 
    [this youtube video](https://www.youtube.com/watch?v=6WruncSoCdI&list=LL7yGGnZb8BruqiOeC1KZ2Qg)
 
+2. Access Dict keys by converting to list:
+   - To access a dictionary's key's and value's when the keys and values are unknown I used a method outlined in 
+   [this stack overflow post](https://stackoverflow.com/questions/18552001/accessing-dict-keys-element-by-index-in-python3)
+   to convert the dictionary into a list so that it can be iterated through.
+
 ---
 ## Deployment
 ---
