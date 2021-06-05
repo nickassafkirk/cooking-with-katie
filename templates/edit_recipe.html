@@ -18,57 +18,20 @@
         </div>
 
         <div id="ingredientsContainer">
-
+        {% for ingredient in recipe.ingredients %}
+        {% set keys = ingredient.keys() | list %}
+        {% set values = ingredient.values() | list %}
             <div class="ingredient-n row">
                 <div class="col">
-                    <label for="ingredient-1" class="form-label">Ingredient</label>
-                    <input type="text" name="ingredient-1">
+                    <label for="ingredient-{{ loop.index }}" class="form-label">Ingredient</label>
+                    <input type="text" name="ingredient-{{ loop.index }}" value="{{ keys[0] }}">
                 </div>
                 <div class="col">
-                    <label for="quantity-1" class="form-label">Weight</label>
-                    <input type="text" name="quantity-1" placeholder="Optional">
+                    <label for="quantity-{{ loop.index }}" class="form-label">Quantity</label>
+                    <input type="text" name="quantity-{{ loop.index }}" value="{{ values[0] }}">
                 </div>
             </div>
-            <div class="ingredient-n row">
-                <div class="col">
-                    <label for="ingredient-2">Ingredient</label>
-                    <input type="text" name="ingredient-2">
-                </div>
-                <div class="col">
-                    <label for="quantity-2">Weight</label>
-                    <input type="text" name="quantity-2" placeholder="Optional">
-                </div>
-            </div>
-            <div class="ingredient-n row">
-                <div class="col">
-                    <label for="ingredient-3">Ingredient</label>
-                    <input type="text" name="ingredient-3">
-                </div>
-                <div class="col">
-                    <label for="quantity-3">Weight</label>
-                    <input type="text" name="quantity-3" placeholder="Optional">
-                </div>
-            </div>
-            <div class="ingredient-n row">
-                <div class="col">
-                    <label for="ingredient-4">Ingredient</label>
-                    <input type="text" name="ingredient-4">
-                </div>
-                <div class="col">
-                    <label for="quantity-4">Weight</label>
-                    <input type="text" name="quantity-4" placeholder="Optional">
-                </div>
-            </div>
-            <div class="ingredient-n row">
-                <div class="col">
-                    <label for="ingredient-5">Ingredient</label>
-                    <input type="text" name="ingredient-5">
-                </div>
-                <div class="col">
-                    <label for="quantity-5">Weight</label>
-                    <input type="text" name="quantity-5" placeholder="Optional">
-                </div>
-            </div>
+        {% endfor %}
             <div class="button-container">
                 <p class="btn" id="addIngredientsButton">
                     Add more ingredients
