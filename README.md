@@ -167,7 +167,7 @@ Content was copied from https://www.bbcgoodfood.com/recipes/easy-pancakes
 2. Access Dict keys by converting to list:
    - To access a dictionary's key's and value's when the keys and values are unknown I used a method outlined in 
    [this stack overflow post](https://stackoverflow.com/questions/18552001/accessing-dict-keys-element-by-index-in-python3)
-   to convert the dictionary into a list so that it can be iterated through.
+   to convert the dictionary into a list so that it can be iterated through. 
 
 ---
 ## Deployment
