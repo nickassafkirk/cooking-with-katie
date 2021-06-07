@@ -2,24 +2,15 @@ import os
 import datetime
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for, send_from_directory,
-    jsonify)
+    redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from bson.objectid import ObjectId
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
-from cloudinary.utils import cloudinary_url
-from flask_cors import CORS, cross_origin
 if os.path.exists("env.py"):
     import env
 
-
 app = Flask(__name__)
-
-CORS(app)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
@@ -156,26 +147,7 @@ def recipe(recipe):
     ingredient_with_weight = zip(ingredients, quantity, unit)
 
     print(recipe)
-    return render_template("recipe.html", recipe=recipe, ingredient_with_weight=ingredient_with_weight )
-
-
-@app.route("/upload", methods=["GET", 'POST'])
-@cross_origin()
-def upload():
-
-    cloudinary.config.update = ({
-        'cloud_name': os.environ.get("CLOUD_NAME"),
-        'api_key': os.environ.get("API_KEY"),
-        'api_secret': os.environ.get("API_SECRET")
-        })
-    upload_result = None
-    if request.method == 'POST':
-        file_to_upload = request.files['file']
-        if file_to_upload:
-            upload_result = cloudinary.uploader.upload(file_to_upload)
-            flash("Image Uploaded")
-            return jsonify(upload_result)
-    return render_template("upload.html")
+    return render_template("recipe.html", recipe=recipe, ingredient_with_weight=ingredient_with_weight)
 
 
 # credit "Julian nash"
