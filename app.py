@@ -21,7 +21,6 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
-app.config["IMAGE_UPLOADS"] = "/workspace/cooking-with-katie/static/img/uploads"
 app.config["ACCEPTED_IMG_EXTENSIONS"] = ["PNG", "JPG", "JPEG", "GIF"]
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
@@ -196,29 +195,6 @@ def add_recipe():
 
     if request.method == "POST":
 
-        # image upload below
-        image = None
-        filename = None
-
-        if request.files:
-
-            image = request.files["select-image"]
-            print(image)
-
-            if image.filename == "":
-                print("Image must have a filename")
-                return redirect(request.url)
-
-            if not check_image_extension(image.filename):
-                print("That image extension is not allowed")
-                return redirect(request.url)
-
-            else:
-                filename = secure_filename(image.filename)
-
-                image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
-            print("Image saved")
-
         # create ingredient object
         instructions = []
         ingredients = []
@@ -257,7 +233,7 @@ def add_recipe():
             "rating": "no rating",
             "category": request.form.get("category"),
             "cuisine": request.form.get("cuisine"),
-            "image": f"https://cooking-with-katie.herokuapp.com/static/img/uploads/{filename}"
+            "image": ""
         }
 
         print(recipe)
