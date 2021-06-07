@@ -36,21 +36,13 @@
         <div class="w-50">
             <h4>Ingredients</h4>
             <ul>
-                {% for ingredient in recipe.ingredients %}
-                {% for key in ingredient.keys() %}
-                <li class="p-1">{{ key }} | {{ ingredient[key] }}</li>
-                {% endfor %}
-                {% endfor %}
+            
             </ul>
         </div>
         <div class="w-50">
             <h4>Instructions</h4>
             <ol>
-                {% for instruction in recipe.instructions %}
-
-                <li class="p-1">{{ instruction }}</li>
-
-                {% endfor %}
+            
             </ol>
         </div>
     </div>
