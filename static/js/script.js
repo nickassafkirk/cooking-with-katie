@@ -8,16 +8,16 @@ function addMoreRows() {
     newIngredientRow.setAttribute("class", "ingredient-n row");
     newIngredientRow.innerHTML= `
                     <div class="col">
-                        <label for="ingredient">Ingredient</label>
-                        <input type="text" name="ingredient">
+                        <label for="ingredient-${numberOfIngredients + 1}">Ingredient</label>
+                        <input type="text" name="ingredient-${numberOfIngredients + 1}">
                     </div>
                     <div class="col">
-                        <label for="quantity">Quantity</label>
-                        <input type="text" name="quantity" placeholder="Optional">
+                        <label for="quantity${numberOfIngredients + 1}">Quantity</label>
+                        <input type="text" name="quantity${numberOfIngredients + 1}" placeholder="Optional">
                     </div>
                     <div class="col">
-                        <label for="unit" class="form-label">Unit</label>
-                        <select name="unit">
+                        <label for="unit${numberOfIngredients + 1}" class="form-label">Unit</label>
+                        <select name="unit${numberOfIngredients + 1}">
                             <option value="" selected disabled hidden>Select Unit</option>
                             <option value="tsp">Teaspoons</option>
                             <option value="tbsp">Tablepoons</option>
@@ -40,7 +40,7 @@ function addInstructionRows(){
     newInstructionRow.setAttribute("class", "instruction-n")
     newInstructionRow.innerHTML = `
         <label for="step" class="instructions-n__label">Step ${numberOfInstructions + 1}:</label>
-        <textarea name="step" id="step-${numberOfInstructions + 1}" cols="50" rows="1"></textarea>`
+        <textarea name="step-${numberOfInstructions + 1}" id="step-${numberOfInstructions + 1}" cols="50" rows="1"></textarea>`
     const instructionsContainer = document.getElementById("instructionsContainer");
     instructionsContainer.insertBefore(newInstructionRow, document.querySelectorAll(".button-container")[1]);
 };
