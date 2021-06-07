@@ -144,8 +144,14 @@ def recipes():
 @app.route("/recipe/<recipe>")
 def recipe(recipe):
     recipe = mongo.db.recipes.find_one({"title": recipe})
+    ingredients = list(recipe["ingredients"])
+    quantity = list(recipe["ingredients_quantity"])
+    unit = list(recipe["ingredients_unit"])
+
+    ingredient_with_weight = zip(ingredients, quantity, unit)
+
     print(recipe)
-    return render_template("recipe.html", recipe=recipe)
+    return render_template("recipe.html", recipe=recipe, ingredient_with_weight=ingredient_with_weight )
 
 
 # credit "Julian nash"
