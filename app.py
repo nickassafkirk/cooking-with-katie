@@ -286,25 +286,20 @@ def edit_recipe(recipe_id):
 
         # create ingredient object
         ingredients_list = []
+        ingredients_quantity_list = []
+        ingredients_unit_list = []
         instructions_list = []
-        ingredient_name, ingredient_quantity = None, None
-        single_ingredient = {}
-        single_instruction = {}
-
+        
         form_items = request.form.items()
         for key, val in form_items:
             if key.startswith("ingredient"):
-                ingredient_name = val
+                ingredients_list.append(val)
             if key.startswith("quantity"):
-                ingredient_quantity = val
-            if ingredient_name and ingredient_quantity:
-                single_ingredient = {
-                    ingredient_name.lower(): ingredient_quantity.lower()}
-                ingredients_list.append(single_ingredient)
+                ingredients_quantity_list.append(val)
+            if key.startswith("unit"):
+                ingredients_unit_list.append(val)
             if key.startswith("step"):
-                if key and val != "":
-                    single_instruction = {key: val}
-                    instructions_list.append(single_instruction)
+                instructions_list.append(val)
 
         update = {
             "created_by": session["user"],
@@ -312,6 +307,8 @@ def edit_recipe(recipe_id):
             "title": request.form.get("title"),
             "intro": request.form.get("intro"),
             "ingredients": ingredients_list,
+            "ingredients_quantity": ingredients_quantity_list,
+            "ingredients_unit": ingredients_unit_list,
             "instructions": instructions_list,
             "prep_time": request.form.get("prep-time"),
             "cook_time": request.form.get("cook-time"),
