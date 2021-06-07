@@ -12,12 +12,12 @@ function addMoreRows() {
                         <input type="text" name="ingredient-${numberOfIngredients + 1}">
                     </div>
                     <div class="col">
-                        <label for="quantity${numberOfIngredients + 1}">Quantity</label>
-                        <input type="text" name="quantity${numberOfIngredients + 1}" placeholder="Optional">
+                        <label for="quantity-${numberOfIngredients + 1}">Quantity</label>
+                        <input type="text" name="quantity-${numberOfIngredients + 1}" placeholder="Optional">
                     </div>
                     <div class="col">
-                        <label for="unit${numberOfIngredients + 1}" class="form-label">Unit</label>
-                        <select name="unit${numberOfIngredients + 1}">
+                        <label for="unit-${numberOfIngredients + 1}" class="form-label">Unit</label>
+                        <select name="unit-${numberOfIngredients + 1}">
                             <option value="" selected disabled hidden>Select Unit</option>
                             <option value="tsp">Teaspoons</option>
                             <option value="tbsp">Tablepoons</option>
