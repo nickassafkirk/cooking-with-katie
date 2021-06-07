@@ -256,15 +256,18 @@ def add_recipe():
 
 @app.route("/upload", methods=['GET', 'POST'])
 @cross_origin()
-def upload_file():
+def upload():
     cloudinary.config(cloud_name=os.environ.get('CLOUD_NAME'), api_key=os.environ.get('API_KEY'), api_secret=os.environ.get('API_SECRET'))
     upload_result = None
+
     if request.method == 'POST':
-        file_to_upload = request.form.get('file')
+        file_to_upload = request.files['file']
         print(file_to_upload)
         if file_to_upload:
             upload_result = cloudinary.uploader.upload(file_to_upload)
-            return jsonify(upload_result)
+            image_url = upload_result["url"]
+            return redirect(request.url)
+
     return render_template('upload.html')
 
 
