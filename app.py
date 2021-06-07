@@ -9,6 +9,8 @@ from werkzeug.utils import secure_filename
 from bson.objectid import ObjectId
 if os.path.exists("env.py"):
     import env
+from flask_cors import CORS, cross_origin
+
 
 app = Flask(__name__)
 
