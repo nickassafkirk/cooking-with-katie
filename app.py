@@ -13,7 +13,6 @@ from flask_cors import CORS, cross_origin
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-from cloudinary.utils import cloudinary_url
 
 
 app = Flask(__name__)
@@ -255,16 +254,19 @@ def add_recipe():
     return render_template("add_recipe.html", cuisine_options=cuisine_options, categories=categories)
 
 
-@app.route("/upload", methods=['POST'])
+@app.route("/upload", methods=['GET', 'POST'])
+@cross_origin()
 def upload_file():
-  cloudinary.config(cloud_name = os.environ.get('CLOUD_NAME'), api_key=os.environ.get('API_KEY'), 
-    api_secret=os.environ.get('API_SECRET'))
-  upload_result = None
-  if request.method == 'POST':
-    file_to_upload = request.form['file']
-    if file_to_upload:
-      upload_result = cloudinary.uploader.upload(file_to_upload)
-      return jsonify(upload_result)
+    cloudinary.config(cloud_name=os.environ.get('CLOUD_NAME'), api_key=os.environ.get('API_KEY'), api_secret=os.environ.get('API_SECRET'))
+    upload_result = None
+    if request.method == 'POST':
+        file_to_upload = request.form.get('file')
+        print(file_to_upload)
+        if file_to_upload:
+            upload_result = cloudinary.uploader.upload(file_to_upload)
+            return jsonify(upload_result)
+    return render_template('upload.html')
+
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
