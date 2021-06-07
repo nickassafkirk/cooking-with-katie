@@ -207,7 +207,7 @@ def add_recipe():
         ingredients_quantity_list = []
         ingredients_unit_list = []
         instructions_list = []
-        
+
         form_items = request.form.items()
         for key, val in form_items:
             if key.startswith("ingredient"):
@@ -218,7 +218,7 @@ def add_recipe():
                 ingredients_unit_list.append(val)
             if key.startswith("step"):
                 instructions_list.append(val)
-        
+
         # Generate date_created
         date_created = get_todays_date()
 
@@ -243,7 +243,7 @@ def add_recipe():
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe successfully uploaded")
     # cuisine options
-    categories = list(mongo.db.categories.find()) 
+    categories = list(mongo.db.categories.find())
     cuisine_options = list(mongo.db.cuisine.find())
     print(cuisine_options)
 
@@ -253,9 +253,9 @@ def add_recipe():
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
 
-# get static values
+    # get static values
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    categories = list(mongo.db.categories.find()) 
+    categories = list(mongo.db.categories.find())
     cuisine_options = list(mongo.db.cuisine.find())
     created_date = recipe["date_created"]
     rating = recipe["rating"]
@@ -289,7 +289,7 @@ def edit_recipe(recipe_id):
         ingredients_quantity_list = []
         ingredients_unit_list = []
         instructions_list = []
-        
+
         form_items = request.form.items()
         for key, val in form_items:
             if key.startswith("ingredient"):
@@ -320,7 +320,9 @@ def edit_recipe(recipe_id):
 
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update)
 
-    return render_template("edit_recipe.html", recipe=recipe, cuisine_options=cuisine_options, categories=categories)
+    return render_template(
+        "edit_recipe.html", recipe=recipe, cuisine_options=cuisine_options,
+        categories=categories)
 
 
 @app.route("/delete_recipe/<recipe_id>")
