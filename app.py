@@ -153,23 +153,6 @@ def recipe(recipe):
     return render_template("recipe.html", recipe=recipe, ingredient_with_weight=ingredient_with_weight)
 
 
-@app.route("/upload", methods=['GET', 'POST'])
-@cross_origin()
-def upload():
-    cloudinary.config(cloud_name=os.environ.get('CLOUD_NAME'), api_key=os.environ.get('API_KEY'), api_secret=os.environ.get('API_SECRET'))
-    upload_result = None
-
-    if request.method == 'POST':
-        file_to_upload = request.files['file']
-        if file_to_upload:
-            upload_result = cloudinary.uploader.upload(file_to_upload)
-            image_url = upload_result["url"]
-            print(image_url)
-            flash("Image Successfully Uploaded")
-            return redirect(request.url)
-    return render_template('upload.html')
-
-
 # credit "Julian nash"
 # https://www.youtube.com/watch?v=6WruncSoCdI&list=LL7yGGnZb8BruqiOeC1KZ2Qg
 def check_image_extension(filename):
@@ -191,16 +174,25 @@ def get_todays_date():
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
+@cross_origin()
 def add_recipe():
+    # initiate cloudnary API
+    cloudinary.config(cloud_name=os.environ.get('CLOUD_NAME'), api_key=os.environ.get('API_KEY'), api_secret=os.environ.get('API_SECRET'))
+    upload_result = None
 
     if request.method == "POST":
+        file_to_upload = request.files['file']
+        if file_to_upload:
+            upload_result = cloudinary.uploader.upload(file_to_upload)
+            image_url = upload_result["url"]
+            print(image_url)
 
         # create ingredient object
         instructions = []
         ingredients = []
 
         for key, val in request.form.items():
-           
+            # create ingredients list
             if key.startswith("ingredient"):
                 if not val:
                     continue
@@ -208,15 +200,11 @@ def add_recipe():
                 quantity = request.form[f'quantity-{number}']
                 unit = request.form[f'unit-{number}']
                 ingredients.append({'number': number, 'ingredient': val, 'quantity': quantity, 'unit': unit})
-            print(ingredients)
-            # if key.startswith("quantity"):
-            #     ingredients_quantity_list.append(val)
-            # if key.startswith("unit"):
-            #     ingredients_unit_list.append(val)
+            # create instructions list
             if key.startswith("step"):
                 if not val:
                     continue
-                instructions.append(val)
+                instructions.append(val)        
 
         # Generate date_created
         date_created = get_todays_date()
@@ -233,16 +221,16 @@ def add_recipe():
             "rating": "no rating",
             "category": request.form.get("category"),
             "cuisine": request.form.get("cuisine"),
-            "image": ""
+            "image": image_url
         }
 
         print(recipe)
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe successfully uploaded")
+        return redirect(url_for('add_recipe'))
     # cuisine options
     categories = list(mongo.db.categories.find())
     cuisine_options = list(mongo.db.cuisine.find())
-    print(cuisine_options)
 
     return render_template("add_recipe.html", cuisine_options=cuisine_options, categories=categories)
 
