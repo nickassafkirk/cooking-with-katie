@@ -36,15 +36,12 @@
         <div class="w-50">
             <h4>Ingredients</h4>
             <ul>
-            {% for ingredient in recipe.ingredients %}
-              <li>{{ ingredient }}</li>
-            {% endfor %}
-            </ul>
-
-            <h4>Quantity</h4>
-            <ul>
-            {% for quantity in recipe.ingredients_quantity %}
-              <li>{{ quantity }}</li>
+            {% for ingredient, quantity, unit in ingredient_with_weight %}
+              <li><strong>{{ ingredient }} - </strong> {{ quantity }}
+                {% if unit != "none" %}
+                    {{ unit }}
+                {% endif %}
+              </li>
             {% endfor %}
             </ul>
         </div>
