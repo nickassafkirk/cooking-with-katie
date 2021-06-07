@@ -154,6 +154,23 @@ def recipe(recipe):
     return render_template("recipe.html", recipe=recipe, ingredient_with_weight=ingredient_with_weight)
 
 
+@app.route("/upload", methods=['GET', 'POST'])
+@cross_origin()
+def upload():
+    cloudinary.config(cloud_name=os.environ.get('CLOUD_NAME'), api_key=os.environ.get('API_KEY'), api_secret=os.environ.get('API_SECRET'))
+    upload_result = None
+
+    if request.method == 'POST':
+        file_to_upload = request.files['file']
+        if file_to_upload:
+            upload_result = cloudinary.uploader.upload(file_to_upload)
+            image_url = upload_result["url"]
+            print(image_url)
+            flash("Image Successfully Uploaded")
+            return redirect(request.url)
+    return render_template('upload.html')
+
+
 # credit "Julian nash"
 # https://www.youtube.com/watch?v=6WruncSoCdI&list=LL7yGGnZb8BruqiOeC1KZ2Qg
 def check_image_extension(filename):
@@ -252,23 +269,6 @@ def add_recipe():
     print(cuisine_options)
 
     return render_template("add_recipe.html", cuisine_options=cuisine_options, categories=categories)
-
-
-@app.route("/upload", methods=['GET', 'POST'])
-@cross_origin()
-def upload():
-    cloudinary.config(cloud_name=os.environ.get('CLOUD_NAME'), api_key=os.environ.get('API_KEY'), api_secret=os.environ.get('API_SECRET'))
-    upload_result = None
-
-    if request.method == 'POST':
-        file_to_upload = request.files['file']
-        print(file_to_upload)
-        if file_to_upload:
-            upload_result = cloudinary.uploader.upload(file_to_upload)
-            image_url = upload_result["url"]
-            return redirect(request.url)
-
-    return render_template('upload.html')
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
