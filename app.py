@@ -2,7 +2,7 @@ import os
 import datetime
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for, send_from_directory, 
+    redirect, request, session, url_for, send_from_directory,
     jsonify)
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -35,11 +35,6 @@ MONGO_URI = os.environ.get("MONGO_URI")
 DATABASE = os.environ.get("MONGO_DBNAME")
 USER_UPLOADS = os.environ.get("USER_UPLOADS")
 RECIPES = "recipes"
-
-# Variables for cloudinary API
-CLOUD_NAME = os.environ.get("CLOUD_NAME")
-API_KEY = os.environ.get("API_KEY")
-API_SECRET = os.environ.get("API_SECRET")
 
 
 @app.route("/")
@@ -168,7 +163,11 @@ def recipe(recipe):
 @cross_origin()
 def upload():
 
-    cloudinary.config(cloud_name=CLOUD_NAME, api_key=API_KEY, api_secret=API_SECRET)
+    cloudinary.config.update = ({
+        'cloud_name': os.environ.get("CLOUD_NAME"),
+        'api_key': os.environ.get("API_KEY"),
+        'api_secret': os.environ.get("API_SECRET")
+        })
     upload_result = None
     if request.method == 'POST':
         file_to_upload = request.files['file']
