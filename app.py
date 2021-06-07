@@ -11,7 +11,6 @@ from bson.objectid import ObjectId
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-import logging
 from cloudinary.utils import cloudinary_url
 from flask_cors import CORS, cross_origin
 if os.path.exists("env.py"):
@@ -41,9 +40,6 @@ RECIPES = "recipes"
 CLOUD_NAME = os.environ.get("CLOUD_NAME")
 API_KEY = os.environ.get("API_KEY")
 API_SECRET = os.environ.get("API_SECRET")
-
-logging.basicConfig(level=logging.DEBUG)
-app.logger.info('%s',)
 
 
 @app.route("/")
@@ -171,36 +167,16 @@ def recipe(recipe):
 @app.route("/upload", methods=["GET", 'POST'])
 @cross_origin()
 def upload():
-    app.logger.info('in upload route')
 
     cloudinary.config(cloud_name=CLOUD_NAME, api_key=API_KEY, api_secret=API_SECRET)
     upload_result = None
     if request.method == 'POST':
         file_to_upload = request.files['file']
-        app.logger.info('%s file_to_upload', file_to_upload)
         if file_to_upload:
             upload_result = cloudinary.uploader.upload(file_to_upload)
-            app.logger.info(upload_result)
-            app.logger.info(type(upload_result))
             flash("Image Uploaded")
             return jsonify(upload_result)
     return render_template("upload.html")
-
-
-@app.route("/cld_optimize", methods=['POST'])
-@cross_origin()
-def cld_optimize():
-    app.logger.info('in optimize route')
-
-    cloudinary.config(cloud_name=CLOUD_NAME, api_key=API_KEY, api_secret=API_SECRET)
-    if request.method == 'POST':
-        public_id = request.form['public_id']
-        app.logger.info('%s public id', public_id)
-        if public_id:
-            cld_url = cloudinary_url(public_id, fetch_format='auto', quality='auto', secure=True)
-      
-            app.logger.info(cld_url)
-            return jsonify(cld_url)
 
 
 # credit "Julian nash"
