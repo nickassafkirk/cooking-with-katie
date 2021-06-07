@@ -14,15 +14,23 @@ from werkzeug.utils import secure_filename
 
 from bson.objectid import ObjectId
 
+from flask_cors import CORS, cross_origin
+
 if os.path.exists("env.py"):
     import env
 
 
 app = Flask(__name__)
 
+CORS(app)
+
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
+
+app.config["IMAGE_UPLOADS"] = "/workspace/cooking-with-katie/static/img/uploads"
+app.config["ACCEPTED_IMG_EXTENSIONS"] = ["PNG", "JPG", "JPEG", "GIF"]
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 mongo = PyMongo(app)
 
@@ -154,14 +162,12 @@ def recipe(recipe):
     return render_template("recipe.html", recipe=recipe, ingredient_with_weight=ingredient_with_weight )
 
 
+@app.route("/upload", methods=["POST"])
+@cross_origin()
+
+
 # credit "Julian nash"
 # https://www.youtube.com/watch?v=6WruncSoCdI&list=LL7yGGnZb8BruqiOeC1KZ2Qg
-
-app.config["IMAGE_UPLOADS"] = "/workspace/cooking-with-katie/static/img/uploads"
-app.config["ACCEPTED_IMG_EXTENSIONS"] = ["PNG", "JPG", "JPEG", "GIF"]
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
-
-
 def check_image_extension(filename):
 
     if "." not in filename:
