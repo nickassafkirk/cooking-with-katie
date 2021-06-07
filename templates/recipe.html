@@ -36,14 +36,28 @@
         <div class="w-50">
             <h4>Ingredients</h4>
             <ul>
-            
+            {% for ingredient in recipe.ingredients %}
+              <li>{{ ingredient }}</li>
+            {% endfor %}
+            </ul>
+
+            <h4>Quantity</h4>
+            <ul>
+            {% for quantity in recipe.ingredients_quantity %}
+              <li>{{ quantity }}</li>
+            {% endfor %}
             </ul>
         </div>
         <div class="w-50">
             <h4>Instructions</h4>
-            <ol>
-            
-            </ol>
+            <ul>
+            {% for step in recipe.instructions %}
+              <li>
+                <p><strong>Step {{ loop.index}}:</strong> </p>
+                <p>{{ step }}</p>
+              </li>
+            {% endfor %}
+            </ul>
         </div>
     </div>
 </div>
