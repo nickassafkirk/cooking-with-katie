@@ -2,7 +2,7 @@ import os
 import datetime
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for, jsonify)
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
@@ -10,6 +10,10 @@ from bson.objectid import ObjectId
 if os.path.exists("env.py"):
     import env
 from flask_cors import CORS, cross_origin
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+from cloudinary.utils import cloudinary_url
 
 
 app = Flask(__name__)
@@ -23,7 +27,6 @@ app.config["ACCEPTED_IMG_EXTENSIONS"] = ["PNG", "JPG", "JPEG", "GIF"]
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 mongo = PyMongo(app)
-
 MONGO_URI = os.environ.get("MONGO_URI")
 DATABASE = os.environ.get("MONGO_DBNAME")
 USER_UPLOADS = os.environ.get("USER_UPLOADS")
@@ -201,21 +204,27 @@ def add_recipe():
             print("Image saved")
 
         # create ingredient object
-        ingredients_list = []
-        ingredients_quantity_list = []
-        ingredients_unit_list = []
-        instructions_list = []
+        instructions = []
+        ingredients = []
 
-        form_items = request.form.items()
-        for key, val in form_items:
+        for key, val in request.form.items():
+           
             if key.startswith("ingredient"):
-                ingredients_list.append(val)
-            if key.startswith("quantity"):
-                ingredients_quantity_list.append(val)
-            if key.startswith("unit"):
-                ingredients_unit_list.append(val)
+                if not val:
+                    continue
+                number = key.split('-')[-1]
+                quantity = request.form[f'quantity-{number}']
+                unit = request.form[f'unit-{number}']
+                ingredients.append({'number': number, 'ingredient': val, 'quantity': quantity, 'unit': unit})
+            print(ingredients)
+            # if key.startswith("quantity"):
+            #     ingredients_quantity_list.append(val)
+            # if key.startswith("unit"):
+            #     ingredients_unit_list.append(val)
             if key.startswith("step"):
-                instructions_list.append(val)
+                if not val:
+                    continue
+                instructions.append(val)
 
         # Generate date_created
         date_created = get_todays_date()
@@ -225,10 +234,8 @@ def add_recipe():
             "date_created": date_created,
             "title": request.form.get("title"),
             "intro": request.form.get("intro"),
-            "ingredients": ingredients_list,
-            "ingredients_quantity": ingredients_quantity_list,
-            "ingredients_unit": ingredients_unit_list,
-            "instructions": instructions_list,
+            "ingredients": ingredients,
+            "instructions": instructions,
             "prep_time": request.form.get("prep-time"),
             "cook_time": request.form.get("cook-time"),
             "rating": "no rating",
@@ -247,6 +254,17 @@ def add_recipe():
 
     return render_template("add_recipe.html", cuisine_options=cuisine_options, categories=categories)
 
+
+@app.route("/upload", methods=['POST'])
+def upload_file():
+  cloudinary.config(cloud_name = os.environ.get('CLOUD_NAME'), api_key=os.environ.get('API_KEY'), 
+    api_secret=os.environ.get('API_SECRET'))
+  upload_result = None
+  if request.method == 'POST':
+    file_to_upload = request.form['file']
+    if file_to_upload:
+      upload_result = cloudinary.uploader.upload(file_to_upload)
+      return jsonify(upload_result)
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
