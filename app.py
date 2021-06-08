@@ -241,62 +241,49 @@ def edit_recipe(recipe_id):
     created_date = recipe["date_created"]
     rating = recipe["rating"]
 
+    # initiate cloudnary API
+    cloudinary.config(cloud_name=os.environ.get('CLOUD_NAME'), api_key=os.environ.get('API_KEY'), api_secret=os.environ.get('API_SECRET'))
+    upload_result = None
+
     if request.method == "POST":
-        # image upload below
-        image = None
-        filename = None
-
-        if request.files:
-
-            image = request.files["select-image"]
-            print(image)
-
-            if image.filename == "":
-                print("Image must have a filename")
-                return redirect(request.url)
-
-            if not check_image_extension(image.filename):
-                print("That image extension is not allowed")
-                return redirect(request.url)
-
-            else:
-                filename = secure_filename(image.filename)
-
-                image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
-            print("Image saved")
+        file_to_upload = request.files['file']
+        if file_to_upload:
+            upload_result = cloudinary.uploader.upload(file_to_upload)
+            image_url = upload_result["url"]
+            print(image_url)
 
         # create ingredient object
-        ingredients_list = []
-        ingredients_quantity_list = []
-        ingredients_unit_list = []
-        instructions_list = []
+        instructions = []
+        ingredients = []
 
-        form_items = request.form.items()
-        for key, val in form_items:
+        for key, val in request.form.items():
+            # create ingredients list
             if key.startswith("ingredient"):
-                ingredients_list.append(val)
-            if key.startswith("quantity"):
-                ingredients_quantity_list.append(val)
-            if key.startswith("unit"):
-                ingredients_unit_list.append(val)
+                if not val:
+                    continue
+                number = key.split('-')[-1]
+                quantity = request.form[f'quantity-{number}']
+                unit = request.form[f'unit-{number}']
+                ingredients.append({'number': number, 'ingredient': val, 'quantity': quantity, 'unit': unit})
+            # create instructions list
             if key.startswith("step"):
-                instructions_list.append(val)
+                if not val:
+                    continue
+                instructions.append(val) 
 
         update = {
             "created_by": session["user"],
             "date_created": created_date,
             "title": request.form.get("title"),
             "intro": request.form.get("intro"),
-            "ingredients": ingredients_list,
-            "ingredients_quantity": ingredients_quantity_list,
-            "ingredients_unit": ingredients_unit_list,
-            "instructions": instructions_list,
+            "ingredients": ingredients,
+            "instructions": instructions,
             "prep_time": request.form.get("prep-time"),
             "cook_time": request.form.get("cook-time"),
             "rating": rating,
             "category": request.form.get("category"),
             "cuisine": request.form.get("cuisine"),
-            "image": f"https://cooking-with-katie.herokuapp.com/static/img/uploads/{filename}"
+            "image": image_url
         }
 
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update)
