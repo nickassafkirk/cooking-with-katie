@@ -7,22 +7,18 @@
             <div class="col-6 col-md-4 col-lg-3 recipe-thumbnail">
                 <h4><a href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a></h4>
                 <div>
-                    <form action="" id="rating">
+                    <form action="" id="rating-form-{{ recipe.title }}">
                         {% for button in range(5) %}
                           {% if button < recipe.rating | int %}
-                            <button name="{{loop.index}}-star" class="rating-button gold-star"><i class="fas fa-star"></i></button>
+                            <button name="{{loop.index}}-star" id="{{loop.index}}-star" class="rating-button gold-star" type="button"><i class="fas fa-star"></i></button>
                           {% else %}
-                            <button name="{{loop.index}}-star" class="rating-button"><i class="far fa-star"></i></button>
+                            <button name="{{loop.index}}-star" id="{{loop.index}}-star" class="rating-button" type="button"><i class="far fa-star"></i></button>
                           {% endif %}
                         {% endfor %}  
+                        <div id="button-goes-here">
+
+                        </div>
                     </form>
-                    <!-- {% for i in range(recipe.rating | int) %}
-                    <span><i class="fas fa-star"></i></span>
-                    {% else %}
-                    {% for i in range(5) %}
-                    <span><i class="far fa-star" style="color: rgba(0,0,0,0.3)"></i></span>
-                    {% endfor %}
-                    {% endfor %} -->
                 </div>
                 <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
                 <p class="recipe-intro">{{ recipe.intro }}</p>
