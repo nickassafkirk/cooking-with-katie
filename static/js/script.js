@@ -11,9 +11,16 @@ ratingFormButtons.forEach(button => button.addEventListener('click', function(){
             ratingFormButtons[i].innerHTML = `<i class="far fa-star"></i>`
         } 
     }
-
+    submitRating()
 }));
 
+function submitRating() {
+    submitButton = document.createElement("button");
+    submitButton.setAttribute("type", "submit");
+    submitButton.innerHTML = "Submit Rating";
+    insertButton = document.querySelector("#button-goes-here");
+    insertButton.appendChild(submitButton)
+};
 
 const addIngredientsButton = document.getElementById("addIngredientsButton");
 addIngredientsButton.addEventListener("click", addMoreRows);
