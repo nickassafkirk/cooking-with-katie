@@ -1,6 +1,6 @@
 const ratingFormButtons = document.querySelectorAll(".rating-button");
 ratingFormButtons.forEach(button => button.addEventListener('click', function(){
-    console.log(this.id[0])
+    buttonId = this.id
     rating = this.id[0]
     for (i=0; i < 5; i++){
         if (i < rating) {
@@ -11,16 +11,20 @@ ratingFormButtons.forEach(button => button.addEventListener('click', function(){
             ratingFormButtons[i].innerHTML = `<i class="far fa-star"></i>`
         } 
     }
-    submitRating()
+    submitRating(buttonId)
 }));
 
-function submitRating() {
+function submitRating(buttonId) {
+    console.log(buttonId)
+    Id = buttonId.split("-",2)[1]
+    formId = `#rating-form-${Id}`
+    targetForm = document.querySelector(formId);
+    console.log(targetForm);
     submitButton = document.createElement("button");
     submitButton.setAttribute("type", "submit");
     submitButton.innerHTML = "Submit Rating";
-    insertButton = document.querySelector("#button-goes-here");
-    insertButton.appendChild(submitButton)
-};
+    targetForm.appendChild(submitButton);
+}
 
 const addIngredientsButton = document.getElementById("addIngredientsButton");
 addIngredientsButton.addEventListener("click", addMoreRows);
