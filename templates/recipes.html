@@ -10,7 +10,7 @@
                     <form action="" id="">
                         {% for button in range(5) %}
                           {% if button < 3 %}
-                            <button name="{{loop.index}}-star" class="rating-button"><i class="fas fa-star"></i></button>
+                            <button name="{{loop.index}}-star" class="rating-button gold-star"><i class="fas fa-star"></i></button>
                           {% else %}
                             <button name="{{loop.index}}-star" class="rating-button"><i class="far fa-star"></i></button>
                           {% endif %}

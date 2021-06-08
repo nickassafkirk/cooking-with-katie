@@ -301,6 +301,23 @@ header .navbar a{
     font-weight: 700;
 }
 
+.rating-button{
+    color: rgba(0,0,0,0.3);
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+.rating-button:hover{
+    color: #ffd700;
+    font-size: 1.2em;
+}
+
+.gold-star{
+    color: #ffd700;
+}
+
 /* add-recipe */
 
 #add_recipe-form{
