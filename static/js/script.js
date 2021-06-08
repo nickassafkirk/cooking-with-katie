@@ -16,32 +16,39 @@ buttonId = this.id
             formChildren[i].classList.remove("gold-star");
             formChildren[i].innerHTML = `<i class="far fa-star"></i>`
         }
-    }   
+    } 
     addSubmitButton(formId, formChildren, rating)
 };
-
 function addSubmitButton(formId, formChildren, rating) {
     
     targetForm = document.querySelector(formId);
     console.log(targetForm);
-    submitButton = document.createElement("button");
-    submitButton.setAttribute("type", "submit");
-    submitButton.setAttribute("value", rating);
-    submitButton.innerHTML = "Submit Rating";
-    cancelButton = document.createElement("button");
-    cancelButton.setAttribute("type", "button"); 
-    cancelButton.innerHTML = "Cancel";
-    console.log(submitButton);
-    targetForm.appendChild(submitButton);
-    targetForm.appendChild(cancelButton);
-    cancelButton.addEventListener("click", function(){
-        for (i = 0; i < 5; i++ ){
-            formChildren[i].classList.remove("gold-star"); 
-        }
-        submitButton.remove();
-        cancelButton.remove(); 
-    })
-}
+    let submitButtonExists = document.querySelector("#submit-button");
+    if (!submitButtonExists){
+        submitButton = document.createElement("button");
+        submitButton.setAttribute("type", "submit");
+        submitButton.setAttribute("id", "submit-button");
+        submitButton.setAttribute("value", rating);
+        submitButton.innerHTML = "Submit Rating";
+        cancelButton = document.createElement("button");
+        cancelButton.setAttribute("type", "button"); 
+        cancelButton.innerHTML = "Cancel";
+        console.log(submitButton);
+        targetForm.appendChild(submitButton);
+        targetForm.appendChild(cancelButton);
+        cancelButton.addEventListener("click", function(){
+            for (i = 0; i < 5; i++ ){
+                formChildren[i].classList.remove("gold-star"); 
+             }
+            submitButton.remove();
+            cancelButton.remove(); 
+        });
+    } else {
+        submitButtonExists.setAttribute("value", rating);
+        console.log(submitButton);
+        console.log(submitButtonExists);
+    }
+};
 
 const addIngredientsButton = document.getElementById("addIngredientsButton");
 addIngredientsButton.addEventListener("click", addMoreRows);
