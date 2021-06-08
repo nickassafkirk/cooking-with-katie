@@ -1,3 +1,19 @@
+const ratingFormButtons = document.querySelectorAll(".rating-button");
+ratingFormButtons.forEach(button => button.addEventListener('click', function(){
+    console.log(this.id[0])
+    rating = this.id[0]
+    for (i=0; i < 5; i++){
+        if (i < rating) {
+            ratingFormButtons[i].classList.add("gold-star")
+            ratingFormButtons[i].innerHTML = `<i class="fas fa-star"></i>`
+        } else {
+            ratingFormButtons[i].classList.remove("gold-star");
+            ratingFormButtons[i].innerHTML = `<i class="far fa-star"></i>`
+        } 
+    }
+
+}));
+
 
 const addIngredientsButton = document.getElementById("addIngredientsButton");
 addIngredientsButton.addEventListener("click", addMoreRows);
@@ -44,3 +60,8 @@ function addInstructionRows(){
     const instructionsContainer = document.getElementById("instructionsContainer");
     instructionsContainer.insertBefore(newInstructionRow, document.querySelectorAll(".button-container")[1]);
 };
+
+
+
+
+
