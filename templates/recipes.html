@@ -10,9 +10,9 @@
                     <form action="" id="rating-form-{{ recipe._id }}">
                         {% for button in range(5) %}
                           {% if button < recipe.rating | int %}
-                            <button name="{{ loop.index }}-{{ recipe._id }}-star" id="{{ loop.index }}-{{ recipe._id }}-star" class="rating-button gold-star" type="button"><i class="fas fa-star"></i></button>
+                            <button name="{{ loop.index }}-{{ recipe._id }}-star" id="{{ loop.index }}-{{ recipe._id }}-star" class="rating-button" number="{{ loop.index }}" type="button"><i class="fas fa-star"></i></button>
                           {% else %}
-                            <button name="{{ loop.index }}-{{ recipe._id }}-star" id="{{ loop.index }}-{{ recipe._id }}-star" class="rating-button" type="button"><i class="far fa-star"></i></button>
+                            <button name="{{ loop.index }}-{{ recipe._id }}-star" id="{{ loop.index }}-{{ recipe._id }}-star" class="rating-button" number="{{ loop.index }}" type="button"><i class="far fa-star"></i></button>
                           {% endif %}
                         {% endfor %}  
                         <div id="button-goes-here">
