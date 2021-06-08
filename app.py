@@ -300,6 +300,13 @@ def delete_recipe(recipe_id):
     return redirect(url_for("recipes"))
 
 
+@app.route("/rating/<recipe_id>", methods=["POST"])
+def rating(recipe_id):
+    if request.method == "POST":
+        print(recipe_id)
+        return redirect(url_for("recipes"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=(os.environ.get("PORT")),
