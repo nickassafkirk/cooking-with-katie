@@ -1,6 +1,8 @@
 const ratingFormButtons = document.querySelectorAll(".rating-button");
-ratingFormButtons.forEach(button => button.addEventListener('click', function(){
-    buttonId = this.id
+ratingFormButtons.forEach(button => button.addEventListener('click', selectRating))
+    
+function selectRating(){
+buttonId = this.id
     rating = this.id[0]
     Id = buttonId.split("-",2)[1]
     formId = `#rating-form-${Id}`
@@ -15,10 +17,10 @@ ratingFormButtons.forEach(button => button.addEventListener('click', function(){
             formChildren[i].innerHTML = `<i class="far fa-star"></i>`
         }
     }   
-    submitRating(formId, rating)
-}));
+    addSubmitButton(formId, rating)
+};
 
-function submitRating(formId, rating) {
+function addSubmitButton(formId, rating) {
     
     targetForm = document.querySelector(formId);
     console.log(targetForm);
