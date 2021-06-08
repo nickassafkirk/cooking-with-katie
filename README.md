@@ -175,6 +175,11 @@ Content was copied from https://www.bbcgoodfood.com/recipes/easy-pancakes
    [this stack overflow post](https://stackoverflow.com/questions/18552001/accessing-dict-keys-element-by-index-in-python3)
    to convert the dictionary into a list so that it can be iterated through. 
 
+3. Cloudinary Api Tutorial
+   - To enable users to upload images for their recipes, cloudinary was used as a hosting service. To connect the application to cloudinary, 
+   [this documentation was followed](https://cloudinary.com/blog/creating_an_api_with_python_flask_to_upload_files_to_cloudinary)
+
+
 ---
 ## Deployment
 ---
