@@ -15,7 +15,7 @@
     {% endif %}
     <div>
         <div class="m-4 text-center">
-            <img src="{{ recipe.image }}" alt="{{recipe.title}}" class="h-50">
+            <img src="{{ recipe.image }}" alt="{{recipe.title}}" class="h-50 w-50">
         </div>
         <div class="m-4">
             <div class="recipe-thumbnail__metadata d-flex justify-content-center">
@@ -36,10 +36,10 @@
         <div class="w-50">
             <h4>Ingredients</h4>
             <ul>
-            {% for ingredient, quantity, unit in ingredient_with_weight %}
-              <li><strong>{{ ingredient }} - </strong> {{ quantity }}
-                {% if unit != "none" %}
-                    {{ unit }}
+            {% for ingredient in ingredients %}
+              <li><strong>{{ ingredient.ingredient }} - </strong> {{ ingredient.quantity }}
+                {% if ingredient.unit != "none" %}
+                    {{ ingredient.unit }}
                 {% endif %}
               </li>
             {% endfor %}
