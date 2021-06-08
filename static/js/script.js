@@ -17,10 +17,10 @@ buttonId = this.id
             formChildren[i].innerHTML = `<i class="far fa-star"></i>`
         }
     }   
-    addSubmitButton(formId, rating)
+    addSubmitButton(formId, formChildren, rating)
 };
 
-function addSubmitButton(formId, rating) {
+function addSubmitButton(formId, formChildren, rating) {
     
     targetForm = document.querySelector(formId);
     console.log(targetForm);
@@ -28,8 +28,19 @@ function addSubmitButton(formId, rating) {
     submitButton.setAttribute("type", "submit");
     submitButton.setAttribute("value", rating);
     submitButton.innerHTML = "Submit Rating";
+    cancelButton = document.createElement("button");
+    cancelButton.setAttribute("type", "button"); 
+    cancelButton.innerHTML = "Cancel";
     console.log(submitButton);
     targetForm.appendChild(submitButton);
+    targetForm.appendChild(cancelButton);
+    cancelButton.addEventListener("click", function(){
+        for (i = 0; i < 5; i++ ){
+            formChildren[i].classList.remove("gold-star"); 
+        }
+        submitButton.remove();
+        cancelButton.remove(); 
+    })
 }
 
 const addIngredientsButton = document.getElementById("addIngredientsButton");
