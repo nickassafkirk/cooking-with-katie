@@ -7,7 +7,6 @@ function selectRating(){
     let Id = buttonId.split("-",2)[1]
     let formId = `#rating-form-${Id}`
     let originalRating = document.querySelectorAll(`${formId} .fas`).length;
-    console.log(originalRating)
     formChildren = document.querySelectorAll(`${formId} .rating-button`);
     for (i = 0; i < 5; i++ ){
         let buttonNumber = formChildren[i].getAttribute("number");
@@ -23,38 +22,45 @@ function selectRating(){
 };
 
 function addSubmitButton(formId, formChildren, originalRating, rating) {
-    targetForm = document.querySelector(formId);
-    console.log(targetForm);
+    let targetForm = document.querySelector(formId);
     let submitButtonExists = document.querySelector(`${formId} button[name="submit-button"]`);
+    let cancelButtonExists = document.querySelector(`${formId} .cancel-button`);
+
+    /* Check if submit button exists before creating annother */
     if (!submitButtonExists){
-        submitButton = document.createElement("button");
+        let submitButton = document.createElement("button");
         submitButton.setAttribute("type", "submit");
         submitButton.setAttribute("name", "submit-button");
         submitButton.setAttribute("value", rating);
         submitButton.innerHTML = "Submit Rating";
-        cancelButton = document.createElement("button");
+        let cancelButton = document.createElement("button");
+        cancelButton.setAttribute("class", "cancel-button");
         cancelButton.setAttribute("type", "button"); 
         cancelButton.innerHTML = "Cancel";
         console.log(submitButton);
         targetForm.appendChild(submitButton);
         targetForm.appendChild(cancelButton);
-        cancelButton.addEventListener("click", function(){
-            for (i = 0; i < 5; i++ ){
-                formChildren[i].classList.remove("gold-star");
-                if (i < originalRating){
-                    formChildren[i].innerHTML = `<i class="fas fa-star"></i>`;
-                } else {
-                    formChildren[i].innerHTML = `<i class="far fa-star"></i>`;
-                }  
-             }
-            submitButton.remove();
-            cancelButton.remove(); 
-        });
+        cancelButton.addEventListener("click", clearFormButtons)
+    /* If submit button exists just update it's rating value */
     } else {
         submitButtonExists.setAttribute("value", rating);
-        console.log(submitButton);
-        console.log(submitButtonExists);
     }
+    
+    /**
+     * Removes cancel and submit buttons and resets initial rating
+     */
+    function clearFormButtons(){
+        for (i = 0; i < 5; i++ ){
+            formChildren[i].classList.remove("gold-star");
+            if (i < originalRating){
+                formChildren[i].innerHTML = `<i class="fas fa-star"></i>`;
+            } else {
+                formChildren[i].innerHTML = `<i class="far fa-star"></i>`;
+            }  
+        }
+        submitButton.remove();
+        cancelButton.remove(); 
+    };
 };
 
 const addIngredientsButton = document.getElementById("addIngredientsButton");
