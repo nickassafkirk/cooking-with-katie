@@ -34,13 +34,13 @@
                 <select name="unit-{{ loop.index }}">
                     {% for unit in unit_options %}
                         {% if ingredient.unit == unit.unit_name or ingredient.unit == unit.unit_symbol %}
-                          {% if ingredient.quantity == "na" %}
-                            <option value="{{ unit.unit_name }}" selected disabled hidden>Select Unit (optional)</option>
+                          {% if ingredient.unit == "na" or ingredient.unit == "none" %}
+                            <option value="{{ unit.unit_symbol }}" selected disabled hidden>Select Unit (optional)</option>
                           {% else %}
-                            <option value="{{ unit.unit_name }}" selected>{{ unit.unit_name }}</option>
+                            <option value="{{ unit.unit_symbol }}" selected>{{ unit.unit_name }}</option>
                           {% endif %}
                         {% else %}
-                            <option value="{{ unit.unit_name }}">{{ unit.unit_name }}</option>
+                            <option value="{{ unit.unit_symbol }}">{{ unit.unit_name }}</option>
                         {% endif %}
                     {% endfor %}
                 </select>
