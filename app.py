@@ -199,7 +199,7 @@ def add_recipe():
             if key.startswith("step"):
                 if not val:
                     continue
-                instructions.append(val)   
+                instructions.append(val)
 
         # Generate date_created
         date_created = get_todays_date()
@@ -214,6 +214,7 @@ def add_recipe():
             "prep_time": request.form.get("prep-time"),
             "cook_time": request.form.get("cook-time"),
             "rating": [],
+            "avg_rating": 0,
             "category": request.form.get("category"),
             "cuisine": request.form.get("cuisine"),
             "image": image_url
@@ -241,6 +242,7 @@ def edit_recipe(recipe_id):
     unit_options = list(mongo.db.units.find())
     created_date = recipe["date_created"]
     rating = recipe["rating"]
+    avg_rating = recipe["avg_rating"]
 
     # initiate cloudnary API
     cloudinary.config(cloud_name=os.environ.get('CLOUD_NAME'), api_key=os.environ.get('API_KEY'), api_secret=os.environ.get('API_SECRET'))
@@ -282,6 +284,7 @@ def edit_recipe(recipe_id):
             "prep_time": request.form.get("prep-time"),
             "cook_time": request.form.get("cook-time"),
             "rating": rating,
+            "avg_rating": avg_rating,
             "category": request.form.get("category"),
             "cuisine": request.form.get("cuisine"),
             "image": image_url
@@ -304,8 +307,11 @@ def delete_recipe(recipe_id):
 @app.route("/rating/<recipe_id>", methods=["POST"])
 def rating(recipe_id):
     if request.method == "POST":
-        user_rating = request.form.get("submit-button")
+        user_rating = int(request.form.get("submit-button"))
         mongo.db.recipes.find_one_and_update({"_id": ObjectId(recipe_id)}, {"$push": {"rating": user_rating}})
+        recipe_rating = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})['rating']
+        average = round(sum(recipe_rating)/len(recipe_rating))
+        mongo.db.recipes.find_one_and_update({"_id": ObjectId(recipe_id)}, {"$set": {"avg_rating": average}})
         return redirect(url_for("recipes"))
 
 
