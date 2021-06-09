@@ -25,7 +25,7 @@ function selectRating(){
 function addSubmitButton(formId, formChildren, originalRating, rating) {
     targetForm = document.querySelector(formId);
     console.log(targetForm);
-    let submitButtonExists = document.querySelector("#submit-button");
+    let submitButtonExists = document.querySelector(`${formId} button[name="submit-button"]`);
     if (!submitButtonExists){
         submitButton = document.createElement("button");
         submitButton.setAttribute("type", "submit");
