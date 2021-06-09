@@ -2,10 +2,12 @@ const ratingFormButtons = document.querySelectorAll(".rating-button");
 ratingFormButtons.forEach(button => button.addEventListener('click', selectRating))
     
 function selectRating(){
-buttonId = this.id
-    rating = this.id[0]
-    Id = buttonId.split("-",2)[1]
-    formId = `#rating-form-${Id}`
+    let buttonId = this.id
+    let rating = this.id[0]
+    let Id = buttonId.split("-",2)[1]
+    let formId = `#rating-form-${Id}`
+    let originalRating = document.querySelectorAll(`${formId} .fas`).length;
+    console.log(originalRating)
     formChildren = document.querySelectorAll(`${formId} .rating-button`);
     for (i = 0; i < 5; i++ ){
         let buttonNumber = formChildren[i].getAttribute("number");
@@ -17,8 +19,9 @@ buttonId = this.id
             formChildren[i].innerHTML = `<i class="far fa-star"></i>`
         }
     } 
-    addSubmitButton(formId, formChildren, rating)
+    addSubmitButton(formId, formChildren, originalRating, rating)
 };
+
 function addSubmitButton(formId, formChildren, rating) {
     
     targetForm = document.querySelector(formId);
@@ -38,7 +41,8 @@ function addSubmitButton(formId, formChildren, rating) {
         targetForm.appendChild(cancelButton);
         cancelButton.addEventListener("click", function(){
             for (i = 0; i < 5; i++ ){
-                formChildren[i].classList.remove("gold-star"); 
+                formChildren[i].classList.remove("gold-star");
+                
              }
             submitButton.remove();
             cancelButton.remove(); 
