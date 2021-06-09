@@ -292,7 +292,7 @@ header .navbar a{
 .recipe-thumbnail__metadata{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
@@ -483,4 +483,10 @@ footer{
     padding-bottom: 0.5%;
     width: 30%;
     margin: 0 auto;
+}
+
+@media screen and (min-width: 992px) {
+    .page-content-container{
+        width: 75%;
+    }
 }
