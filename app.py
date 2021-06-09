@@ -5,7 +5,6 @@ from flask import (
     redirect, request, session, url_for, jsonify)
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
-from werkzeug.utils import secure_filename
 from bson.objectid import ObjectId
 if os.path.exists("env.py"):
     import env
@@ -200,7 +199,7 @@ def add_recipe():
             if key.startswith("step"):
                 if not val:
                     continue
-                instructions.append(val)        
+                instructions.append(val)      
 
         # Generate date_created
         date_created = get_todays_date()
@@ -227,8 +226,9 @@ def add_recipe():
     # cuisine options
     categories = list(mongo.db.categories.find())
     cuisine_options = list(mongo.db.cuisine.find())
+    unit_options = list(mongo.db.units.find())
 
-    return render_template("add_recipe.html", cuisine_options=cuisine_options, categories=categories)
+    return render_template("add_recipe.html", cuisine_options=cuisine_options, categories=categories, unit_options=unit_options)
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
@@ -238,6 +238,7 @@ def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = list(mongo.db.categories.find())
     cuisine_options = list(mongo.db.cuisine.find())
+    unit_options = list(mongo.db.units.find())
     created_date = recipe["date_created"]
     rating = recipe["rating"]
 
