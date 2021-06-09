@@ -304,6 +304,9 @@ def delete_recipe(recipe_id):
 def rating(recipe_id):
     if request.method == "POST":
         print(recipe_id)
+        user_rating = request.form.get("submit-button")
+        print(user_rating)
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, {"$set": {"rating": user_rating}})
         return redirect(url_for("recipes"))
 
 
