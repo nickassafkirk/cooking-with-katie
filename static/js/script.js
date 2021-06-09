@@ -22,7 +22,7 @@ function selectRating(){
     addSubmitButton(formId, formChildren, originalRating, rating)
 };
 
-function addSubmitButton(formId, formChildren, rating) {
+function addSubmitButton(formId, formChildren, originalRating, rating) {
     
     targetForm = document.querySelector(formId);
     console.log(targetForm);
@@ -42,7 +42,11 @@ function addSubmitButton(formId, formChildren, rating) {
         cancelButton.addEventListener("click", function(){
             for (i = 0; i < 5; i++ ){
                 formChildren[i].classList.remove("gold-star");
-                
+                if (i < originalRating){
+                    formChildren[i].innerHTML = `<i class="fas fa-star"></i>`;
+                } else {
+                    formChildren[i].innerHTML = `<i class="far fa-star"></i>`;
+                }  
              }
             submitButton.remove();
             cancelButton.remove(); 
