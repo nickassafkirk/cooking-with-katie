@@ -15,11 +15,10 @@
                           {% else %}
                             <button name="{{ loop.index }}-{{ recipe._id }}-star" id="{{ loop.index }}-{{ recipe._id }}-star" class="rating-button" number="{{ loop.index }}" type="button"><i class="far fa-star"></i></button>
                           {% endif %}
-                        {% endfor %}  
-                        <div id="button-goes-here">
-
-                        </div>
+                        {% endfor %}  ( {{recipe.rating|length}} )
+                        <div id="button-goes-here"></div>
                     </form>
+                    
                 </div>
                 <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
                 <p class="recipe-intro">{{ recipe.intro }}</p>
