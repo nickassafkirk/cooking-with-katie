@@ -23,14 +23,13 @@ function selectRating(){
 };
 
 function addSubmitButton(formId, formChildren, originalRating, rating) {
-    
     targetForm = document.querySelector(formId);
     console.log(targetForm);
     let submitButtonExists = document.querySelector("#submit-button");
     if (!submitButtonExists){
         submitButton = document.createElement("button");
         submitButton.setAttribute("type", "submit");
-        submitButton.setAttribute("id", "submit-button");
+        submitButton.setAttribute("name", "submit-button");
         submitButton.setAttribute("value", rating);
         submitButton.innerHTML = "Submit Rating";
         cancelButton = document.createElement("button");
