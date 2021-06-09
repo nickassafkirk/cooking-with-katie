@@ -99,7 +99,7 @@
             <label for="cuisine">Select Cuisine</label>
             <select name="cuisine" id="cuisine">
                 {% for genre in cuisine_options %}
-                {% if recipe.cusine == genre.cuisine %}
+                {% if recipe.cuisine == genre.cuisine %}
                 <option value="{{ recipe.cuisine }}" selected>{{ recipe.cuisine | capitalize }}</option>
                 {% else %}
                 <option value="{{ genre.cuisine }}">{{ genre.cuisine | capitalize }}</option>
@@ -117,7 +117,7 @@
         </div>
         <div>
             <label for="file">Upload Image</label>
-            <input type="file" name="file" id="image-uploader">
+            <input type="file" name="file" id="image-uploader" value="{{ recipe.image }}">
         </div>
     </div>
     <div class="button-container">

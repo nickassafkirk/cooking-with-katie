@@ -237,12 +237,14 @@ def edit_recipe(recipe_id):
 
     # get static values
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    recipe_title = recipe["title"]
     categories = list(mongo.db.categories.find())
     cuisine_options = list(mongo.db.cuisine.find())
     unit_options = list(mongo.db.units.find())
     created_date = recipe["date_created"]
     rating = recipe["rating"]
     avg_rating = recipe["avg_rating"]
+    
 
     # initiate cloudnary API
     cloudinary.config(cloud_name=os.environ.get('CLOUD_NAME'), api_key=os.environ.get('API_KEY'), api_secret=os.environ.get('API_SECRET'))
@@ -254,6 +256,8 @@ def edit_recipe(recipe_id):
             upload_result = cloudinary.uploader.upload(file_to_upload)
             image_url = upload_result["url"]
             print(image_url)
+        else:
+            image_url = recipe["image"]
 
         # create ingredient object
         instructions = []
@@ -291,6 +295,7 @@ def edit_recipe(recipe_id):
         }
 
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update)
+        return redirect(url_for('recipe', recipe=recipe_title))
 
     return render_template(
         "edit_recipe.html", recipe=recipe, cuisine_options=cuisine_options,
