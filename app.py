@@ -199,7 +199,7 @@ def add_recipe():
             if key.startswith("step"):
                 if not val:
                     continue
-                instructions.append(val)      
+                instructions.append(val)   
 
         # Generate date_created
         date_created = get_todays_date()
@@ -304,10 +304,8 @@ def delete_recipe(recipe_id):
 @app.route("/rating/<recipe_id>", methods=["POST"])
 def rating(recipe_id):
     if request.method == "POST":
-        print(recipe_id)
         user_rating = request.form.get("submit-button")
-        print(user_rating)
-        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, {"$set": {"rating": user_rating}})
+        mongo.db.recipes.find_one_and_update({"_id": ObjectId(recipe_id)}, {"$push": {"rating": user_rating}})
         return redirect(url_for("recipes"))
 
 
