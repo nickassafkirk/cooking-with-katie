@@ -37,7 +37,7 @@
             <h4>Ingredients</h4>
             <ul>
             {% for ingredient in ingredients %}
-              <li><strong>{{ ingredient.ingredient }} - </strong> {{ ingredient.quantity }}
+              <li><strong>{{ ingredient.name }} - </strong> {{ ingredient.quantity }}
                 {% if ingredient.unit != "none" %}
                     {{ ingredient.unit }}
                 {% endif %}

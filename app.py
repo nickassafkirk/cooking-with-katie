@@ -214,7 +214,7 @@ def add_recipe():
             "instructions": instructions,
             "prep_time": request.form.get("prep-time"),
             "cook_time": request.form.get("cook-time"),
-            "rating": "no rating",
+            "rating": [],
             "category": request.form.get("category"),
             "cuisine": request.form.get("cuisine"),
             "image": image_url
