@@ -24,7 +24,6 @@ function selectRating(){
 function addSubmitButton(formId, formChildren, originalRating, rating) {
     let targetForm = document.querySelector(formId);
     let submitButtonExists = document.querySelector(`${formId} button[name="submit-button"]`);
-    let cancelButtonExists = document.querySelector(`${formId} .cancel-button`);
 
     /* Check if submit button exists before creating annother */
     if (!submitButtonExists){
@@ -37,29 +36,34 @@ function addSubmitButton(formId, formChildren, originalRating, rating) {
         cancelButton.setAttribute("class", "cancel-button");
         cancelButton.setAttribute("type", "button"); 
         cancelButton.innerHTML = "Cancel";
-        console.log(submitButton);
         targetForm.appendChild(submitButton);
         targetForm.appendChild(cancelButton);
-        cancelButton.addEventListener("click", clearFormButtons)
-    /* If submit button exists just update it's rating value */
-    } else {
-        submitButtonExists.setAttribute("value", rating);
-    }
-    
-    /**
-     * Removes cancel and submit buttons and resets initial rating
-     */
-    function clearFormButtons(){
+        /* Reset orignal form values on cancel */
+        cancelButton.addEventListener("click", function(){
         for (i = 0; i < 5; i++ ){
             formChildren[i].classList.remove("gold-star");
             if (i < originalRating){
                 formChildren[i].innerHTML = `<i class="fas fa-star"></i>`;
             } else {
                 formChildren[i].innerHTML = `<i class="far fa-star"></i>`;
-            }  
-        }
+            };
         submitButton.remove();
-        cancelButton.remove(); 
+        event.target.remove();  
+        }});
+    /* If submit button exists just update it's rating value */
+    } else {
+        submitButtonExists.setAttribute("value", rating);
+        cancelButton.addEventListener("click", function(){
+        for (i = 0; i < 5; i++ ){
+            formChildren[i].classList.remove("gold-star");
+            if (i < originalRating){
+                formChildren[i].innerHTML = `<i class="fas fa-star"></i>`;
+            } else {
+                formChildren[i].innerHTML = `<i class="far fa-star"></i>`;
+            };
+        submitButton.remove();
+        event.target.remove();  
+        }});
     };
 };
 
