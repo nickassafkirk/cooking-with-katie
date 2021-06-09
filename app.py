@@ -291,7 +291,7 @@ def edit_recipe(recipe_id):
 
     return render_template(
         "edit_recipe.html", recipe=recipe, cuisine_options=cuisine_options,
-        categories=categories)
+        unit_options=unit_options, categories=categories)
 
 
 @app.route("/delete_recipe/<recipe_id>")

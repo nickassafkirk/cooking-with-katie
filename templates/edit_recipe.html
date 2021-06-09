@@ -32,13 +32,17 @@
             <div class="col">
                 <label for="unit-{{ loop.index }}" class="form-label">Unit</label>
                 <select name="unit-{{ loop.index }}">
-                    <option value="na" selected disabled hidden>Select Unit</option>
-                    <option value="tsp">Teaspoons</option>
-                    <option value="tbsp">Tablepoons</option>
-                    <option value="g">Grams</option>
-                    <option value="lbs">Pounds</option>
-                    <option value="oz">Ounces</option>
-                    <option value="none">None</option>
+                    {% for unit in unit_options %}
+                        {% if ingredient.unit == unit.unit_name or ingredient.unit == unit.unit_symbol %}
+                          {% if ingredient.quantity == "na" %}
+                            <option value="{{ unit.unit_name }}" selected disabled hidden>Select Unit (optional)</option>
+                          {% else %}
+                            <option value="{{ unit.unit_name }}" selected>{{ unit.unit_name }}</option>
+                          {% endif %}
+                        {% else %}
+                            <option value="{{ unit.unit_name }}">{{ unit.unit_name }}</option>
+                        {% endif %}
+                    {% endfor %}
                 </select>
             </div>
         </div>
