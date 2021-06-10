@@ -112,15 +112,16 @@ def sign_in():
 @app.route("/account/<username>", methods=["GET", "POST"])
 def account(username):
     # grab the session user's username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
     # square bracket at end denotes that
     # we only want to return the username from the user
+    username = user["username"]
 
     user_recipes = list(mongo.db.recipes.find())
 
     if session["user"]:
-        return render_template("account.html", username=username, user_recipes=user_recipes)
+        return render_template("account.html", user=user, username=username, user_recipes=user_recipes)
 
     return redirect(url_for("sign_in"))
 
@@ -131,6 +132,24 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("sign_in"))
+
+
+@app.route("/update_account/<user_id>")
+def update_account(user_id):
+    user = mongo.db.users.find_one({"id": ObjectId(user_id)})
+    if request.method == "POST":
+        update_user = {
+            "username": request.form.get('username-update').lower(),
+            "password": user.password,
+            "first_name": request.form.get('fname-update').lower(),
+            "last_name": request.form.get('lname-update').lower(),
+            "email_address": request.form.get('email-update'),
+            "is_admin": user.is_admin,
+            "favourites": user.favourites,
+            "user_recipes": user.recipes,
+        }
+    mongo.db.users.update({"id": ObjectId(user_id)}, update_user)
+    return redirect(url_for('account', username=user.username))
 
 
 @app.route("/recipes")
