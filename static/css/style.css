@@ -496,6 +496,18 @@ header .navbar a{
     width: 45%;
 }
 
+#account-tab{
+    width: 90%;
+    margin: 0 auto;
+}
+
+#account-tabContent{
+    width: 90%;
+    margin: 0 auto;
+    padding: 2%;   border-radius: 0px 5px 5px 5px;
+}
+
+    background: red;
 /* Footer Styles */
 footer{
     background-color: var(--bg-sunset);
