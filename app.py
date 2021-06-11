@@ -134,22 +134,23 @@ def logout():
     return redirect(url_for("sign_in"))
 
 
-@app.route("/update_account/<user_id>")
-def update_account(user_id):
-    user = mongo.db.users.find_one({"id": ObjectId(user_id)})
+@app.route("/update_user/<user_id>", methods=["GET", "POST"])
+def update_user(user_id):
+    user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
     if request.method == "POST":
         update_user = {
-            "username": request.form.get('username-update').lower(),
-            "password": user.password,
+            "username": user['username'],
+            "password": user['password'],
             "first_name": request.form.get('fname-update').lower(),
             "last_name": request.form.get('lname-update').lower(),
             "email_address": request.form.get('email-update'),
-            "is_admin": user.is_admin,
-            "favourites": user.favourites,
-            "user_recipes": user.recipes,
+            "is_admin": user['is_admin'],
+            "favourites": user['favourites'],
+            "user_recipes": user['user_recipes'],
         }
-    mongo.db.users.update({"id": ObjectId(user_id)}, update_user)
-    return redirect(url_for('account', username=user.username))
+        mongo.db.users.update({"_id": ObjectId(user_id)}, update_user)
+        flash("Account Details Updated successfully")
+        return redirect(url_for('account', username=user['username']))
 
 
 @app.route("/recipes")
@@ -263,7 +264,7 @@ def edit_recipe(recipe_id):
     created_date = recipe["date_created"]
     rating = recipe["rating"]
     avg_rating = recipe["avg_rating"]
-    
+
 
     # initiate cloudnary API
     cloudinary.config(cloud_name=os.environ.get('CLOUD_NAME'), api_key=os.environ.get('API_KEY'), api_secret=os.environ.get('API_SECRET'))
@@ -295,7 +296,7 @@ def edit_recipe(recipe_id):
             if key.startswith("step"):
                 if not val:
                     continue
-                instructions.append(val) 
+                instructions.append(val)
 
         update = {
             "created_by": session["user"],

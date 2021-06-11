@@ -17,7 +17,7 @@
             aria-labelledby="v-pills-account-details-tab">
             <div class="container">
                 <h4>Account Details</h4>
-                <form action="#" method="POST" class="row g-3" id="account-update-form">
+                <form action="{{url_for('update_user', user_id=user._id)}}" method="POST" class="row g-3" id="account-update-form">
                     <div class="col-md-6">
                         <label for="fname-update" class="form-label">First name</label>
                         <input type="text" class="form-control" id="fname-update" name="fname-update"
@@ -32,17 +32,6 @@
                             value="{{ user.last_name }}" required disabled>
                         <div class="valid-feedback">
                             Looks good!
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <label for="username-update" class="form-label">Username</label>
-                        <div class="input-group has-validation">
-                            <input type="text" class="form-control" id="username-update" name="username-update"
-                                aria-describedby="username-updateFeedback" value="{{ user.username }}" required
-                                disabled>
-                            <div id="username-updateFeedback" class="invalid-feedback">
-                                Please choose a username.
-                            </div>
                         </div>
                     </div>
                     <div class="col-12">
