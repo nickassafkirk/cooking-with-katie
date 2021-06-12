@@ -18,3 +18,14 @@ function enableForm(){
         formInputs.forEach(input => input.disabled = true);
     });
 };
+
+const addCategory = document.querySelector("#add-category");
+addCategory.addEventListener("change", addNewInput)
+
+function addNewInput(){
+    let inputParent = document.querySelector("#add-category-parent");
+    let num = document.querySelectorAll(".new-category-input").length;
+    let newRow = document.createElement('input');
+    newRow.innerHTML = `<input type="text" name="new-category-${num + 1}" class="new-category-input" id="add-category-${num + 1}">`
+    inputParent.appendChild(newRow);
+}
