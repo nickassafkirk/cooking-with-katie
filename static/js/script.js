@@ -72,6 +72,9 @@ addIngredientsButton.addEventListener("click", addMoreRows);
 
 function addMoreRows() {
     let numberOfIngredients = document.querySelectorAll(".ingredient-n").length;
+    let selectOptions = document.querySelector("[name=unit-1]");
+    let newSelect = selectOptions.innerHTML;
+    console.log(newSelect);
     let newIngredientRow = document.createElement("div");
     newIngredientRow.setAttribute("class", "ingredient-n row");
     newIngredientRow.innerHTML= `
@@ -86,13 +89,7 @@ function addMoreRows() {
                     <div class="col">
                         <label for="unit-${numberOfIngredients + 1}" class="form-label">Unit</label>
                         <select name="unit-${numberOfIngredients + 1}">
-                            <option value="" selected disabled hidden>Select Unit</option>
-                            <option value="tsp">Teaspoons</option>
-                            <option value="tbsp">Tablepoons</option>
-                            <option value="g">Grams</option>
-                            <option value="lbs">Pounds</option>
-                            <option value="oz">Ounces</option>
-                            <option value="none">None</option>
+                            ${newSelect}
                         </select>
                     </div>`;  
     const ingredientsContainer = document.getElementById("ingredientsContainer");
