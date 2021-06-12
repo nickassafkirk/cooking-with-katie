@@ -120,9 +120,10 @@ def account(username):
     username = user["username"]
 
     user_recipes = list(mongo.db.recipes.find())
+    categories = list(mongo.db.categories.find())
 
     if session["user"]:
-        return render_template("account.html", user=user, username=username, user_recipes=user_recipes)
+        return render_template("account.html", user=user, username=username, user_recipes=user_recipes, categories=categories)
 
     return redirect(url_for("sign_in"))
 
