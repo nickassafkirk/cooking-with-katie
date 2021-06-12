@@ -220,9 +220,9 @@ def add_recipe():
                 if not val:
                     continue
                 number = key.split('-')[-1]
-                quantity = request.form[f'quantity-{number}']
-                unit = request.form[f'unit-{number}']
-                ingredients.append({'number': number, 'ingredient': val, 'quantity': quantity, 'unit': unit})
+                quantity = request.form.get(f'quantity-{number}')
+                unit = request.form.get(f'unit-{number}')
+                ingredients.append({'number': number, 'name': val, 'quantity': quantity, 'unit': unit})
             # create instructions list
             if key.startswith("step"):
                 if not val:

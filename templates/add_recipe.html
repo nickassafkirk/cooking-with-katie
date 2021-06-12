@@ -129,7 +129,7 @@
                     <select name="unit-5">
                         {% for unit in unit_options %}
                           {% if unit.unit_name == "na" %}
-                            <option value="{{ unit.unit_name }}" selected disabled hidden>Select Unit (optional)</option>
+                            <option value="na" selected disabled hidden>Select Unit (optional)</option>
                           {% else %}
                             <option value="{{ unit.unit_symbol }}">{{ unit.unit_name }}</option>
                           {% endif %}
