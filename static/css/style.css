@@ -327,7 +327,11 @@ header .navbar a{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%)
+}
 
+.recipe-thumnail__view{
+    font-size: 1.8em;
+    color: #fff;
 }
 
 /* Recipes.html */
