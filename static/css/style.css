@@ -9,8 +9,8 @@
     --bg-sunset: #ecdba2;
     --txt-light: #efefef;
     --txt-dark: #111;
-    --txt-cute: #f759d4;
-    --accent: #ab47bc;
+    --txt-cute: rgb(247, 89, 212);
+    --accent: rgb(216, 62, 170);
     --accent-mint: #3deec8;
     --accent-mint-subtle: #a8ecde;
 }
@@ -228,7 +228,8 @@ header .navbar a{
 .half-container{
     margin: 0;
     padding: 0% 2% 2% 2%;
-    background-color: var(--accent-mint)
+    background-color: var(--accent-mint);
+    display: flex;
 }
 
 .half-container.right{
@@ -247,15 +248,23 @@ header .navbar a{
 }
 
 .txt-half__inner{
+    max-height: 40vh;
+    overflow-y: scroll;
     padding: 5%;
     background-color: var(--txt-light);
     border: 1px solid var(--txt-light);
     border-radius: 5px;
+    align-self: stretch;
 }
 
 .half__inner{
     background-color: var(--accent-mint);
+}
 
+.half__inner img{
+    height: 40vh;
+    width: 100%;
+    object-fit: cover;
 }
 
 /* subscribe form */

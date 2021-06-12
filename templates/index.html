@@ -88,8 +88,10 @@
         </div>
 
         <div class="col-md-6 half-container right">
-            <img src="https://images.pexels.com/photos/3771120/pexels-photo-3771120.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            <div class="half__inner">
+                <img src="https://images.pexels.com/photos/3771120/pexels-photo-3771120.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 alt="katie headshot" class="w-100">
+            </div>
         </div>
     </div>
 </div>
@@ -97,24 +99,26 @@
 <!-- Featured Ingredient Section -->
 <div class="container-fluid page-content-container mt-5">
     <div class="row">
+        {% for ingredient in ingredients %}
+        {% if ingredient.featured %}
         <div class="col-12 page-section__heading">
-            <h3>Featured Ingredient | Month</h3>
+            <h3>Featured Ingredient | {{ ingredient.name | capitalize}} </h3>
         </div>
         <div class="col-md-6 half-container left">
             <div class="half__inner">
-                <img src="static/img/stephanie-studer-ReXxkS1m1H0-unsplash.jpg" alt="featured ingredient" class="w-100">
+                <img src="{{ ingredient.image }}" alt="featured ingredient" class="w-100">
             </div>
         </div>
         <div class="col-md-6 half-container txt-half right">
             <div class="txt-half__inner">
                 <p>Each month we highlight an amazing seasonal ingredient for you to use in your recipes.</p>
-                <p>Submit your recipe which celebrates our chosen ingredient and you could win great prizes if your
-                    recipe comes out on top.</p>
-                <h4>This months featured ingredient is <span class="featured-ingredient">Asparagus</span></h4>
-
+                <p>This month's featured ingredient is {{ ingredient.name | capitalize}}.</p>
+                <p>Submit your recipe which celebrates {{ ingredient.name | capitalize}} and if your
+                    recipe comes out on top, you could win great prizes from our sponsors.</p>
             </div>
         </div>
-
+        {% endif %}
+        {% endfor %}
     </div>
 </div>
 
