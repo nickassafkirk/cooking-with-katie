@@ -330,7 +330,16 @@ header .navbar a{
 }
 
 .recipe-thumnail__view{
-    font-size: 1.8em;
+     font-family: 'Dancing script', cursive;
+     text-transform: capitalize;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #fff;
+    border: 2px dotted #fff;
+    border-radius: 5px;
+}
+
+.recipe-thumnail__view:hover{
     color: #fff;
 }
 
