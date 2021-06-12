@@ -358,8 +358,10 @@ header .navbar a{
 }
 
 /* Recipes.html */
+
+
 .recipe-thumbnail{
-    margin: 1%;
+    margin: 5%;
     padding: 2%;
     text-align: center;
     background-color: #fff;
@@ -367,11 +369,35 @@ header .navbar a{
     border-radius: 3px;
 }
 
+.recipe-thumbnail__title{
+    width: 100%;
+    margin: 0;
+    padding: 5%;
+    background-color: var(--txt-cute);
+}
+
+.recipe-thumbnail__title a{
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    Color: var(--txt-light);
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
 .recipe-thumbnail img{
     width: 90%;
-    height: 200px;
+    height: 25vh;
     margin: 2%;
     object-fit: cover;
+    object-position: center;
+}
+
+.recipe-intro{
+    width: 100%;
+    height: 15vh;
+    padding: 2% 5%;
+    overflow-x: hidden;
 }
 
 .recipe-owner{
@@ -391,6 +417,11 @@ header .navbar a{
     font-weight: 700;
 }
 
+/* rating form */
+
+.rating-form{
+    margin: 4% auto 2% auto;
+}
 .rating-button{
     color: rgba(0,0,0,0.3);
     border: none;
@@ -408,6 +439,7 @@ header .navbar a{
     color: #ffd700;
 }
 
+/* search */
 #search-recipes-form{
     background-color: lightgray;
     display: flex;
