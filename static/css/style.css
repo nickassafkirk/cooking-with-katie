@@ -152,6 +152,12 @@ header .navbar a{
     margin-left: auto;
 }
 
+.btn-custom{
+    background-color: var(--accent);
+    color: var(--txt-light);
+    padding: 1%;
+}
+
 /* index.html */
 
 .hero-container{
