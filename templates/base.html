@@ -28,7 +28,7 @@
                         alt="">
                 </div>
             </div>
-            <div class="login-area">
+            <div class="login-area d-none d-lg-block">
                 {% if session.user %}
                 <div class="account__mini">
                     <a href="{{ url_for('account', username=session['user']) }}"><i class="fas fa-user-alt"></i> My Account</a>
@@ -45,7 +45,7 @@
             
         
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-md navbar-custom">
+        <nav class="navbar navbar-expand-lg navbar-custom">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url_for('index') }}">Cooking With Katie</a>
                 <a class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -56,8 +56,22 @@
             </div>
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    
                     <ul class="navbar-nav">
+                        {% if session.user %}
+                        <li class="nav-item d-inline d-lg-none">
+                            <a href="{{ url_for('account', username=session['user']) }}" class="nav-link">My Account <i class="fas fa-user-alt"></i></a>
+                        </li>
+                        <li class="nav-item d-inline d-lg-none">
+                            <a href="{{ url_for('logout')}}" class="nav-link">Logout <i class="fas fa-sign-out-alt"></i></a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a href="{{ url_for('sign_up') }}" class="nav-link">Sign Up <i class="fas fa-edit"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url_for('sign_in') }}" class="nav-link">Sign In <i class="fas fa-user-alt"></i></a>
+                        </li> 
+                        {% endif %}
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
                         </li>
@@ -66,12 +80,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('add_recipe') }}">Add Recipe</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Upload</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
                         </li>
                     </ul>
                 </div>
