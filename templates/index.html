@@ -36,16 +36,35 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
-    <div class="subscribe-index-container">
-        <h3>Subscribe</h3>
-        <p>Sign-up to our newsletter to be the first to hear about new recipes, events and partner offers!</p>
-        <form action="" method="POST" id="subscribe-index">
-            <input type="email" name="subscribe" placeholder="Enter your email address">
-            <button type="submit" class="btn btn-subscribe">Subscribe <i class="far fa-paper-plane"></i></button>
-        </form>
+
+<!-- Featured recipes -->
+<div class="container-fluid page-content-container my-5">
+    <div class="row">
+        <div class="col-12 page-section__heading-alt">Featured Recipes</div>
+        {% for recipe in recipes %}
+        <div class="col-6 col-md-4 top-recipes" id="thumbnail-{{ recipe._id }}">
+            <div>
+                <a href="{{ url_for('recipe', recipe=recipe.title) }}">
+                    <div>
+                        <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+                    </div>
+                    <div class="recipe-thumnail-overlay">
+                        <h4>
+                            <span class="recipe-thumnail__title">{{ recipe.title }}</span>
+                            <span class="btn btn-border d-none recipe-thumnail__view">
+                                <p>View Recipe</p>
+                            </span>
+                        </h4>
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
+
+<!-- About Section -->
 <div class="container-fluid page-content-container">
     <div class="row">
         <div class="col-12 page-section__heading">
@@ -74,6 +93,8 @@
         </div>
     </div>
 </div>
+
+<!-- Featured Ingredient Section -->
 <div class="container-fluid page-content-container mt-5">
     <div class="row">
         <div class="col-12 page-section__heading">
@@ -96,29 +117,17 @@
 
     </div>
 </div>
-<div class="container-fluid page-content-container my-5">
-    <div class="row">
-        <div class="col-12 page-section__heading-alt">Featured Recipes</div>
-        {% for recipe in recipes %}
-        <div class="col-6 col-md-4 top-recipes" id="thumbnail-{{ recipe._id }}">
-            <div>
-                <a href="{{ url_for('recipe', recipe=recipe.title) }}">
-                    <div>
-                        <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
-                    </div>
-                    <div class="recipe-thumnail-overlay">
-                        <h4>
-                            <span class="recipe-thumnail__title">{{ recipe.title }}</span>
-                            <span class="btn btn-border d-none recipe-thumnail__view">
-                                <p>View Recipe</p>
-                            </span>
-                        </h4>
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-        {% endfor %}
+
+<!-- Subscribe bar -->
+<div class="container-fluid">
+    <div class="subscribe-index-container">
+        <h3>Subscribe</h3>
+        <p>Sign-up to our newsletter to be the first to hear about new recipes, events and partner offers!</p>
+        <form action="" method="POST" id="subscribe-index">
+            <input type="email" name="subscribe" placeholder="Enter your email address">
+            <button type="submit" class="btn btn-subscribe">Subscribe <i class="far fa-paper-plane"></i></button>
+        </form>
     </div>
 </div>
+
 {% endblock %}
