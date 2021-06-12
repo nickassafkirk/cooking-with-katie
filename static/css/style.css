@@ -397,7 +397,6 @@ header .navbar a{
     width: 100%;
     height: 15vh;
     padding: 2% 5%;
-    overflow-x: hidden;
 }
 
 .recipe-owner{
