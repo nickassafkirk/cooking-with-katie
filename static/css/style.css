@@ -226,8 +226,20 @@ header .navbar a{
 }
 
 .half-container{
-    padding: 0;
     margin: 0;
+    padding: 0% 2% 2% 2%;
+    background-color: var(--accent-mint)
+}
+
+.half-container.right{
+    margin: 0;
+    padding-left: 1%;
+    padding-right: 2%
+}
+
+.half-container.left{
+    padding-right: 1%;
+    padding-left: 2%;
 }
 
 .txt-half{
@@ -236,11 +248,16 @@ header .navbar a{
 
 .txt-half__inner{
     padding: 5%;
-    margin: 0 5%;
     background-color: var(--txt-light);
     border: 1px solid var(--txt-light);
     border-radius: 5px;
 }
+
+.half__inner{
+    background-color: var(--accent-mint);
+
+}
+
 
 
 
@@ -507,7 +524,6 @@ header .navbar a{
     padding: 2%;   border-radius: 0px 5px 5px 5px;
 }
 
-    background: red;
 /* Footer Styles */
 footer{
     background-color: var(--bg-sunset);
