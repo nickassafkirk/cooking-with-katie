@@ -7,7 +7,7 @@
 function clipParagraph(selector, maxLength) {
     let focusElements = document.querySelectorAll(selector);
     for (i = 0; i < focusElements.length; i++) {
-        let singleElement = focusElement[i];
+        let singleElement = focusElements[i];
         text = singleElement.innerText;
          if (text.length > maxLength) {
            let clippedElement = text.substr(0, maxLength) + " ...";

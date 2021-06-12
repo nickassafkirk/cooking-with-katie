@@ -1,20 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
-<h2 class="page-title">Recipes</h2>
-<div class="container-fluid page-content-container">
-    <div class="container-fluid p-0" id="search-area">
-        <form action="{{ url_for('search_recipes') }}" method="POST" id="search-recipes-form">
-        <div class="input-area">
-            <input type="text" name="search_recipe" id="search_recipe" placeholder="Search Recipes">
-            <label for="search_recipe" class="d-none">Search Recipes</label>
+<!-- Search area-->
+<div class="container-fluid page-content-container my-5">
+    <div class="row p-0">
+        <div class="col-12 page-section__heading-alt mb-0">Recipes</div>
+        <div class="col-12" id="search-area">
+            <form action="{{ url_for('search_recipes') }}" method="POST" id="search-recipes-form">
+                <div class="input-area">
+                    <input type="text" name="search_recipe" id="search_recipe" placeholder="Search Recipes">
+                    <label for="search_recipe" class="d-none">Search Recipes</label>
+                </div>
+                <div class="button-area">
+                    <button type="submit" class="btn btn-success">Search</button>
+                    <a href="{{ url_for('recipes') }}" class="btn btn-danger">Clear</a>
+                </div>
+            </form>
         </div>
-        <div class="button-area">
-            <button type="submit" class="btn btn-success">Search</button>
-            <a href="{{ url_for('recipes') }}" class="btn btn-danger">Clear</a>
-        </div>
-    </form>
     </div>
     
+    <!-- Recipe Thumbnails -->
     <div class="row">
         {% for recipe in recipes %}
             <div class="col-12 col-md-6 col-xl-4">

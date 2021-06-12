@@ -9,10 +9,13 @@
     --bg-sunset: #ecdba2;
     --txt-light: #efefef;
     --txt-dark: #111;
-    --txt-cute: rgb(247, 89, 212);
-    --accent: rgb(216, 62, 170);
+    --txt-cute: #f759d4;
+    --accent: #d83eaa;
+    --accent-subtle: #e785ca;
+    --accent-subtlest: #ebbbdc;
     --accent-mint: #3deec8;
-    --accent-mint-subtle: #a8ecde;
+    --accent-mint-subtle: #88e7d4;
+    --accent-mint-subtlest: #97ebda;
 }
 
 body{
@@ -439,13 +442,19 @@ header .navbar a{
 }
 
 /* search */
+
+#search-area{
+    margin-top: 0;
+    padding: 0%;
+}
+
 #search-recipes-form{
-    background-color: lightgray;
+    background-color: var(--accent-subtle);
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     padding: 2%;
-    margin: 1% auto;
+    margin: 0% auto;
 }
 
 .input-area{
@@ -454,7 +463,9 @@ header .navbar a{
 }
 
 #search_recipe{
-    border: 1px solid #fff;
+    border: 1px solid var(--txt-light);
+    background-color: var(--txt-light);
+    color: var(--txt-dark);
     padding: 1%;
     border-radius: 5px;
     width: 100%;
