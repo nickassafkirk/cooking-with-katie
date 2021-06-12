@@ -312,7 +312,7 @@ header .navbar a{
     position: absolute;
     top: 0;
     left: 0;
-    padding: 1%;
+    padding: 0%;
     height: 100%;
     width: 100%;
     z-index: 5;
@@ -324,14 +324,19 @@ header .navbar a{
 
 .recipe-thumnail-overlay  h4{
     position: absolute;
+    width: 80%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    font-family: 'Dancing script', cursive;
+    text-transform: capitalize;
+    font-size: 1.8rem;
+    font-weight: 700;
 }
 
 .recipe-thumnail__view{
-     font-family: 'Dancing script', cursive;
-     text-transform: capitalize;
+    font-family: 'Dancing script', cursive;
+    text-transform: capitalize;
     font-size: 1.4em;
     font-weight: 700;
     color: #fff;
