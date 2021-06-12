@@ -42,6 +42,7 @@
     <div class="row">
         <div class="col-12 page-section__heading-alt">Featured Recipes</div>
         {% for recipe in recipes %}
+        {% if loop.index <= 3 %}
         <div class="col-6 col-md-4 top-recipes" id="thumbnail-{{ recipe._id }}">
             <div>
                 <a href="{{ url_for('recipe', recipe=recipe.title) }}">
@@ -60,6 +61,7 @@
                 </a>
             </div>
         </div>
+        {% endif %}
         {% endfor %}
     </div>
 </div>
