@@ -2,6 +2,19 @@
 {% block content %}
 <h2 class="page-title">Recipes</h2>
 <div class="container-fluid page-content-container">
+    <div class="container-fluid" id="search-area">
+        <form action="{{ url_for('search_recipes') }}" method="POST" class="row" id="search-recipes-form">
+        <div class="col-12 col-md-7">
+            <input type="text" name="search_recipe" id="search_recipe" placeholder="Search Recipes">
+            <label for="search_recipe" class="d-none">Search Recipes</label>
+        </div>
+        <div class="col-12 col-md-5">
+            <button type="submit" class="btn btn-success">Search</button>
+            <a href="{{ url_for('recipes') }}" class="btn btn-danger">Clear</a>
+        </div>
+    </form>
+    </div>
+    
     <div class="row">
         {% for recipe in recipes %}
             <div class="col-12 col-md-6 col-lg-4">
