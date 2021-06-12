@@ -102,13 +102,14 @@
         {% for recipe in recipes %}
         <div class="col-6 col-md-4 top-recipes">
             <div>
-                <div>
-                    <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
-
-                </div>
-                <div class="recipe-thumnail-overlay">
-                    <h4>{{ recipe.title }}</h4>
-                </div>
+                <a href="{{ url_for('recipe', recipe=recipe.title) }}">
+                    <div>
+                        <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+                    </div>
+                    <div class="recipe-thumnail-overlay">
+                        <h4>{{ recipe.title }}</h4>
+                    </div>
+                </a>
             </div>
         </div>
         {% endfor %}
