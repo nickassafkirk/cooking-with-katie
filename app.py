@@ -1,5 +1,6 @@
 import os
 import datetime
+from functools import wraps
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for, jsonify)
@@ -28,6 +29,17 @@ MONGO_URI = os.environ.get("MONGO_URI")
 DATABASE = os.environ.get("MONGO_DBNAME")
 USER_UPLOADS = os.environ.get("USER_UPLOADS")
 RECIPES = "recipes"
+
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if "user" not in session:
+            flash("You must log in to view this page")
+            return redirect(url_for("sign_in"))
+        # user is in session
+        return f(*args, **kwargs)
+    return decorated_function
 
 
 @app.route("/")
@@ -111,6 +123,7 @@ def sign_in():
 
 
 @app.route("/account/<username>", methods=["GET", "POST"])
+@login_required
 def account(username):
     # grab the session user's username from db
     user = mongo.db.users.find_one(
