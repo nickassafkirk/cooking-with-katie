@@ -40,7 +40,7 @@
 <!-- Featured recipes -->
 <div class="container-fluid page-content-container my-5">
     <div class="row">
-        <div class="col-12 page-section__heading-alt">Featured Recipes</div>
+        <div class="col-12 page-section__heading pink">Featured Recipes</div>
         {% for recipe in recipes %}
         {% if loop.index <= 3 %}
         <div class="col-6 col-md-4 top-recipes" id="thumbnail-{{ recipe._id }}">
@@ -69,7 +69,7 @@
 <!-- About Section -->
 <div class="container-fluid page-content-container">
     <div class="row">
-        <div class="col-12 page-section__heading">
+        <div class="col-12 page-section__heading mint">
             <h3>About Katie</h3>
         </div>
         <div class="col-md-6 half-container txt-half left">
@@ -103,7 +103,7 @@
     <div class="row">
         {% for ingredient in ingredients %}
         {% if ingredient.featured %}
-        <div class="col-12 page-section__heading">
+        <div class="col-12 page-section__heading mint">
             <h3>Featured Ingredient | {{ ingredient.name | capitalize}} </h3>
         </div>
         <div class="col-md-6 half-container left">
