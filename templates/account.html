@@ -72,27 +72,32 @@
         <!-- User Recipes Area -->
         <div class="tab-pane fade" id="v-pills-recipes" role="tabpanel" aria-labelledby="v-pills-recipes-tab">
             <div class="container account-recipe__container">
-                <div class="account-container__heading">
-                    <h4>Your Recipes</h4>
-                </div>
                 <!-- Submitted recipes -->
 
                 {% if session['user'] == "admin" %}
+                <div class="account-container__heading">
+                    <h4>Total recipes: {{recipes | length}}</h4>
+                </div>
                 {% for recipe in recipes %}
                 <div class="account-recipe">
-                    <a href="#" class="text-red">{{ recipe.title }}</a>
-                    <p><img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img"></p>
+                    <h4 class="recipe-thumbnail__title"><a href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a></h4>
+                    <div><img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img"></div>
+                    <p class="recipe-intro">{{ recipe.intro }}</p>
                     <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-success">Edit Recipe</a>
                     <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>
                 </div>
                 {% endfor %}
                 {% else %}
+                <div class="account-container__heading">
+                    <h4>You have {{user_recipes | length}} recipes</h4>
+                </div>
                 <!-- If user has recipes list user_recipes -->
                 {% if user_recipes | length > 0 %}
                 {% for recipe in user_recipes %}
                 <div class="account-recipe">
-                    <a href="#" class="text-red">{{ recipe.title }}</a>
-                    <p><img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img"></p>
+                    <h4 class="recipe-thumbnail__title"><a href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a></h4>
+                    <div><img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img"></div>
+                    <p class="recipe-intro">{{ recipe.intro }}</p>
                     <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-success">Edit Recipe</a>
                     <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>
                 </div>
