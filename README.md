@@ -179,6 +179,17 @@ Content was copied from https://www.bbcgoodfood.com/recipes/easy-pancakes
    - To enable users to upload images for their recipes, cloudinary was used as a hosting service. To connect the application to cloudinary, 
    [this documentation was followed](https://cloudinary.com/blog/creating_an_api_with_python_flask_to_upload_files_to_cloudinary)
 
+4. @login_required
+   - To add additional site security and to prevent user error and malicous behavior the @login_rquired decorator was used throughout this project.
+   This code was taken from code institute tutor [Tim Nelson's github](https://github.com/TravelTimN/flask-task-manager-project/commit/6e9fbdd74efc27e781fb5969a7b374b6c6778b41).  
+   Additional information was found in [Flask's documentation](https://flask.palletsprojects.com/en/2.0.x/patterns/viewdecorators/#login-required-decorator)        
+            def login_required(f):  
+            @wraps(f)   
+            def decorated_function(*args, **kwargs):            
+                if g.user is None:            
+                    return redirect(url_for('login', next=request.url))             
+                return f(*args, **kwargs)           
+            return decorated_function      
 
 ---
 ## Deployment
