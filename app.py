@@ -142,6 +142,7 @@ def account(username):
 
 
 @app.route("/logout")
+@login_required
 def logout():
     # remove user from session cookies
     flash("You have been logged out")
@@ -150,6 +151,7 @@ def logout():
 
 
 @app.route("/update_user/<user_id>", methods=["GET", "POST"])
+@login_required
 def update_user(user_id):
     user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
     if request.method == "POST":
@@ -275,6 +277,7 @@ def add_recipe():
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+@login_required
 def edit_recipe(recipe_id):
 
     # get static values
@@ -345,6 +348,7 @@ def edit_recipe(recipe_id):
 
 
 @app.route("/delete_recipe/<recipe_id>")
+@login_required
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe was deleted")
