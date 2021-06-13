@@ -65,10 +65,10 @@
                             <a href="{{ url_for('logout')}}" class="nav-link">Logout <i class="fas fa-sign-out-alt"></i></a>
                         </li>
                         {% else %}
-                        <li class="nav-item">
+                        <li class="nav-item d-inline d-lg-none">
                             <a href="{{ url_for('sign_up') }}" class="nav-link">Sign Up <i class="fas fa-edit"></i></a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item d-inline d-lg-none">
                             <a href="{{ url_for('sign_in') }}" class="nav-link">Sign In <i class="fas fa-user-alt"></i></a>
                         </li> 
                         {% endif %}
