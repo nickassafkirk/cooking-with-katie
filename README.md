@@ -163,6 +163,20 @@ Content was copied from https://www.bbcgoodfood.com/recipes/easy-pancakes
 4. [Banana Bread Hero Sub Image](https://unsplash.com/photos/iNqQyOw8mx0)
    Credit Chelsea shapouri from [Unsplash.com](https://unsplash.com/)
 
+5. [Asparagus Photo](https://unsplash.com/photos/ReXxkS1m1H0)
+   Credit Stephanie Struder from [Unsplash.com](https://unsplash.com/)
+
+6. [Pasta Making Image](https://unsplash.com/photos/4nXkhLCrkLo)
+   Credit Jorge Zapata from [Unsplash.com](https://unsplash.com/)
+
+7. [Potato Cakes](https://unsplash.com/photos/qbjkVIixPCY)
+   Credit MadMax Chef from [Unsplash.com](https://unsplash.com/)
+
+8. [Omelette Image](https://unsplash.com/photos/N0u8bLrB_-g)
+   Credit Igor Miske from [Unsplash.com](https://unsplash.com/)
+
+9. [About US headshot Image](https://www.pexels.com/photo/delighted-ethnic-woman-cooking-in-kitchen-3771120/)
+   Credit Andrea Piacquadio from [Pexels.com](https://www.pexels.com/)
 
 ### Code Credits
 
