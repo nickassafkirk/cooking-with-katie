@@ -497,7 +497,6 @@ header .navbar a{
 }
 
 #search-recipes-form{
-    background-color: var(--green-light);
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
