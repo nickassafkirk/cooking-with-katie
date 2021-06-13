@@ -1,24 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap&family=Abril+Fatface&family=Fjalla+One&family=Montserrat&display=swap');
 
 :root{
-    --green-main: #1b5e20;
-    --green-dark: #003300;
-    --green-light: #4c8c4a;
+    
+    /* Main Bg colors */
     --bg-main: #efebe9;
-    --bg-beige: #e5e0be;
-    --bg-sunset: #ecdba2;
-    --sunset-light: #f1ebd4;
+    --bg-sunset: #ecdbb2;
+    --sunset-light: #ffffe4;
+    /* Text colors */
     --txt-light: #efefef;
     --txt-dark: #111;
     --txt-cute: #f759d4;
-    --grey-mid: rgb(167, 167, 167);
-    --grey-light: rgba(253, 175, 221, 0.1);
-    --accent: #d83eaa;
-    --accent-subtle: #e785ca;
-    --accent-subtlest: #ebbbdc;
-    --accent-mint: #3deec8;
-    --accent-mint-subtle: #88e7d4;
-    --accent-mint-subtlest: #97ebda;
+
+    /* Accent colors */
+    --grey: #bcbcbc;
+    --grey-light: #eeeeee;
+    --grey-dark: #8c8c8c;
+    --pink: #e290cb;
+    --pink-light: #ffc1fe;
+    --pink-dark: #af619a;
+    --mint: #B9E2DA;
+    --mint-dark: #89b0a9;
+    --mint-light: #edffff;
+    --green: #00685b;
+    --green-dark: #003d32;
+    --green-light: #439688;
+
+    /* Fonts */
     --font-1: 'Montserrat', sans-serif;
     --font-2: 'Fjalla One', sans-serif;
     --font-3: 'Dancing script', cursive;
@@ -140,7 +147,7 @@ header .navbar a{
     font-family: 'Dancing script', cursive;
     font-size: 3em;
     font-weight: 700;
-    color: rgb(216, 62, 170);
+    color: var(--txt-cute);
     margin-left: 5%;
 }
 
@@ -148,7 +155,7 @@ header .navbar a{
     font-family: 'Dancing script', cursive;
     font-size: 1.4em;
     font-weight: 700;
-    color: rgb(216, 62, 170);
+    color: var(--txt-cute);
     text-shadow: 2px 2px #fff;
 }
 
@@ -159,9 +166,47 @@ header .navbar a{
 }
 
 .btn-custom{
-    background-color: var(--accent);
     color: var(--txt-light);
     padding: 1%;
+}
+
+/* color classes */
+
+.pink{
+    background-color: var(--accent-pink);
+}
+.pink-dark{
+    background-color: var(--accent-pink-dark);
+}
+.pink-light{
+    background-color: var(--accent-pink-light);
+}
+.green{
+    background-color: var(--green-main);
+}
+.green-dark{
+    background-color: var(--green-dark);
+}
+.green-light{
+    background-color: var(--green-light);
+}
+.mint{
+    background-color: var(--accent-mint);
+}
+.mint-dark{
+    background-color: var(--accent-mint-dark);
+}
+.mint-light{
+    background-color: var(--accent-mint-light);
+}
+.grey{
+    background-color: var(--grey);
+}
+.grey-dark{
+    background-color: var(--grey-dark);
+}
+.grey-light{
+    background-color: var(--grey-light);
 }
 
 /* index.html */
