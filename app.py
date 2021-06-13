@@ -187,8 +187,6 @@ def search_recipes():
 def recipe(recipe):
     recipe = mongo.db.recipes.find_one({"title": recipe})
     ingredients = list(recipe["ingredients"])
-
-    print(recipe)
     return render_template("recipe.html", recipe=recipe, ingredients=ingredients)
 
 
