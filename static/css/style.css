@@ -7,15 +7,21 @@
     --bg-main: #efebe9;
     --bg-beige: #e5e0be;
     --bg-sunset: #ecdba2;
+    --sunset-light: #f1ebd4;
     --txt-light: #efefef;
     --txt-dark: #111;
     --txt-cute: #f759d4;
+    --grey-mid: rgb(167, 167, 167);
+    --grey-light: rgba(253, 175, 221, 0.1);
     --accent: #d83eaa;
     --accent-subtle: #e785ca;
     --accent-subtlest: #ebbbdc;
     --accent-mint: #3deec8;
     --accent-mint-subtle: #88e7d4;
     --accent-mint-subtlest: #97ebda;
+    --font-1: 'Montserrat', sans-serif;
+    --font-2: 'Fjalla One', sans-serif;
+    --font-3: 'Dancing script', cursive;
 }
 
 body{
@@ -612,7 +618,9 @@ header .navbar a{
     flex-basis: 40%;
     padding: 2%;
     margin: 2%;
-    border: 2px solid var(--txt-dark);
+    text-align: center;
+    background-color: #fefefe;
+    border: 2px solid var(--grey-mid);
     border-radius: 3px;
 }
 
@@ -626,6 +634,22 @@ header .navbar a{
     width: 45%;
 }
 
+#account-tab .nav-link{
+    background-color: var(--grey-light);
+    border: 1px solid var(--grey-mid) !important;
+    font-family: var(--font-2);
+}
+
+#account-tab .nav-link.active{
+    background-color: green !important;
+    color: var(--txt-light) !important;
+}
+
+#account-tab .nav-link:hover{
+    background-color: orange;
+}
+
+
 #account-tab{
     width: 90%;
     margin: 0 auto;
@@ -634,7 +658,10 @@ header .navbar a{
 #account-tabContent{
     width: 90%;
     margin: 0 auto;
-    padding: 2%;   border-radius: 0px 5px 5px 5px;
+    padding: 2%;   
+    border-radius: 0px 5px 5px 5px;
+    background-color: var(--grey-light);
+    border: 1px solid var(--grey-mid);
 }
 
 /* Footer Styles */
