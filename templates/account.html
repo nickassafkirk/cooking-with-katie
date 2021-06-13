@@ -9,12 +9,13 @@
             data-bs-target="#v-pills-account-details" type="button" role="tab" aria-controls="v-pills-account-details"
             aria-selected="true">Account Details</button>
         <button class="nav-link" id="v-pills-recipes-tab" data-bs-toggle="pill" data-bs-target="#v-pills-recipes"
-            type="button" role="tab" aria-controls="v-pills-recipes" aria-selected="false">My Recipes</button>
+            type="button" role="tab" aria-controls="v-pills-recipes" aria-selected="false">Recipes</button>
         <button class="nav-link" id="v-pills-change-password-tab" data-bs-toggle="pill" data-bs-target="#v-pills-change-password"
             type="button" role="tab" aria-controls="v-pills-change-password" aria-selected="false">Change Password</button>
         {% if user.is_admin %}
         <button class="nav-link" id="v-pills-add-categories-tab" data-bs-toggle="pill" data-bs-target="#v-pills-add-categories"
             type="button" role="tab" aria-controls="v-pills-add-categories" aria-selected="false">Add Categories</button>
+        
 
         {% endif %}
     </div>
@@ -73,22 +74,39 @@
                     <h4>Your Recipes</h4>
                 </div>
                 <!-- Submitted recipes -->
-                {% for recipe in user_recipes %}
-                {% if recipe.created_by == username %}
+
+                {% if session['user'] == "admin" %}
+                {% for recipe in recipes %}
                 <div class="account-recipe">
                     <a href="#" class="text-red">{{ recipe.title }}</a>
                     <p><img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img"></p>
                     <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-success">Edit Recipe</a>
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete
-                        Recipe</a>
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>
                 </div>
+                {% endfor %}
+                {% else %}
+                <!-- If user has recipes list user_recipes -->
+                {% if user_recipes | length > 0 %}
+                {% for recipe in user_recipes %}
+                <div class="account-recipe">
+                    <a href="#" class="text-red">{{ recipe.title }}</a>
+                    <p><img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img"></p>
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-success">Edit Recipe</a>
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>
+                </div>
+                {% endfor %}
+                <div>
+                    <a href="{{ url_for('add_recipe') }}" class="btn btn-custom">Add New Recipe</a>
+                </div>
+                <!-- List no recipes + link to add recipe -->
                 {% else %}
                 <div>
-                    <p>You haven't added any recipes, <a href="">add recipe here</a></p>
+                    <p>
+                        You haven't added any recipes, <a href="{{ url_for('add_recipe') }}">add your first recipe here</a>
+                    </p>
                 </div>
-
                 {% endif %}
-                {% endfor %}
+                {% endif %}
             </div>
         </div>
 

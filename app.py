@@ -132,11 +132,14 @@ def account(username):
     # we only want to return the username from the user
     username = user["username"]
 
-    user_recipes = list(mongo.db.recipes.find())
+    recipes = list(mongo.db.recipes.find())
+    user_recipes = list(mongo.db.recipes.find({"created_by": username}))
     categories = list(mongo.db.categories.find())
 
+    print(user_recipes)
+
     if session["user"]:
-        return render_template("account.html", user=user, username=username, user_recipes=user_recipes, categories=categories)
+        return render_template("account.html", user=user, username=username, recipes=recipes, user_recipes=user_recipes, categories=categories)
 
     return redirect(url_for("sign_in"))
 
