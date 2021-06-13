@@ -586,6 +586,12 @@ header .navbar a{
     text-align: center;
 }
 
+.img-preview{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
 #add_recipe-form p, #add_recipe-form button{
     margin: 2% auto 0 auto;
     padding: 1%;
@@ -649,7 +655,7 @@ header .navbar a{
 
 .account-recipe{
     flex-basis: 40%;
-    padding: 2%;
+    padding: 0%;
     margin: 2%;
     text-align: center;
     background-color:var(--grey-light);
@@ -658,13 +664,15 @@ header .navbar a{
 }
 
 .thumbnail-img{
-    height: 150px;
-    width: 150px;
+    padding: 5%;
+    height: 250px;
+    width: 80%;
     object-fit: cover;
 }
 
 .account-recipe .btn{
     width: 45%;
+    margin-bottom: 5%;
 }
 
 #account-tab .nav-link{
