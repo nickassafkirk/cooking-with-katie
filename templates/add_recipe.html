@@ -1,16 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container-fluid add-recipe__container">
+
+
 <div class="container my-5 mx-auto">
-    <div class="diagonal-box">
-        <div class="content-box">
-            <h3>Add your Recipe</h3>
-        </div>
-    </div>
     <h2>Add Your Recipe</h2>
     <hr>
     <p>Follow the steps to add your own recipe for other readers to try and enjoy.</p>
     <p>Remember to provide clear instructions to guide chefs of all levels and to add great images to show off your recipes.</p>
+    <div class="diagonal-split">
+        <div class="content">
+            <h3>Add your Recipe</h3>
+        </div>
+    </div>
+
 
     <form action="/add_recipe" method="POST" enctype="multipart/form-data" id="add_recipe-form">
         <div>
@@ -222,6 +226,8 @@
             </button>
         </div>
     </form>
+</div>
+
 </div>
 
 
