@@ -6,6 +6,8 @@
     --bg-main: #efebe9;
     --bg-sunset: #ecdbb2;
     --sunset-light: #ffffe4;
+    --sunset-gradient: linear-gradient(to right,#B9E2DA, #ecdbb2,#ffc1fe);
+    --sunset-gradient-reverse: linear-gradient(to left,#B9E2DA, #ecdbb2,#f3ae2e);
     /* Text colors */
     --txt-light: #efefef;
     --txt-dark: #111;
@@ -33,7 +35,7 @@
 
 body{
     font-family: var(--font-1);
-    background-color: var(--bg-main);
+    background: var(--bg-main);
     color: var(--txt-dark);
     font-size: 16px;
 }
@@ -55,7 +57,7 @@ body{
 
 /* Header Styles */
 header{
-    background-color: var(--bg-sunset);
+    background-image: var(--sunset-gradient);
 }
 
 .banner__container{
@@ -212,7 +214,7 @@ header .navbar a{
 /* index.html */
 
 .hero-container{
-    background-color: var(--bg-sunset);
+    background: var(--sunset-gradient);
 }
 
 .hero-main, .hero-split{
@@ -707,7 +709,7 @@ header .navbar a{
 
 /* Footer Styles */
 footer{
-    background-color: var(--bg-sunset);
+    background: var(--sunset-gradient);
     font-size: 1.2em;
     font-weight: 700;
     color: var(--txt-dark);
@@ -731,6 +733,19 @@ footer{
     padding-bottom: 0.5%;
     width: 30%;
     margin: 0 auto;
+}
+
+.diagonal-box {
+    margin: 5% auto;
+    height: 200px;
+	background-image: linear-gradient(45deg, var(--green-dark), var(--green-light));
+	transform: skewY(5deg);
+}
+
+.content {
+	max-width: 50em;
+	margin: 0 auto;
+	transform: skewY(-5deg);
 }
 
 @media screen and (min-width: 992px) {
