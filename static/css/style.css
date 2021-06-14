@@ -8,6 +8,8 @@
     --sunset-light: #ffffe4;
     --sunset-gradient: linear-gradient(to right,#B9E2DA, #ecdbb2,#ffc1fe);
     --sunset-gradient-reverse: linear-gradient(to left,#B9E2DA, #ecdbb2,#f3ae2e);
+    --blue-gradient: linear-gradient(to right, rgb(254, 255, 255), rgb(184, 207, 221));
+    --blue-gradient-reverse: linear-gradient(to bottom,rgb(184, 207, 221), rgb(254, 255, 255) , rgb(184, 207, 221)) 50%;
     /* Text colors */
     --txt-light: #efefef;
     --txt-dark: #111;
@@ -57,7 +59,10 @@ body{
 
 /* Header Styles */
 header{
-    background-image: var(--sunset-gradient);
+    background: url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=931&q=80'), 
+    var(--blue-gradient);
+    background-size: auto;
+    background-repeat: no-repeat;
 }
 
 .banner__container{
@@ -214,7 +219,7 @@ header .navbar a{
 /* index.html */
 
 .hero-container{
-    background: var(--sunset-gradient);
+    background: var(--blue-gradient);
 }
 
 .hero-main, .hero-split{
@@ -709,7 +714,7 @@ header .navbar a{
 
 /* Footer Styles */
 footer{
-    background: var(--sunset-gradient);
+    background: var(--blue-gradient-reverse);
     font-size: 1.2em;
     font-weight: 700;
     color: var(--txt-dark);
@@ -735,19 +740,39 @@ footer{
     margin: 0 auto;
 }
 
-.diagonal-box {
-    margin: 5% auto;
-    height: 200px;
-	background-image: linear-gradient(45deg, var(--green-dark), var(--green-light));
-	transform: skewY(5deg);
+/* decorative divs */
+
+.diagonal-split{
+    height: 15vh;
+    width: 100%;
+    background: linear-gradient(
+        to top right,
+        var(--green-light),
+        var(--green-dark)
+        );
+    position: relative;
+    top: 0;
+    left: 0;
 }
 
-.content {
-	max-width: 50em;
-	margin: 0 auto;
-	transform: skewY(-5deg);
+.content{
+    position: absolute;
+    background: transparent;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: var(--font-2);
+    text-transform: uppercase;
+    color: #fff;
 }
 
+.add-recipe__container{
+    background: url('https://images.unsplash.com/photo-1591589234465-7e88e2f7b154?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fGNhcnRvb24lMjB2ZWdldGFibGV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+    background-size:  100%;
+    background-position: left;
+    background-repeat: no-repeat;
+}
 @media screen and (min-width: 992px) {
     .page-content-container{
         width: 75%;
