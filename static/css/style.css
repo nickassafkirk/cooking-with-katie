@@ -195,7 +195,7 @@ header .navbar a{
 }
 
 .page-content-container{
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -340,9 +340,9 @@ header .navbar a{
 /* subscribe form */
 
 .subscribe-index-container{
-    width: 75%;
-    margin: 2% auto;
-    padding: 2%;
+    width: 90%;
+    margin: 10% auto;
+    padding: 5%;
     background-color: #fff;
     border: 1px solid #fff;
     border-radius: 5px;
@@ -358,9 +358,10 @@ header .navbar a{
 }
 
 .subscribe-index-container input{
-    width: 40%;
+    width: 100%;
     border: none;
     border-bottom: 1px solid var(--grey);
+    margin: 5% auto;
 }
 
 .btn-subscribe{
@@ -428,7 +429,6 @@ header .navbar a{
 }
 
 /* Recipes.html */
-
 
 .recipe-thumbnail{
     margin: 5%;
@@ -863,6 +863,16 @@ footer{
         padding: 1rem;
         padding-left: 0.5rem;
         padding-top: 0.5rem;
+    }
+
+    .subscribe-index-container{
+        margin: 5% auto;
+        padding: 2%;
+    }
+
+    .subscribe-index-container input{
+        width: 60%;
+        margin: 1% auto;
     }
 }
 

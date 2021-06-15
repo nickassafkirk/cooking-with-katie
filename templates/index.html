@@ -37,45 +37,49 @@
 <!-- hero banner mobile -->
 
 <div id="carouselExampleCaptions" class="carousel slide d-block d-md-none mt-2" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active hero-main">
-      <img src="static/img/pexels-andrea-piacquadio-3769999.jpg" class="d-block w-100" alt="...">
-      <div class="hero-caption">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active hero-main">
+            <img src="static/img/pexels-andrea-piacquadio-3769999.jpg" class="d-block w-100" alt="...">
+            <div class="hero-caption">
                 <h5 class="logo mt-5 mb-3">Cooking with Katie</h5>
                 <p>Cooking with Katie is an online recipe sharing platform.</p>
                 <p class="d-none d-md-inline">Our mission is to connect food lovers by providing a platform to learn and
                     share
                     recipes with like-minded foodies from around the world</p>
             </div>
+        </div>
+        <div class="carousel-item hero-main">
+            <img src="static/img/chelsea-shapouri-iNqQyOw8mx0-unsplash.jpg" class="d-block w-100" alt="...">
+            <div class="hero-caption">
+                <h3>New Recipes Daily</h3>
+                <p>Learn exciting new recipes from our team of amazing chefs and staff writers</p>
+            </div>
+        </div>
+        <div class="carousel-item hero-main">
+            <img src="https://images.unsplash.com/photo-1447279506476-3faec8071eee?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                class="d-block w-100" alt="...">
+            <div class="hero-caption">
+                <h3>Learn new skills and techniques</h3>
+                <p>In our weekly tutorials</p>
+            </div>
+        </div>
     </div>
-    <div class="carousel-item hero-main">
-      <img src="static/img/chelsea-shapouri-iNqQyOw8mx0-unsplash.jpg" class="d-block w-100" alt="...">
-      <div class="hero-caption">
-                    <h3>New Recipes Daily</h3>
-                    <p>Learn exciting new recipes from our team of amazing chefs and staff writers</p>
-                </div>
-    </div>
-    <div class="carousel-item hero-main">
-      <img src="https://images.unsplash.com/photo-1447279506476-3faec8071eee?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" class="d-block w-100" alt="...">
-       <div class="hero-caption">
-                    <h3>Learn new skills and techniques</h3>
-                    <p>In our weekly tutorials</p>
-                </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
 
 <!-- Featured recipes -->
@@ -97,7 +101,7 @@
                                 <p>View Recipe</p>
                             </span>
                         </h4>
-                        
+
                     </div>
                 </a>
             </div>
@@ -133,7 +137,7 @@
         <div class="col-md-6 half-container right">
             <div class="half__inner">
                 <img src="https://images.pexels.com/photos/3771120/pexels-photo-3771120.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                alt="katie headshot" class="w-100">
+                    alt="katie headshot" class="w-100">
             </div>
         </div>
     </div>
@@ -158,7 +162,8 @@
                 <p>This month's featured ingredient is {{ ingredient.name | capitalize}}.</p>
                 <p>Submit your recipe which celebrates {{ ingredient.name | capitalize}} and if your
                     recipe comes out on top, you could win great prizes from our sponsors.</p>
-                <a href="{{ url_for('add_recipe') }}" class="d-block btn btn-custom pink w-50 mt-5 mx-auto">Submit Your Recipe <i class="fas fa-carrot"></i></a>
+                <a href="{{ url_for('add_recipe') }}" class="d-block btn btn-custom pink w-50 mt-5 mx-auto">Submit Your
+                    Recipe <i class="fas fa-carrot"></i></a>
             </div>
         </div>
         {% endif %}
@@ -167,15 +172,14 @@
 </div>
 
 <!-- Subscribe bar -->
-<div class="container-fluid">
-    <div class="subscribe-index-container">
-        <h3>Subscribe</h3>
-        <p>Sign-up to our newsletter to be the first to hear about new recipes, events and partner offers!</p>
-        <form action="" method="POST" id="subscribe-index">
-            <input type="email" name="subscribe" placeholder="Enter your email address">
-            <button type="submit" class="btn btn-subscribe">Subscribe <i class="far fa-paper-plane"></i></button>
-        </form>
-    </div>
+<div class="subscribe-index-container page-content-container">
+    <h3>Subscribe</h3>
+    <p>Sign-up to our newsletter to be the first to hear about new recipes, events and partner offers!</p>
+    <form action="" method="POST" id="subscribe-index">
+        <input type="email" name="subscribe" placeholder="Enter your email address" class="d-block d-md-inline">
+        <button type="submit" class="btn btn-subscribe">Subscribe <i class="far fa-paper-plane"></i></button>
+    </form>
 </div>
+
 
 {% endblock %}
