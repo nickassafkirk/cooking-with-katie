@@ -212,7 +212,6 @@ header .navbar a{
 }
 
 .hero-main{
-    height: 50vh;
     padding: 0;
 }
 
@@ -271,6 +270,27 @@ header .navbar a{
     font-weight: 700;
     text-shadow: 2px 2px var(--txt-dark);
     color: var(--txt-light);
+}
+
+.carousel-indicators{
+    background-color: none;
+    border: none;
+}
+
+.carousel-indicators button{
+    background-color: none;
+    border: none;
+}
+
+.carousel-control-next, .carousel-control-prev{
+    background: none;
+    border: none;
+
+}
+
+.carousel-indicators::before, .carousel-indicators::after{
+    background: none;
+    border: none;
 }
 
 /* page content */
@@ -824,8 +844,13 @@ footer{
 
 @media screen and (min-width: 768px) {
     .hero-main {
+        height: 60vh;
         padding: 1rem;
         padding-right: 0.5rem;
+    }
+
+    .hero-split{
+        height: 30vh;
     }
 
     .hero-split.top {
