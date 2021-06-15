@@ -130,9 +130,19 @@ header{
     flex-grow: 0;
 }
 
+.navbar-toggler{
+  font-size: 1.5rem;
+  color: var(--txt-cute);
+  background: rgba(255,255,255,0.9);
+}
+
+.navbar-toggler i{
+    color: var(--txt-cute);
+}
+
 header .navbar a{
     font-family: var(--font-2);
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 700;
     text-shadow: 2px 2px #fff;
     color: var(--txt-dark);
@@ -140,7 +150,8 @@ header .navbar a{
 
 .navbar-custom .navbar-brand{
     font-family: var(--font-3);
-    font-size: 2.5em;
+    margin-left: auto;
+    font-size: 2em;
     font-weight: 700;
     color: var(--txt-cute);
     text-shadow: 2px 2px #fff;
@@ -154,13 +165,21 @@ header .navbar a{
     text-shadow: 2px 2px #fff;
 }
 
-.collapse.navbar-collapse{
-    width: 100%;
+.collapse, .show, .collapsing{
+    
     margin-left: auto;
     margin-right: 0;
     padding-right: 5%;
-    text-align: right;
+    text-align: center;
+    background: rgba(255,255,255,0.9);
+    font-size: 1rem;
+    width: 50%;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 1000;
 }
+
 
 /* index.html */
 
@@ -797,5 +816,10 @@ footer{
 @media screen and (min-width: 992px) {
     .page-content-container{
         width: 75%;
+    }
+
+    .collapse, .show, .collapsing{
+        position: static;
+        background: none;
     }
 }
