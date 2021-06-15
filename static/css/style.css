@@ -81,6 +81,7 @@ body{
     background: var(--bg-main);
     color: var(--txt-dark);
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 .btn-custom{
@@ -202,6 +203,7 @@ header .navbar a{
 
 .hero-container{
     background: var(--blue-gradient);
+    margin: 0 auto;
 }
 
 .hero-main, .hero-split{
@@ -210,7 +212,14 @@ header .navbar a{
 }
 
 .hero-main{
-    margin: 2rem auto;
+    height: 50vh;
+    padding: 0;
+}
+
+.hero-main__img{
+  height: 100%; 
+  width: 100%; 
+  object-fit: cover;
 }
 
 .hero-main::after, .hero-split::after{
@@ -224,29 +233,26 @@ header .navbar a{
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.hero-main__img{
-  height: 60vh; 
-  width: 100%; 
-  object-fit: cover;
-}
-
 .hero-caption{
     position: absolute;
+    width: 100%;
     top: 50%;
     left: 50%;
     z-index: 5;
     transform: translate(-50%, -50%);
     color: var(--txt-light);
     text-align: center;
+    padding: 4%;
 }
 
 .hero-caption .logo{
-    font-size: 4em;
+    font-size: 2em;
 }
 
 .hero-split{
-  height: 30vh;
-  margin: 1rem auto;
+  height: 25vh;
+  width: 100%;
+  padding: 0;
 }
 
 .hero-split__img{
@@ -254,6 +260,7 @@ header .navbar a{
   width: 100%; 
   object-fit: cover;
 }
+
 
 .page-section__heading{
     width: 100%;
@@ -265,6 +272,8 @@ header .navbar a{
     text-shadow: 2px 2px var(--txt-dark);
     color: var(--txt-light);
 }
+
+/* page content */
 
 .half-container{
     margin: 0;
@@ -702,8 +711,8 @@ footer{
     color: var(--txt-dark);
     text-shadow: 2px 2px #fff;
     text-align: center; 
-    margin: 5% auto;
-    padding: 5%;
+    margin: 5% auto 0 auto;
+    padding: 2%;
 }
 
 .footer__social-icons{
@@ -717,7 +726,6 @@ footer{
 
 .footer__social-heading{
     border-bottom: 2px solid var(--txt-cute);
-    padding-bottom: 0.5%;
     width: 30%;
     margin: 0 auto;
 }
@@ -813,6 +821,26 @@ footer{
     background-position: left;
     background-repeat: no-repeat;
 }
+
+@media screen and (min-width: 768px) {
+    .hero-main {
+        padding: 1rem;
+        padding-right: 0.5rem;
+    }
+
+    .hero-split.top {
+        padding: 1rem;
+        padding-left: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .hero-split.bottom {
+        padding: 1rem;
+        padding-left: 0.5rem;
+        padding-top: 0.5rem;
+    }
+}
+
 @media screen and (min-width: 992px) {
     .page-content-container{
         width: 75%;
