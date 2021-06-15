@@ -266,7 +266,7 @@ header .navbar a{
     text-align: center;
     padding: 2%;
     font-family: var(--font-2);
-    font-size: 3rem;
+    font-size: 1.5rem;
     font-weight: 700;
     text-shadow: 2px 2px var(--txt-dark);
     color: var(--txt-light);
@@ -351,10 +351,14 @@ header .navbar a{
 
 .subscribe-index-container h3{
     font-family: var(--font-2);
-    font-size: 2.4em;
+    font-size: 1.5rem;
     text-transform: uppercase;
     padding-bottom: 1%;
     text-decoration: underline;
+}
+
+.subscribe-index-container{
+    font-size: 0.9rem;
 }
 
 .subscribe-index-container input{
@@ -637,7 +641,7 @@ header .navbar a{
     Text-transform: uppercase;
     color: var(--txt-light);
     font-family: var(--font-2);
-    font-size: 1.8em;
+    font-size: 1.8rem;
     font-weight: 700;
     text-shadow: 2px 2px var(--txt-dark);
     background-color: var(--mint);
@@ -874,6 +878,18 @@ footer{
         width: 60%;
         margin: 1% auto;
     }
+
+    .page-section__heading{
+        font-size: 2rem;
+    }
+
+    .subscribe-index-container h3{
+    font-size: 2rem;
+    }
+
+    .subscribe-index-container{
+    font-size: 1rem;
+    }
 }
 
 @media screen and (min-width: 992px) {
@@ -885,4 +901,9 @@ footer{
         position: static;
         background: none;
     }
+
+    .page-section__heading, .subscribe-index-container h3{
+        font-size: 2.4rem;
+    }
+
 }
