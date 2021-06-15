@@ -35,148 +35,6 @@
     --font-3: 'Dancing script', cursive;
 }
 
-body{
-    font-family: var(--font-1);
-    background: var(--bg-main);
-    color: var(--txt-dark);
-    font-size: 16px;
-}
-
-.page-title{
-    margin: 1% auto;
-    width: 98%;
-    padding: 2%;
-    text-align: center;
-    text-transform: uppercase;
-    background-color: var(--bg-sunset);
-    color: var(--txt-light)
-}
-
-.page-content-container{
-    width: 98%;
-    margin: 0 auto;
-}
-
-/* Header Styles */
-header{
-    background: url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=931&q=80'), 
-    var(--blue-gradient);
-    background-size: auto;
-    background-repeat: no-repeat;
-}
-
-.banner__container{
-    padding-top: 1%;
-    padding-bottom: 2%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-}
-
-.flex-empty{
-    flex-basis: 20%;
-}
-
-.banner__inner{
-    flex-basis: 60%;
-    position: relative;
-    background-color: var(--bg-main);
-    color: var(--txt-dark);
-    width: 60%;
-    height: 15vh;
-    margin: auto;
-    padding: 2%;
-    border: 2px solid var(--txt-dark);
-}
-
-.banner__inner div{
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 5; 
-    
-}
-
-.banner__inner p{
-    width: 50%;
-    position: absolute;
-    text-align: center;
-    top: 25%;
-    left: 25%;
-    color: #fff;
-    z-index: 1000;
-    text-transform: uppercase;
-    font-size: 2em;
-    font-weight: bolder;
-    text-shadow: 2px 2px var(--txt-dark);
-}
-
-.banner__inner div img{
-    height: 100%;
-    width: 100%;
-    z-index: 3;
-    object-fit: cover;
-}
-
-.login-area{
-    flex-basis: 20%;
-    align-self: center;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.login-area a{
-    font-size: 1.3em;
-    font-weight: bolder;
-    color: var(--txt-dark);
-    text-shadow: 2px 2px #fff;
-    text-decoration: none;
-}
-
-.login-area a:hover{
-    color: var(--txt-cute);
-}
-    
-
-/* Navbar styles */ 
-header .navbar a{
-    font-family: var(--font-2);
-    font-size: 1.8em;
-    font-weight: 700;
-    text-shadow: 2px 2px #fff;
-    color: var(--txt-dark);
-}
-
-.navbar-custom .navbar-brand{
-    font-family: var(--font-3);
-    font-size: 3em;
-    font-weight: 700;
-    color: var(--txt-cute);
-    margin-left: 5%;
-}
-
-.logo{
-    font-family: var(--font-3);
-    font-size: 1.4em;
-    font-weight: 700;
-    color: var(--txt-cute);
-    text-shadow: 2px 2px #fff;
-}
-
-.navbar-collapse{
-    justify-content: flex-end;
-    margin-right: 5%;
-    margin-left: auto;
-}
-
-.btn-custom{
-    color: var(--txt-light);
-    padding: 1%;
-}
-
 /* color classes */
 
 .pink{
@@ -216,7 +74,112 @@ header .navbar a{
     background-color: var(--grey-light);
 }
 
+/* general styles */
+
+body{
+    font-family: var(--font-1);
+    background: var(--bg-main);
+    color: var(--txt-dark);
+    font-size: 16px;
+}
+
+.btn-custom{
+    color: var(--txt-light);
+    padding: 1%;
+}
+
+/* Header Styles */
+header{
+    background: url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=931&q=80'), 
+    var(--blue-gradient);
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+.login-area{
+    text-align: right;
+    padding-top: 2%;
+    padding-right: 5%;
+}
+
+.login-area a{
+    font-family: var(--font-2);
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: var(--txt-dark);
+    text-shadow: 2px 2px #fff;
+    text-decoration: none;
+}
+
+.login-area a:hover{
+    color: var(--txt-cute);
+}
+    
+/* Navbar styles */ 
+
+.navbar{
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.navbar-collapse{
+    justify-content: flex-end;
+    margin-right: 5%;
+    margin-left: auto;
+    flex-grow: 0;
+}
+
+header .navbar a{
+    font-family: var(--font-2);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px #fff;
+    color: var(--txt-dark);
+}
+
+.navbar-custom .navbar-brand{
+    font-family: var(--font-3);
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--txt-cute);
+    text-shadow: 2px 2px #fff;
+}
+
+.logo{
+    font-family: var(--font-3);
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--txt-cute);
+    text-shadow: 2px 2px #fff;
+}
+
+.collapse.navbar-collapse{
+    width: 100%;
+    margin-left: auto;
+    margin-right: 0;
+    padding-right: 5%;
+    text-align: right;
+}
+
 /* index.html */
+
+.page-title{
+    margin: 1% auto;
+    width: 100%;
+    padding: 2%;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: var(--bg-sunset);
+    color: var(--txt-light)
+}
+
+.page-content-container{
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* homepage hero */
 
 .hero-container{
     background: var(--blue-gradient);
@@ -738,6 +701,64 @@ footer{
     padding-bottom: 0.5%;
     width: 30%;
     margin: 0 auto;
+}
+
+/* banner.html */
+
+.banner__container{
+    padding-top: 1%;
+    padding-bottom: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.flex-empty{
+    flex-basis: 20%;
+}
+
+.banner__inner{
+    flex-basis: 60%;
+    position: relative;
+    background-color: var(--bg-main);
+    color: var(--txt-dark);
+    width: 60%;
+    height: 15vh;
+    margin: auto;
+    padding: 2%;
+    border: 2px solid var(--txt-dark);
+}
+
+.banner__inner div{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 5; 
+    
+}
+
+.banner__inner p{
+    width: 50%;
+    position: absolute;
+    text-align: center;
+    top: 25%;
+    left: 25%;
+    color: #fff;
+    z-index: 1000;
+    text-transform: uppercase;
+    font-size: 2em;
+    font-weight: bolder;
+    text-shadow: 2px 2px var(--txt-dark);
+}
+
+.banner__inner div img{
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    object-fit: cover;
 }
 
 /* decorative divs */

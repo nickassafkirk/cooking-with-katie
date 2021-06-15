@@ -17,30 +17,27 @@
 
 <body>
     <header>
-        <!-- Ad Banner - Header -->
-       
-            
-            <div class="login-area d-none d-lg-block">
-                {% if session.user %}
-                <div class="account__mini">
-                    <a href="{{ url_for('account', username=session['user']) }}"><i class="fas fa-user-alt"></i> My Account</a>
-                    | <a href="{{ url_for('logout')}}">Logout <i class="fas fa-sign-out-alt"></i></a>
-                </div>
-                {% else %}
-                <div class="login__mini">
-                    <a href="{{ url_for('sign_up') }}">Sign Up <i class="fas fa-edit"></i></a> | <a
-                        href="{{ url_for('sign_in') }}">Sign In <i class="fas fa-user-alt"></i></a>
-                </div>
-                {% endif %}
-            </div>
-       
-            
-        
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-custom">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url_for('index') }}">Cooking With Katie</a>
-                <a class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                <div class="login-area d-none d-lg-block w-100">
+                    {% if session.user %}
+                    <div class="account__mini">
+                        <a href="{{ url_for('account', username=session['user']) }}"><i class="fas fa-user-alt"></i> My
+                            Account</a>
+                        | <a href="{{ url_for('logout')}}">Logout <i class="fas fa-sign-out-alt"></i></a>
+                    </div>
+                    {% else %}
+                    <div class="login__mini">
+                        <a href="{{ url_for('sign_up') }}">Sign Up <i class="fas fa-edit"></i></a> | <a
+                            href="{{ url_for('sign_in') }}">Sign In <i class="fas fa-user-alt"></i></a>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="my-5 mx-auto text-center">
+                    <a class="navbar-brand" href="{{ url_for('index') }}">Cooking With Katie</a>
+                </div>
+                <a class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span><i class="fas fa-bars"></i></span>
