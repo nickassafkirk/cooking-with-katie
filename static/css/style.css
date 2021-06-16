@@ -892,7 +892,7 @@ header .navbar .nav-link{
 
 /* Footer Styles */
 footer{
-    background: linear-gradient(to top, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));
+    background: #74322f;
     font-size: 1rem;
     font-weight: 700;
     color: var(--txt-light);
