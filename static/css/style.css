@@ -562,7 +562,7 @@ header .navbar .nav-link{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    align-items: stretch;
+    align-items: baseline;
     padding: 2%;
     margin: 0% auto;
 }
@@ -573,27 +573,27 @@ header .navbar .nav-link{
 }
 
 #search_recipe{
+    font-size: 1rem;
+    padding: 1rem;
     width: 100%;
     color: var(--txt-dark);
     background-color: var(--txt-light);
-    padding: 0;
     border: 1px solid var(--txt-light);
     border-radius: 5px;
 }
 
 .button-area{
+    font-size: 1rem;
     padding: 0;
     margin-top: 5%;
     text-align: center;
     flex-basis: 100%;
     flex-shrink: 3;
-    justify-items: space-between;
 }
 
 .button-area > *{
     width: 45%;
-    height: 100%;
-    line-height: 1rem;
+    line-height: 2.6rem;
     color: var(--txt-light);
     text-shadow: none;
 }
@@ -1033,10 +1033,6 @@ footer{
         flex-basis: 30%;
         flex-shrink: 3;
     }
-
-    .button-area a{
-    padding-top: 8%;
-}
 }
 
 @media screen and (min-width: 992px) {
