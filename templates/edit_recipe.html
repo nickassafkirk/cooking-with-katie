@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="container-fluid my-5">
+    <div class="page-content-container add-recipe__container">
+        <div class="diagonal-split">
+            <div class="content">
+                <h3>Edit your Recipe</h3>
+            </div>
+        </div>
 <form action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" method="POST" enctype="multipart/form-data" id="add_recipe-form">
     <div>
         <label for="title" class="form-label">
@@ -126,4 +133,7 @@
         </button>
     </div>
 </form>
+<div class="diagonal-split-reverse"></div>
+    </div>
+</div>
 {% endblock %}
