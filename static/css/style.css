@@ -74,6 +74,10 @@
     background-color: var(--grey-light);
 }
 
+.red-gradient{
+    background-image: linear-gradient(to right, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));
+}
+
 /* general styles */
 
 body{
@@ -538,41 +542,60 @@ header .navbar .nav-link{
 
 /* search */
 
-#search-area{
-    margin-top: 0;
+#recipes .diagonal-split{
     padding: 0%;
+}
+
+#search-area{
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    padding: 5%;
 }
 
 #search-recipes-form{
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: space-between;
+    align-items: stretch;
     padding: 2%;
     margin: 0% auto;
 }
 
 .input-area{
-    flex-basis: 70%;
+    flex-basis: 100%;
     flex-grow: 3;
 }
 
 #search_recipe{
-    border: 1px solid var(--txt-light);
-    background-color: var(--txt-light);
-    color: var(--txt-dark);
-    padding: 1%;
-    border-radius: 5px;
     width: 100%;
+    color: var(--txt-dark);
+    background-color: var(--txt-light);
+    padding: 0;
+    border: 1px solid var(--txt-light);
+    border-radius: 5px;
 }
 
 .button-area{
+    padding: 0;
+    margin-top: 5%;
     text-align: center;
-    flex-basis: 30%;
+    flex-basis: 100%;
     flex-shrink: 3;
+    justify-items: space-between;
 }
 
 .button-area > *{
-    width: 40%;
+    width: 45%;
+    height: 100%;
+    line-height: 1rem;
+    color: var(--txt-light);
+    text-shadow: none;
 }
 
 /* add-recipe */
@@ -609,7 +632,7 @@ header .navbar .nav-link{
 }
 
 *::placeholder, #add_recipe-form select option:disabled{
-    padding: 5%;
+    padding-left: 0.5rem;
     font-size: 0.9rem;
     color: grey;
 }
@@ -753,7 +776,7 @@ header .navbar .nav-link{
     color: var(--txt-light);
     text-shadow: 2px 2px var(--txt-dark);
     padding: 2%;
-    z-index: 1000;
+    z-index: 10;
 }
 
 .add-recipe__container{
@@ -999,6 +1022,21 @@ footer{
     .top-recipes img{
     height: 250px;
     }
+
+    .input-area{
+    flex-basis: 70%;
+    flex-grow: 3;
+    }
+
+    .button-area{
+        margin-top: 0%;
+        flex-basis: 30%;
+        flex-shrink: 3;
+    }
+
+    .button-area a{
+    padding-top: 8%;
+}
 }
 
 @media screen and (min-width: 992px) {
