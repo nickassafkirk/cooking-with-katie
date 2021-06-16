@@ -1,233 +1,229 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container-fluid add-recipe__container">
-
-
-<div class="container my-5 mx-auto">
-    <h2>Add Your Recipe</h2>
-    <hr>
-    <p>Follow the steps to add your own recipe for other readers to try and enjoy.</p>
-    <p>Remember to provide clear instructions to guide chefs of all levels and to add great images to show off your recipes.</p>
-    <div class="diagonal-split">
-        <div class="content">
-            <h3>Add your Recipe</h3>
-        </div>
-    </div>
-
-
-    <form action="/add_recipe" method="POST" enctype="multipart/form-data" id="add_recipe-form">
-        <div>
-            <label for="title" class="form-label">
-                <h3>1: Add Recipe Title</h3>
-            </label>
-            <input type="text" name="title" id="title" placeholder="Enter Recipe Title">
-        </div>
-        <div>
-            <label for="intro" class="form-label">
-                <h3>2: Add Recipe Description</h3>
-            </label>
-            <textarea name="intro" id="intro" cols="auto" rows="5" placeholder="Enter Brief Description"></textarea>
-        </div>
-        <div class="form-section__heading">
-            <h3>3: Add Recipe Ingredients</h3>
-        </div>
-
-        <div id="ingredientsContainer">
-
-            <div class="ingredient-n row">
-                <div class="col">
-                    <label for="ingredient-1" class="form-label">Ingredient</label>
-                    <input type="text" name="ingredient-1">
-                </div>
-                <div class="col">
-                    <label for="quantity-1" class="form-label">Quantity</label>
-                    <input type="text" name="quantity-1" placeholder="Optional">
-                </div>
-                <div class="col">
-                    <label for="unit-1" class="form-label">Unit</label>
-                    <select name="unit-1">
-                        {% for unit in unit_options %}
-                          {% if unit.unit_name == "na" %}
-                            <option value="{{ unit.unit_name }}" selected disabled hidden>Select Unit (optional)</option>
-                          {% else %}
-                            <option value="{{ unit.unit_name }}">{{ unit.unit_name }}</option>
-                          {% endif %}
-                        {% endfor %}
-                    </select>
-                </div>
+<div class="container-fluid my-5">
+    <div class="page-content-container add-recipe__container">
+        <div class="diagonal-split">
+            <div class="content">
+                <h3>Add your Recipe</h3>
             </div>
-            <div class="ingredient-n row">
-                <div class="col">
-                    <label for="ingredient-2" class="form-label">Ingredient</label>
-                    <input type="text" name="ingredient-2">
-                </div>
-                <div class="col">
-                    <label for="quantity-2" class="form-label">Quantity</label>
-                    <input type="text" name="quantity-2" placeholder="Optional">
-                </div>
-                <div class="col">
-                    <label for="unit-2" class="form-label">Unit</label>
-                    <select name="unit-2">
-                        {% for unit in unit_options %}
-                          {% if unit.unit_name == "na" %}
-                            <option value="{{ unit.unit_name }}" selected disabled hidden>Select Unit (optional)</option>
-                          {% else %}
-                            <option value="{{ unit.unit_name }}">{{ unit.unit_name }}</option>
-                          {% endif %}
-                        {% endfor %}
-                    </select>
-                </div>
+        </div>
+        <form action="/add_recipe" method="POST" enctype="multipart/form-data" id="add_recipe-form">
+            <div>
+                <label for="title" class="form-label">
+                    <h3>1: Add Recipe Title</h3>
+                </label>
+                <input type="text" name="title" id="title" placeholder="Enter Recipe Title">
             </div>
-            <div class="ingredient-n row">
-                <div class="col">
-                    <label for="ingredient-3" class="form-label">Ingredient</label>
-                    <input type="text" name="ingredient-3">
-                </div>
-                <div class="col">
-                    <label for="quantity-3" class="form-label">Quantity</label>
-                    <input type="text" name="quantity-3" placeholder="Optional">
-                </div>
-                <div class="col">
-                    <label for="unit-3" class="form-label">Unit</label>
-                    <select name="unit-3">
-                        {% for unit in unit_options %}
-                          {% if unit.unit_name == "na" %}
-                            <option value="{{ unit.unit_name }}" selected disabled hidden>Select Unit (optional)</option>
-                          {% else %}
-                            <option value="{{ unit.unit_name }}">{{ unit.unit_name }}</option>
-                          {% endif %}
-                        {% endfor %}
-                    </select>
-                </div>
+            <div>
+                <label for="intro" class="form-label">
+                    <h3>2: Add Recipe Description</h3>
+                </label>
+                <textarea name="intro" id="intro" cols="auto" rows="5" placeholder="Enter Brief Description"></textarea>
             </div>
-            <div class="ingredient-n row">
-                <div class="col">
-                    <label for="ingredient-4" class="form-label">Ingredient</label>
-                    <input type="text" name="ingredient-4">
-                </div>
-                <div class="col">
-                    <label for="quantity-4" class="form-label">Quantity</label>
-                    <input type="text" name="quantity-4" placeholder="Optional">
-                </div>
-                <div class="col">
-                    <label for="unit-4" class="form-label">Unit</label>
-                    <select name="unit-4">
-                        {% for unit in unit_options %}
-                          {% if unit.unit_name == "na" %}
-                            <option value="{{ unit.unit_name }}" selected disabled hidden>Select Unit (optional)</option>
-                          {% else %}
-                            <option value="{{ unit.unit_name }}">{{ unit.unit_name }}</option>
-                          {% endif %}
-                        {% endfor %}
-                    </select>
-                </div>
+            <div class="form-section__heading">
+                <h3>3: Add Recipe Ingredients</h3>
             </div>
-            <div class="ingredient-n row">
-                <div class="col">
-                    <label for="ingredient-5" class="form-label">Ingredient</label>
-                    <input type="text" name="ingredient-5">
+
+            <div id="ingredientsContainer">
+
+                <div class="ingredient-n row">
+                    <div class="col">
+                        <label for="ingredient-1" class="form-label">Ingredient</label>
+                        <input type="text" name="ingredient-1">
+                    </div>
+                    <div class="col">
+                        <label for="quantity-1" class="form-label">Quantity</label>
+                        <input type="text" name="quantity-1" placeholder="Optional">
+                    </div>
+                    <div class="col">
+                        <label for="unit-1" class="form-label">Unit</label>
+                        <select name="unit-1">
+                            {% for unit in unit_options %}
+                            {% if unit.unit_name == "na" %}
+                            <option value="{{ unit.unit_name }}" selected disabled hidden>Select Unit (optional)
+                            </option>
+                            {% else %}
+                            <option value="{{ unit.unit_name }}">{{ unit.unit_name }}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
                 </div>
-                <div class="col">
-                    <label for="quantity-5" class="form-label">Quantity</label>
-                    <input type="text" name="quantity-5" placeholder="Optional">
+                <div class="ingredient-n row">
+                    <div class="col">
+                        <label for="ingredient-2" class="form-label">Ingredient</label>
+                        <input type="text" name="ingredient-2">
+                    </div>
+                    <div class="col">
+                        <label for="quantity-2" class="form-label">Quantity</label>
+                        <input type="text" name="quantity-2" placeholder="Optional">
+                    </div>
+                    <div class="col">
+                        <label for="unit-2" class="form-label">Unit</label>
+                        <select name="unit-2">
+                            {% for unit in unit_options %}
+                            {% if unit.unit_name == "na" %}
+                            <option value="{{ unit.unit_name }}" selected disabled hidden>Select Unit (optional)
+                            </option>
+                            {% else %}
+                            <option value="{{ unit.unit_name }}">{{ unit.unit_name }}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
                 </div>
-                <div class="col">
-                    <label for="unit-5" class="form-label">Unit</label>
-                    <select name="unit-5">
-                        {% for unit in unit_options %}
-                          {% if unit.unit_name == "na" %}
+                <div class="ingredient-n row">
+                    <div class="col">
+                        <label for="ingredient-3" class="form-label">Ingredient</label>
+                        <input type="text" name="ingredient-3">
+                    </div>
+                    <div class="col">
+                        <label for="quantity-3" class="form-label">Quantity</label>
+                        <input type="text" name="quantity-3" placeholder="Optional">
+                    </div>
+                    <div class="col">
+                        <label for="unit-3" class="form-label">Unit</label>
+                        <select name="unit-3">
+                            {% for unit in unit_options %}
+                            {% if unit.unit_name == "na" %}
+                            <option value="{{ unit.unit_name }}" selected disabled hidden>Select Unit (optional)
+                            </option>
+                            {% else %}
+                            <option value="{{ unit.unit_name }}">{{ unit.unit_name }}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="ingredient-n row">
+                    <div class="col">
+                        <label for="ingredient-4" class="form-label">Ingredient</label>
+                        <input type="text" name="ingredient-4">
+                    </div>
+                    <div class="col">
+                        <label for="quantity-4" class="form-label">Quantity</label>
+                        <input type="text" name="quantity-4" placeholder="Optional">
+                    </div>
+                    <div class="col">
+                        <label for="unit-4" class="form-label">Unit</label>
+                        <select name="unit-4">
+                            {% for unit in unit_options %}
+                            {% if unit.unit_name == "na" %}
+                            <option value="{{ unit.unit_name }}" selected disabled hidden>Select Unit (optional)
+                            </option>
+                            {% else %}
+                            <option value="{{ unit.unit_name }}">{{ unit.unit_name }}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="ingredient-n row">
+                    <div class="col">
+                        <label for="ingredient-5" class="form-label">Ingredient</label>
+                        <input type="text" name="ingredient-5">
+                    </div>
+                    <div class="col">
+                        <label for="quantity-5" class="form-label">Quantity</label>
+                        <input type="text" name="quantity-5" placeholder="Optional">
+                    </div>
+                    <div class="col">
+                        <label for="unit-5" class="form-label">Unit</label>
+                        <select name="unit-5">
+                            {% for unit in unit_options %}
+                            {% if unit.unit_name == "na" %}
                             <option value="na" selected disabled hidden>Select Unit (optional)</option>
-                          {% else %}
+                            {% else %}
                             <option value="{{ unit.unit_symbol }}">{{ unit.unit_name }}</option>
-                          {% endif %}
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <p class="btn" id="addIngredientsButton">
+                        Add more ingredients
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-section__heading">
+                <h3>4: Add Cooking Instructions</h3>
+            </div>
+            <div id="instructionsContainer">
+                <div class="instruction-n">
+                    <label for="step-1" class="instructions-n__label">Step 1:</label>
+                    <textarea name="step-1" id="step-1" cols="50" rows="1"></textarea>
+                </div>
+                <div class="instruction-n">
+                    <label for="step-2" class="instructions-n__label">Step 2:</label>
+                    <textarea name="step-2" id="step-2" cols="50" rows="1"></textarea>
+                </div>
+                <div class="instruction-n">
+                    <label for="step-3" class="instructions-n__label">Step 3:</label>
+                    <textarea name="step-3" id="step-3" cols="50" rows="1"></textarea>
+                </div>
+                <div class="instruction-n">
+                    <label for="step-4" class="instructions-n__label">Step 4:</label>
+                    <textarea name="step-4" id="step-4" cols="50" rows="1"></textarea>
+                </div>
+                <div class="instruction-n">
+                    <label for="step-5" class="instructions-n__label">Step 5:</label>
+                    <textarea name="step-5" id="step-5" cols="50" rows="1"></textarea>
+                </div>
+                <div class="button-container">
+                    <p class="btn" id="addInstructionsButton">
+                        Add more instructions
+                    </p>
+                </div>
+            </div>
+            <div class="form-section__heading">
+                <h3>5: Additional Information</h3>
+            </div>
+            <div id="additional-container">
+                <div>
+                    <label for="prep-time">Prep Time (Mins)</label>
+                    <input type="number" name="prep-time">
+                </div>
+                <div>
+                    <label for="cook-time">Cook Time (Mins)</label>
+                    <input type="number" name="cook-time">
+                </div>
+                <div>
+                    <label for="category">Select Category</label>
+                    <select name="category" id="category">
+                        <option value="" selected disabled hidden>Select Category</option>
+                        {% for category in categories %}
+                        <option value="{{ category.name }}">{{ category.name | capitalize}}</option>
                         {% endfor %}
                     </select>
                 </div>
-            </div>    
-            <div class="button-container">
-                <p class="btn" id="addIngredientsButton">
-                    Add more ingredients
-                </p>
+                <div>
+                    <label for="cuisine">Select Cuisine</label>
+                    <select name="cuisine" id="cuisine">
+                        <option value="" selected disabled hidden>Select Cuisine</option>
+                        {% for genre in cuisine_options %}
+                        <option value="{{ genre.cuisine }}">{{ genre.cuisine | capitalize }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
             </div>
-        </div>
-
-        <div class="form-section__heading">
-            <h3>4: Add Cooking Instructions</h3>
-        </div>
-        <div id="instructionsContainer">
-            <div class="instruction-n">
-                <label for="step-1" class="instructions-n__label">Step 1:</label>
-                <textarea name="step-1" id="step-1" cols="50" rows="1"></textarea>
+            <div class="form-section__heading">
+                <h3>6: Upload Image</h3>
             </div>
-            <div class="instruction-n">
-                <label for="step-2" class="instructions-n__label">Step 2:</label>
-                <textarea name="step-2" id="step-2" cols="50" rows="1"></textarea>
-            </div>
-            <div class="instruction-n">
-                <label for="step-3" class="instructions-n__label">Step 3:</label>
-                <textarea name="step-3" id="step-3" cols="50" rows="1"></textarea>
-            </div>
-            <div class="instruction-n">
-                <label for="step-4" class="instructions-n__label">Step 4:</label>
-                <textarea name="step-4" id="step-4" cols="50" rows="1"></textarea>
-            </div>
-            <div class="instruction-n">
-                <label for="step-5" class="instructions-n__label">Step 5:</label>
-                <textarea name="step-5" id="step-5" cols="50" rows="1"></textarea>
+            <div>
+                <label for="file">Upload Image</label>
+                <input type="file" name="file" id="image-uploader">
             </div>
             <div class="button-container">
-                <p class="btn" id="addInstructionsButton">
-                    Add more instructions
-                </p>
+                <button type="submit" class="btn" id="add-recipe__submit-button">
+                    Post Recipe
+                </button>
             </div>
-        </div>
-        <div class="form-section__heading">
-            <h3>5: Additional Information</h3>
-        </div>
-        <div id="additional-container">
-            <div>
-                <label for="prep-time">Prep Time (Mins)</label>
-                <input type="number" name="prep-time">
-            </div>
-            <div>
-                <label for="cook-time">Cook Time (Mins)</label>
-                <input type="number" name="cook-time">
-            </div>
-            <div>
-                <label for="category">Select Category</label>
-                <select name="category" id="category">
-                    <option value="" selected disabled hidden>Select Category</option>
-                    {% for category in categories %}
-                      <option value="{{ category.name }}">{{ category.name | capitalize}}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div>
-                <label for="cuisine">Select Cuisine</label>
-                <select name="cuisine" id="cuisine">
-                    <option value="" selected disabled hidden>Select Cuisine</option>
-                    {% for genre in cuisine_options %}
-                      <option value="{{ genre.cuisine }}">{{ genre.cuisine | capitalize }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-        </div>
-        <div class="form-section__heading">
-            <h3>6: Upload Image</h3>
-        </div>
-        <div>
-            <label for="file">Upload Image</label>
-            <input type="file" name="file" id="image-uploader">
-        </div>
-        <div class="button-container">
-            <button type="submit" class="btn" id="add-recipe__submit-button">
-                Post Recipe
-            </button>
-        </div>
-    </form>
-</div>
-
+        </form>
+        <div class="diagonal-split-reverse"></div>
+    </div>
 </div>
 
 

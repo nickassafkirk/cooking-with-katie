@@ -579,24 +579,26 @@ header .navbar .nav-link{
 /* add-recipe */
 
 #add_recipe-form{
-    margin: 1% auto;
-    padding: 2%;
-    background-color: var(--grey)
+    margin: 0% auto;
+    padding: 0% 2% 2% 2%;
+    background-color: #f5fffa;
 }
 
 #add_recipe-form label{
     display: block;
-    margin: 1% auto;
+    padding: 2% 0;
 }
 
 #add_recipe-form h3{
-    margin: 2% 0;
+    margin: 0;
     text-shadow: 2px 2px var(--txt-light);
     text-align: center;
 }
 
 #add_recipe-form input, #add_recipe-form textarea, #add_recipe-form select{
-    width: 100%;
+    display: block;
+    margin: 0 auto;
+    width: 90%;
     padding: 1%;
     border: 2px solid var(--txt-light);
     border-radius: 5px;
@@ -644,9 +646,91 @@ header .navbar .nav-link{
     margin: 2% auto 0 auto;
     padding: 1%;
     width: 50%;
-    background-color: var(--green-dark);
+    background-color: var(--pink);
     text-transform: uppercase;
     color: var(--txt-light);
+}
+
+.diagonal-split, .diagonal-split-reverse{
+    position: relative;
+    width: 100%;
+    padding: 10%;
+    text-align: center;
+    overflow: hidden;
+    background: #f5fffa;
+}
+
+.diagonal-split{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.diagonal-split-reverse{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.diagonal-split::before, .diagonal-split-reverse::before{
+    position: absolute;
+    content: "";
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to right, var(--mint), var(--mint-dark));
+    transform: skewY(-11deg);
+    transform-origin: bottom left;
+    z-index: 0;
+}
+
+.diagonal-split-reverse::before{
+    transform: skewY(25deg);
+    transform-origin: bottom left;
+    background-image: linear-gradient(to right, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));
+    z-index: 2;
+}
+
+.diagonal-split::after, .diagonal-split-reverse::after{
+    position: absolute;
+    content: "";
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to right, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));
+    transform: skewY(25deg);
+    transform-origin: bottom right;
+    z-index: 1;
+}
+
+.diagonal-split-reverse::after{
+    transform: skewY(-11deg);
+    transform-origin: bottom right;
+    background-image: linear-gradient(to right, var(--mint), var(--mint-dark));
+}
+
+.content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+	margin: 0 auto;
+    font-family: var(--font-2);
+    text-transform: uppercase;
+    color: var(--txt-light);
+    text-shadow: 2px 2px var(--txt-dark);
+    padding: 2%;
+    z-index: 1000;
+}
+
+.add-recipe__container{
+    background: var(--mint-light);
+    background-size:  100%;
+    background-position: left;
+    background-repeat: no-repeat;
 }
 
 /* sign_up.html */
@@ -760,7 +844,7 @@ footer{
     font-weight: 700;
     color: var(--txt-dark);
     text-align: center; 
-    margin: 5% auto 0 auto;
+    margin: 0 auto;
     padding: 10%;
 }
 
@@ -835,40 +919,6 @@ footer{
     width: 100%;
     z-index: 3;
     object-fit: cover;
-}
-
-/* decorative divs */
-
-.diagonal-split{
-    height: 15vh;
-    width: 100%;
-    background: linear-gradient(
-        to top right,
-        var(--green-light),
-        var(--green-dark)
-        );
-    position: relative;
-    top: 0;
-    left: 0;
-}
-
-.content{
-    position: absolute;
-    background: transparent;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-family: var(--font-2);
-    text-transform: uppercase;
-    color: #fff;
-}
-
-.add-recipe__container{
-    background: url('https://images.unsplash.com/photo-1591589234465-7e88e2f7b154?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fGNhcnRvb24lMjB2ZWdldGFibGV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
-    background-size:  100%;
-    background-position: left;
-    background-repeat: no-repeat;
 }
 
 @media screen and (min-width: 768px) {
