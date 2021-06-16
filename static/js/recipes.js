@@ -1,3 +1,5 @@
+window.addEventListener("load", clipParagraph(".recipe-intro", 200));
+
 /**
  * Clips inner text of selected dom Element/s
  * To specified number of charachters.
@@ -16,4 +18,3 @@ function clipParagraph(selector, maxLength) {
     };
 };        
   
-clipParagraph(".recipe-intro", 200)
