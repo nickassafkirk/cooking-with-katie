@@ -1000,6 +1000,8 @@ footer{
   width: 100%;
   
 }
+
+/* credit https://www.toptal.com/twitter-bootstrap/the-10-most-common-bootstrap-mistakes */
 .upload-image input[type=file] {
     position: absolute;
     top: 0;

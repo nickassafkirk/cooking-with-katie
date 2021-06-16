@@ -203,7 +203,54 @@ Content was copied from https://www.bbcgoodfood.com/recipes/easy-pancakes
                 if g.user is None:            
                     return redirect(url_for('login', next=request.url))             
                 return f(*args, **kwargs)           
-            return decorated_function      
+            return decorated_function 
+
+5. Input[type=file] custom styling
+   - To apply custom styling to the image upload input on the add_recipe and edit_recipe pages. I customised some code described
+   at [this link](https://www.toptal.com/twitter-bootstrap/the-10-most-common-bootstrap-mistakes)       
+   
+   The orginal code is as follows: 
+   
+            .btn-file {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .btn-file input[type=file] {
+                position: absolute;
+                top: 0;
+                right: 0;
+                min-width: 100%;
+                min-height: 100%;
+                font-size: 100px;
+                text-align: right;
+                filter: alpha(opacity=0);
+                opacity: 0;
+                outline: none;
+                background: white;
+                cursor: inherit;
+                display: block;
+            }
+
+6. Alternative method to center absolute children on relative parents
+   - To center the dummy image upload input in it's parent container I used the technique of using negative margins of half the element's height/width described at 
+   [this thoughtbot.com article](https://thoughtbot.com/blog/positioning)
+
+   The orginal code is as follows:   
+
+        .container {
+            position: relative;
+        }   
+
+        .centered-element {
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            left: 50%;
+            margin-left: -50px;
+            top: 50%;
+            margin-top: -50px;
+        }
 
 ---
 ## Deployment
