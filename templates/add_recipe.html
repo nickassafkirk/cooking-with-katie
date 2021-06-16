@@ -212,9 +212,13 @@
             <div class="form-section__heading">
                 <h3>6: Upload Image</h3>
             </div>
-            <div>
-                <label for="file">Upload Image</label>
+            <div class="upload-image">
+                <label for="file" hidden>Upload Image</label>
                 <input type="file" name="file" id="image-uploader">
+                <div class="fake-image-input">
+                    <i class="fas fa-plus"></i>
+                </div>
+    
             </div>
             <div class="button-container">
                 <button type="submit" class="btn" id="add-recipe__submit-button">

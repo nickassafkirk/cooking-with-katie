@@ -994,6 +994,47 @@ footer{
     object-fit: cover;
 }
 
+.upload-image {
+  position: relative;
+  height: 100px;
+  width: 100%;
+  
+}
+.upload-image input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: inherit;
+    cursor: inherit;
+    display: block;
+    z-index: 1;
+}
+
+.fake-image-input{
+    position: absolute;
+    text-align: center;
+    content: "";
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    color: var(--mint);
+    border: 4px solid var(--mint);
+    border-radius: 5px;
+    height: 3rem;
+    width: 3rem;
+    margin-top: -1.5rem;
+    margin-left: -1.5rem;
+    font-size: 1.5rem;
+    line-height: 3rem;
+}
+
 @media screen and (min-width: 768px) {
 
     .hero-main {
