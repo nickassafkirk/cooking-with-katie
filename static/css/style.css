@@ -826,12 +826,6 @@ header .navbar .nav-link{
 
 /* Account styles */
 
-.account-recipe__container{
-    display: flex; 
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
 
 .account-container__heading{
     flex-basis: 100%;
@@ -860,6 +854,15 @@ header .navbar .nav-link{
     margin-bottom: 5%;
 }
 
+#account-tab{
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1%;
+    font-size: 0.9rem;
+    justify-items: flex-start;
+}
+
 #account-tab .nav-link{
     background-color: var(--grey-light);
     border: 1px solid var(--green) !important;
@@ -882,12 +885,15 @@ header .navbar .nav-link{
 }
 
 #account-tabContent{
-    width: 90%;
+    height: 100%;
+    width: 100%;
     margin: 0 auto;
     padding: 2%;   
     border-radius: 0px 5px 5px 5px;
     background-color: var(--grey-light);
     border: 2px solid var(--green);
+    display: block;
+    position: relative;
 }
 
 /* Footer Styles */
