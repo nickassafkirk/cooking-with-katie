@@ -28,6 +28,7 @@
     --green: #00685b;
     --green-dark: #003d32;
     --green-light: #439688;
+    --terracota-dark: rgb(116, 50, 47);
 
     /* Fonts */
     --font-1: 'Montserrat', sans-serif;
@@ -134,13 +135,6 @@ header a:hover{
     flex-wrap: wrap;
 }
 
-.navbar-collapse{
-    justify-content: flex-end;
-    margin-right: 5%;
-    margin-left: auto;
-    flex-grow: 0;
-}
-
 .navbar-toggler{
   font-size: 1.5rem;
   color: var(--txt-cute);
@@ -157,8 +151,7 @@ header .navbar .nav-link{
     padding: 2%;
     font-size: 1rem;
     font-weight: 700;
-    text-shadow: 2px 2px #fff;
-    color: var(--txt-dark);
+    color: var(--txt-light);
 }
 
 .navbar-custom .nav-link:hover{
@@ -190,20 +183,21 @@ header .navbar .nav-link{
 }
 
 .collapse, .show, .collapsing{
-    
-    margin-left: auto;
-    margin-right: 0;
-    padding-right: 5%;
+    margin: 0;
+    padding: 0;
     text-align: center;
-    background: rgba(255,255,255,0.9);
+    background: var(--terracota-dark);
     font-size: 1rem;
-    width: 50%;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    z-index: 1000;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom: 0;
+    z-index: 1500;
+    width: 100vw;
+    height: 100vh
 }
-
 
 /* index.html */
 
@@ -981,6 +975,7 @@ footer{
 }
 
 @media screen and (min-width: 768px) {
+
     .hero-main {
         height: 60vh;
         padding: 1rem;
@@ -1043,12 +1038,23 @@ footer{
 
 @media screen and (min-width: 992px) {
 
-    header .navbar-custom .navbar-brand{
-        font-size: 3.5rem;
+    .navbar-collapse{
+        justify-content: flex-end;
+        padding: 0;
+        margin-right: 5%;
+        margin-left: auto;
+        flex-grow: 0;
+        height: auto;
     }
 
     header .navbar .nav-link{
+        color: var(--txt-dark);
+        text-shadow: 2px 2px var(--txt-light);
         font-size: 2rem;
+    }
+
+    header .navbar-custom .navbar-brand{
+        font-size: 3.5rem;
     }
 
     .page-content-container{
