@@ -13,7 +13,7 @@
     /* Text colors */
     --txt-light: #efefef;
     --txt-dark: #111;
-    --txt-cute: #f759d4;
+    --txt-cute: #bd4f4f;
 
     /* Accent colors */
     --grey: #bcbcbc;
@@ -183,7 +183,6 @@ header .navbar .nav-link{
     font-size: 1.4em;
     font-weight: 700;
     color: var(--txt-cute);
-    text-shadow: 2px 2px #fff;
 }
 
 .collapse, .show, .collapsing{
@@ -866,10 +865,10 @@ header .navbar .nav-link{
 
 /* Footer Styles */
 footer{
-    background: var(--blue-gradient-reverse);
+    background: linear-gradient(to top, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));
     font-size: 1rem;
     font-weight: 700;
-    color: var(--txt-dark);
+    color: var(--txt-light);
     text-align: center; 
     margin: 0 auto;
     padding: 10%;
@@ -878,7 +877,7 @@ footer{
 .footer__social-icons{
     font-size: 2.5rem;
     margin-top: 1rem;
-    color: var(--txt-cute);
+    color: var(--txt-light);
 }
 
 .footer__social-icons i{
