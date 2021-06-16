@@ -590,18 +590,29 @@ header .navbar .nav-link{
 }
 
 #add_recipe-form h3{
-    margin: 0;
+    padding-top: 5%;
     text-shadow: 2px 2px var(--txt-light);
     text-align: center;
+    font-family: var(--font-2);
+    font-size: 1.2rem;
+    border-top: 1px solid var(--mint)
 }
 
-#add_recipe-form input, #add_recipe-form textarea, #add_recipe-form select{
+#add_recipe-form input[type=text], #add_recipe-form input[type=number], #add_recipe-form textarea, #add_recipe-form select{
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 5% auto;
     width: 90%;
     padding: 1%;
-    border: 2px solid var(--txt-light);
+    background-color: var(--txt-light);
+    border: none;
+    border-bottom: 2px solid var(--mint);
     border-radius: 5px;
+}
+
+*::placeholder, #add_recipe-form select option:disabled{
+    padding: 5%;
+    font-size: 0.9rem;
+    color: grey;
 }
 
 #add_recipe-form input, #add_recipe-form select{
@@ -620,16 +631,35 @@ header .navbar .nav-link{
     flex-direction: row;
     justify-content: space-between;
     text-align: center;
+    align-items: stretch;
+    flex-wrap: wrap;
     padding: 2%;
 }
 
 #additional-container div{
-    flex-basis: 20%;
+    flex-basis: 50%;
+    flex-grow: 0;
+}
+
+#additional-container div.additional-select{
+    flex-basis: 100%;
     flex-grow: 0;
 }
 
 .ingredient-n{
-    margin: 1% 0%;
+    margin: 2% auto;
+    border: 1px solid var(--mint);
+    border-radius: 5px;
+    padding: 2%;
+}
+
+.ingredient-n div{
+    padding: 0;
+    margin: 0;
+}
+
+.ingredient-n div input{
+    width: 100%;
 }
 
 .button-container{
@@ -644,9 +674,9 @@ header .navbar .nav-link{
 
 #add_recipe-form p, #add_recipe-form button{
     margin: 2% auto 0 auto;
-    padding: 1%;
-    width: 50%;
-    background-color: var(--pink);
+    padding: 2%;
+    width: 90%;
+    background-image: linear-gradient(to right, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));
     text-transform: uppercase;
     color: var(--txt-light);
 }
