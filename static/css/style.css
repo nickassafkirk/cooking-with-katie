@@ -237,6 +237,17 @@ header .navbar .nav-link{
     margin: 0 auto;
 }
 
+.page-section__heading{
+    width: 100%;
+    text-align: center;
+    padding: 2%;
+    font-family: var(--font-2);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px var(--txt-dark);
+    color: var(--txt-light);
+}
+
 /* homepage hero */
 
 .hero-container{
@@ -267,23 +278,7 @@ header .navbar .nav-link{
     height: 100%;
     width: 100%;
     z-index: 3;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.hero-caption{
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    z-index: 5;
-    transform: translate(-50%, -50%);
-    color: var(--txt-light);
-    text-align: center;
-    padding: 4%;
-}
-
-.hero-caption .logo{
-    font-size: 2em;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .hero-split{
@@ -298,16 +293,20 @@ header .navbar .nav-link{
   object-fit: cover;
 }
 
-
-.page-section__heading{
-    width: 100%;
-    text-align: center;
-    padding: 2%;
-    font-family: var(--font-2);
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-shadow: 2px 2px var(--txt-dark);
+.hero-caption{
+    position: absolute;
+    width: 75%;
+    top: 50%;
+    left: 50%;
+    z-index: 5;
+    transform: translate(-50%, -50%);
     color: var(--txt-light);
+    text-align: center;
+    padding: 4%;
+}
+
+.hero-caption .logo{
+    font-size: 2em;
 }
 
 .carousel-indicators{
