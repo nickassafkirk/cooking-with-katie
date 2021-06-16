@@ -69,7 +69,7 @@
         <div class="instruction-n">
             <label for="step-{{ loop.index | int }}" class="instructions-n__label">Step {{ loop.index | int }}:</label>
             <textarea name="step-{{ loop.index | int }}" id="step-{{ loop.index }}" cols="50"
-                rows="1">{{ instruction }}</textarea>
+                rows="auto">{{ instruction }}</textarea>
         </div>
         {% endfor %}
         <div class="button-container">

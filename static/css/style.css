@@ -625,6 +625,11 @@ header .navbar .nav-link{
     padding: 2%;
 }
 
+#ingredientsContainer .ingredient-n{
+    margin: 3%;
+
+}
+
 #additional-container{
     display: flex;
     flex-direction: row;
@@ -656,7 +661,6 @@ header .navbar .nav-link{
     padding: 0;
     margin: 0;
 }
-
 
 .button-container{
     text-align: center;
