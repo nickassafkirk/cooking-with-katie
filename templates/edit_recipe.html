@@ -42,13 +42,13 @@
                     {% for unit in unit_options %}
                         {% if ingredient.unit == unit.unit_name or ingredient.unit == unit.unit_symbol %}
                           {% if ingredient.unit == "na" or ingredient.unit == "none" %}
-                            <option value="{{ unit.unit_symbol }}" selected disabled hidden>Select Unit (optional)</option>
+                            <option value="{{ unit.unit_name }}" selected disabled hidden>Select Unit (optional)</option>
                           {% else %}
-                            <option value="{{ unit.unit_symbol }}" selected>{{ unit.unit_name }}</option>
+                            <option value="{{ unit.unit_name }}" selected>{{ unit.unit_name }}</option>
                           {% endif %}
                         {% else %}
-                            <option value="{{ unit.unit_symbol }}">{{ unit.unit_name }}</option>
-                        {% endif %}
+                            <option value="{{ unit.unit_name }}">{{ unit.unit_name }}</option>
+                        {% endif %}  
                     {% endfor %}
                 </select>
             </div>
@@ -122,11 +122,14 @@
         <div>
             <img src="{{ recipe.image }}" alt="existing image" class="img-preview">
         </div>
-        <div>
-            <label for="file">Upload Image</label>
-            <input type="file" name="file" id="image-uploader" value="{{ recipe.image }}">
+        <div class="upload-image">
+                <label for="file" hidden>Upload Image</label>
+                <input type="file" name="file" id="image-uploader">
+                <div class="fake-image-input">
+                    <i class="fas fa-plus"></i>
+                </div>
+            </div>
         </div>
-    </div>
     <div class="button-container">
         <button type="submit" class="btn" id="add-recipe__submit-button">
             Update Recipe
