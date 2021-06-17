@@ -3,13 +3,13 @@ import datetime
 from functools import wraps
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for, jsonify)
+    redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
 if os.path.exists("env.py"):
     import env
-from flask_cors import CORS, cross_origin
+from flask_cors import cross_origin
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -51,7 +51,8 @@ def load_home():
 def index():
     recipes = list(mongo.db.recipes.find())
     ingredients = list(mongo.db.ingredients.find())
-    return render_template('index.html', recipes=recipes, ingredients=ingredients)
+    return render_template(
+        'index.html', recipes=recipes, ingredients=ingredients)
 
 
 @app.route("/sign_up", methods=["GET", "POST"])
@@ -108,9 +109,12 @@ def sign_in():
             {'username': request.form.get('username-sign-in').lower()})
         print(existing_user)
         if existing_user:
-            if check_password_hash(existing_user["password"], request.form.get("password-sign-in")):
-                session["user"] = request.form.get('username-sign-in').lower()
-                flash("Welcome back {}".format(request.form.get('username-sign-in')))
+            if check_password_hash(existing_user["password"], request.form.get(
+                    "password-sign-in")):
+                session["user"] = request.form.get(
+                    'username-sign-in').lower()
+                flash("Welcome back {}".format(
+                    request.form.get('username-sign-in')))
                 return redirect(url_for("account", username=session["user"]))
             else:
                 flash("password doesn't match")
@@ -139,7 +143,9 @@ def account(username):
     print(user_recipes)
 
     if session["user"]:
-        return render_template("account.html", user=user, username=username, recipes=recipes, user_recipes=user_recipes, categories=categories)
+        return render_template(
+            "account.html", user=user, username=username,
+            recipes=recipes, user_recipes=user_recipes, categories=categories)
 
     return redirect(url_for("sign_in"))
 
@@ -190,7 +196,8 @@ def search_recipes():
 def recipe(recipe):
     recipe = mongo.db.recipes.find_one({"title": recipe})
     ingredients = list(recipe["ingredients"])
-    return render_template("recipe.html", recipe=recipe, ingredients=ingredients)
+    return render_template(
+        "recipe.html", recipe=recipe, ingredients=ingredients)
 
 
 # credit "Julian nash"
@@ -217,7 +224,9 @@ def get_todays_date():
 @cross_origin()
 def add_recipe():
     # initiate cloudnary API
-    cloudinary.config(cloud_name=os.environ.get('CLOUD_NAME'), api_key=os.environ.get('API_KEY'), api_secret=os.environ.get('API_SECRET'))
+    cloudinary.config(cloud_name=os.environ.get(
+        'CLOUD_NAME'), api_key=os.environ.get(
+            'API_KEY'), api_secret=os.environ.get('API_SECRET'))
     upload_result = None
 
     if request.method == "POST":
@@ -239,7 +248,9 @@ def add_recipe():
                 number = key.split('-')[-1]
                 quantity = request.form.get(f'quantity-{number}')
                 unit = request.form.get(f'unit-{number}')
-                ingredients.append({'number': number, 'name': val, 'quantity': quantity, 'unit': unit})
+                ingredients.append(
+                    {'number': number, 'name': val, 'quantity': quantity,
+                        'unit': unit})
             # create instructions list
             if key.startswith("step"):
                 if not val:
@@ -274,7 +285,9 @@ def add_recipe():
     cuisine_options = list(mongo.db.cuisine.find())
     unit_options = list(mongo.db.units.find())
 
-    return render_template("add_recipe.html", cuisine_options=cuisine_options, categories=categories, unit_options=unit_options)
+    return render_template(
+        "add_recipe.html", cuisine_options=cuisine_options,
+        categories=categories, unit_options=unit_options)
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
@@ -291,9 +304,10 @@ def edit_recipe(recipe_id):
     rating = recipe["rating"]
     avg_rating = recipe["avg_rating"]
 
-
     # initiate cloudnary API
-    cloudinary.config(cloud_name=os.environ.get('CLOUD_NAME'), api_key=os.environ.get('API_KEY'), api_secret=os.environ.get('API_SECRET'))
+    cloudinary.config(cloud_name=os.environ.get(
+        'CLOUD_NAME'), api_key=os.environ.get(
+            'API_KEY'), api_secret=os.environ.get('API_SECRET'))
     upload_result = None
 
     if request.method == "POST":
@@ -317,7 +331,9 @@ def edit_recipe(recipe_id):
                 number = key.split('-')[-1]
                 quantity = request.form[f'quantity-{number}']
                 unit = request.form[f'unit-{number}']
-                ingredients.append({'number': number, 'ingredient': val, 'quantity': quantity, 'unit': unit})
+                ingredients.append(
+                    {'number': number, 'ingredient': val,
+                        'quantity': quantity, 'unit': unit})
             # create instructions list
             if key.startswith("step"):
                 if not val:
@@ -360,10 +376,17 @@ def delete_recipe(recipe_id):
 def rating(recipe_id):
     if request.method == "POST":
         user_rating = int(request.form.get("submit-button"))
-        mongo.db.recipes.find_one_and_update({"_id": ObjectId(recipe_id)}, {"$push": {"rating": user_rating}})
-        recipe_rating = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})['rating']
+
+        mongo.db.recipes.find_one_and_update(
+            {"_id": ObjectId(recipe_id)}, {"$push": {"rating": user_rating}})
+
+        recipe_rating = mongo.db.recipes.find_one(
+            {"_id": ObjectId(recipe_id)})['rating']
+
         average = round(sum(recipe_rating)/len(recipe_rating))
-        mongo.db.recipes.find_one_and_update({"_id": ObjectId(recipe_id)}, {"$set": {"avg_rating": average}})
+        mongo.db.recipes.find_one_and_update(
+            {"_id": ObjectId(recipe_id)}, {"$set": {"avg_rating": average}})
+
         return redirect(url_for("recipes"))
 
 
@@ -382,7 +405,8 @@ def new_subscriber():
         if existing_user:
             print(existing_user["username"])
             mongo.db.users.update(
-                {"username": existing_user["username"]}, {"$set": {"subscribed": True}})
+                {"username": existing_user["username"]},
+                {"$set": {"subscribed": True}})
             has_account = True
         subscriber_details = {
             "email_address": new_subscriber,
