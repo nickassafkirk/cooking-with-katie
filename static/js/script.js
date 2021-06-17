@@ -67,6 +67,10 @@ function addSubmitButton(formId, formChildren, originalRating, rating) {
     };
 };
 
+let lastIngredientIndex = document.querySelectorAll(".ingredient-n").length;
+let lastIngredientInput = document.querySelector(`input[name="ingredient-${lastIngredientIndex}"]`);
+lastIngredientInput.addEventListener("change", addMoreRows);
+
 const addIngredientsButton = document.getElementById("addIngredientsButton");
 addIngredientsButton.addEventListener("click", addMoreRows);
 
@@ -74,7 +78,6 @@ function addMoreRows() {
     let numberOfIngredients = document.querySelectorAll(".ingredient-n").length;
     let selectOptions = document.querySelector("[name=unit-1]");
     let newSelect = selectOptions.innerHTML;
-    console.log(newSelect);
     let newIngredientRow = document.createElement("div");
     newIngredientRow.setAttribute("class", "ingredient-n row");
     newIngredientRow.innerHTML= `
