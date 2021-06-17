@@ -375,6 +375,7 @@ def new_subscriber():
         print(new_subscriber)
         if existing_user:
             print(existing_user["username"])
+            mongo.db.users.update({"username": existing_user["username"]}, {"$set": {"subscribed": True}})
         else:
             print("No user found")
         flash("Thanks for signing up to our newsletter")
