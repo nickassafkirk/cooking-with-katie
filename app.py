@@ -371,13 +371,24 @@ def rating(recipe_id):
 def new_subscriber():
     if request.method == "POST":
         new_subscriber = str(request.form.get('new_subscriber'))
-        existing_user = mongo.db.users.find_one({"email_address": new_subscriber})
-        print(new_subscriber)
+        existing_user = mongo.db.users.find_one(
+            {"email_address": new_subscriber})
+        existing_subscriber = mongo.db.subscribers.find_one(
+            {"email_address": new_subscriber})
+        has_account = False
+        if existing_subscriber:
+            flash("You're already signed up")
+            return redirect(url_for("index"))
         if existing_user:
             print(existing_user["username"])
-            mongo.db.users.update({"username": existing_user["username"]}, {"$set": {"subscribed": True}})
-        else:
-            print("No user found")
+            mongo.db.users.update(
+                {"username": existing_user["username"]}, {"$set": {"subscribed": True}})
+            has_account = True
+        subscriber_details = {
+            "email_address": new_subscriber,
+            "has_account": has_account
+        }
+
         flash("Thanks for signing up to our newsletter")
         return redirect(url_for("index"))
 
