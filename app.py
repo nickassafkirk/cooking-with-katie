@@ -367,6 +367,20 @@ def rating(recipe_id):
         return redirect(url_for("recipes"))
 
 
+@app.route('/new_subscriber', methods=["POST"])
+def new_subscriber():
+    if request.method == "POST":
+        new_subscriber = str(request.form.get('new_subscriber'))
+        existing_user = mongo.db.users.find_one({"email_address": new_subscriber})
+        print(new_subscriber)
+        if existing_user:
+            print(existing_user["username"])
+        else:
+            print("No user found")
+        flash("Thanks for signing up to our newsletter")
+        return redirect(url_for("index"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=(os.environ.get("PORT")),
