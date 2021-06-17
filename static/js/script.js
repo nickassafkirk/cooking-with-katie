@@ -83,7 +83,7 @@ function addMoreRows() {
                         <input type="text" name="ingredient-${numberOfIngredients + 1}">
                     </div>
                     <div class="col-6 col-md-4">
-                        <label for="quantity-${numberOfIngredients + 1}">Quantity</label>
+                        <label for="quantity-${numberOfIngredients + 1}" class="form-label">Quantity</label>
                         <input type="text" name="quantity-${numberOfIngredients + 1}" placeholder="Optional">
                     </div>
                     <div class="col-6 col-md-4">

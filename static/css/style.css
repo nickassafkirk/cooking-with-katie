@@ -667,9 +667,16 @@ header .navbar .nav-link{
     padding: 2%;
 }
 
-#ingredientsContainer .ingredient-n{
-    margin: 3%;
+.ingredient-n{
+    margin: 2% auto;
+    border: 1px solid var(--mint);
+    border-radius: 5px;
+    padding: 2%;
+}
 
+.ingredient-n div{
+    padding: 0;
+    margin: 0;
 }
 
 #additional-container{
@@ -690,18 +697,6 @@ header .navbar .nav-link{
 #additional-container div.additional-select{
     flex-basis: 100%;
     flex-grow: 0;
-}
-
-.ingredient-n{
-    margin: 2% auto;
-    border: 1px solid var(--mint);
-    border-radius: 5px;
-    padding: 2%;
-}
-
-.ingredient-n div{
-    padding: 0;
-    margin: 0;
 }
 
 .button-container{
