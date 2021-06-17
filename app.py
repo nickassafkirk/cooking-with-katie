@@ -389,6 +389,8 @@ def new_subscriber():
             "has_account": has_account
         }
 
+        mongo.db.subscribers.insert_one(subscriber_details)
+
         flash("Thanks for signing up to our newsletter")
         return redirect(url_for("index"))
 
