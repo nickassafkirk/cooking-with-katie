@@ -1,4 +1,4 @@
-window.addEventListener("load", clipParagraph(".recipe-intro", 200));
+window.addEventListener("load", clipParagraph(".recipe-intro", 150));
 
 /**
  * Clips inner text of selected dom Element/s

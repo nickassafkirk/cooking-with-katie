@@ -477,8 +477,13 @@ header .navbar .nav-link{
 
 /* Recipes.html */
 
+.recipes-wrapper{
+    display: flex;
+    align-items: stretch;
+}
+
 .recipe-thumbnail{
-    margin: 5%;
+    margin: 5% 0%;
     padding: 2%;
     text-align: center;
     background-color: #fff;
@@ -494,7 +499,7 @@ header .navbar .nav-link{
 
 .recipe-thumbnail__title a{
     font-family: var(--font-2);
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     Color: var(--txt-light);
     text-decoration: none;
@@ -511,7 +516,7 @@ header .navbar .nav-link{
 
 .recipe-intro{
     width: 100%;
-    height: 15vh;
+    height: auto;
     padding: 2% 5%;
 }
 

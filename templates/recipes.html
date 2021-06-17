@@ -23,7 +23,7 @@
     <!-- Recipe Thumbnails -->
     <div class="row">
         {% for recipe in recipes %}
-            <div class="col-12 col-md-6 col-xl-4">
+            <div class="col-12 col-md-6 col-xl-4 recipes-wrapper">
                 <div class="recipe-thumbnail mx-auto pt-0 pb-3 px-0 mb-0">
                     <h4 class="recipe-thumbnail__title red-gradient"><a href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a></h4>
                 <div>
