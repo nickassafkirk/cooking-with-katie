@@ -2,7 +2,7 @@
 
 {% block content %}
 <!-- Account menu -->
-<div class="container-fluid page-content-container mx-auto my-5">
+<div class="container-fluid page-content-container account-page mx-auto my-5">
    
     <!-- Account content area-->
    
@@ -48,12 +48,12 @@
                         </div>
                     </div>
                     <div class="col-12 text-center py-3">
-                        <button class="btn btn-success w-25 d-none" id="update_account_button" type="submit">Update Account Details</button>
-                        <button class="btn btn-danger w-25 d-none" id="cancel_update_button" type="reset">Cancel</button>
+                        <button class="btn btn-success w-50 w-md-25 d-none" id="update_account_button" type="submit">Update Account Details</button>
+                        <button class="btn btn-danger w-50 w-md-25 d-none" id="cancel_update_button" type="reset">Cancel</button>
                     </div>
                 </form>
                 <div>
-                    <span class="d-block btn btn-custom pink-dark w-25" id="editDetails">Edit Details</span>
+                    <span class="d-block btn btn-custom pink-dark w-50 w-md-25" id="editDetails">Edit Details</span>
                 </div>
             </div>
        
@@ -104,7 +104,7 @@
                     </div>
                     {% endfor %}
                     <div>
-                        <a href="{{ url_for('add_recipe') }}" class="btn btn-custom pink-dark">Add New Recipe</a>
+                        <a href="{{ url_for('add_recipe') }}" class="btn btn-custom pink-dark w-50 w-md-25">Add New Recipe</a>
                     </div>
                     <!-- List no recipes + link to add recipe -->
                     {% else %}
@@ -118,34 +118,33 @@
                 </div>
             </div>
         
-
         <!-- Change Password Area -->
             <div class="container account-container" id="account-password">
                 <h4>Change Password</h4>
                 <form action="" id="change-password-form" class="row g-3">
-                    <div class="col">
+                    <div class="col-12 col-md-6">
                         <label for="existing_password" class="form-label">Current Password</label>
                         <input type="password" name="existing_password" class="form-control" id="existing_password"
                         placeholder="Enter Current Password">
                     </div>
-                    <div class="col">
+                    <div class="col-12 col-md-6">
                         <label for="existing_password" class="form-label">Confirm Current Password</label>
                         <input type="password" name="confirm_existing_password" class="form-control" id="confirm_existing_password"
                         placeholder="Confirm Current Password">
                     </div>
                     <hr>
-                    <div class="col">
+                    <div class="col-12 col-md-6">
                         <label for="confirm_new_password" class="form-label">New Password</label>
                         <input type="password" name="new_password" class="form-control" id="new_password" placeholder="Enter New Password">
                     </div>
-                    <div class="col">
+                    <div class="col-12 col-md-6">
                         <label for="confirm_new_password" class="form-label">Confirm New Password</label>
                         <input type="password" name="confirm_new_password" class="form-control" id="confirm_new_password"
                         placeholder="Confirm New Password">
                     </div>
                     <hr>
-                    <div class="col">
-                        <button type="submit" class="d-block btn btn-custom pink-dark">Update Password</button>
+                    <div class="col-12">
+                        <button type="submit" class="d-block btn btn-custom pink-dark w-50 w-md-25">Update Password</button>
                     </div>
                 </form>
             </div>
@@ -154,25 +153,42 @@
         <!-- Change Password Area -->
         
             <div class="container account-container" id="account-categories">
-                <h4 class="my-2">Edit Categories</h4>
+                <div class="row">
+                    <div class="col-12">
+                        <h4>Edit Categories</h4>
+                    </div>
+                </div>
                 {% for category in categories %}
                 <form action="#" method="POST" class="row">
-                    <input type="text" name="{{category.name}}" value="{{category.name}}">
-                    <button type="button" class="btn btn-primary">Rename</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
+                        <div class="col-12 col-lg-6 my-2 mx-auto">
+                            <input type="text" name="{{category.name}}" class="form-control" value="{{category.name}}">
+                        </div>
+                        <div class="col-6 col-lg-3 w-50 text-center">
+                            <button type="button" class="btn btn-primary">Rename</button>
+                        </div>
+                        <div class="col-6 col-lg-3 w-50 text-center">
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </div>
                 </form>
                 {% endfor %}
-                <h4 class="my-2">Add Categories</h4>
+                
+
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <h4>Add Categories</h4>
+                    </div>  
+                </div>
                 <form action="" id="add-category-form" class="row">
                     <div class="col-12" id="add-category-parent"></div>
                     <div>
-                        <label for="new-category">new-category</label>
-                    <input type="text" name="new-category" class="new-category-input" id="add-category" required>
+                        <label for="new-category" class="form-label">new-category</label>
+                    <input type="text" name="new-category" class="new-category-input  form-control" id="add-category" required>
                     </div>
-                    <button type="submit">Add Category</button>
+                    <div class="col-12 my-2 mx-auto">
+                        <button type="submit" class="btn btn-custom w-50 w-md-25 mint-dark">Add Category</button>
+                    </div>
                 </form>
             </div>
-        
     </div>
 </div>
             
