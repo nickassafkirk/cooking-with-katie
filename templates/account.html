@@ -8,9 +8,13 @@
    
 
         <!-- Account Details Area -->
-            <div class="container">
+            <div class="container-fluid account-container" id="account-preferences">
                 <h4>Account Details</h4>
                 <form action="{{url_for('update_user', user_id=user._id)}}" method="POST" class="row g-3" id="account-update-form">
+                    <div class="col-12">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" name="username" value="{{ user.username }}" class="form-control" disabled>
+                    </div>
                     <div class="col-md-6">
                         <label for="fname-update" class="form-label">First name</label>
                         <input type="text" class="form-control" id="fname-update" name="fname-update"
@@ -51,7 +55,7 @@
 
         <!-- User Recipes Area -->
         
-            <div class="container account-recipe__container">
+            <div class="container account-container" id="account-recipes">
                 <!-- Submitted recipes -->
 
                 {% if session['user'] == "admin" %}
@@ -98,28 +102,43 @@
         
 
         <!-- Change Password Area -->
-            <div class="container">
+            <div class="container account-container" id="account-password">
                 <h4>Change Password</h4>
-                <form action="" id="change-password-form" class="row">
-                    <input type="password" name="existing_password" id="existing_password"
+                <form action="" id="change-password-form" class="row g-3">
+                    <div class="col">
+                        <label for="existing_password" class="form-label">Current Password</label>
+                        <input type="password" name="existing_password" class="form-control" id="existing_password"
                         placeholder="Enter Current Password">
-                    <input type="password" name="confirm_existing_password" id="confirm_existing_password"
+                    </div>
+                    <div class="col">
+                        <label for="existing_password" class="form-label">Confirm Current Password</label>
+                        <input type="password" name="confirm_existing_password" class="form-control" id="confirm_existing_password"
                         placeholder="Confirm Current Password">
+                    </div>
                     <hr>
-                    <input type="password" name="new_password" id="new_password" placeholder="Enter New Password">
-                    <input type="password" name="confirm_new_password" id="confirm_new_password"
+                    <div class="col">
+                        <label for="confirm_new_password" class="form-label">New Password</label>
+                        <input type="password" name="new_password" class="form-control" id="new_password" placeholder="Enter New Password">
+                    </div>
+                    <div class="col">
+                        <label for="confirm_new_password" class="form-label">Confirm New Password</label>
+                        <input type="password" name="confirm_new_password" class="form-control" id="confirm_new_password"
                         placeholder="Confirm New Password">
-                    <button type="submit">Update Password</button>
+                    </div>
+                    <hr>
+                    <div class="col">
+                        <button type="submit" class="btb btn-custom">Update Password</button>
+                    </div>
                 </form>
             </div>
         
 
         <!-- Change Password Area -->
         
-            <div class="container">
+            <div class="container account-container" id="account-categories">
                 <h4 class="my-2">Edit Categories</h4>
                 {% for category in categories %}
-                <form action="#">
+                <form action="#" method="POST" class="row">
                     <input type="text" name="{{category.name}}" value="{{category.name}}">
                     <button type="button" class="btn btn-primary">Rename</button>
                     <button type="button" class="btn btn-danger">Delete</button>
