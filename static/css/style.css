@@ -842,10 +842,21 @@ header .navbar .nav-link{
 
 /* Account styles */
 
+.account-container{
+    width: 90%;
+    margin: 2% auto;
+    padding: 5%;
+    border: 1px solid var(--mint);
+    border-radius: 5px;
+}
+
 
 .account-container__heading{
-    flex-basis: 100%;
-
+    width: 100%;
+    margin: -5%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: var(--mint);
 }
 
 .account-recipe{

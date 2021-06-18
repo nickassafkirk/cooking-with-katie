@@ -9,7 +9,12 @@
 
         <!-- Account Details Area -->
             <div class="container-fluid account-container" id="account-preferences">
-                <h4>Account Details</h4>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h4>Account Details</h4>
+                    </div>
+                </div>
+                
                 <form action="{{url_for('update_user', user_id=user._id)}}" method="POST" class="row g-3" id="account-update-form">
                     <div class="col-12">
                         <label for="username" class="form-label">Username</label>
@@ -57,47 +62,60 @@
         
             <div class="container account-container" id="account-recipes">
                 <!-- Submitted recipes -->
-
-                {% if session['user'] == "admin" %}
-                <div class="account-container__heading">
-                    <h4>Total recipes: {{recipes | length}}</h4>
+                <div class="row">
+                    {% if session['user'] == "admin" %}
+                    <div class="col-12 text-center">
+                        <h4>Recipes</h4>
+                    </div>
+                    <div class="col-12">
+                        <h4>Total recipes: {{recipes | length}}</h4>
+                    </div>
                 </div>
-                {% for recipe in recipes %}
-                <div class="account-recipe">
-                    <h4 class="recipe-thumbnail__title"><a href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a></h4>
-                    <div><img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img"></div>
-                    <p class="recipe-intro">{{ recipe.intro }}</p>
-                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-success">Edit Recipe</a>
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>
-                </div>
-                {% endfor %}
-                {% else %}
-                <div class="account-container__heading">
-                    <h4>You have {{user_recipes | length}} recipes</h4>
-                </div>
-                <!-- If user has recipes list user_recipes -->
-                {% if user_recipes | length > 0 %}
-                {% for recipe in user_recipes %}
-                <div class="account-recipe">
-                    <h4 class="recipe-thumbnail__title"><a href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a></h4>
-                    <div><img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img"></div>
-                    <p class="recipe-intro">{{ recipe.intro }}</p>
-                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-success">Edit Recipe</a>
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>
-                </div>
-                {% endfor %}
-                <div>
-                    <a href="{{ url_for('add_recipe') }}" class="btn btn-custom">Add New Recipe</a>
-                </div>
-                <!-- List no recipes + link to add recipe -->
-                {% else %}
-                <div>
-                    <p>
-                        You haven't added any recipes, <a href="{{ url_for('add_recipe') }}">add your first recipe here</a>
-                    </p>
-                </div>
+                <div class="row">
+                    {% for recipe in recipes %}
+                    <div class="col-12 col-md-6 col-xl-4">
+                        <div class="account-recipe">
+                            <h5 class="recipe-thumbnail__title"><a
+                                href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a></h5>
+                            <div><img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img"></div>
+                            <p class="recipe-intro">{{ recipe.intro }}</p>
+                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-success">Edit Recipe</a>
+                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <div class="col-12 text-center">
+                        <h4>Your Recipes</h4>
+                        <h4>You have {{user_recipes | length}} recipes</h4>
+                    </div>
+                    <!-- If user has recipes list user_recipes -->
+                    {% if user_recipes | length > 0 %}
+                    {% for recipe in user_recipes %}
+                    <div class="col-12 col-md-6 col-xl-4">
+                        <div class="account-recipe">
+                            <h5 class="recipe-thumbnail__title"><a
+                                href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a></h5>
+                            <div><img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img"></div>
+                            <p class="recipe-intro">{{ recipe.intro }}</p>
+                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-success">Edit Recipe</a>
+                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div>
+                        <a href="{{ url_for('add_recipe') }}" class="btn btn-custom pink-dark">Add New Recipe</a>
+                    </div>
+                    <!-- List no recipes + link to add recipe -->
+                    {% else %}
+                    <div>
+                        <p>
+                            You haven't added any recipes, <a href="{{ url_for('add_recipe') }}">add your first recipe here</a>
+                        </p>
+                    </div>
                 {% endif %}
                 {% endif %}
+                </div>
             </div>
         
 
