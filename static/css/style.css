@@ -93,6 +93,8 @@ body{
 .btn-custom{
     color: var(--txt-light);
     padding: 1%;
+    text-align: center;
+    margin: 0 auto;
 }
 
 /* Header Styles */
