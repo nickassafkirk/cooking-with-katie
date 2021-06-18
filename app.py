@@ -332,7 +332,7 @@ def edit_recipe(recipe_id):
                 quantity = request.form[f'quantity-{number}']
                 unit = request.form[f'unit-{number}']
                 ingredients.append(
-                    {'number': number, 'ingredient': val,
+                    {'number': number, 'name': val,
                         'quantity': quantity, 'unit': unit})
             # create instructions list
             if key.startswith("step"):

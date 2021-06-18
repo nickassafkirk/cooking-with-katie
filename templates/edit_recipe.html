@@ -26,6 +26,7 @@
     </div>
 
     <div id="ingredientsContainer">
+        {% if recipe.ingredients | length > 0 %}
         {% for ingredient in recipe.ingredients %}
         <div class="ingredient-n row">
             <div class="col-12 col-md-4">
@@ -42,7 +43,7 @@
                     {% for unit in unit_options %}
                         {% if ingredient.unit == unit.unit_name or ingredient.unit == unit.unit_symbol %}
                           {% if ingredient.unit == "na" or ingredient.unit == "none" %}
-                            <option value="{{ unit.unit_name }}" selected disabled hidden>Select Unit (optional)</option>
+                            <option value="na" selected>Optional</option>
                           {% else %}
                             <option value="{{ unit.unit_name }}" selected>{{ unit.unit_name }}</option>
                           {% endif %}
@@ -54,6 +55,28 @@
             </div>
         </div>
         {% endfor %}
+        {% else %}
+        <div class="ingredient-n row">
+            <div class="col-12 col-md-4">
+                <label for="ingredient-1" class="form-label">Ingredient</label>
+                <input type="text" name="ingredient-1">
+            </div>
+            <div class="col-6 col-md-4">
+                <label for="quantity-1" class="form-label">Quantity</label>
+                <input type="text" name="quantity-1">
+            </div>
+            <div class="col-6 col-md-4">
+                <label for="unit-1" class="form-label">Unit</label>
+                <select name="unit-1">
+                    {% for unit in unit_options %}
+                
+                            <option value="{{ unit.unit_name }}">{{ unit.unit_name }}</option>
+                          
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        {% endif %}
         <div class="button-container">
             <p class="btn" id="addIngredientsButton">
                 Add more ingredients
@@ -118,7 +141,7 @@
     <div class="form-section__heading">
         <h3>6: Edit Images</h3>
     </div>
-    <div>
+    <div class="d-flex flex-row">
         <div>
             <img src="{{ recipe.image }}" alt="existing image" class="img-preview">
         </div>
@@ -130,7 +153,7 @@
                 </div>
             </div>
         </div>
-    <div class="button-container">
+    <div class="button-container mt-5">
         <button type="submit" class="btn" id="add-recipe__submit-button">
             Update Recipe
         </button>
