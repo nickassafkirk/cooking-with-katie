@@ -423,13 +423,15 @@ def new_subscriber():
 @login_required
 def add_category():
     if request.method == "POST":
+
         is_admin = mongo.db.users.find_one({"username": session['user']}, {'is_admin'})
-        print(is_admin)
         if not is_admin:
             flash('You do not have permission to add new categories')
             return redirect(url_for("account", username=session["user"]))
-        new_category = request.form.get('new-category')
-        print(new_category)
+
+        new_category = {"name": request.form.get('new-category').lower()}
+        mongo.db.categories.insert_one(new_category)
+        flash("New category added successfully!")
         return redirect(url_for("account", username=session["user"]))
 
 
