@@ -81,8 +81,13 @@ function addMoreRows() {
     let newIngredientRow = document.createElement("div");
     newIngredientRow.setAttribute("class", "ingredient-n row");
     newIngredientRow.innerHTML= `
+                    <div class="delete-row">
+                        <span class="delete-ingredient-button">
+                            <i class="fas fa-trash-alt"></i>
+                        </span>
+                    </div>
                     <div class="col-12 col-md-4">
-                        <label for="ingredient-${numberOfIngredients + 1}">Ingredient</label>
+                        <label for="ingredient-${numberOfIngredients + 1}" class="form-label">Ingredient</label>
                         <input type="text" name="ingredient-${numberOfIngredients + 1}">
                     </div>
                     <div class="col-6 col-md-4">
