@@ -29,3 +29,24 @@ function addNewInput(){
     newRow.innerHTML = `<input type="text" name="new-category-${num + 1}" class="new-category-input" id="add-category-${num + 1}">`
     inputParent.appendChild(newRow);
 }
+
+let editButtons = document.querySelectorAll("#account-categories form button[type=button]");
+console.log(editButtons);
+editButtons.forEach(button => button.addEventListener('click', confirmChoice));
+
+function confirmChoice(event) {
+    event.preventDefault();
+    console.log(event.target);
+    let confirmPopUp = document.createElement('div');
+    confirmPopUp.setAttribute("id",'confirm-popup');
+    confirmPopUp.innerHTML = `<div>
+                                  <p>Are you Sure you?</p>
+                                  <div>
+                                      <button class="btn btn-success">Yes</button>
+                                      <button class="btn btn-danger">Cancel</button>
+                                  </div>
+                               </div>`
+    console.log(confirmPopUp)
+    parentContainer = document.querySelector(".insert-popup")
+    parentContainer.appendChild(confirmPopUp);
+};
