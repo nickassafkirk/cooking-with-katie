@@ -35,18 +35,23 @@ console.log(editButtons);
 editButtons.forEach(button => button.addEventListener('click', confirmChoice));
 
 function confirmChoice(event) {
-    event.preventDefault();
-    console.log(event.target);
     let confirmPopUp = document.createElement('div');
     confirmPopUp.setAttribute("id",'confirm-popup');
     confirmPopUp.innerHTML = `<div>
                                   <p>Are you Sure you?</p>
                                   <div>
-                                      <button class="btn btn-success">Yes</button>
-                                      <button class="btn btn-danger">Cancel</button>
+                                      <button type="button" id="confirmation-button" class="btn btn-success">Yes</button>
+                                      <button type="button" id="cancel-button" class="btn btn-danger">Cancel</button>
                                   </div>
-                               </div>`
-    console.log(confirmPopUp)
+                               </div>`    
     parentContainer = document.querySelector(".insert-popup")
     parentContainer.appendChild(confirmPopUp);
+
+    let confirmationButton = document.querySelector('#confirmation-button')
+    let cancelButton = document.querySelector('#cancel-button')
+    cancelButton.addEventListener('click', cancel)
+
+    function cancel() {
+        confirmPopUp.remove();
+    }
 };
