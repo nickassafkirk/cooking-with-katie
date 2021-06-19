@@ -107,7 +107,7 @@ def sign_in():
         # check if username already exists in DB
         existing_user = mongo.db.users.find_one(
             {'username': request.form.get('username-sign-in').lower()})
-        print(existing_user)
+       
         if existing_user:
             if check_password_hash(existing_user["password"], request.form.get(
                     "password-sign-in")):
@@ -139,8 +139,6 @@ def account(username):
     recipes = list(mongo.db.recipes.find())
     user_recipes = list(mongo.db.recipes.find({"created_by": username}))
     categories = list(mongo.db.categories.find())
-
-    print(user_recipes)
 
     if session["user"]:
         return render_template(
@@ -234,7 +232,6 @@ def add_recipe():
         if file_to_upload:
             upload_result = cloudinary.uploader.upload(file_to_upload)
             image_url = upload_result["url"]
-            print(image_url)
 
         # create ingredient object
         instructions = []
@@ -276,7 +273,6 @@ def add_recipe():
             "image": image_url
         }
 
-        print(recipe)
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe successfully uploaded")
         return redirect(url_for('add_recipe'))
@@ -315,7 +311,6 @@ def edit_recipe(recipe_id):
         if file_to_upload:
             upload_result = cloudinary.uploader.upload(file_to_upload)
             image_url = upload_result["url"]
-            print(image_url)
         else:
             image_url = recipe["image"]
 
@@ -403,7 +398,6 @@ def new_subscriber():
             flash("You're already signed up")
             return redirect(url_for("index"))
         if existing_user:
-            print(existing_user["username"])
             mongo.db.users.update(
                 {"username": existing_user["username"]},
                 {"$set": {"subscribed": True}})
@@ -432,6 +426,25 @@ def add_category():
         new_category = {"name": request.form.get('new-category').lower()}
         mongo.db.categories.insert_one(new_category)
         flash("New category added successfully!")
+        return redirect(url_for("account", username=session["user"]))
+
+
+@app.route("/edit_category", methods=["GET", "POST"])
+@login_required
+def edit_category():
+    if request.method == "POST":
+
+        is_admin = mongo.db.users.find_one({"username": session['user']}, {'is_admin'})
+        if not is_admin:
+            flash('You do not have permission to edit categories')
+            return redirect(url_for("account", username=session["user"]))
+
+        selected_category = request.form.items()
+        for exisiting_value, new_value in selected_category:
+            mongo.db.categories.find_one_and_update(
+                {"name": exisiting_value}, {"$set": {"name": new_value}})
+
+        flash("Category Edited successfully!")
         return redirect(url_for("account", username=session["user"]))
 
 

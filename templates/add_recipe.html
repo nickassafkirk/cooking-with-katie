@@ -8,7 +8,7 @@
                 <h3>Add your Recipe</h3>
             </div>
         </div>
-        <form action="/add_recipe" method="POST" enctype="multipart/form-data" id="add_recipe-form">
+        <form action="{{ url_for('add_recipe') }}" method="POST" enctype="multipart/form-data" id="add_recipe-form">
             <div>
                 <label for="title" class="form-label">
                     <h3>1: Add Recipe Title</h3>

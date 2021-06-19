@@ -160,29 +160,12 @@
                 </div>
                 {% for category in categories %}
                 <div class="row">
-                    <form action="" method="POST" class="col-8">
+                    <form action="{{ url_for('edit_category') }}" method="POST" class="col-8">
                         <div class="w-75">
                             <input type="text" name="{{category.name}}" class="form-control" value="{{category.name}}">
                             <span class="w-25 text-center">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirm">Rename</button>
+                                <button type="submit" class="btn btn-primary" id="btn-{{ loop.index }}">Rename</button>
                             </span>
-                        </div>
-                        <div class="modal mx-auto" tabindex="-1" id="confirm">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Modal title</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Are you sure you want to make changes?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary">Yes</button>
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </form>
                 <form action="#" method="POST" class="col-4">
