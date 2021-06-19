@@ -168,12 +168,12 @@
                             </span>
                         </div>
                     </form>
-                <form action="#" method="POST" class="col-4">
+                <form action="{{url_for('delete_category')}}" method="POST" class="col-4">
                         <div class="d-none">
                             <input type="text" name="{{category.name}}" class="form-control" value="{{category.name}}">
                         </div>
                         <div class="text-center">
-                            <button type="button" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
                         </div>
                 </form>
                 </div>

@@ -418,7 +418,8 @@ def new_subscriber():
 def add_category():
     if request.method == "POST":
 
-        is_admin = mongo.db.users.find_one({"username": session['user']}, {'is_admin'})
+        is_admin = mongo.db.users.find_one(
+            {"username": session['user']}, {'is_admin'})
         if not is_admin:
             flash('You do not have permission to add new categories')
             return redirect(url_for("account", username=session["user"]))
@@ -434,7 +435,8 @@ def add_category():
 def edit_category():
     if request.method == "POST":
 
-        is_admin = mongo.db.users.find_one({"username": session['user']}, {'is_admin'})
+        is_admin = mongo.db.users.find_one(
+            {"username": session['user']}, {'is_admin'})
         if not is_admin:
             flash('You do not have permission to edit categories')
             return redirect(url_for("account", username=session["user"]))
@@ -445,6 +447,26 @@ def edit_category():
                 {"name": exisiting_value}, {"$set": {"name": new_value}})
 
         flash("Category Edited successfully!")
+        return redirect(url_for("account", username=session["user"]))
+
+
+@app.route("/delete_category", methods=["GET", "POST"])
+@login_required
+def delete_category():
+    if request.method == "POST":
+
+        is_admin = mongo.db.users.find_one(
+            {"username": session['user']}, {'is_admin'})
+        if not is_admin:
+            flash('You do not have permission to delete categories')
+            return redirect(url_for("account", username=session["user"]))
+
+        selected_category = request.form.items()
+        for exisiting_value, new_value in selected_category:
+            mongo.db.categories.remove(
+                {"name": exisiting_value})
+
+        flash("Category Deleted Successfully!")
         return redirect(url_for("account", username=session["user"]))
 
 
