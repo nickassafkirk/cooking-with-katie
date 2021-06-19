@@ -185,8 +185,8 @@
                 <form action="{{ url_for('add_category') }}" method="POST" id="add-category-form" class="row">
                     <div class="col-12" id="add-category-parent"></div>
                     <div>
-                        <label for="new-category" class="form-label">new-category</label>
-                    <input type="text" name="new-category" class="new-category-input  form-control" id="add-category" required>
+                        <label for="new-category" class="form-label hidden">new-category</label>
+                    <input type="text" name="new-category" class="new-category-input  form-control" id="add-category" placeholder="Enter New Category" required>
                     </div>
                     <div class="col-12 my-2 mx-auto">
                         <button type="submit" class="btn btn-custom w-50 w-md-25 mint-dark">Add Category</button>

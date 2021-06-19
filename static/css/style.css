@@ -97,6 +97,10 @@ body{
     margin: 0 auto;
 }
 
+.hidden{
+    visibility: hidden;
+}
+
 /* Header Styles */
 header{
     background-image: url(../img/brooke-lark-08bOYnH_r_E-unsplash.jpg),
