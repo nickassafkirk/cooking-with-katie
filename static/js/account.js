@@ -56,7 +56,7 @@ function confirmChoice(event) {
     confirmationButton.addEventListener('click', update)
 
     function cancel() {
-        
+        form.reset();
         confirmPopUp.remove();
     }
 
