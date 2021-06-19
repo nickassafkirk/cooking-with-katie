@@ -160,26 +160,22 @@
                 </div>
                 {% for category in categories %}
                 <div class="row">
-                    <form action="{{ url_for('edit_category') }}" method="POST" class="col-8">
-                        <div class="w-75">
-                            <input type="text" name="{{category.name}}" class="form-control" value="{{category.name}}">
-                            <span class="w-25 text-center">
-                                <button type="submit" class="btn btn-primary" id="btn-{{ loop.index }}">Rename</button>
-                            </span>
+                    <div class="col-12">
+                        <div class="edit-categories-wrapper">
+                            <form action="{{ url_for('edit_category') }}" method="POST">
+                                <input type="text" name="{{category.name}}" class="form-control" value="{{category.name}}">
+                                <button type="submit" class="btn btn-success" id="btn-{{ loop.index }}"><i class="far fa-edit"></i></button>
+                            </form>
+                            <form action="{{url_for('delete_category')}}" method="POST">
+                                <input type="text" name="{{category.name}}" class="form-control" value="{{category.name}}">
+                                <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                            </form>
                         </div>
-                    </form>
-                <form action="{{url_for('delete_category')}}" method="POST" class="col-4">
-                        <div class="d-none">
-                            <input type="text" name="{{category.name}}" class="form-control" value="{{category.name}}">
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </div>
-                </form>
+                    </div>
                 </div>
                 
                 {% endfor %}
-                
+
 
                 <div class="row mt-5">
                     <div class="col-12">

@@ -1050,6 +1050,35 @@ footer{
     line-height: 3rem;
 }
 
+
+.edit-categories-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+}
+
+.edit-categories-wrapper form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-basis: 5%;
+    flex-shrink: 3;
+}
+
+.edit-categories-wrapper form:first-child{
+    flex-basis: 95%;
+    flex-grow: 3;
+}
+
+.edit-categories-wrapper form:last-child input{
+    display: none;
+}
+
+
+
 @media screen and (min-width: 768px) {
 
     .hero-main {
