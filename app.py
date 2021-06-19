@@ -419,6 +419,15 @@ def new_subscriber():
         return redirect(url_for("index"))
 
 
+@app.route('/add_category', methods=["GET", "POST"])
+@login_required
+def add_category():
+    if request.method == "POST":
+        new_category = request.form.get('new-category')
+        print(new_category)
+        return redirect(url_for("account", username=session["user"]))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=(os.environ.get("PORT")),
