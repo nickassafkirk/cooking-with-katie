@@ -114,6 +114,17 @@ function addInstructionRows(){
 };
 
 
+let deleteIngredientButton = document.querySelectorAll('.delete-ingredient-button');
+deleteIngredientButton.forEach(button => button.addEventListener('click', deleteRow))
+
+function deleteRow(event) {
+    targetRow = this.parentNode.parentNode;
+    console.log(targetRow);
+    targetRow.remove();
+    addMoreRows();
+}
+
+
 
 
 
