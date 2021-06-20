@@ -156,6 +156,8 @@ function reorderLabels(targetElements){
     for (i = 0; i < allTargetElements.length; i++) {
         let targetInput = allTargetElements[i].childNodes[3];
         console.log(targetInput);
+        targetInput.innerText = `Step ${i+1}`;
+        targetInput.setAttribute('for', `Step-${i+1}`)
     }
 }
 
