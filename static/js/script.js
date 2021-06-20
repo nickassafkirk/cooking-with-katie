@@ -129,6 +129,21 @@ function deleteRow(event) {
     addMoreRows();
 }
 
+instructionRow = document.querySelectorAll("#instructionsContainer .instruction-n");
+instructionRow.forEach(row => row.addEventListener("onmouseup", dragToSort));
+
+function dragToSort(event) {
+    console.log("test");
+    let selectedRow = event.target;
+    console.log(selectedRow);
+    selectedRow.setAttribute('dragable', true)
+
+}
+
+const dragArea = document.querySelector("#instructionsContainer");
+new Sortable(dragArea, {
+    animation: 350
+});
 
 
 
