@@ -252,6 +252,20 @@ Content was copied from https://www.bbcgoodfood.com/recipes/easy-pancakes
             margin-top: -50px;
         }
 
+7. Bootsrap .collapsing delay issue fix:
+   - To prevent an excessive delay when exposing the main nav menu on tablet and mobile devices, I edited bootstrap's default
+   animation styles on their .collapsing class. I was made aware of the default collapsing animation in [this github page](https://github.com/twbs/bootstrap/issues/17205). 
+
+   The following code was edited to achieve my desired behaviour: 
+
+    The solition was submitted by user: ajithmal commented on 16 Mar 2018
+
+        .collapsing {
+            -webkit-transition: height .5s ease;
+            -o-transition: height .5s ease;
+            transition: height .5s ease;
+        }
+
 ---
 ## Deployment
 ---
