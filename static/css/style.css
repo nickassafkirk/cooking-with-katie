@@ -1060,7 +1060,7 @@ footer{
 }
 
 /* credit https://www.toptal.com/twitter-bootstrap/the-10-most-common-bootstrap-mistakes */
-.upload-image input[type=file] {
+/* .upload-image input[type=file] {
     position: absolute;
     top: 0;
     right: 0;
@@ -1075,7 +1075,7 @@ footer{
     cursor: inherit;
     display: block;
     z-index: 1;
-}
+} */
 
 .fake-image-input{
     position: absolute;
