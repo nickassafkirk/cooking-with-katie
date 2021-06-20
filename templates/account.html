@@ -2,13 +2,25 @@
 
 {% block content %}
 <!-- Account menu -->
-<div class="container-fluid page-content-container account-page mx-auto my-5">
-   
-    <!-- Account content area-->
-   
+    
 
+<div class="container-fluid page-content-container account-page mx-auto my-5">
+    <nav id="account-menu">
+            
+                <a href="#account-preferences">Account Details</a>
+            
+                <a href="#account-password">Change Password</a>
+            
+                <a href="#account-recipes">Recipes</a>
+            
+                <a href="#account-categories">Edit Categories</a>
+            
+                <a href="">Edit Users</a>
+           
+    </nav>
+    <!-- Account content area-->
         <!-- Account Details Area -->
-            <div class="container-fluid account-container" id="account-preferences">
+            <div class="container-fluid account-container active" id="account-preferences">
                 <div class="row">
                     <div class="col-12 text-center">
                         <h4>Account Details</h4>
@@ -60,7 +72,7 @@
 
         <!-- User Recipes Area -->
         
-            <div class="container account-container" id="account-recipes">
+            <div class="container account-container d-none" id="account-recipes">
                 <!-- Submitted recipes -->
                 <div class="row">
                     {% if session['user'] == "admin" %}
@@ -75,10 +87,10 @@
                     {% for recipe in recipes %}
                     <div class="col-12 col-md-6 col-xl-4">
                         <div class="account-recipe">
-                            <h5 class="recipe-thumbnail__title"><a
-                                href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a></h5>
-                            <div><img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img"></div>
-                            <p class="recipe-intro">{{ recipe.intro }}</p>
+                            <h5 class="recipe-thumbnail__title">
+                                <a href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a>
+                            </h5>
+                            <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img">
                             <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-success">Edit Recipe</a>
                             <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>
                         </div>
@@ -119,7 +131,7 @@
             </div>
         
         <!-- Change Password Area -->
-            <div class="container account-container" id="account-password">
+            <div class="container account-container d-none" id="account-password">
                 <h4>Change Password</h4>
                 <form action="" id="change-password-form" class="row g-3">
                     <div class="col-12 col-md-6">
@@ -152,7 +164,7 @@
 
         <!-- Change Password Area -->
         
-            <div class="container account-container" id="account-categories">
+            <div class="container account-container d-none" id="account-categories">
                 <div class="row">
                     <div class="col-12">
                         <h4>Edit Categories</h4>

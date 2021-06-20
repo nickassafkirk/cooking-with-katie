@@ -64,3 +64,13 @@ function confirmChoice(event) {
         form.submit();
     }
 };
+
+const accountMenuLinks = document.querySelectorAll("#account-menu a");
+accountMenuLinks.forEach(link => link.addEventListener("click", goToAccountSection));
+
+function goToAccountSection(event){
+    let accountSections = document.querySelectorAll(".account-container")
+    accountSections.forEach(section => section.classList.add("d-none"));
+    selectedMenuLink = event.target.getAttribute('href');
+    let revealSection = document.querySelector(selectedMenuLink).classList.remove("d-none")
+}

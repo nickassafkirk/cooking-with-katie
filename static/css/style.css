@@ -29,6 +29,7 @@
     --green-dark: #003d32;
     --green-light: #439688;
     --terracota-dark: rgb(116, 50, 47);
+    --red-gradient: linear-gradient(to right, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));
 
     /* Fonts */
     --font-1: 'Montserrat', sans-serif;
@@ -492,11 +493,17 @@ header .navbar .nav-link{
 .recipes-wrapper{
     display: flex;
     align-items: stretch;
+    padding: 0;
+    margin: 0;
 }
 
 .recipe-thumbnail{
-    margin: 5% 0%;
-    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    justify-items: stretch;
+    padding: 0;
     text-align: center;
     background-color: #fff;
     border-radius: 3px;
@@ -506,7 +513,8 @@ header .navbar .nav-link{
     width: 100%;
     margin: 0;
     padding: 5%;
-    background-color: var(--green);
+    background: var(--red-gradient);
+    align-self: stretch;
 }
 
 .recipe-thumbnail__title a{
@@ -519,9 +527,11 @@ header .navbar .nav-link{
 }
 
 .recipe-thumbnail img{
-    width: 90%;
+    display: block;
+    width: 100%;
     height: 25vh;
-    margin: 2%;
+    margin: 2% 0;
+    padding: 0;
     object-fit: cover;
     object-position: center;
 }
@@ -887,6 +897,37 @@ header .navbar .nav-link{
 
 /* Account styles */
 
+#account-menu{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+#account-menu a{
+    display: block;
+    background-color: var(--grey);
+    padding: 2%;
+    border: 2px solid var(--bg-main);
+    border-top-right-radius: 15px;
+    flex-basis: 15%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    text-align: center;
+    border-right: 5px solid rgba(0, 0, 0, 0.4);
+    border-bottom: 5px solid var(--grey);
+    font-family: var(--font-2);
+    text-transform: capitalize;
+    color: var(--txt-dark);
+}
+
+#account-menu a:hover{
+    background: var(--mint);
+}
+
+
+
 .account-container{
     width: 100%;
     margin: 2% auto;
@@ -907,7 +948,7 @@ header .navbar .nav-link{
 .account-recipe{
     flex-basis: 40%;
     padding: 0%;
-    margin: 2%;
+    margin: 2% 0;
     text-align: center;
     background-color:var(--grey-light);
     border: 2px solid var(--grey);
@@ -916,8 +957,9 @@ header .navbar .nav-link{
 
 .thumbnail-img{
     padding: 5%;
-    height: 250px;
-    width: 80%;
+    height: 20vmax;
+    width: 50vmin;
+    max-width: 100%;
     object-fit: cover;
 }
 
@@ -926,47 +968,11 @@ header .navbar .nav-link{
     margin-bottom: 5%;
 }
 
-#account-tab{
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 1%;
-    font-size: 0.9rem;
-    justify-items: flex-start;
-}
-
-#account-tab .nav-link{
-    background-color: var(--grey-light);
-    border: 1px solid var(--green) !important;
-    font-family: var(--font-2);
-}
-
-#account-tab .nav-link.active{
-    background-color: var(--green) !important;
-    color: var(--txt-light) !important;
-}
-
-#account-tab .nav-link:hover{
-    background-color: #ffa500;
-}
 
 
-#account-tab{
-    width: 90%;
-    margin: 0 auto;
-}
 
-#account-tabContent{
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    padding: 2%;   
-    border-radius: 0px 5px 5px 5px;
-    background-color: var(--grey-light);
-    border: 2px solid var(--green);
-    display: block;
-    position: relative;
-}
+
+
 
 /* Footer Styles */
 footer{
