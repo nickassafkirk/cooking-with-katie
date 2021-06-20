@@ -160,7 +160,10 @@ header a:hover{
 }
 
 .collapse, .collapsing {
--webkit-transition: height 0.2s ease-o-transition: height 0.2s easetransition: height 0.2s ease}
+-webkit-transition: height 0.2s ease;
+-o-transition: height 0.2s ease;
+transition: height 0.2s ease;
+}
 
 .navbar-toggler{
   font-size: 1.5rem;
@@ -1258,5 +1261,10 @@ footer{
 
     .footer__social-icons i{
         margin: 2%;
+    }
+
+    .add-recipe__container{
+        width: 50vw;
+        padding: 5%;
     }
 }
