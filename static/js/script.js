@@ -138,30 +138,55 @@ deleteButton.forEach(button => button.addEventListener('click', deleteRow))
 
 function deleteRow(event) {
     targetRow = this.parentNode.parentNode;
-    classname = "." + targetRow.getAttribute('class');
-    console.log(classname);
+    classes = targetRow.classList;
+    classname = "." + targetRow.classList[0];
     targetRow.remove();
     reorderLabels(classname);
 }
 
 instructionRow = document.querySelectorAll("#instructionsContainer .instruction-n");
 
-const dragArea = document.querySelector("#instructionsContainer");
-new Sortable(dragArea, {
-    animation: 350
-});
+enableDragSorting("#instructionsContainer");
 
-function reorderLabels(targetElements){
-    let allTargetElements = document.querySelectorAll(`${targetElements}`);
-    for (i = 0; i < allTargetElements.length; i++) {
-        let targetLabel = allTargetElements[i].children[1];
-        console.log(targetLabel);
-        targetLabel.innerText = `Step ${i+1}`;
-        targetLabel.setAttribute('for', `Step-${i+1}`)
-        let targetInput = allTargetElements[i].children[2];
-        console.log(targetInput);
-        targetInput.setAttribute('name', `Step-${i+1}`);
-        targetInput.setAttribute('id', `Step-${i+1}`);
+enableDragSorting("#ingredientsContainer");
+
+
+function enableDragSorting(selector){
+    let dragArea = document.querySelector(selector);
+    new Sortable(dragArea, {animation: 350});
+}
+
+
+function reorderLabels(targetElements) {
+    console.log("reorder called")
+    let allTargetElements = document.querySelectorAll(targetElements);
+    if (targetElements == ".instruction-n") {
+        for (i = 0; i < allTargetElements.length; i++) {
+            let targetChildren = allTargetElements[i];
+            let targetLabel = allTargetElements[i].children[1];
+            targetLabel.innerText = `Step ${i + 1}`;
+            targetLabel.setAttribute('for', `Step-${i + 1}`)
+            let targetInput = allTargetElements[i].children[2];
+            targetInput.setAttribute('name', `Step-${i + 1}`);
+            targetInput.setAttribute('id', `Step-${i + 1}`);
+        }
+    } else if (targetElements == ".ingredient-n"){
+        for (i = 0; i < allTargetElements.length; i++) {
+            let targetChildren = allTargetElements[i];
+            /* ingredient input + label */
+            let col1 = targetChildren.children[1].children;
+            /* quantity input + label */
+            col2 = targetChildren.children[2].children;
+            /* unit select + label */
+            col3 = targetChildren.children[3].children;
+
+            col1[0].setAttribute('for', `ingredient-${i + 1}`)
+            col1[1].setAttribute('name', `ingredient-${i + 1}`)
+            col2[0].setAttribute('for', `quantity-${i + 1}`)
+            col2[1].setAttribute('name', `quantity-${i + 1}`)
+            col3[0].setAttribute('for', `unit-${i + 1}`)
+            col3[1].setAttribute('name', `unit-${i + 1}`)
+        }
     }
 }
 
