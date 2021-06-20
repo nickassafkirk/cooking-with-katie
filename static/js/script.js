@@ -103,6 +103,7 @@ function addMoreRows() {
                     </div>`;  
     const ingredientsContainer = document.getElementById("ingredientsContainer");
     ingredientsContainer.insertBefore(newIngredientRow, document.querySelector(".button-container"));
+    enableDeleteButton("#ingredientsContainer", "click")
 };
 
 const addInstructionsButton = document.getElementById("addInstructionsButton");
@@ -123,11 +124,14 @@ function addInstructionRows(){
 
     const instructionsContainer = document.getElementById("instructionsContainer");
     instructionsContainer.insertBefore(newInstructionRow, document.querySelectorAll(".button-container")[1]);
-    deleteButtons = document.querySelectorAll("#instructionsContainer .delete-button");
-    newDeleteButton = deleteButtons[((deleteButtons.length)-1)];
-    newDeleteButton.addEventListener('click', deleteRow);
-
+    enableDeleteButton("#instructionsContainer", "click")
 };
+
+function enableDeleteButton(parentContainer, listener) {
+    deleteButtons = document.querySelectorAll(`${parentContainer} .delete-button`);
+    newDeleteButton = deleteButtons[((deleteButtons.length)-1)];
+    newDeleteButton.addEventListener(listener, deleteRow);
+}
 
 
 let deleteButton = document.querySelectorAll('.delete-button');
@@ -135,7 +139,6 @@ deleteButton.forEach(button => button.addEventListener('click', deleteRow))
 
 function deleteRow(event) {
     targetRow = this.parentNode.parentNode;
-    console.log(targetRow);
     targetRow.remove();
 }
 
