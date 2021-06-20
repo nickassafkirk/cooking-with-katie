@@ -34,7 +34,7 @@
                         </span>
                     </div>
                     <div class="col-12 col-md-4">
-                        <label for="ingredient-{{ loop.index }}" class="form-label">Ingredient</label>
+                        <label for="ingredient-{{ loop.index }}" class="form-label">Ingredient {{ loop.index }}</label>
                         <input type="text" name="ingredient-{{ loop.index }}">
                     </div>
                     <div class="col-6 col-md-4">
@@ -70,7 +70,7 @@
             </div>
             <div id="instructionsContainer">
                 {% for row in range(5) %}
-                <div class="instruction-n">
+                <div class="instruction-n" draggable="true">
                     <div class="delete-row">
                         <span class="delete-button">
                             <i class="fas fa-trash-alt"></i>

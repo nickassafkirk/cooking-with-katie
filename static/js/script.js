@@ -144,12 +144,27 @@ function deleteRow(event) {
     reorderLabels(classname);
 }
 
-instructionRow = document.querySelectorAll("#instructionsContainer .instruction-n");
+const instructionRows = document.querySelectorAll("#instructionsContainer .instruction-n");
+instructionRows.forEach(row => row.addEventListener("pointerup", function(event){
+    event.preventDefault;
+    let parent = event.target.parentNode;
+    parentClass = "." + parent.classList[0]
+    console.log(parentClass)
+    reorderLabels(parentClass);
+}));
+
+const ingredientRows = document.querySelectorAll("#ingredientsContainer .ingredient-n");
+ingredientRows.forEach(row => row.addEventListener("pointerup", function(event){
+    event.preventDefault;
+    let ingredientParent = event.target.parentNode.parentNode;
+    console.log(ingredientParent)
+    let ingredientParentClass = "." + ingredientParent.classList[0]
+    console.log(ingredientParentClass)
+    reorderLabels(ingredientParentClass);
+}));
 
 enableDragSorting("#instructionsContainer");
-
 enableDragSorting("#ingredientsContainer");
-
 
 function enableDragSorting(selector){
     let dragArea = document.querySelector(selector);
@@ -181,6 +196,7 @@ function reorderLabels(targetElements) {
             col3 = targetChildren.children[3].children;
 
             col1[0].setAttribute('for', `ingredient-${i + 1}`)
+            col1[0].innerText = `ingredient ${i + 1}`
             col1[1].setAttribute('name', `ingredient-${i + 1}`)
             col2[0].setAttribute('for', `quantity-${i + 1}`)
             col2[1].setAttribute('name', `quantity-${i + 1}`)
