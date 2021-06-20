@@ -159,7 +159,11 @@ header a:hover{
     height: 100vh
 }
 
-
+.collapse, .collapsing {
+-webkit-transition: height 0.2s ease;
+-o-transition: height 0.2s ease;
+transition: height 0.2s ease;
+}
 
 .navbar-toggler{
   font-size: 1.5rem;
