@@ -120,7 +120,7 @@ function addInstructionRows(){
 };
 
 
-let deleteIngredientButton = document.querySelectorAll('.delete-ingredient-button');
+let deleteIngredientButton = document.querySelectorAll('.delete-button');
 deleteIngredientButton.forEach(button => button.addEventListener('click', deleteRow))
 
 function deleteRow(event) {

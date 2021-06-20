@@ -693,6 +693,11 @@ header .navbar .nav-link{
     margin: 0;
 }
 
+.instruction-n{
+    position: relative;
+}
+
+
 .delete-row{
     position: absolute;
     top: 0%;
@@ -703,7 +708,7 @@ header .navbar .nav-link{
 
 .delete-row span{
     color: var(--txt-light);
-    background: var(--mint);
+    background: #74322f;
     margin-left: -1.5rem;
     border-radius: 50%;
     padding: 1rem;
