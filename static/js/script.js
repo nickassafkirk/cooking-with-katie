@@ -83,7 +83,7 @@ function addMoreRows() {
     newIngredientRow.setAttribute("class", "ingredient-n row");
     newIngredientRow.innerHTML= `
                     <div class="delete-row">
-                        <span class="delete-ingredient-button">
+                        <span class="delete-button">
                             <i class="fas fa-trash-alt"></i>
                         </span>
                     </div>
@@ -113,15 +113,25 @@ function addInstructionRows(){
     let newInstructionRow = document.createElement("div");
     newInstructionRow.setAttribute("class", "instruction-n")
     newInstructionRow.innerHTML = `
+        <div class="delete-row">
+                        <span class="delete-button">
+                            <i class="fas fa-trash-alt"></i>
+                        </span>
+                    </div>
         <label for="step" class="instructions-n__label">Step ${numberOfInstructions + 1}:</label>
         <textarea name="step-${numberOfInstructions + 1}" id="step-${numberOfInstructions + 1}" cols="50" rows="1"></textarea>`
+
     const instructionsContainer = document.getElementById("instructionsContainer");
     instructionsContainer.insertBefore(newInstructionRow, document.querySelectorAll(".button-container")[1]);
+    deleteButtons = document.querySelectorAll("#instructionsContainer .delete-button");
+    newDeleteButton = deleteButtons[((deleteButtons.length)-1)];
+    newDeleteButton.addEventListener('click', deleteRow);
+
 };
 
 
-let deleteIngredientButton = document.querySelectorAll('.delete-button');
-deleteIngredientButton.forEach(button => button.addEventListener('click', deleteRow))
+let deleteButton = document.querySelectorAll('.delete-button');
+deleteButton.forEach(button => button.addEventListener('click', deleteRow))
 
 function deleteRow(event) {
     targetRow = this.parentNode.parentNode;
