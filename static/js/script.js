@@ -154,10 +154,14 @@ new Sortable(dragArea, {
 function reorderLabels(targetElements){
     let allTargetElements = document.querySelectorAll(`${targetElements}`);
     for (i = 0; i < allTargetElements.length; i++) {
-        let targetInput = allTargetElements[i].childNodes[3];
+        let targetLabel = allTargetElements[i].children[1];
+        console.log(targetLabel);
+        targetLabel.innerText = `Step ${i+1}`;
+        targetLabel.setAttribute('for', `Step-${i+1}`)
+        let targetInput = allTargetElements[i].children[2];
         console.log(targetInput);
-        targetInput.innerText = `Step ${i+1}`;
-        targetInput.setAttribute('for', `Step-${i+1}`)
+        targetInput.setAttribute('name', `Step-${i+1}`);
+        targetInput.setAttribute('id', `Step-${i+1}`);
     }
 }
 
