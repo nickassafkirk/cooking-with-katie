@@ -1,4 +1,3 @@
-
 const ratingFormButtons = document.querySelectorAll(".rating-button");
 ratingFormButtons.forEach(button => button.addEventListener('click', selectRating))
     
@@ -144,6 +143,22 @@ function deleteRow(event) {
     reorderLabels(classname);
 }
 
+enableDragSorting("#instructionsContainer");
+enableDragSorting("#ingredientsContainer");
+
+/**
+ * Allows drag and drop sorting on selected html elements
+ * credit CodingNepal: https://www.youtube.com/watch?v=z54suepKiIU
+ * sortable cdn https://cdnjs.com/libraries/Sortable
+ */
+function enableDragSorting(selector){
+    let dragArea = document.querySelector(selector);
+    new Sortable(dragArea, {animation: 350});
+}
+
+/**
+ * event listener to rename reordered form instructions
+ */
 const instructionRows = document.querySelectorAll("#instructionsContainer .instruction-n");
 instructionRows.forEach(row => row.addEventListener("pointerup", function(event){
     event.preventDefault;
@@ -153,6 +168,9 @@ instructionRows.forEach(row => row.addEventListener("pointerup", function(event)
     reorderLabels(parentClass);
 }));
 
+/**
+ * event listener to rename reordered form ingredients
+ */
 const ingredientRows = document.querySelectorAll("#ingredientsContainer .ingredient-n");
 ingredientRows.forEach(row => row.addEventListener("pointerup", function(event){
     event.preventDefault;
@@ -162,15 +180,6 @@ ingredientRows.forEach(row => row.addEventListener("pointerup", function(event){
     console.log(ingredientParentClass)
     reorderLabels(ingredientParentClass);
 }));
-
-enableDragSorting("#instructionsContainer");
-enableDragSorting("#ingredientsContainer");
-
-function enableDragSorting(selector){
-    let dragArea = document.querySelector(selector);
-    new Sortable(dragArea, {animation: 350});
-}
-
 
 function reorderLabels(targetElements) {
     console.log("reorder called")
