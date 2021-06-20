@@ -1,3 +1,4 @@
+
 const ratingFormButtons = document.querySelectorAll(".rating-button");
 ratingFormButtons.forEach(button => button.addEventListener('click', selectRating))
     
@@ -126,7 +127,6 @@ function deleteRow(event) {
     targetRow = this.parentNode.parentNode;
     console.log(targetRow);
     targetRow.remove();
-    addMoreRows();
 }
 
 instructionRow = document.querySelectorAll("#instructionsContainer .instruction-n");
