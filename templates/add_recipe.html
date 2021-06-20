@@ -69,26 +69,17 @@
                 <h3>4: Add Cooking Instructions</h3>
             </div>
             <div id="instructionsContainer">
+                {% for row in range(5) %}
                 <div class="instruction-n">
-                    <label for="step-1" class="instructions-n__label">Step 1:</label>
-                    <textarea name="step-1" id="step-1" cols="50" rows="1"></textarea>
+                    <div class="delete-row">
+                        <span class="delete-button">
+                            <i class="fas fa-trash-alt"></i>
+                        </span>
+                    </div>
+                    <label for="step-{{ loop.index }}" class="instructions-n__label">Step {{ loop.index }}:</label>
+                    <textarea name="step-{{ loop.index }}" id="step-{{ loop.index }}" cols="50" rows="1"></textarea>
                 </div>
-                <div class="instruction-n">
-                    <label for="step-2" class="instructions-n__label">Step 2:</label>
-                    <textarea name="step-2" id="step-2" cols="50" rows="1"></textarea>
-                </div>
-                <div class="instruction-n">
-                    <label for="step-3" class="instructions-n__label">Step 3:</label>
-                    <textarea name="step-3" id="step-3" cols="50" rows="1"></textarea>
-                </div>
-                <div class="instruction-n">
-                    <label for="step-4" class="instructions-n__label">Step 4:</label>
-                    <textarea name="step-4" id="step-4" cols="50" rows="1"></textarea>
-                </div>
-                <div class="instruction-n">
-                    <label for="step-5" class="instructions-n__label">Step 5:</label>
-                    <textarea name="step-5" id="step-5" cols="50" rows="1"></textarea>
-                </div>
+                {% endfor %}
                 <div class="button-container">
                     <p class="btn" id="addInstructionsButton">
                         Add more instructions
