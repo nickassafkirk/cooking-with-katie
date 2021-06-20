@@ -133,31 +133,31 @@ function enableDeleteButton(parentContainer, listener) {
     newDeleteButton.addEventListener(listener, deleteRow);
 }
 
-
 let deleteButton = document.querySelectorAll('.delete-button');
 deleteButton.forEach(button => button.addEventListener('click', deleteRow))
 
 function deleteRow(event) {
     targetRow = this.parentNode.parentNode;
+    classname = "." + targetRow.getAttribute('class');
+    console.log(classname);
     targetRow.remove();
+    reorderLabels(classname);
 }
 
 instructionRow = document.querySelectorAll("#instructionsContainer .instruction-n");
-instructionRow.forEach(row => row.addEventListener("onmouseup", dragToSort));
-
-function dragToSort(event) {
-    console.log("test");
-    let selectedRow = event.target;
-    console.log(selectedRow);
-    selectedRow.setAttribute('dragable', true)
-
-}
 
 const dragArea = document.querySelector("#instructionsContainer");
 new Sortable(dragArea, {
     animation: 350
 });
 
+function reorderLabels(targetElements){
+    let allTargetElements = document.querySelectorAll(`${targetElements}`);
+    for (i = 0; i < allTargetElements.length; i++) {
+        let targetInput = allTargetElements[i].childNodes[3];
+        console.log(targetInput);
+    }
+}
 
 
 
