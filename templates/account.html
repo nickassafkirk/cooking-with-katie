@@ -15,7 +15,7 @@
             
                 <a href="#account-categories">Edit Categories</a>
             
-                <a href="">Edit Users</a>
+                <a href="#account-users">Edit Users</a>
            
     </nav>
     <!-- Account content area-->
@@ -161,8 +161,6 @@
                 </form>
             </div>
         
-
-        <!-- Change Password Area -->
         
             <div class="container account-container d-none" id="account-categories">
                 <div class="row">
@@ -180,6 +178,49 @@
                             </form>
                             <form action="{{url_for('delete_category')}}" method="POST">
                                 <input type="text" name="{{category.name}}" class="form-control" value="{{category.name}}">
+                                <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                {% endfor %}
+
+
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <h4>Add Categories</h4>
+                    </div>  
+                </div>
+                <form action="{{ url_for('add_category') }}" method="POST" id="" class="row">
+                    <div class="col-12" id=""></div>
+                    <div>
+                        <label for="" class="form-label hidden">new-category</label>
+                    <input type="text" name="" class="form-control" id="add-category" placeholder="Enter New Category" required>
+                    </div>
+                    <div class="col-12 my-2 mx-auto">
+                        <button type="submit" class="btn btn-custom w-50 w-md-25 mint-dark">Add Category</button>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="container account-container d-none" id="account-users">
+                <div class="row">
+                    <div class="col-12">
+                        <h4>Edit Users</h4>
+                    </div>
+                </div>
+                {% for user in users %}
+                <div class="row">
+                    <div class="col-12 insert-popup">
+                        <div class="edit-users-wrapper">
+                            <form action="" method="POST">
+                                <input type="text" name="{{ user.username }}" class="form-control" value="{{ user.username }}">
+                                <button type="button" class="btn btn-success" id=""><i class="far fa-edit"></i></button>
+                            </form>
+                            <form action="" method="POST">
+                                <input type="text" name="{{ user.username }}" class="form-control" value="{{ user.username }}">
                                 <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                             </form>
                         </div>

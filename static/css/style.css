@@ -1101,8 +1101,8 @@ footer{
     line-height: 3rem;
 }
 
-
-.edit-categories-wrapper{
+/* move to account */
+.edit-categories-wrapper, .edit-users-wrapper{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -1111,7 +1111,7 @@ footer{
     align-content: center;
 }
 
-.edit-categories-wrapper form{
+.edit-categories-wrapper form, .edit-users-wrapper form{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -1120,12 +1120,12 @@ footer{
     position: relative;
 }
 
-.edit-categories-wrapper form:first-child{
+.edit-categories-wrapper form:first-child, .edit-users-wrapper form:first-child{
     flex-basis: 95%;
     flex-grow: 3;
 }
 
-.edit-categories-wrapper form:last-child input{
+.edit-categories-wrapper form:last-child input, .edit-users-wrapper form:last-child input{
     display: none;
 }
 

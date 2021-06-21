@@ -107,7 +107,7 @@ def sign_in():
         # check if username already exists in DB
         existing_user = mongo.db.users.find_one(
             {'username': request.form.get('username-sign-in').lower()})
-       
+
         if existing_user:
             if check_password_hash(existing_user["password"], request.form.get(
                     "password-sign-in")):
@@ -139,10 +139,11 @@ def account(username):
     recipes = list(mongo.db.recipes.find())
     user_recipes = list(mongo.db.recipes.find({"created_by": username}))
     categories = list(mongo.db.categories.find())
+    users = list(mongo.db.users.find())
 
     if session["user"]:
         return render_template(
-            "account.html", user=user, username=username,
+            "account.html", user=user, users=users, username=username,
             recipes=recipes, user_recipes=user_recipes, categories=categories)
 
     return redirect(url_for("sign_in"))
@@ -463,6 +464,7 @@ def delete_category():
 
         selected_category = request.form.items()
         for exisiting_value, new_value in selected_category:
+            print(exisiting_value)
             mongo.db.categories.remove(
                 {"name": exisiting_value})
 
