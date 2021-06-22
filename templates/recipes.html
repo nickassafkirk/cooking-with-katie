@@ -5,11 +5,11 @@
     <div class="row p-0">
         <div class="col-12 page-section-heading-alt diagonal-split mb-0">
             <div id="search-area">
-                <h3>Search Recipes</h3>
+                <h3><i class="fas fa-search"></i> Search Recipes</h3>
                 <form action="{{ url_for('search_recipes') }}" method="POST" id="search-recipes-form">
                     <div class="input-area">
-                        <input type="text" name="search_recipe" id="search_recipe" placeholder="Search Recipes">
-                        <label for="search_recipe" class="d-none">Search Recipes</label>
+                        <input type="text" name="search_recipe" id="search_recipe" placeholder=" Search Recipes">
+                        <label for="search_recipe" class="d-none"><i class="fas fa-search text-dark"></i> Search Recipes</label>
                     </div>
                     <div class="button-area">
                         <button type="submit" class="btn btn-success">Search</button>

@@ -18,6 +18,7 @@
     --txt-light: #efefef;
     --txt-dark: #111;
     --txt-cute: #bd4f4f;
+    --txt-gold: #ffc107;
 
     /* Accent colors */
     --grey: #bcbcbc;
@@ -163,7 +164,7 @@ header::after{
 }
 
 header a:hover{
-    color: var(--txt-cute);
+    color: var(--txt-gold);
 }
     
 /* Navbar styles */ 
@@ -200,7 +201,7 @@ transition: height 0.2s ease;
 
 .navbar-toggler{
   font-size: 1.5rem;
-  color: var(--txt-cute);
+  color: var(--txt-gold);
   width: 100%;
   text-align: center;
 }
@@ -250,6 +251,10 @@ header .navbar .nav-link{
     color: var(--txt-light);
     text-shadow: 2px 2px #000;
     text-align: right !important;
+}
+
+.navbar-brand:hover{
+    color: var(--txt-gold);
 }
 
 .logo, .logo-small{
@@ -550,15 +555,16 @@ header .navbar .nav-link{
     justify-items: stretch;
     padding: 0;
     text-align: center;
-    background-color: #fff;
+    background-color: var(--off-white);
     border-radius: 3px;
+    font-size: 0.9rem;
 }
 
 .recipe-thumbnail__title{
     width: 100%;
     margin: 0;
     padding: 5%;
-    background: var(--txt-cute);
+    background: var(--dark-blue);
     align-self: stretch;
 }
 
@@ -597,6 +603,7 @@ header .navbar .nav-link{
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    font-size: 0.9rem;
 }
 
 .recipe-thumbnail__metadata p{
@@ -746,6 +753,7 @@ header .navbar .nav-link{
     padding: 2%;
     position: relative;
     cursor: move;
+    background: var(--red-gradient);
 }
 
 .ingredient-n div{
@@ -755,8 +763,18 @@ header .navbar .nav-link{
 
 .instruction-n{
     position: relative;
+    width: 100%;
+    background-color: var(--mint);
+    padding: 1%;
+    margin: 2% auto;
+    border-radius: 5px;
+    cursor: move;
 }
 
+.instruction-n label{
+    margin: 0;
+    cursor: text;
+}
 
 .delete-row{
     position: absolute;
@@ -773,20 +791,6 @@ header .navbar .nav-link{
     margin-left: -1.5rem;
     border-radius: 50%;
     padding: 1rem;
-}
-
-.instruction-n{
-    width: 100%;
-    background-color: var(--mint);
-    padding: 1%;
-    margin: 2% auto;
-    border-radius: 5px;
-    cursor: move;
-}
-
-.instruction-n label{
-    margin: 0;
-    cursor: text;
 }
 
 #additional-container{
@@ -811,6 +815,7 @@ header .navbar .nav-link{
 
 .button-container{
     text-align: center;
+    margin-bottom: 5%;
 }
 
 .img-preview{
@@ -855,7 +860,7 @@ header .navbar .nav-link{
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: linear-gradient(to right, var(--mint), var(--mint-dark));
+    background-image: linear-gradient(to right, var(--mint), var(--dark-blue));
     transform: skewY(-11deg);
     transform-origin: bottom left;
     z-index: 0;
@@ -885,7 +890,7 @@ header .navbar .nav-link{
 .diagonal-split-reverse::after{
     transform: skewY(-11deg);
     transform-origin: bottom right;
-    background-image: linear-gradient(to right, var(--mint), var(--mint-dark));
+    background-image: linear-gradient(to right, var(--mint), var(--dark-blue));
 }
 
 .content{
@@ -900,7 +905,7 @@ header .navbar .nav-link{
     color: var(--txt-light);
     text-shadow: 2px 2px var(--txt-dark);
     padding: 2%;
-    z-index: 10;
+    z-index: 4;
 }
 
 .add-recipe__container{
@@ -1097,20 +1102,32 @@ footer{
     background: var(--dark-blue);
     font-size: 1rem;
     font-weight: 700;
-    color: var(--txt-light);
     text-align: center; 
     margin: 0 auto;
     padding: 10%;
 }
 
+footer a{
+    display: block;
+    color: var(--txt-light);
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+footer a:hover, footer .footer-icons a:hover{
+    color: var(--txt-gold);
+}
+
 .footer__social-icons{
     font-size: 2.5rem;
     margin-top: 1rem;
-    color: var(--txt-light);
+    
 }
 
-.footer__social-icons i{
+.footer__social-icons a{
     margin: 2%;
+    color: var(--txt-light);
+    display: inline-block;
 }
 
 .footer__social-heading{
@@ -1301,8 +1318,8 @@ footer{
     }
 
     .navbar-custom .nav-link:hover{
-    color: var(--txt-cute);
-    border-bottom: 2px dotted var(--txt-cute);
+    color: var(--txt-gold);
+    border-bottom: 2px dotted var(--txt-gold);
     }
 
     header .navbar-custom .navbar-brand{
@@ -1332,6 +1349,14 @@ footer{
 
     .top-recipes img {
         height: 350px;
+    }
+
+    footer{
+        padding: 5%;
+    }
+
+    footer .footer-links a{
+        font-size: 1.4rem;
     }
 
     .footer__social-icons{
