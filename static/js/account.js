@@ -80,9 +80,10 @@ const changePasswordConfirm = document.querySelector('#confirm-existing-password
 changePasswordConfirm.addEventListener('change', checkPassword);
 
     function checkPassword(event){
-        console.log(event.target)
-        let passwordField = document.querySelector('#existing-password')
-        let confirmField = document.querySelector('#confirm-existing-password')
+        targetId = event.target.id
+        passWordFieldId = targetId.split("confirm-").pop();
+        let confirmField = event.target
+        let passwordField = document.querySelector(`#${passWordFieldId}`)
         let password1 = passwordField.value;
         let password2 = confirmField.value;
         let validationMessage = document.querySelector(".validation-message")
