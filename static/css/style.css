@@ -939,30 +939,42 @@ header .navbar .nav-link{
 /* sign_up.html */
 
 #sign-up-container, #sign-in-container{
-    width: 75%;
-    margin: 2% auto;
+    width: 98%;
+    padding: 0;
+    margin: 1% auto;
 }
 
 #sign-up-container form, #sign-in-container form{
-    margin: 0 2% 2% 2%;
+    width: 100%;
+    background: var(--off-white);
+    margin: 2% auto;
+}
+
+#sign-up-container form div, #sign-in-container form div{
+    padding: 1%;
+}
+
+#sign-up-container form label, #sign-in-container form label{
+    font-family: var(--font-2);
 }
 
 .form-heading{
+    width: 100%;
     text-align: center;
-    padding: 2% 0px;
-    margin-bottom: 2%;
+    padding: 1%;
+    margin: 0% auto;
     Text-transform: uppercase;
     color: var(--txt-light);
     font-family: var(--font-2);
     font-size: 1.8rem;
     font-weight: 700;
     text-shadow: 2px 2px var(--txt-dark);
-    background-color: var(--mint);
+    background-color: var(--mint-dark);
 }
 
 
 #sign-up-form button, #sign-in-form button{ 
-    background-color: var(--mint);
+    background-color: var(--mint-dark);
     Text-transform: uppercase;
     color: var(--txt-light);
     font-family: var(--font-2);
@@ -971,7 +983,7 @@ header .navbar .nav-link{
 }
 
 #sign-up-form button:hover, #sign-in-form button:hover{
-    background-color: var(--pink-dark);
+    background-color: var(--txt-cute);
 }
 
 /* Account styles */
@@ -1111,11 +1123,13 @@ header .navbar .nav-link{
 /* Form Validation */
 
 .valid-field{
-    border: 3px solid green;
+    border: 3px solid var(--green);
+    color: var(--green)
 }
 
 .invalid-field{
-    border: 3px solid red;
+    border: 3px solid var(--txt-cute);
+    color: var(--txt-cute)
 }
 
 /* Footer Styles */
@@ -1370,6 +1384,11 @@ footer a:hover, footer .footer-icons a:hover{
 
     .logo-small{
         font-size: 1.6rem;
+    }
+
+    #sign-up-container, #sign-in-container{
+        width: 50%;
+        margin: 2% auto;
     }
 
     .top-recipes img {
