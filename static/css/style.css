@@ -935,14 +935,13 @@ header .navbar .nav-link{
     background: var(--mint);
 }
 
-
-
 .account-container{
     width: 100%;
-    margin: 2% auto;
+    margin: 0 auto;
     padding: 5%;
     border: 1px solid var(--mint);
     border-radius: 5px;
+    background: var(--grey);
 }
 
 
@@ -976,6 +975,56 @@ header .navbar .nav-link{
     width: 45%;
     margin-bottom: 5%;
 }
+
+.edit-categories-wrapper, .edit-users-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+}
+
+.edit-categories-wrapper form, .edit-users-wrapper form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-basis: 5%;
+    flex-shrink: 3;
+    position: relative;
+}
+
+.edit-categories-wrapper form:first-child, .edit-users-wrapper form:first-child{
+    flex-basis: 100%;
+    flex-grow: 3;
+}
+
+.edit-categories-wrapper form:last-child input, .edit-users-wrapper form:last-child input{
+    display: none;
+}
+
+#confirm-popup{
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 50%;
+    top: 25%;
+    left: 0;
+    background: #fff;
+    color: var(--txt-dark);
+    font-family: var(--font-2);
+    text-align: center;
+    z-index: 1000;
+    padding: 5%;
+}
+
+#confirm-popup > div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 
 /* Form Validation */
@@ -1117,58 +1166,6 @@ footer{
     font-size: 1.5rem;
     line-height: 3rem;
 }
-
-/* move to account */
-.edit-categories-wrapper, .edit-users-wrapper{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-items: center;
-    align-items: center;
-    align-content: center;
-}
-
-.edit-categories-wrapper form, .edit-users-wrapper form{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    flex-basis: 5%;
-    flex-shrink: 3;
-    position: relative;
-}
-
-.edit-categories-wrapper form:first-child, .edit-users-wrapper form:first-child{
-    flex-basis: 95%;
-    flex-grow: 3;
-}
-
-.edit-categories-wrapper form:last-child input, .edit-users-wrapper form:last-child input{
-    display: none;
-}
-
-#confirm-popup{
-    position: fixed;
-    display: block;
-    width: 100%;
-    height: 50%;
-    top: 25%;
-    left: 0;
-    background: #fff;
-    color: var(--txt-dark);
-    font-family: var(--font-2);
-    text-align: center;
-    z-index: 1000;
-    padding: 5%;
-}
-
-#confirm-popup > div{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-
 
 @media screen and (min-width: 768px) {
 

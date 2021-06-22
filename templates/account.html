@@ -74,7 +74,7 @@
 
     <!-- User Recipes Area -->
 
-    <div class="container account-container d-none" id="account-recipes">
+    <div class="container-fluid account-container d-none" id="account-recipes">
         <!-- Submitted recipes -->
         <div class="row">
             {% if session['user'] == "admin" %}
@@ -135,7 +135,7 @@
     </div>
 
     <!-- Change Password Area -->
-    <div class="container account-container d-none" id="account-password">
+    <div class="container-fluid account-container d-none" id="account-password">
         <h4>Change Password</h4>
         <form action="{{ url_for('change_password') }}" method="POST" id="change-password-form" class="row g-3">
             <div class="col-12 col-md-6">
@@ -169,7 +169,7 @@
     </div>
 
 
-    <div class="container account-container d-none" id="account-categories">
+    <div class="container-fluid account-container d-none" id="account-categories">
         <div class="row">
             <div class="col-12">
                 <h4>Edit Categories</h4>
@@ -214,7 +214,7 @@
     </div>
 
 
-    <div class="container account-container d-none" id="account-users">
+    <div class="container-fluid account-container d-none" id="account-users">
         <div class="row">
             <div class="col-12">
                 <h4>Edit Users</h4>
