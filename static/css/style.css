@@ -378,7 +378,7 @@ header .navbar .nav-link{
 }
 
 .half__inner{
-    background-color: var(--mint);
+    background-color: var(--txt-cute);
 }
 
 .half__inner img{
@@ -388,15 +388,23 @@ header .navbar .nav-link{
 }
 
 /* subscribe form */
-
 .subscribe-index-container{
-    width: 90%;
-    margin: 10% auto;
+    background: url('https://images.unsplash.com/photo-1523472721958-978152f4d69b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80');
+    object-fit: cover;
+    padding: 5%;
+    margin: 10% auto
+
+}
+
+.subscribe-index-container div{
+    width: 90;
+    margin: 0 auto;
     padding: 5%;
     background-color: #fff;
     border: 1px solid #fff;
     border-radius: 5px;
     text-align: center;
+    font-size: 0.9rem;
 }
 
 .subscribe-index-container h3{
@@ -405,10 +413,6 @@ header .navbar .nav-link{
     text-transform: uppercase;
     padding-bottom: 1%;
     text-decoration: underline;
-}
-
-.subscribe-index-container{
-    font-size: 0.9rem;
 }
 
 .subscribe-index-container input{
@@ -420,7 +424,7 @@ header .navbar .nav-link{
 
 .btn-subscribe{
   color: #fff;
-  background-color: var(--mint-dark);
+  background-color: var(--txt-cute);
   margin-left: 2%;
 }
 
@@ -1191,9 +1195,10 @@ footer{
         padding-top: 0.5rem;
     }
 
-    .subscribe-index-container{
+    .subscribe-index-container div{
         margin: 5% auto;
         padding: 2%;
+        font-size: 1rem;
     }
 
     .subscribe-index-container input{
@@ -1201,16 +1206,8 @@ footer{
         margin: 1% auto;
     }
 
-    .page-section__heading{
-        font-size: 2rem;
-    }
-
-    .subscribe-index-container h3{
+    .page-section__heading, .subscribe-index-container h3{
     font-size: 2rem;
-    }
-
-    .subscribe-index-container{
-    font-size: 1rem;
     }
 
     .top-recipes img{
