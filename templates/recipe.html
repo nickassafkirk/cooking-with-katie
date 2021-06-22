@@ -40,10 +40,14 @@
             <h4>Ingredients</h4>
             <ul>
             {% for ingredient in ingredients %}
-              <li><strong>{{ ingredient.name }} - </strong> {{ ingredient.quantity }}
-                {% if ingredient.unit != "none" or ingredient.unit != "na" %}
-                    {{ ingredient.unit }}
+              <li><strong>{{ ingredient.name }}</strong>
+                {% if ingredient.quantity %}
+                 - {{ ingredient.quantity }}
+                 {% if ingredient.unit != "na" %}
+                     {{ ingredient.unit }}
+                  {% endif %}
                 {% endif %}
+                
               </li>
             {% endfor %}
             </ul>

@@ -46,7 +46,7 @@
                         <select name="unit-{{ loop.index }}">
                             {% for unit in unit_options %}
                             {% if unit.unit_name == "na" %}
-                            <option value="{{ unit.unit_name }}" selected disabled hidden>Optional
+                            <option value="na" selected disabled hidden>Optional
                             </option>
                             {% else %}
                             <option value="{{ unit.unit_name }}">{{ unit.unit_name }}</option>
