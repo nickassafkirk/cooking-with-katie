@@ -163,7 +163,7 @@ header::after{
 }
 
 header a:hover{
-    color: var(--mint);
+    color: var(--txt-cute);
 }
     
 /* Navbar styles */ 
@@ -277,15 +277,23 @@ header .navbar .nav-link{
     margin: 0 auto;
 }
 
-.page-section__heading{
+.page-section-heading, .page-section-heading-alt{
     width: 100%;
-    text-align: center;
     padding: 2%;
     font-family: var(--font-2);
     font-size: 1.5rem;
     font-weight: 700;
-    text-shadow: 2px 2px var(--txt-dark);
+    text-align: center;  
+}
+
+.page-section-heading{
+    color: var(--txt-cute);
+    text-shadow: 2px 2px var(--txt-light);
+}
+
+.page-section-heading-alt{
     color: var(--txt-light);
+    text-shadow: 2px 2px var(--txt-dark);
 }
 
 /* homepage hero */
@@ -1289,8 +1297,8 @@ footer{
     }
 
     .navbar-custom .nav-link:hover{
-    color: var(--mint);
-    border-bottom: 2px dotted var(--mint);
+    color: var(--txt-cute);
+    border-bottom: 2px dotted var(--txt-cute);
     }
 
     header .navbar-custom .navbar-brand{
