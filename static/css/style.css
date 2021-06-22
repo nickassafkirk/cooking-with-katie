@@ -12,6 +12,7 @@
     --blue-gradient-reverse: linear-gradient(to bottom,rgb(184, 207, 221), rgb(254, 255, 255) , rgb(184, 207, 221)) 50%;
     --pistachio: #cbd4bb;
     --purple: #8f568f;
+    --off-white: #e0dbd9;
 
     /* Text colors */
     --txt-light: #efefef;
@@ -81,6 +82,10 @@
 
 .dark-blue{
     background: var(--dark-blue);
+}
+
+.off-white{
+    background: var(--off-white);
 }
 
 /* general styles */
@@ -370,7 +375,7 @@ header .navbar .nav-link{
 .half-container{
     margin: 0;
     padding: 0% 2% 2% 2%;
-    background: var(--dark-blue);
+    background: var(--off-white);
     display: flex;
 }
 
@@ -386,7 +391,7 @@ header .navbar .nav-link{
 }
 
 .txt-half{
-    background: var(--dark-blue);
+    background: var(--off-white);
 }
 
 .txt-half__inner{
@@ -974,15 +979,20 @@ header .navbar .nav-link{
     padding: 5%;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
-    border: 2px solid var(--dark-blue);
-    background: var(--txt-light);
+    background: var(--off-white);
+}
+
+.account-container form label {
+    font-family: var(--font-2);
 }
 
 
 .account-heading{
     font-family: var(--font-3);
-    color: var(--txt-light);
+    color: var(--txt-cute);
     font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 5%;
 }
 
 
