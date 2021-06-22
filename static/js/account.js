@@ -78,11 +78,12 @@ function goToAccountSection(event){
 
 const changePasswordConfirm = document.querySelector('#confirm-existing-password');  
 changePasswordConfirm.addEventListener('change', checkPassword);
-
+const newPasswordConfirm = document.querySelector('#confirm-new-password');  
+newPasswordConfirm.addEventListener('change', checkPassword);
 
     function checkPassword(event){
-        targetId = event.target.id
-        passWordFieldId = targetId.split("confirm-").pop();
+        confirmFieldId = event.target.id
+        passWordFieldId = confirmField.split("confirm-").pop();
         let confirmField = event.target
         let passwordField = document.querySelector(`#${passWordFieldId}`)
         let password1 = passwordField.value;
