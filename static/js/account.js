@@ -74,3 +74,33 @@ function goToAccountSection(event){
     selectedMenuLink = event.target.getAttribute('href');
     let revealSection = document.querySelector(selectedMenuLink).classList.remove("d-none")
 }
+
+
+const changePasswordConfirm = document.querySelector('#confirm-existing-password');  
+changePasswordConfirm.addEventListener('change', checkPassword);
+
+    function checkPassword(event){
+        console.log(event.target)
+        let passwordField = document.querySelector('#existing-password')
+        let confirmField = document.querySelector('#confirm-existing-password')
+        let password1 = passwordField.value;
+        let password2 = confirmField.value;
+        let validationMessage = document.querySelector(".validation-message")
+        
+            if (password1 === password2){
+            console.log("match")
+            confirmField.classList.remove("invalid-field")
+            validationMessage.innerText = "Passwords Match";
+            passwordField.classList.add("valid-field")
+            confirmField.classList.add("valid-field")
+            
+            } else {
+                console.log("no match")
+                confirmField.classList.add("invalid-field")
+                validationMessage.innerText = "Passwords Don't Match";
+            }
+        
+    } 
+
+
+
