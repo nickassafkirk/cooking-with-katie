@@ -462,14 +462,12 @@ def new_subscriber():
 @login_required
 def add_category():
     if request.method == "POST":
-
-        is_admin = mongo.db.users.find_one(
-            {"username": session['user']}, {'is_admin'})
+        user = mongo.db.users.find_one({"username": session['user']})
+        is_admin = user["is_admin"]
         if not is_admin:
-            flash('You do not have permission to add new categories')
-            return redirect(url_for("account", username=session["user"]))
-
-        new_category = {"name": request.form.get('new-category').lower()}
+            flash('You need permission to access this area')
+            return redirect(url_for("index"))
+        new_category = {"name": request.form.get('add-category').lower()}
         mongo.db.categories.insert_one(new_category)
         flash("New category added successfully!")
         return redirect(url_for("account", username=session["user"]))
@@ -480,11 +478,11 @@ def add_category():
 def edit_category():
     if request.method == "POST":
 
-        is_admin = mongo.db.users.find_one(
-            {"username": session['user']}, {'is_admin'})
+        user = mongo.db.users.find_one({"username": session['user']})
+        is_admin = user["is_admin"]
         if not is_admin:
-            flash('You do not have permission to edit categories')
-            return redirect(url_for("account", username=session["user"]))
+            flash('You need permission to access this area')
+            return redirect(url_for("index"))
 
         selected_category = request.form.items()
         for exisiting_value, new_value in selected_category:
