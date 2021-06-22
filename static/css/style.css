@@ -943,38 +943,42 @@ header .navbar .nav-link{
 
 #account-menu a{
     display: block;
+    background: var(--dark-blue);
     padding: 2%;
-    margin: 2% auto;
+    margin: 0 auto;
     flex-basis: 15%;
     flex-grow: 1;
     flex-shrink: 1;
     text-align: center;
-    border-top: 2px solid var(--txt-light);
-    border-bottom: 2px solid var(--txt-light);
     font-family: var(--font-2);
     text-transform: capitalize;
     color: var(--txt-light);
 }
 
+#account-menu a:nth-of-type(even){
+    border-left: 2px solid var(--bg-main);
+    border-right: 2px solid var(--bg-main);
+}
+
+#account-menu a.active{
+    background: var(--mint-dark);
+}
+
 #account-menu a:hover{
-    background: var(--terracota-dark);
+    background: var(--mint-dark);
 }
 
 .account-container{
     width: 100%;
     margin: 0 auto;
     padding: 5%;
-    border-radius: 5px;
-    background: #d6eef1;
-
-}
-
-.account-container input{
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 2px solid var(--dark-blue);
     background: var(--txt-light);
-    border: none;
-    border-radius: none;
-    border-bottom: 2px solid var(--dark-blue);
 }
+
+
 .account-heading{
     font-family: var(--font-3);
     color: var(--txt-light);
