@@ -6,246 +6,238 @@
 
 <div class="container-fluid page-content-container account-page mx-auto my-5">
     <nav id="account-menu">
-            
-                <a href="#account-preferences">Account Details</a>
-            
-                <a href="#account-password">Change Password</a>
-            
-                <a href="#account-recipes">Recipes</a>
-            
-                <a href="#account-categories">Edit Categories</a>
-            
-                <a href="#account-users">Edit Users</a>
-           
+
+        <a href="#account-preferences">Account Details</a>
+
+        <a href="#account-password">Change Password</a>
+
+        <a href="#account-recipes">Recipes</a>
+
+        <a href="#account-categories">Edit Categories</a>
+
+        <a href="#account-users">Edit Users</a>
+
     </nav>
     <!-- Account content area-->
-        <!-- Account Details Area -->
-            <div class="container-fluid account-container active" id="account-preferences">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <h4>Account Details</h4>
-                    </div>
-                </div>
-                
-                <form action="{{url_for('update_user', user_id=user._id)}}" method="POST" class="row g-3" id="account-update-form">
-                    <div class="col-12">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" name="username" value="{{ user.username }}" class="form-control" disabled>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="fname-update" class="form-label">First name</label>
-                        <input type="text" class="form-control" id="fname-update" name="fname-update"
-                            value="{{ user.first_name }}" required disabled>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="lname-update" class="form-label">Last name</label>
-                        <input type="text" class="form-control" id="lname-update" name="lname-update"
-                            value="{{ user.last_name }}" required disabled>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <label for="email-sign-up" class="form-label">Email</label>
-                        <div class="input-group has-validation">
-                            <input type="email" class="form-control" id="email-update" name="email-update"
-                                aria-describedby="email-sign-upFeedback" value="{{ user.email_address }}" required
-                                disabled>
-                            <div id="email-sign-upFeedback" class="invalid-feedback">
-                                Please enter a valid email.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 text-center py-3">
-                        <button class="btn btn-success w-50 w-md-25 d-none" id="update_account_button" type="submit">Update Account Details</button>
-                        <button class="btn btn-danger w-50 w-md-25 d-none" id="cancel_update_button" type="reset">Cancel</button>
-                    </div>
-                </form>
-                <div>
-                    <span class="d-block btn btn-custom pink-dark w-50 w-md-25" id="editDetails">Edit Details</span>
+    <!-- Account Details Area -->
+    <div class="container-fluid account-container active" id="account-preferences">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h4>Account Details</h4>
+            </div>
+        </div>
+
+        <form action="{{url_for('update_user', user_id=user._id)}}" method="POST" class="row g-3"
+            id="account-update-form">
+            <div class="col-12">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" value="{{ user.username }}" class="form-control" disabled>
+            </div>
+            <div class="col-md-6">
+                <label for="fname-update" class="form-label">First name</label>
+                <input type="text" class="form-control" id="fname-update" name="fname-update"
+                    value="{{ user.first_name }}" required disabled>
+                <div class="valid-feedback">
+                    Looks good!
                 </div>
             </div>
-       
-
-        <!-- User Recipes Area -->
-        
-            <div class="container account-container d-none" id="account-recipes">
-                <!-- Submitted recipes -->
-                <div class="row">
-                    {% if session['user'] == "admin" %}
-                    <div class="col-12 text-center">
-                        <h4>Recipes</h4>
-                    </div>
-                    <div class="col-12">
-                        <h4>Total recipes: {{recipes | length}}</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    {% for recipe in recipes %}
-                    <div class="col-12 col-md-6 col-xl-4">
-                        <div class="account-recipe">
-                            <h5 class="recipe-thumbnail__title">
-                                <a href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a>
-                            </h5>
-                            <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img">
-                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-success">Edit Recipe</a>
-                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    {% else %}
-                    <div class="col-12 text-center">
-                        <h4>Your Recipes</h4>
-                        <h4>You have {{user_recipes | length}} recipes</h4>
-                    </div>
-                    <!-- If user has recipes list user_recipes -->
-                    {% if user_recipes | length > 0 %}
-                    {% for recipe in user_recipes %}
-                    <div class="col-12 col-md-6 col-xl-4">
-                        <div class="account-recipe">
-                            <h5 class="recipe-thumbnail__title"><a
-                                href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a></h5>
-                            <div><img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img"></div>
-                            <p class="recipe-intro">{{ recipe.intro }}</p>
-                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-success">Edit Recipe</a>
-                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete Recipe</a>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    <div>
-                        <a href="{{ url_for('add_recipe') }}" class="btn btn-custom pink-dark w-50 w-md-25">Add New Recipe</a>
-                    </div>
-                    <!-- List no recipes + link to add recipe -->
-                    {% else %}
-                    <div>
-                        <p>
-                            You haven't added any recipes, <a href="{{ url_for('add_recipe') }}">add your first recipe here</a>
-                        </p>
-                    </div>
-                {% endif %}
-                {% endif %}
+            <div class="col-md-6">
+                <label for="lname-update" class="form-label">Last name</label>
+                <input type="text" class="form-control" id="lname-update" name="lname-update"
+                    value="{{ user.last_name }}" required disabled>
+                <div class="valid-feedback">
+                    Looks good!
                 </div>
             </div>
-        
-        <!-- Change Password Area -->
-            <div class="container account-container d-none" id="account-password">
-                <h4>Change Password</h4>
-                <form action="" id="change-password-form" class="row g-3">
-                    <div class="col-12 col-md-6">
-                        <label for="existing_password" class="form-label">Current Password</label>
-                        <input type="password" name="existing_password" class="form-control" id="existing_password"
-                        placeholder="Enter Current Password">
+            <div class="col-12">
+                <label for="email-sign-up" class="form-label">Email</label>
+                <div class="input-group has-validation">
+                    <input type="email" class="form-control" id="email-update" name="email-update"
+                        aria-describedby="email-sign-upFeedback" value="{{ user.email_address }}" required disabled>
+                    <div id="email-sign-upFeedback" class="invalid-feedback">
+                        Please enter a valid email.
                     </div>
-                    <div class="col-12 col-md-6">
-                        <label for="existing_password" class="form-label">Confirm Current Password</label>
-                        <input type="password" name="confirm_existing_password" class="form-control" id="confirm_existing_password"
-                        placeholder="Confirm Current Password">
-                    </div>
-                    <hr>
-                    <div class="col-12 col-md-6">
-                        <label for="confirm_new_password" class="form-label">New Password</label>
-                        <input type="password" name="new_password" class="form-control" id="new_password" placeholder="Enter New Password">
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label for="confirm_new_password" class="form-label">Confirm New Password</label>
-                        <input type="password" name="confirm_new_password" class="form-control" id="confirm_new_password"
-                        placeholder="Confirm New Password">
-                    </div>
-                    <hr>
-                    <div class="col-12">
-                        <button type="submit" class="d-block btn btn-custom pink-dark w-50 w-md-25">Update Password</button>
-                    </div>
-                </form>
+                </div>
             </div>
-        
-        
-            <div class="container account-container d-none" id="account-categories">
-                <div class="row">
-                    <div class="col-12">
-                        <h4>Edit Categories</h4>
-                    </div>
-                </div>
-                {% for category in categories %}
-                <div class="row">
-                    <div class="col-12 insert-popup">
-                        <div class="edit-categories-wrapper">
-                            <form action="{{ url_for('edit_category') }}" method="POST">
-                                <input type="text" name="{{category.name}}" class="form-control" value="{{category.name}}">
-                                <button type="button" class="btn btn-success" id="btn-{{ loop.index }}"><i class="far fa-edit"></i></button>
-                            </form>
-                            <form action="{{url_for('delete_category')}}" method="POST">
-                                <input type="text" name="{{category.name}}" class="form-control" value="{{category.name}}">
-                                <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                
-                {% endfor %}
-
-
-                <div class="row mt-5">
-                    <div class="col-12">
-                        <h4>Add Categories</h4>
-                    </div>  
-                </div>
-                <form action="{{ url_for('add_category') }}" method="POST" id="" class="row">
-                    <div class="col-12" id=""></div>
-                    <div>
-                        <label for="" class="form-label hidden">new-category</label>
-                    <input type="text" name="" class="form-control" id="add-category" placeholder="Enter New Category" required>
-                    </div>
-                    <div class="col-12 my-2 mx-auto">
-                        <button type="submit" class="btn btn-custom w-50 w-md-25 mint-dark">Add Category</button>
-                    </div>
-                </form>
+            <div class="col-12 text-center py-3">
+                <button class="btn btn-success w-50 w-md-25 d-none" id="update_account_button" type="submit">Update
+                    Account Details</button>
+                <button class="btn btn-danger w-50 w-md-25 d-none" id="cancel_update_button"
+                    type="reset">Cancel</button>
             </div>
+        </form>
+        <div>
+            <span class="d-block btn btn-custom pink-dark w-50 w-md-25" id="editDetails">Edit Details</span>
+        </div>
+    </div>
 
 
-            <div class="container account-container d-none" id="account-users">
-                <div class="row">
-                    <div class="col-12">
-                        <h4>Edit Users</h4>
-                    </div>
-                </div>
-                {% for user in users %}
-                <div class="row">
-                    <div class="col-12 insert-popup">
-                        <div class="edit-users-wrapper">
-                            <form action="" method="POST">
-                                <input type="text" name="{{ user.username }}" class="form-control" value="{{ user.username }}">
-                                <button type="button" class="btn btn-success" id=""><i class="far fa-edit"></i></button>
-                            </form>
-                            <form action="" method="POST">
-                                <input type="text" name="{{ user.username }}" class="form-control" value="{{ user.username }}">
-                                <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                
-                {% endfor %}
+    <!-- User Recipes Area -->
 
-
-                <div class="row mt-5">
-                    <div class="col-12">
-                        <h4>Add Categories</h4>
-                    </div>  
-                </div>
-                <form action="{{ url_for('add_category') }}" method="POST" id="add-category-form" class="row">
-                    <div class="col-12" id="add-category-parent"></div>
-                    <div>
-                        <label for="new-category" class="form-label hidden">new-category</label>
-                    <input type="text" name="new-category" class="new-category-input  form-control" id="add-category" placeholder="Enter New Category" required>
-                    </div>
-                    <div class="col-12 my-2 mx-auto">
-                        <button type="submit" class="btn btn-custom w-50 w-md-25 mint-dark">Add Category</button>
-                    </div>
-                </form>
+    <div class="container account-container d-none" id="account-recipes">
+        <!-- Submitted recipes -->
+        <div class="row">
+            {% if session['user'] == "admin" %}
+            <div class="col-12 text-center">
+                <h4>Recipes</h4>
             </div>
+            <div class="col-12">
+                <h4>Total recipes: {{recipes | length}}</h4>
+            </div>
+        </div>
+        <div class="row">
+            {% for recipe in recipes %}
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="account-recipe">
+                    <h5 class="recipe-thumbnail__title">
+                        <a href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a>
+                    </h5>
+                    <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img">
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-success">Edit Recipe</a>
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete
+                        Recipe</a>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="col-12 text-center">
+                <h4>Your Recipes</h4>
+                <h4>You have {{user_recipes | length}} recipes</h4>
+            </div>
+            <!-- If user has recipes list user_recipes -->
+            {% if user_recipes | length > 0 %}
+            {% for recipe in user_recipes %}
+            <div class="col-12 col-md-6 col-xl-4">
+                <div class="account-recipe">
+                    <h5 class="recipe-thumbnail__title"><a
+                            href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a></h5>
+                    <div><img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img"></div>
+                    <p class="recipe-intro">{{ recipe.intro }}</p>
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-success">Edit Recipe</a>
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete
+                        Recipe</a>
+                </div>
+            </div>
+            {% endfor %}
+            <div>
+                <a href="{{ url_for('add_recipe') }}" class="btn btn-custom pink-dark w-50 w-md-25">Add New Recipe</a>
+            </div>
+            <!-- List no recipes + link to add recipe -->
+            {% else %}
+            <div>
+                <p>
+                    You haven't added any recipes, <a href="{{ url_for('add_recipe') }}">add your first recipe here</a>
+                </p>
+            </div>
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Change Password Area -->
+    <div class="container account-container d-none" id="account-password">
+        <h4>Change Password</h4>
+        <form action="" id="change-password-form" class="row g-3">
+            <div class="col-12 col-md-6">
+                <label for="existing-password" class="form-label">Current Password</label>
+                <input type="password" name="existing-password" class="form-control password" id="existing-password"
+                    placeholder="Enter Current Password">
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="existing_password" class="form-label">Confirm Current Password</label>
+                <input type="password" name="confirm-existing-password" class="form-control password"
+                    id="confirm-existing-password" placeholder="Confirm Current Password">
+                <span class="validation-message"></span>
+            </div>
+            <hr>
+            <div class="col-12 col-md-6">
+                <label for="new-password" class="form-label">New Password</label>
+                <input type="password" name="new-password" class="form-control password" id="new-password"
+                    placeholder="Enter New Password">
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="confirm-new-password" class="form-label">Confirm New Password</label>
+                <input type="password" name="confirm-new-password" class="form-control password" id="confirm-new-password"
+                    placeholder="Confirm New Password">
+            </div>
+            <hr>
+            <div class="col-12">
+                <button type="submit" class="d-block btn btn-custom pink-dark w-50 w-md-25">Update Password</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="container account-container d-none" id="account-categories">
+        <div class="row">
+            <div class="col-12">
+                <h4>Edit Categories</h4>
+            </div>
+        </div>
+
+        {% for category in categories %}
+        <div class="row">
+            <div class="col-12 insert-popup">
+                <div class="edit-categories-wrapper">
+                    <form action="{{ url_for('edit_category') }}" method="POST">
+                        <input type="text" name="{{category.name}}" class="form-control" value="{{category.name}}">
+                        <button type="button" class="btn btn-success" id="btn-{{ loop.index }}"><i
+                                class="far fa-edit"></i></button>
+                    </form>
+                    <form action="{{url_for('delete_category')}}" method="POST">
+                        <input type="text" name="{{category.name}}" class="form-control" value="{{category.name}}">
+                        <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+        <div class="row mt-5">
+            <div class="col-12">
+                <h4>Add Categories</h4>
+            </div>
+        </div>
+        <form action="{{ url_for('add_category') }}" method="POST" id="" class="row">
+            <div class="col-12" id=""></div>
+            <div>
+                <label for="" class="form-label hidden">new-category</label>
+                <input type="text" name="" class="form-control" id="add-category" placeholder="Enter New Category"
+                    required>
+            </div>
+            <div class="col-12 my-2 mx-auto">
+                <button type="submit" class="btn btn-custom w-50 w-md-25 mint-dark">Add Category</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="container account-container d-none" id="account-users">
+        <div class="row">
+            <div class="col-12">
+                <h4>Edit Users</h4>
+            </div>
+        </div>
+
+        {% for user in users %}
+        <div class="row">
+            <div class="col-12 insert-popup">
+                <div class="edit-users-wrapper">
+                    <form action="" method="POST">
+                        <input type="text" name="{{ user.username }}" class="form-control" value="{{ user.username }}">
+                        <button type="button" class="btn btn-success" id="btn-{{ user.username }}"><i
+                                class="far fa-edit"></i></button>
+                    </form>
+                    <form action="" method="POST">
+                        <input type="text" name="{{ user.username }}" class="form-control" value="{{ user.username }}">
+                        <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
     </div>
 </div>
             

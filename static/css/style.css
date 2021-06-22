@@ -978,7 +978,15 @@ header .navbar .nav-link{
 }
 
 
+/* Form Validation */
 
+.valid-field{
+    border: 3px solid green;
+}
+
+.invalid-field{
+    border: 3px solid red;
+}
 
 
 
