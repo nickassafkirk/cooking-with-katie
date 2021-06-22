@@ -13,9 +13,13 @@
 
         <a href="#account-recipes">Recipes</a>
 
+        {% if user.is_admin %}
+
         <a href="#account-categories">Edit Categories</a>
 
         <a href="#account-users">Edit Users</a>
+
+        {% endif %}
 
     </nav>
     <!-- Account content area-->
@@ -168,7 +172,6 @@
         </form>
     </div>
 
-
     <div class="container-fluid account-container d-none" id="account-categories">
         <div class="row">
             <div class="col-12">
@@ -204,7 +207,7 @@
             <div class="col-12" id=""></div>
             <div>
                 <label for="" class="form-label hidden">new-category</label>
-                <input type="text" name="" class="form-control" id="add-category" placeholder="Enter New Category"
+                <input type="text" name="add-category" class="form-control" id="add-category" placeholder="Enter New Category"
                     required>
             </div>
             <div class="col-12 my-2 mx-auto">
