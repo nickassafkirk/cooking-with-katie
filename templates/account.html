@@ -79,16 +79,34 @@
     <!-- User Recipes Area -->
 
     <div class="container-fluid account-container d-none" id="account-recipes">
+        
         <!-- Submitted recipes -->
         <div class="row">
             {% if session['user'] == "admin" %}
             <div class="col-12 text-center">
                 <h4 class="account-heading">Recipes</h4>
             </div>
-            <div class="col-12">
-                <h4>Total recipes: {{recipes | length}}</h4>
+        </div>
+        <div class="row p-0">
+        <div class="col-12 page-section-heading-alt diagonal-split p-2 mb-0">
+            <div id="search-area">
+                <h3><i class="fas fa-search"></i> Search Recipes</h3>
+                <form action="{{ url_for('search_recipes') }}" method="POST" id="search-recipes-form">
+                    <div class="input-area">
+                        <input type="text" name="search_recipe" id="search_recipe" placeholder=" Search Recipes">
+                        <label for="search_recipe" class="d-none"><i class="fas fa-search text-dark"></i> Search Recipes</label>
+                    </div>
+                    <div class="button-area">
+                        <button type="submit" class="btn btn-custom mint-dark">Search</button>
+                        <a href="{{ url_for('account', username=session['user']) }}" class="btn btn-custom brand">Clear</a>
+                    </div>
+                </form>
             </div>
         </div>
+        </div>
+        <div class="col-12 text-center my-4 my-md-5">
+                <h4>Total recipes: {{recipes | length}}</h4>
+            </div>
         <div class="row">
             {% for recipe in recipes %}
             <div class="col-12 col-md-6 col-xl-4">
@@ -107,6 +125,7 @@
             <div class="col-12 text-center">
                 <h4>Your Recipes</h4>
                 <h4>You have {{user_recipes | length}} recipes</h4>
+                
             </div>
             <!-- If user has recipes list user_recipes -->
             {% if user_recipes | length > 0 %}
