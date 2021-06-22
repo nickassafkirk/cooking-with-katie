@@ -102,6 +102,16 @@ body{
     visibility: hidden;
 }
 
+.flash-message{
+    width: 100vw;
+    margin: 5% auto;
+    font-family: var(--font-2);
+    font-size: 2rem;
+    color: var(--txt-cute);
+    text-align: center;
+    background: var(--txt-light);
+}
+
 /* Header Styles */
 header{
     background-image: url(../img/brooke-lark-08bOYnH_r_E-unsplash.jpg),
