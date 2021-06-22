@@ -230,7 +230,7 @@ header .navbar .nav-link{
     text-align: right !important;
 }
 
-.logo{
+.logo, .logo-small{
     font-family: var(--font-3);
     font-size: 1.4em;
     font-weight: 700;
@@ -1245,6 +1245,7 @@ footer{
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-end;
+    width: 100%;
     }
 
     header .navbar .nav-link{
@@ -1277,6 +1278,10 @@ footer{
 
     .logo{
         font-size: 2.5rem;
+    }
+
+    .logo-small{
+        font-size: 1.6rem;
     }
 
     .top-recipes img {
