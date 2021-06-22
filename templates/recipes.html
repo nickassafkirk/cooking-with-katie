@@ -3,20 +3,20 @@
 <!-- Search area-->
 <div class="container-fluid page-content-container my-5" id="recipes">
     <div class="row p-0">
-        <div class="col-12 page-section__heading diagonal-split mb-0">
-             <div id="search-area">
-                 <h3>Search Recipes</h3>
-            <form action="{{ url_for('search_recipes') }}" method="POST" id="search-recipes-form">
-                <div class="input-area">
-                    <input type="text" name="search_recipe" id="search_recipe" placeholder="Search Recipes">
-                    <label for="search_recipe" class="d-none">Search Recipes</label>
-                </div>
-                <div class="button-area">
-                    <button type="submit" class="btn btn-success">Search</button>
-                    <a href="{{ url_for('recipes') }}" class="btn btn-danger">Clear</a>
-                </div>
-            </form>
-        </div>
+        <div class="col-12 page-section-heading-alt diagonal-split mb-0">
+            <div id="search-area">
+                <h3>Search Recipes</h3>
+                <form action="{{ url_for('search_recipes') }}" method="POST" id="search-recipes-form">
+                    <div class="input-area">
+                        <input type="text" name="search_recipe" id="search_recipe" placeholder="Search Recipes">
+                        <label for="search_recipe" class="d-none">Search Recipes</label>
+                    </div>
+                    <div class="button-area">
+                        <button type="submit" class="btn btn-success">Search</button>
+                        <a href="{{ url_for('recipes') }}" class="btn btn-danger">Clear</a>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     
@@ -24,8 +24,8 @@
     <div class="row">
         {% for recipe in recipes %}
             <div class="col-12 col-sm-6 col-xl-4 recipes-wrapper">
-                <div class="recipe-thumbnail mx-0 mx-sm-2 my-5 pt-0 pb-3 p-0 mb-0">
-                    <h4 class="recipe-thumbnail__title red-gradient"><a href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a></h4>
+                <div class="recipe-thumbnail mx-2 mx-sm-2 my-5 pt-0 pb-3 p-0 mb-0">
+                    <h4 class="recipe-thumbnail__title"><a href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a></h4>
                 <div>
                     <form action="{{ url_for('rating', recipe_id=recipe._id) }}" method="POST" id="rating-form-{{ recipe._id }}" class="rating-form">
                         {% for button in range(5) %}
