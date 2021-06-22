@@ -462,7 +462,7 @@ header .navbar .nav-link{
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.recipe-thumnail-overlay  h4{
+.recipe-thumnail-overlay h4{
     position: absolute;
     width: 80%;
     top: 50%;
@@ -472,16 +472,21 @@ header .navbar .nav-link{
     text-transform: capitalize;
     font-size: 1.8rem;
     font-weight: 700;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 
 .recipe-thumnail__view{
     font-family: var(--font-3);
     text-transform: capitalize;
-    font-size: 1.4em;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
     font-weight: 700;
     color: #fff;
     border: 2px dotted #fff;
     border-radius: 5px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 
 .recipe-thumnail__view:hover{
