@@ -68,8 +68,8 @@ def sign_up():
             return redirect(url_for('sign_up'))
 
         # check if passwords match
-        password = request.form.get('password-sign-up')
-        confirm_password = request.form.get('conf-password-sign-up')
+        password = request.form.get('sign-up-password')
+        confirm_password = request.form.get('confirm-sign-up-password')
 
         if password == confirm_password:
             valid_password = password
