@@ -701,6 +701,7 @@ header .navbar .nav-link{
     border-radius: 5px;
     padding: 2%;
     position: relative;
+    cursor: move;
 }
 
 .ingredient-n div{
@@ -719,6 +720,7 @@ header .navbar .nav-link{
     left: 100%;
     bottom: 55%;
     right: 0;
+    cursor: pointer;
 }
 
 .delete-row span{
@@ -735,10 +737,12 @@ header .navbar .nav-link{
     padding: 1%;
     margin: 2% auto;
     border-radius: 5px;
+    cursor: move;
 }
 
 .instruction-n label{
     margin: 0;
+    cursor: text;
 }
 
 #additional-container{
