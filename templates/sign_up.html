@@ -45,22 +45,13 @@
         <div class="col-md-6">
             <label for="password-sign-up" class="form-label">Password</label>
             <div class="input-group has-validation">
-                <input type="password" class="form-control" id="password-sign-up" name="password-sign-up"
-                    aria-describedby="password-sign-upFeedback" required>
-                <div id="password-sign-upFeedback" class="invalid-feedback">
-                    Please select a password
-                </div>
+                <input type="password" class="form-control" id="sign-up-password" name="sign-up-password" required>
             </div>
         </div>
         <div class="col-md-6">
             <label for="conf-password-sign-up" class="form-label">Confirm Password</label>
-            <div class="input-group has-validation">
-                <input type="password" class="form-control" id="conf-password-sign-up" name="conf-password-sign-up"
-                    aria-describedby="conf-password-sign-upFeedback" required>
-                <div id="conf-password-sign-upFeedback" class="invalid-feedback">
-                    Please confirm password
-                </div>
-            </div>
+                <input type="password" class="form-control" id="confirm-sign-up-password" name="confirm-sign-up-password" required>
+                <span class="validation-message"></span>
         </div>
         <div class="col-12 text-center py-3">
             <button class="btn btn-form-mint w-50" type="submit">Sign Up</button>
