@@ -23,8 +23,8 @@
     <!-- Recipe Thumbnails -->
     <div class="row">
         {% for recipe in recipes %}
-            <div class="col-12 col-md-6 col-xl-4 recipes-wrapper">
-                <div class="recipe-thumbnail mx-auto pt-0 pb-3 px-0 mb-0">
+            <div class="col-12 col-sm-6 col-xl-4 recipes-wrapper">
+                <div class="recipe-thumbnail mx-0 mx-sm-2 my-5 pt-0 pb-3 p-0 mb-0">
                     <h4 class="recipe-thumbnail__title red-gradient"><a href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a></h4>
                 <div>
                     <form action="{{ url_for('rating', recipe_id=recipe._id) }}" method="POST" id="rating-form-{{ recipe._id }}" class="rating-form">
