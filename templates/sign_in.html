@@ -1,35 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container-fluid bg-light" id="sign-in-container">
-    <div class="row">
+<div class="container-fluid" id="sign-in-container">
+    <form action="{{ url_for('sign_in') }}" method="POST" class="row" id="sign-in-form">
         <div class="col-12 form-heading">
             <h3>Sign In</h3>
         </div>
-    </div>
-    <form action="{{ url_for('sign_in') }}" method="POST" class="row g-3" id="sign-in-form">
         <div class="col-md-6">
             <label for="username-sign-in" class="form-label">Username</label>
-            <div class="input-group has-validation">
-                <input type="text" class="form-control" id="username-sign-in" name="username-sign-in"
-                    aria-describedby="username-sign-upFeedback" required>
-                <div id="username-sign-inFeedback" class="invalid-feedback">
-                    Please choose a username.
-                </div>
-            </div>
+            <input type="text" class="form-control" id="username-sign-in" name="username-sign-in"
+                aria-describedby="username-sign-upFeedback" required>
         </div>
         <div class="col-md-6">
             <label for="password-sign-in" class="form-label">Password</label>
-            <div class="input-group has-validation">
-                <input type="password" class="form-control" id="password-sign-in" name="password-sign-in"
-                    aria-describedby="password-sign-inFeedback" required>
-                <div id="password-sign-inFeedback" class="invalid-feedback">
-                    Please select a password
-                </div>
-            </div>
+
+            <input type="password" class="form-control" id="password-sign-in" name="password-sign-in"
+                aria-describedby="password-sign-inFeedback" required>
         </div>
         <div class="col-12 text-center py-3">
-            <button class="btn btn-form-mint w-50" type="submit">Sign In</button>
+            <button class="btn btn-custom w-50" type="submit">Sign In</button>
         </div>
     </form>
 </div>
