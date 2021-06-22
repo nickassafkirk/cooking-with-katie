@@ -84,7 +84,7 @@
 <!-- Featured recipes -->
 <div class="container-fluid page-content-container my-5">
     <div class="row">
-        <div class="col-12 page-section__heading red-gradient">Featured Recipes</div>
+        <div class="col-12 page-section__heading dark-blue">Featured Recipes</div>
         {% for recipe in recipes %}
         {% if loop.index <= 3 %}
         <div class="col-12 col-md-4 top-recipes" id="thumbnail-{{ recipe._id }}">
@@ -113,7 +113,7 @@
 <!-- About Section -->
 <div class="container-fluid page-content-container">
     <div class="row">
-        <div class="col-12 order-first page-section__heading terracotta">
+        <div class="col-12 order-first page-section__heading brand">
             <h3>About Katie</h3>
         </div>
         <div class="col-md-6 order-3 half-container txt-half left">
@@ -147,7 +147,7 @@
     <div class="row">
         {% for ingredient in ingredients %}
         {% if ingredient.featured %}
-        <div class="col-12 page-section__heading terracotta">
+        <div class="col-12 page-section__heading brand">
             <h3>Featured Ingredient | {{ ingredient.name | capitalize}} </h3>
         </div>
         <div class="col-md-6 half-container left">
@@ -161,7 +161,7 @@
                 <p>This month's featured ingredient is {{ ingredient.name | capitalize}}.</p>
                 <p>Submit your recipe which celebrates {{ ingredient.name | capitalize}} and if your
                     recipe comes out on top, you could win great prizes from our sponsors.</p>
-                <a href="{{ url_for('add_recipe') }}" class="d-block btn btn-custom pink w-50 mt-5 mx-auto">Submit Your
+                <a href="{{ url_for('add_recipe') }}" class="d-block btn btn-custom brand w-50 mt-5 mx-auto">Submit Your
                     Recipe <i class="fas fa-carrot"></i></a>
             </div>
         </div>

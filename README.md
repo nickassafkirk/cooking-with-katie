@@ -178,6 +178,9 @@ Content was copied from https://www.bbcgoodfood.com/recipes/easy-pancakes
 9. [About US headshot Image](https://www.pexels.com/photo/delighted-ethnic-woman-cooking-in-kitchen-3771120/)
    Credit Andrea Piacquadio from [Pexels.com](https://www.pexels.com/)
 
+10. [Corn Bg Image](https://unsplash.com/photos/Hmcpg4cnSRA)
+Credit Markus Winkler from [Unsplash.com](https://unsplash.com/)
+
 ### Code Credits
 
 1. Simple Image Upload Functionality:    
