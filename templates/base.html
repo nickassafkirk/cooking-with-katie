@@ -104,10 +104,16 @@
     <!-- Footer -->
     <footer class="container-fluid">
         <div class="row">
-            <div class="col-12">
-                <p>placeholder footer item 1</p>
-                <p>placeholder footer item 1</p>
-                <p>placeholder footer item 1</p>
+            <div class="col-12 footer-links">
+                <a href="{{url_for('recipes')}}"><i class="fas fa-search"></i> Explore Recipes</a>
+                <a href="{{url_for('add_recipe')}}">Add A Recipe <i class="fas fa-plus-circle"></i></a>
+                {% if session.user %}
+                <a href="{{ url_for('account', username=session['user']) }}"><i class="fas fa-user-alt"></i> My Account</a>
+                <a href="{{ url_for('logout')}}">Logout <i class="fas fa-sign-out-alt"></i></a>               
+                {% else %}
+                <a href="{{ url_for('sign_up') }}">Sign Up <i class="fas fa-edit"></i></a> 
+                <a href="{{ url_for('sign_in') }}">Sign In <i class="fas fa-user-alt"></i></a>
+                {% endif %}
             </div>
             <div class="col-12 footer__social-icons">
                 <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i></a>
