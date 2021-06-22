@@ -137,7 +137,7 @@
     <!-- Change Password Area -->
     <div class="container account-container d-none" id="account-password">
         <h4>Change Password</h4>
-        <form action="" id="change-password-form" class="row g-3">
+        <form action="{{ url_for('change_password') }}" method="POST" id="change-password-form" class="row g-3">
             <div class="col-12 col-md-6">
                 <label for="existing-password" class="form-label">Current Password</label>
                 <input type="password" name="existing-password" class="form-control password" id="existing-password"

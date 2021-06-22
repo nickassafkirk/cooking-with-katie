@@ -178,6 +178,50 @@ def update_user(user_id):
         return redirect(url_for('account', username=user['username']))
 
 
+@app.route("/change_password", methods=["GET", "POST"])
+@login_required
+def change_password():
+    if request.method == "POST":
+        # check if username already exists in DB
+        existing_user = mongo.db.users.find_one(
+            {'username': session['user']})
+        print(existing_user)
+        # double check if password match
+        existing_password = request.form.get("existing-password")
+        confirm_existing_password = request.form.get(
+            "confirm-existing-password")
+
+        if existing_password != confirm_existing_password:
+            flash("Passwords don't match")
+            return redirect(url_for(
+                "account", username=existing_user['username']))
+
+        if existing_user:
+            if check_password_hash(
+                    existing_user["password"], existing_password):
+                new_password = request.form.get("new-password")
+                confirm_new_password = request.form.get("confirm-new-password")
+                if new_password == confirm_new_password:
+                    valid_password = new_password
+                else:
+                    flash("Passwords don't match")
+                    return redirect(url_for(
+                        "account", username=existing_user['username']))
+            else:
+                flash("Incorrect Password")
+                return redirect(url_for(
+                    "account", username=existing_user['username']))
+        else:
+            flash("Sign in to make changes")
+            return redirect(url_for('sign_in'))
+
+        mongo.db.users.find_one_and_update(
+            {"username": session["user"]},
+            {"$set": {"password": generate_password_hash(valid_password)}})
+        flash("Password Updated Successfully")
+        return redirect(url_for("account", username=existing_user['username']))
+
+
 @app.route("/recipes")
 def recipes():
     recipes = list(mongo.db.recipes.find())
