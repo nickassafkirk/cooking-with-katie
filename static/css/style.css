@@ -10,6 +10,8 @@
     --sunset-gradient-reverse: linear-gradient(to left,#B9E2DA, #ecdbb2,#f3ae2e);
     --blue-gradient: linear-gradient(to right, rgb(254, 255, 255), rgb(184, 207, 221));
     --blue-gradient-reverse: linear-gradient(to bottom,rgb(184, 207, 221), rgb(254, 255, 255) , rgb(184, 207, 221)) 50%;
+    --pistachio: #cbd4bb;
+
     /* Text colors */
     --txt-light: #efefef;
     --txt-dark: #111;
@@ -48,15 +50,7 @@
 .pink-light{
     background-color: var(--pink-light);
 }
-.green{
-    background-color: var(--green);
-}
-.green-dark{
-    background-color: var(--green-dark);
-}
-.green-light{
-    background-color: var(--green-light);
-}
+
 .mint{
     background-color: var(--mint);
 }
@@ -80,8 +74,12 @@
     background-image: linear-gradient(to right, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));
 }
 
-.terracotta{
-    background: linear-gradient(to top, rgb(237, 129, 98), rgb(114, 56, 40));
+.brand{
+    background: var(--txt-cute);
+}
+
+.pistachio{
+    background: var(--pistachio);
 }
 
 /* general styles */
@@ -118,9 +116,8 @@ body{
 
 /* Header Styles */
 header{
-    background-image: url(../img/brooke-lark-08bOYnH_r_E-unsplash.jpg),
-    var(--blue-gradient);
-    background-size: contain, contain;
+    background: url(../img/peyman-farmani-AiBnoLlikV4-unsplash.jpg);
+    background-size: cover;
     background-position: left top;
     background-repeat: no-repeat;
 }
@@ -140,13 +137,13 @@ header{
     font-family: var(--font-2);
     font-size: 1.4rem;
     font-weight: bolder;
-    color: var(--txt-dark);
-    text-shadow: 2px 2px #fff;
+    color: var(--txt-light);
+    text-shadow: 2px 2px #000;
     text-decoration: none;
 }
 
 header a:hover{
-    color: var(--txt-cute);
+    color: rgb(211, 92, 211);
 }
     
 /* Navbar styles */ 
@@ -188,7 +185,7 @@ transition: height 0.2s ease;
 }
 
 .navbar-toggler i{
-    color: var(--txt-cute);
+    color: var(--txt-light);
 }
 
 .navbar-toggler.inside{
@@ -229,8 +226,8 @@ header .navbar .nav-link{
     font-family: var(--font-3);
     font-size: 2em;
     font-weight: 700;
-    color: var(--txt-cute);
-    text-shadow: 2px 2px #fff;
+    color: var(--txt-light);
+    text-shadow: 2px 2px #000;
     text-align: right !important;
 }
 
@@ -238,7 +235,7 @@ header .navbar .nav-link{
     font-family: var(--font-3);
     font-size: 1.4em;
     font-weight: 700;
-    color: var(--txt-cute);
+    color: rgb(211, 92, 211);
 }
 
 
@@ -273,7 +270,10 @@ header .navbar .nav-link{
 /* homepage hero */
 
 .hero-container{
-    background: var(--blue-gradient);
+    background: url(../img/peyman-farmani-AiBnoLlikV4-unsplash.jpg);
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
     margin: 0 auto;
 }
 
@@ -357,7 +357,7 @@ header .navbar .nav-link{
 .half-container{
     margin: 0;
     padding: 0% 2% 2% 2%;
-    background: linear-gradient(to top, rgb(114, 56, 40), rgb(237, 129, 98));
+    background: #cbd4bb;
     display: flex;
 }
 
@@ -373,7 +373,7 @@ header .navbar .nav-link{
 }
 
 .txt-half{
-    background: linear-gradient(to top, rgb(114, 56, 40), rgb(237, 129, 98));
+    background: #cbd4bb;
 }
 
 .txt-half__inner{
@@ -930,7 +930,7 @@ header .navbar .nav-link{
 
 #account-menu a{
     display: block;
-    background-color: var(--grey);
+    background-color: var(--green-light);
     padding: 2%;
     border: 2px solid var(--bg-main);
     border-top-right-radius: 15px;
@@ -938,8 +938,9 @@ header .navbar .nav-link{
     flex-grow: 1;
     flex-shrink: 1;
     text-align: center;
-    border-right: 5px solid rgba(0, 0, 0, 0.4);
-    border-bottom: 5px solid var(--grey);
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    border-right: 1px solid rgba(0, 0, 0, 0.4);
+    border-bottom: 3px solid rgba(0, 0, 0, 0.4);
     font-family: var(--font-2);
     text-transform: capitalize;
     color: var(--txt-dark);
@@ -953,19 +954,16 @@ header .navbar .nav-link{
     width: 100%;
     margin: 0 auto;
     padding: 5%;
-    border: 1px solid var(--mint);
     border-radius: 5px;
-    background: var(--grey);
+    background: var(--green-light);
 }
 
-
-.account-container__heading{
-    width: 100%;
-    margin: -5%;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    background: var(--mint);
+.account-heading{
+    font-family: var(--font-3);
+    color: var(--txt-light);
+    font-size: 2.5rem;
 }
+
 
 .account-recipe{
     flex-basis: 40%;
@@ -1254,14 +1252,14 @@ footer{
     }
 
     header .navbar .nav-link{
-        color: var(--txt-dark);
-        text-shadow: 2px 2px var(--txt-light);
+        color: var(--txt-light);
+        text-shadow: 2px 2px #000;
         font-size: 2rem;
     }
 
     .navbar-custom .nav-link:hover{
-    color: var(--txt-cute);
-    border-bottom: 2px dotted var(--txt-cute);
+    color: rgb(211, 92, 211);
+    border-bottom: 2px dotted rgb(211, 92, 211);
     }
 
     header .navbar-custom .navbar-brand{
