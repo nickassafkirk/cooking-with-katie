@@ -93,7 +93,8 @@ changePasswordConfirm.addEventListener('change', checkPassword);
             validationMessage.innerText = "Passwords Match";
             passwordField.classList.add("valid-field")
             confirmField.classList.add("valid-field")
-            
+            const changePassword = document.querySelector('#existing-password');
+            changePassword.addEventListener('change', checkPassword);
             } else {
                 console.log("no match")
                 confirmField.classList.add("invalid-field")
