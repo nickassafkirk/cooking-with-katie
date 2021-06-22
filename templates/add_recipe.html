@@ -56,13 +56,11 @@
                     </div>
                 </div>
                 {% endfor %}
-
-                
-                <div class="button-container">
-                    <p class="btn" id="addIngredientsButton">
-                        Add more ingredients
-                    </p>
-                </div>
+            </div>
+            <div class="button-container">
+                <p class="btn" id="addIngredientsButton">
+                    <i class="fas fa-plus-circle"></i> Add more ingredients
+                </p>
             </div>
 
             <div class="form-section__heading">
@@ -80,12 +78,12 @@
                     <textarea name="step-{{ loop.index }}" id="step-{{ loop.index }}" cols="50" rows="1"></textarea>
                 </div>
                 {% endfor %}
-                <div class="button-container">
+            </div>
+            <div class="button-container">
                     <p class="btn" id="addInstructionsButton">
-                        Add more instructions
+                        <i class="fas fa-plus-circle"></i> Add more steps
                     </p>
                 </div>
-            </div>
             <div class="form-section__heading">
                 <h3>5: Additional Information</h3>
             </div>
