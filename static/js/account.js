@@ -79,6 +79,7 @@ function goToAccountSection(event){
 const changePasswordConfirm = document.querySelector('#confirm-existing-password');  
 changePasswordConfirm.addEventListener('change', checkPassword);
 
+
     function checkPassword(event){
         targetId = event.target.id
         passWordFieldId = targetId.split("confirm-").pop();
@@ -86,7 +87,7 @@ changePasswordConfirm.addEventListener('change', checkPassword);
         let passwordField = document.querySelector(`#${passWordFieldId}`)
         let password1 = passwordField.value;
         let password2 = confirmField.value;
-        let validationMessage = document.querySelector(".validation-message")
+        let validationMessage = event.target.nextElementSibling;
         
             if (password1 === password2){
             console.log("match")
