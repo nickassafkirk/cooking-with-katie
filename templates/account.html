@@ -23,7 +23,7 @@
     <div class="container-fluid account-container active" id="account-preferences">
         <div class="row">
             <div class="col-12 text-center">
-                <h4>Account Details</h4>
+                <h4 class="account-heading">Account Details</h4>
             </div>
         </div>
 
@@ -79,7 +79,7 @@
         <div class="row">
             {% if session['user'] == "admin" %}
             <div class="col-12 text-center">
-                <h4>Recipes</h4>
+                <h4 class="account-heading">Recipes</h4>
             </div>
             <div class="col-12">
                 <h4>Total recipes: {{recipes | length}}</h4>
@@ -136,7 +136,7 @@
 
     <!-- Change Password Area -->
     <div class="container-fluid account-container d-none" id="account-password">
-        <h4>Change Password</h4>
+        <h4 class="account-heading">Change Password</h4>
         <form action="{{ url_for('change_password') }}" method="POST" id="change-password-form" class="row g-3">
             <div class="col-12 col-md-6">
                 <label for="existing-password" class="form-label">Current Password</label>
@@ -172,7 +172,7 @@
     <div class="container-fluid account-container d-none" id="account-categories">
         <div class="row">
             <div class="col-12">
-                <h4>Edit Categories</h4>
+                <h4 class="account-heading">Edit Categories</h4>
             </div>
         </div>
 
@@ -197,7 +197,7 @@
 
         <div class="row mt-5">
             <div class="col-12">
-                <h4>Add Categories</h4>
+                <h4 class="account-heading">Add Categories</h4>
             </div>
         </div>
         <form action="{{ url_for('add_category') }}" method="POST" id="" class="row">
@@ -217,7 +217,7 @@
     <div class="container-fluid account-container d-none" id="account-users">
         <div class="row">
             <div class="col-12">
-                <h4>Edit Users</h4>
+                <h4 class="account-heading">Edit Users</h4>
             </div>
         </div>
 
