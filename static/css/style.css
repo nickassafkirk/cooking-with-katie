@@ -777,25 +777,41 @@ header .navbar .nav-link{
 }
 
 .instruction-n label{
-    margin: 0;
+    margin-left: 5%;
     cursor: text;
 }
 
-.delete-row{
+.delete-row, .reorder-row{
     position: absolute;
-    top: 0%;
-    left: 100%;
-    bottom: 55%;
-    right: 0;
     cursor: pointer;
+    font-size: 1rem;
+    margin-top: -0.5rem;
+}
+
+.delete-row{
+    left: 100%;
+    top: 50%;
+}
+
+.reorder-row{
+    left: 0%;
+    top: 79%;
+}
+
+.delete-row span, .reorder-row span{
+    color: var(--txt-light);
+    border-radius: 50%;
+    padding: 1rem;
+    margin-left: -1.5rem;
+    
 }
 
 .delete-row span{
-    color: var(--txt-light);
     background: #74322f;
-    margin-left: -1.5rem;
-    border-radius: 50%;
-    padding: 1rem;
+}
+
+.reorder-row span{
+    background: var(--mint);
 }
 
 #additional-container{

@@ -183,14 +183,14 @@
         <div class="row">
             <div class="col-12 insert-popup">
                 <div class="edit-categories-wrapper">
-                    <form action="{{ url_for('edit_category') }}" method="POST">
+                    <form action="{{ url_for('edit_category') }}" method="POST" class="mb-2">
                         <input type="text" name="{{category.name}}" class="form-control" value="{{category.name}}">
-                        <button type="button" class="btn btn-success" id="btn-{{ loop.index }}"><i
+                        <button type="button" class="btn btn-custom mint-dark p-3 m-0 ms-1" id="btn-{{ loop.index }}"><i
                                 class="far fa-edit"></i></button>
                     </form>
-                    <form action="{{url_for('delete_category')}}" method="POST">
+                    <form action="{{url_for('delete_category')}}" method="POST" class="mb-2">
                         <input type="text" name="{{category.name}}" class="form-control" value="{{category.name}}">
-                        <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                        <button type="button" class="btn btn-custom brand p-3 m-0 ms-1"><i class="fas fa-trash-alt"></i></button>
                     </form>
                 </div>
             </div>
@@ -204,13 +204,12 @@
             </div>
         </div>
         <form action="{{ url_for('add_category') }}" method="POST" id="" class="row">
-            <div class="col-12" id=""></div>
-            <div>
-                <label for="" class="form-label hidden">new-category</label>
+            <div class="col-9" id="">
+                <label for="" class="form-label d-none">new-category</label>
                 <input type="text" name="add-category" class="form-control" id="add-category" placeholder="Enter New Category"
                     required>
             </div>
-            <div class="col-12 my-2 mx-auto">
+            <div class="col-3">
                 <button type="submit" class="btn btn-custom w-50 w-md-25 mint-dark">Add Category</button>
             </div>
         </form>
@@ -228,14 +227,14 @@
         <div class="row">
             <div class="col-12 insert-popup">
                 <div class="edit-users-wrapper">
-                    <form action="" method="POST">
+                    <form action="" method="POST" class="mb-2">
                         <input type="text" name="{{ user.username }}" class="form-control" value="{{ user.username }}">
-                        <button type="button" class="btn btn-success" id="btn-{{ user.username }}"><i
+                        <button type="button" class="btn btn-custom mint-dark p-3 m-0 ms-1" id="btn-{{ user.username }}"><i
                                 class="far fa-edit"></i></button>
                     </form>
-                    <form action="" method="POST">
+                    <form action="" method="POST" class="mb-2">
                         <input type="text" name="{{ user.username }}" class="form-control" value="{{ user.username }}">
-                        <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                        <button type="button" class="btn btn-custom brand p-3 m-0 ms-1"><i class="fas fa-trash-alt"></i></button>
                     </form>
                 </div>
             </div>
