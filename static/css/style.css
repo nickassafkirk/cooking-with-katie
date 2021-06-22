@@ -33,7 +33,7 @@
     --green-light: #439688;
     --terracota-dark: rgb(116, 50, 47);
     --red-gradient: linear-gradient(to right, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));
-    --dark-blue: #0d1730;
+    --dark-blue: #11141b;
 
     /* Fonts */
     --font-1: 'Montserrat', sans-serif;
@@ -87,7 +87,7 @@
 
 body{
     font-family: var(--font-1);
-    background: var(--dark-blue);
+    background: var(--bg-main);
     color: var(--txt-dark);
     font-size: 16px;
     overflow-x: hidden;
@@ -251,7 +251,7 @@ header .navbar .nav-link{
     font-family: var(--font-3);
     font-size: 1.4em;
     font-weight: 700;
-    color: rgb(211, 92, 211);
+    color: var(--txt-cute);
 }
 
 
@@ -286,7 +286,7 @@ header .navbar .nav-link{
 /* homepage hero */
 
 .hero-container{
-    background: #181c28;
+    background: var(--bg-main);
     margin: 0 auto;
 }
 
@@ -370,7 +370,7 @@ header .navbar .nav-link{
 .half-container{
     margin: 0;
     padding: 0% 2% 2% 2%;
-    background: var(--terracota-dark);
+    background: var(--dark-blue);
     display: flex;
 }
 
@@ -386,7 +386,7 @@ header .navbar .nav-link{
 }
 
 .txt-half{
-    background: var(--terracota-dark);
+    background: var(--dark-blue);
 }
 
 .txt-half__inner{
@@ -943,24 +943,21 @@ header .navbar .nav-link{
 
 #account-menu a{
     display: block;
-    background-color: var(--green-light);
     padding: 2%;
-    border: 2px solid var(--bg-main);
-    border-top-right-radius: 15px;
+    margin: 2% auto;
     flex-basis: 15%;
     flex-grow: 1;
     flex-shrink: 1;
     text-align: center;
-    border-top: 1px solid rgba(0, 0, 0, 0.4);
-    border-right: 1px solid rgba(0, 0, 0, 0.4);
-    border-bottom: 3px solid rgba(0, 0, 0, 0.4);
+    border-top: 2px solid var(--txt-light);
+    border-bottom: 2px solid var(--txt-light);
     font-family: var(--font-2);
     text-transform: capitalize;
-    color: var(--txt-dark);
+    color: var(--txt-light);
 }
 
 #account-menu a:hover{
-    background: var(--mint);
+    background: var(--terracota-dark);
 }
 
 .account-container{
@@ -968,9 +965,16 @@ header .navbar .nav-link{
     margin: 0 auto;
     padding: 5%;
     border-radius: 5px;
-    background: var(--green-light);
+    background: #d6eef1;
+
 }
 
+.account-container input{
+    background: var(--txt-light);
+    border: none;
+    border-radius: none;
+    border-bottom: 2px solid var(--dark-blue);
+}
 .account-heading{
     font-family: var(--font-3);
     color: var(--txt-light);
