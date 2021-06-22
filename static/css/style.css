@@ -68,7 +68,7 @@
 }
 
 .brand{
-    background: var(--terracota-dark);
+    background: var(--txt-cute);
 }
 
 .pistachio{
@@ -158,7 +158,7 @@ header::after{
 }
 
 header a:hover{
-    color: rgb(211, 92, 211);
+    color: var(--mint);
 }
     
 /* Navbar styles */ 
@@ -1279,8 +1279,8 @@ footer{
     }
 
     .navbar-custom .nav-link:hover{
-    color: rgb(211, 92, 211);
-    border-bottom: 2px dotted rgb(211, 92, 211);
+    color: var(--mint);
+    border-bottom: 2px dotted var(--mint);
     }
 
     header .navbar-custom .navbar-brand{
