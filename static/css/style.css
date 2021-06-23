@@ -721,8 +721,10 @@ header .navbar .nav-link{
     padding-top: 5%;
     text-shadow: 2px 2px var(--txt-light);
     text-align: center;
-    font-family: var(--font-2);
-    font-size: 1.2rem;
+    color: var(--txt-cute);
+    text-shadow: 0px 1px rgba(0,0,0,0.5);
+    font-family: var(--font-3);
+    font-weight: 700;
     border-top: 1px solid var(--mint)
 }
 
@@ -737,7 +739,7 @@ header .navbar .nav-link{
     border-radius: 5px;
 }
 
-*::placeholder, #add_recipe-form select option:disabled{
+*::placeholder, #add_recipe-form select option[disabled=true]{
     padding-left: 0.5rem;
     font-size: 0.9rem;
     color: grey;
@@ -1407,6 +1409,10 @@ footer a:hover, footer .footer-icons a:hover{
 
     .add-recipe__container{
         width: 50vw;
+    }
+
+    #add_recipe-form h3{
+        font-size: 2.2rem;
     }
 
 }
