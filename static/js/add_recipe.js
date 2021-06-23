@@ -2,43 +2,47 @@ let lastIngredientIndex = document.querySelectorAll(".ingredient-n").length;
 let lastIngredientInput = document.querySelector(`input[name="ingredient-${lastIngredientIndex}"]`);
 lastIngredientInput.addEventListener("change", addMoreRows);
 
-const addIngredientsButton = document.querySelectorAll(".add-ingredients-button");
-addIngredientsButton.forEach(button => button.addEventListener("click", addMoreRows));
+
+const addIngredientsButton = document.querySelector("#add-ingredients-button");
+console.log(addIngredientsButton)
+addIngredientsButton.addEventListener("click", addMoreRows);
 
 function addMoreRows() {
+    console.log(this);
     let numberOfIngredients = document.querySelectorAll(".ingredient-n").length;
     let selectOptions = document.querySelector("[name=unit-1]");
     let newSelect = selectOptions.innerHTML;
     let newIngredientRow = document.createElement("div");
     newIngredientRow.setAttribute("class", "ingredient-n row");
     newIngredientRow.innerHTML= `
-                    <div class="delete-row">
+                    <div class="col-12 delete-row">
                         <span class="delete-button">
                             <i class="fas fa-trash-alt"></i>
                         </span>
                         <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
                     </div>
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-lg-4">
                         <label for="ingredient-${numberOfIngredients + 1}" class="form-label">Ingredient ${numberOfIngredients + 1}</label>
                         <input type="text" name="ingredient-${numberOfIngredients + 1}">
                     </div>
-                    <div class="col-6 col-md-4">
+                    <div class="col-6 col-lg-4">
                         <label for="quantity-${numberOfIngredients + 1}" class="form-label">Quantity</label>
                         <input type="text" name="quantity-${numberOfIngredients + 1}" placeholder="Optional">
                     </div>
-                    <div class="col-6 col-md-4">
+                    <div class="col-6 col-lg-4">
                         <label for="unit-${numberOfIngredients + 1}" class="form-label">Unit</label>
                         <select name="unit-${numberOfIngredients + 1}">
                             ${newSelect}
                         </select>
                     </div>`;  
-    const ingredientsContainer = document.querySelector(".ingredients-container");
-    ingredientsContainer.insertBefore(newIngredientRow, document.querySelector(".button-container"));
-    enableDeleteButton(".ingredients-container", "click")
+    let ingredientsContainer = document.querySelector(`.ingredients-container`);
+    ingredientsContainer.insertBefore(newIngredientRow, document.querySelector(`.button-container`));
+    enableDeleteButton(`.ingredients-container`, "click")
 };
 
-const addInstructionsButton = document.querySelectorAll(".add-instructions-button");
-addInstructionsButton.forEach(button => button.addEventListener("click", addInstructionRows));
+const addInstructionsButton = document.querySelector("#add-instructions-button");
+addInstructionsButton.addEventListener("click", addInstructionRows);
+
 
 function addInstructionRows(){
     let numberOfInstructions = document.querySelectorAll(".instruction-n").length;
@@ -51,11 +55,15 @@ function addInstructionRows(){
                         </span>
                         <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
                     </div>
-        <label for="step" class="instructions-n__label">Step ${numberOfInstructions + 1}:</label>
-        <textarea name="step-${numberOfInstructions + 1}" id="step-${numberOfInstructions + 1}" cols="50" rows="1"></textarea>`
+                        <div class="instruction-area">
+                        <label for="step-${numberOfInstructions + 1}" class="instructions-n__label">Step ${numberOfInstructions + 1}:</label>
+                        <textarea name="step-${numberOfInstructions + 1}" cols="50" rows="1"></textarea>
+                    </div>`
+        
 
     const instructionsContainer = document.querySelector(".instructions-container");
-    instructionsContainer.insertBefore(newInstructionRow, document.querySelectorAll(".button-container")[1]);
+    instructionsContainer.insertBefore(newInstructionRow, document.querySelector(".instructions-container .button-container"));
+    console.log(newInstructionRow);
     enableDeleteButton(".instructions-container", "click")
 };
 
@@ -96,15 +104,14 @@ function enableDragSorting(selector){
         allowDragOn = ".instruction-n"
     } else if (selector == ".ingredients-container") {
         allowDragOn = ".ingredient-n"
+    } else {
+        console.log("error")
     }
     new Sortable(dragArea, {
-        
         draggable: allowDragOn,
         handle: ".my-handle",
         animation: 350,
-        filter: ".fa-trash-alt",
         onSort: function(){
-            console.log("Test")
             reorderLabels(allowDragOn)
         }});
 }
@@ -137,11 +144,14 @@ ingredientRows.forEach(row => row.addEventListener("drop", function(event){
 })); */
 
 function reorderLabels(targetElements) {
-    console.log("reorder called")
+    console.log(targetElements);
     let allTargetElements = document.querySelectorAll(targetElements);
+    let targetChildren;
     if (targetElements == ".instruction-n") {
         for (i = 0; i < allTargetElements.length; i++) {
+            targetChildren = allTargetElements[i];
             let targetLabel = allTargetElements[i].children[1].children[0];
+            console.log(allTargetElements.length);
             console.log(targetLabel);
             targetLabel.innerText = `Step ${i + 1}`;
             targetLabel.setAttribute('for', `Step-${i + 1}`)
@@ -151,7 +161,7 @@ function reorderLabels(targetElements) {
         }
     } else if (targetElements == ".ingredient-n"){
         for (i = 0; i < allTargetElements.length; i++) {
-            let targetChildren = allTargetElements[i];
+            targetChildren = allTargetElements[i];
             /* ingredient input + label */
             let col1 = targetChildren.children[1].children;
             /* quantity input + label */
