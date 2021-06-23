@@ -115,8 +115,8 @@
                         <a href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a>
                     </h5>
                     <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img">
-                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-success">Edit Recipe</a>
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-custom mint-dark">Edit Recipe</a>
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-custom brand">Delete
                         Recipe</a>
                 </div>
             </div>
@@ -202,7 +202,7 @@
         <div class="row">
             <div class="col-12 insert-popup">
                 <div class="edit-categories-wrapper">
-                    <form action="{{ url_for('edit_category') }}" method="POST" class="mb-2" id="edit-category-form">
+                    <form action="{{ url_for('edit_category') }}" method="POST" class="mb-2" id="edit-category-form-{{category.name}}">
                         <input type="text" name="{{category.name}}" class="form-control" value="{{category.name}}">
                         <button type="button" class="btn btn-custom mint-dark p-3 m-0 ms-1" id="btn-{{ loop.index }}"><i
                                 class="far fa-edit"></i></button>
