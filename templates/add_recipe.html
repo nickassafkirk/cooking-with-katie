@@ -74,14 +74,12 @@
                         <span class="delete-button">
                             <i class="fas fa-trash-alt"></i>
                         </span>
+                        <span class="reorder-button"><i class="fas fa-arrows-alt"></i></span>
                     </div>
-                    <div class="reorder-row">
-                        <span class="reorder-button">
-                            <i class="fas fa-arrows-alt"></i>
-                        </span>
+                    <div class="instruction-area">
+                        <label for="step-{{ loop.index }}" class="instructions-n__label">Step {{ loop.index }}:</label>
+                        <textarea name="step-{{ loop.index }}" id="step-{{ loop.index }}" cols="50" rows="2"></textarea>
                     </div>
-                    <label for="step-{{ loop.index }}" class="instructions-n__label">Step {{ loop.index }}:</label>
-                    <textarea name="step-{{ loop.index }}" id="step-{{ loop.index }}" cols="50" rows="1"></textarea>
                 </div>
                 {% endfor %}
                 <div class="button-container">
