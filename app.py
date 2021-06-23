@@ -418,17 +418,25 @@ def rating(recipe_id):
     if request.method == "POST":
         user_rating = int(request.form.get("submit-button"))
 
-        mongo.db.recipes.find_one_and_update(
-            {"_id": ObjectId(recipe_id)}, {"$push": {"rating": user_rating}})
+        recipe = mongo.db.recipes.find_one(
+            {"_id": ObjectId(recipe_id)})
 
-        recipe_rating = mongo.db.recipes.find_one(
-            {"_id": ObjectId(recipe_id)})['rating']
+        recipe_owner = recipe['created_by']
 
-        average = round(sum(recipe_rating)/len(recipe_rating))
-        mongo.db.recipes.find_one_and_update(
-            {"_id": ObjectId(recipe_id)}, {"$set": {"avg_rating": average}})
+        if recipe_owner == session['user']:
+            flash("You can't rate your own recipe!")
+            return redirect(url_for("recipes"))
 
-        return redirect(url_for("recipes"))
+        else:
+            mongo.db.recipes.find_one_and_update(
+                {"_id": ObjectId(recipe_id)}, {"$push": {"rating": user_rating}})
+            recipe_rating = recipe['rating']
+            average = round(sum(recipe_rating)/len(recipe_rating))
+            mongo.db.recipes.find_one_and_update(
+                {"_id": ObjectId(recipe_id)}, {"$set": {"avg_rating": average}})
+            flash('Thank you for submittingyour Rating')
+            return redirect(url_for("recipes"))
+            
 
 
 @app.route('/new_subscriber', methods=["POST"])
