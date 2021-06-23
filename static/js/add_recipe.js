@@ -2,7 +2,7 @@ let lastIngredientIndex = document.querySelectorAll(".ingredient-n").length;
 let lastIngredientInput = document.querySelector(`input[name="ingredient-${lastIngredientIndex}"]`);
 lastIngredientInput.addEventListener("change", addMoreRows);
 
-const addIngredientsButton = document.getElementById("addIngredientsButton");
+const addIngredientsButton = document.getElementById("add-ingredients-button");
 addIngredientsButton.addEventListener("click", addMoreRows);
 
 function addMoreRows() {
@@ -32,12 +32,12 @@ function addMoreRows() {
                             ${newSelect}
                         </select>
                     </div>`;  
-    const ingredientsContainer = document.getElementById("ingredientsContainer");
+    const ingredientsContainer = document.getElementById("ingredients-container");
     ingredientsContainer.insertBefore(newIngredientRow, document.querySelector(".button-container"));
     enableDeleteButton("#ingredientsContainer", "click")
 };
 
-const addInstructionsButton = document.getElementById("addInstructionsButton");
+const addInstructionsButton = document.getElementById("add-instructions-button");
 addInstructionsButton.addEventListener("click", addInstructionRows);
 
 function addInstructionRows(){
@@ -54,9 +54,9 @@ function addInstructionRows(){
         <label for="step" class="instructions-n__label">Step ${numberOfInstructions + 1}:</label>
         <textarea name="step-${numberOfInstructions + 1}" id="step-${numberOfInstructions + 1}" cols="50" rows="1"></textarea>`
 
-    const instructionsContainer = document.getElementById("instructionsContainer");
+    const instructionsContainer = document.getElementById("instructions-container");
     instructionsContainer.insertBefore(newInstructionRow, document.querySelectorAll(".button-container")[1]);
-    enableDeleteButton("#instructionsContainer", "click")
+    enableDeleteButton("#instructions-container", "click")
 };
 
 function enableDeleteButton(parentContainer, listener) {
@@ -76,8 +76,8 @@ function deleteRow() {
     reorderLabels(classname);
 }
 
-enableDragSorting("#instructionsContainer");
-enableDragSorting("#ingredientsContainer");
+enableDragSorting("#instructions-container");
+enableDragSorting("#ingredients-container");
 
 /**
  * Allows drag and drop sorting on selected html elements
@@ -89,9 +89,9 @@ enableDragSorting("#ingredientsContainer");
 function enableDragSorting(selector){
     let dragArea = document.querySelector(selector);
     let allowDragOn;
-    if (selector == "#instructionsContainer") {
+    if (selector == "#instructions-container") {
         allowDragOn = ".instruction-n"
-    } else if (selector == "#ingredientsContainer") {
+    } else if (selector == "#ingredients-container") {
         allowDragOn = ".ingredient-n"
     }
     new Sortable(dragArea, {
@@ -167,11 +167,15 @@ function reorderLabels(targetElements) {
     }
 }
 
+
+
 const addRecipeSubmitButton = document.querySelector("#add-recipe__submit-button")
-addRecipeSubmitButton.addEventListener('click', function(event){
+addRecipeSubmitButton.addEventListener('click', takeOff);
+
+function takeOff(event){
     event.preventDefault();
-    const spinner = document.querySelector(".spinner-custom")
+    const spinner = document.querySelector("#add-recipe__submit-button i")
     spinner.classList.add("take-off")
-    form = document.querySelector('#add_recipe-form')
+    form = document.querySelector('#add-recipe-form')
     form.submit();
-})
+}

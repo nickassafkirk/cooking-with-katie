@@ -8,7 +8,7 @@
                 <h3>Add your Recipe</h3>
             </div>
         </div>
-        <form action="{{ url_for('add_recipe') }}" method="POST" enctype="multipart/form-data" id="add_recipe-form">
+        <form action="{{ url_for('add_recipe') }}" method="POST" enctype="multipart/form-data" id="add-recipe-form">
             <div>
                 <label for="title" class="form-label">
                     <h3>1: Add Recipe Title</h3>
@@ -25,7 +25,7 @@
                 <h3>3: Add Recipe Ingredients</h3>
             </div>
 
-            <div id="ingredientsContainer">
+            <div id="ingredients-container">
                 {% for row in range(5) %}
                 <div class="ingredient-n row">
                     <div class="col-12 delete-row">
@@ -58,7 +58,7 @@
                 </div>
                 {% endfor %}
                 <div class="button-container">
-                <p class="btn" id="addIngredientsButton">
+                <p class="btn" id="add-ingredients-button">
                     <i class="fas fa-plus-circle"></i> Add more ingredients
                 </p>
             </div>
@@ -68,7 +68,7 @@
             <div class="form-section__heading">
                 <h3>4: Add Cooking Instructions</h3>
             </div>
-            <div id="instructionsContainer">
+            <div id="instructions-container">
                 {% for row in range(5) %}
                 <div class="instruction-n">
                     <div class="delete-row">
@@ -84,7 +84,7 @@
                 </div>
                 {% endfor %}
                 <div class="button-container">
-                    <p class="btn" id="addInstructionsButton">
+                    <p class="btn" id="add-instructions-button">
                         <i class="fas fa-plus-circle"></i> Add more steps
                     </p>
                 </div>
@@ -124,16 +124,13 @@
             <div class="form-section__heading">
                 <h3>6: Upload Image</h3>
             </div>
-            <div class="upload-image">
+            <div class="upload-image mx-auto; my-2 p-5">
                 <label for="file" hidden>Upload Image</label>
                 <input type="file" name="file" id="image-uploader">
-                <div class="fake-image-input">
-                    <i class="fas fa-plus"></i>
-                </div>
             </div>
             <div class="button-container">
                 <button type="submit" class="btn" id="add-recipe__submit-button">
-                    <i class="fas fa-paper-plane spinner-custom"></i> Post Recipe
+                    <i class="fas fa-paper-plane"></i> Post Recipe
                 </button>
             </div>
         </form>

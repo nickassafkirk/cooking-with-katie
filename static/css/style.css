@@ -706,18 +706,18 @@ header .navbar .nav-link{
     padding: 0;
 }
 
-#add_recipe-form{
+#add-recipe-form{
     margin: 0% auto;
     padding: 0% 2% 2% 2%;
     background-color: #f5fffa;
 }
 
-#add_recipe-form label{
+#add-recipe-form label{
     display: block;
     padding: 2% 0;
 }
 
-#add_recipe-form h3{
+#add-recipe-form h3{
     padding-top: 5%;
     text-shadow: 2px 2px var(--txt-light);
     text-align: center;
@@ -728,7 +728,7 @@ header .navbar .nav-link{
     border-top: 1px solid var(--mint)
 }
 
-#add_recipe-form input[type=text], #add_recipe-form input[type=number], #add_recipe-form textarea, #add_recipe-form select{
+#add-recipe-form input[type=text], #add-recipe-form input[type=number], #add-recipe-form textarea, #add-recipe-form select{
     display: block;
     margin: 0 auto 5% auto;
     width: 90%;
@@ -739,17 +739,17 @@ header .navbar .nav-link{
     border-radius: 5px;
 }
 
-*::placeholder, #add_recipe-form select option{
+*::placeholder, #add-recipe-form select option{
     padding-left: 0.5rem;
     font-size: 0.9rem;
     color: grey;
 }
 
-#add_recipe-form input, #add_recipe-form select{
+#add-recipe-form input, #add-recipe-form select{
     height: 3em;
 }
 
-#ingredientsContainer, #instructionsContainer, #additional-container, #image-container{
+#ingredients-container, #instructions-container, #additional-container, #image-container{
     display: flex;
     flex-direction: column;
     border-radius: 5px;
@@ -843,7 +843,7 @@ header .navbar .nav-link{
     object-fit: cover;
 }
 
-#add_recipe-form p{
+#add-recipe-form p{
     margin: 2% auto 0 auto;
     padding: 2%;
     width: 90%;
@@ -870,18 +870,14 @@ header .navbar .nav-link{
      position: relative;
  }
 
- .spinner-custom{
+ .take-off{
      display: block;
      position: absolute;
      top: 50% ;
      left: 63%;
      margin-left: -1rem;
      margin-top: -1rem;
- }
-
- .take-off{
-     animation: take-off 5s linear infinite;
-     
+     animation: take-off 5s linear infinite; 
  }
 
  @keyframes take-off{
