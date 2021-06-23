@@ -66,7 +66,7 @@ function enableDeleteButton(parentContainer, listener) {
 let deleteButton = document.querySelectorAll('.delete-button');
 deleteButton.forEach(button => button.addEventListener('click', deleteRow))
 
-function deleteRow(event) {
+function deleteRow() {
     targetRow = this.parentNode.parentNode;
     classes = targetRow.classList;
     classname = "." + targetRow.classList[0];
@@ -91,10 +91,11 @@ function enableDragSorting(selector){
  * event listener to rename reordered form instructions
  */
 const instructionRows = document.querySelectorAll("#instructionsContainer .instruction-n");
-instructionRows.forEach(row => row.addEventListener("pointerup", function(event){
-    event.preventDefault;
+instructionRows.forEach(row => row.addEventListener("drop", function(event){
+    console.log(EventTarget)
+    event.preventDefault();
     let parent = event.target.parentNode;
-    parentClass = "." + parent.classList[0]
+    parentClass = "." + parent.classList[0];
     console.log(parentClass)
     reorderLabels(parentClass);
 }));
@@ -103,8 +104,9 @@ instructionRows.forEach(row => row.addEventListener("pointerup", function(event)
  * event listener to rename reordered form ingredients
  */
 const ingredientRows = document.querySelectorAll("#ingredientsContainer .ingredient-n");
-ingredientRows.forEach(row => row.addEventListener("pointerup", function(event){
-    event.preventDefault;
+ingredientRows.forEach(row => row.addEventListener("drop", function(event){
+    console.log(EventTarget)
+    event.preventDefault();
     let ingredientParent = event.target.parentNode.parentNode;
     console.log(ingredientParent)
     let ingredientParentClass = "." + ingredientParent.classList[0]
@@ -117,7 +119,6 @@ function reorderLabels(targetElements) {
     let allTargetElements = document.querySelectorAll(targetElements);
     if (targetElements == ".instruction-n") {
         for (i = 0; i < allTargetElements.length; i++) {
-            let targetChildren = allTargetElements[i];
             let targetLabel = allTargetElements[i].children[1];
             targetLabel.innerText = `Step ${i + 1}`;
             targetLabel.setAttribute('for', `Step-${i + 1}`)
