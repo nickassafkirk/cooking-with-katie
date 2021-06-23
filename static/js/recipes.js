@@ -44,6 +44,9 @@ function selectRating(){
     addSubmitButton(formId, formChildren, originalRating, rating)
 };
 
+/**
+ * Asks for confirmation before rating submission to limit accidental clicks
+ */
 function addSubmitButton(formId, formChildren, originalRating, rating) {
     let targetForm = document.querySelector(formId);
     let submitButtonExists = document.querySelector(`${formId} button[name="submit-button"]`);
