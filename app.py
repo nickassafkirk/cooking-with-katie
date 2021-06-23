@@ -164,7 +164,7 @@ def update_user(user_id):
     user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
     if request.method == "POST":
         update_user = {
-            "username": request.form.get('username').lower(),
+            "username": user['username'],
             "password": user['password'],
             "first_name": request.form.get('fname-update').lower(),
             "last_name": request.form.get('lname-update').lower(),
@@ -175,7 +175,7 @@ def update_user(user_id):
         }
         mongo.db.users.update({"_id": ObjectId(user_id)}, update_user)
         flash("Account Details Updated successfully")
-        return redirect(url_for('account', username=update_user['username']))
+        return redirect(url_for('account', username=user['username']))
 
 
 @app.route("/change_password", methods=["GET", "POST"])
