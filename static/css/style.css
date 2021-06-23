@@ -772,9 +772,6 @@ header .navbar .nav-link{
 
 .instruction-n{
     position: relative;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
     width: 100%;
     background-color: var(--mint);
     padding: 1%;
@@ -783,62 +780,30 @@ header .navbar .nav-link{
     cursor: move;
 }
 
-.instruction-area{
-    flex-basis: 80%;
-}
-
 .delete-row{
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-between;
     margin: 0 auto;
+    flex-basis: 100%;
 }
 
 .delete-row span{
     color: var(--txt-dark);
     font-size: 1.2rem;
+    padding: 0;
+    cursor: pointer;
 }
 
-.instruction-n label{
+.delete-row span:hover{
+    color: var(--txt-light);
+}
+
+.instruction-n label, .ingredient-n label{
     margin-left: 5%;
     cursor: text;
     font-family: var(--font-2);
 }
-
-/* .delete-row, .reorder-row{
-    position: absolute;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-top: -0.5rem;
-}
-
-.delete-row{
-    left: 100%;
-    top: 50%;
-}
-
-.reorder-row{
-    left: 0%;
-    top: 79%;
-}
-
-.delete-row span, .reorder-row span{
-    color: var(--txt-light);
-    border-radius: 50%;
-    padding: 1rem;
-    margin-left: -1.5rem;
-    
-}
-
-.delete-row span{
-    background: #74322f;
-}
-
-.reorder-row span{
-    background: var(--mint);
-}
-
-*/
 
 #additional-container{
     display: flex;
@@ -848,6 +813,10 @@ header .navbar .nav-link{
     align-items: stretch;
     flex-wrap: wrap;
     padding: 2%;
+}
+
+#additional-container label{
+    font-family: var(--font-2);
 }
 
 #additional-container div{

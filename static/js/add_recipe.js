@@ -81,6 +81,8 @@ enableDragSorting("#ingredientsContainer");
  * Allows drag and drop sorting on selected html elements
  * credit CodingNepal: https://www.youtube.com/watch?v=z54suepKiIU
  * sortable cdn https://cdnjs.com/libraries/Sortable
+ * use of draggable and onsort methods were figured out by reading official documentation
+ * https://github.com/SortableJS/Sortable
  */
 function enableDragSorting(selector){
     let dragArea = document.querySelector(selector);
@@ -113,11 +115,9 @@ instructionRows.forEach(row => row.addEventListener("drop", function(event){
     parentClass = "." + parent.classList[0];
     console.log(parentClass)
     reorderLabels(parentClass);
-})); */
+})); 
 
-/**
- * event listener to rename reordered form ingredients
- */
+
 const ingredientRows = document.querySelectorAll("#ingredientsContainer .ingredient-n");
 ingredientRows.forEach(row => row.addEventListener("drop", function(event){
     console.log(EventTarget)
@@ -127,7 +127,7 @@ ingredientRows.forEach(row => row.addEventListener("drop", function(event){
     let ingredientParentClass = "." + ingredientParent.classList[0]
     console.log(ingredientParentClass)
     reorderLabels(ingredientParentClass);
-}));
+})); */
 
 function reorderLabels(targetElements) {
     console.log("reorder called")

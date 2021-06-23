@@ -28,20 +28,21 @@
             <div id="ingredientsContainer">
                 {% for row in range(5) %}
                 <div class="ingredient-n row">
-                    <div class="delete-row">
+                    <div class="col-12 delete-row">
                         <span class="delete-button">
                             <i class="fas fa-trash-alt"></i>
                         </span>
+                        <span class="reorder-button"><i class="fas fa-arrows-alt"></i></span>
                     </div>
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-lg-4 order-1">
                         <label for="ingredient-{{ loop.index }}" class="form-label">Ingredient {{ loop.index }}</label>
                         <input type="text" name="ingredient-{{ loop.index }}">
                     </div>
-                    <div class="col-6 col-md-4">
+                    <div class="col-6 col-lg-4 order-2">
                         <label for="quantity-{{ loop.index }}" class="form-label">Quantity</label>
                         <input type="text" name="quantity-{{ loop.index }}" placeholder="Optional">
                     </div>
-                    <div class="col-6 col-md-4">
+                    <div class="col-6 col-lg-4 order-3">
                         <label for="unit-{{ loop.index }}" class="form-label">Unit</label>
                         <select name="unit-{{ loop.index }}">
                             {% for unit in unit_options %}
