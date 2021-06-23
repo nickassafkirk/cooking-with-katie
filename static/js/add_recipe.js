@@ -4,11 +4,9 @@ lastIngredientInput.addEventListener("change", addMoreRows);
 
 
 const addIngredientsButton = document.querySelector("#add-ingredients-button");
-console.log(addIngredientsButton)
 addIngredientsButton.addEventListener("click", addMoreRows);
 
 function addMoreRows() {
-    console.log(this);
     let numberOfIngredients = document.querySelectorAll(".ingredient-n").length;
     let selectOptions = document.querySelector("[name=unit-1]");
     let newSelect = selectOptions.innerHTML;
@@ -63,7 +61,6 @@ function addInstructionRows(){
 
     const instructionsContainer = document.querySelector(".instructions-container");
     instructionsContainer.insertBefore(newInstructionRow, document.querySelector(".instructions-container .button-container"));
-    console.log(newInstructionRow);
     enableDeleteButton(".instructions-container", "click")
 };
 
@@ -84,11 +81,8 @@ function deleteRow() {
     reorderLabels(classname);
 }
 
-
 enableDragSorting(".instructions-container")
 enableDragSorting(".ingredients-container")
-
-
 
 /**
  * Allows drag and drop sorting on selected html elements
@@ -116,43 +110,13 @@ function enableDragSorting(selector){
         }});
 }
 
-/**
- * event listener to rename reordered form instructions
- */
-
- /*
-const instructionRows = document.querySelectorAll("#instructionsContainer .instruction-n");
-instructionRows.forEach(row => row.addEventListener("drop", function(event){
-    console.log(EventTarget)
-    event.preventDefault();
-    let parent = event.target.parentNode.parentNode;
-    parentClass = "." + parent.classList[0];
-    console.log(parentClass)
-    reorderLabels(parentClass);
-})); 
-
-
-const ingredientRows = document.querySelectorAll("#ingredientsContainer .ingredient-n");
-ingredientRows.forEach(row => row.addEventListener("drop", function(event){
-    console.log(EventTarget)
-    event.preventDefault();
-    let ingredientParent = event.target.parentNode.parentNode;
-    console.log(ingredientParent)
-    let ingredientParentClass = "." + ingredientParent.classList[0]
-    console.log(ingredientParentClass)
-    reorderLabels(ingredientParentClass);
-})); */
-
 function reorderLabels(targetElements) {
-    console.log(targetElements);
     let allTargetElements = document.querySelectorAll(targetElements);
     let targetChildren;
     if (targetElements == ".instruction-n") {
         for (i = 0; i < allTargetElements.length; i++) {
             targetChildren = allTargetElements[i];
             let targetLabel = allTargetElements[i].children[1].children[0];
-            console.log(allTargetElements.length);
-            console.log(targetLabel);
             targetLabel.innerText = `Step ${i + 1}`;
             targetLabel.setAttribute('for', `Step-${i + 1}`)
             let targetInput = allTargetElements[i].children[1].children[1];
@@ -179,8 +143,6 @@ function reorderLabels(targetElements) {
         }
     }
 }
-
-
 
 const addRecipeSubmitButton = document.querySelector("#add-recipe__submit-button")
 addRecipeSubmitButton?.addEventListener('click', takeOff);
