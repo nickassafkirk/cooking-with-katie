@@ -29,6 +29,12 @@
         {% if recipe.ingredients | length > 0 %}
         {% for ingredient in recipe.ingredients %}
         <div class="ingredient-n row">
+            <div class="col-12 delete-row">
+                    <span class="delete-button">
+                        <i class="fas fa-trash-alt"></i>
+                    </span>
+                <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
+            </div>
             <div class="col-12 col-md-4">
                 <label for="ingredient-{{ loop.index }}" class="form-label">Ingredient</label>
                 <input type="text" name="ingredient-{{ loop.index }}" value="{{ ingredient.name }}">
@@ -90,9 +96,17 @@
     <div class="instructions-container">
         {% for instruction in recipe.instructions %}
         <div class="instruction-n">
-            <label for="step-{{ loop.index | int }}" class="instructions-n__label">Step {{ loop.index | int }}:</label>
-            <textarea name="step-{{ loop.index | int }}" id="step-{{ loop.index }}" cols="50"
+            <div class="delete-row">
+                <span class="delete-button">
+                    <i class="fas fa-trash-alt"></i>
+                </span>
+                <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
+            </div>
+            <div class="instruction-area">
+                <label for="step-{{ loop.index | int }}" class="instructions-n__label">Step {{ loop.index | int }}:</label>
+                <textarea name="step-{{ loop.index | int }}" cols="50"
                 rows="auto">{{ instruction }}</textarea>
+            </div>
         </div>
         {% endfor %}
         <div class="button-container">

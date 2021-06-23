@@ -1,10 +1,10 @@
 let lastIngredientIndex = document.querySelectorAll(".ingredient-n").length;
 let lastIngredientInput = document.querySelector(`input[name="ingredient-${lastIngredientIndex}"]`);
-lastIngredientInput.addEventListener("change", addMoreRows);
+lastIngredientInput?.addEventListener("change", addMoreRows);
 
 
 const addIngredientsButton = document.querySelector("#add-ingredients-button");
-addIngredientsButton.addEventListener("click", addMoreRows);
+addIngredientsButton?.addEventListener("click", addMoreRows);
 
 function addMoreRows() {
     let numberOfIngredients = document.querySelectorAll(".ingredient-n").length;
@@ -35,7 +35,7 @@ function addMoreRows() {
                     </div>`;  
     let ingredientsContainer = document.querySelector(`.ingredients-container`);
     ingredientsContainer.insertBefore(newIngredientRow, document.querySelector(`.button-container`));
-    enableDeleteButton(`.ingredients-container`, "click")
+    enableDeleteButton(".ingredients-container", "click")
 };
 
 const addInstructionsButton = document.querySelector("#add-instructions-button");
