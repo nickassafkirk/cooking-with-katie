@@ -13,13 +13,13 @@
                 <label for="title" class="form-label">
                     <h3>1: Add Recipe Title</h3>
                 </label>
-                <input type="text" name="title" class="title" placeholder="Enter Recipe Title">
+                <input type="text" name="title" class="title" placeholder="Enter Recipe Title" required>
             </div>
             <div>
                 <label for="intro" class="form-label">
                     <h3>2: Add Recipe Description</h3>
                 </label>
-                <textarea name="intro" class="intro" cols="auto" rows="5" placeholder="Enter Brief Description"></textarea>
+                <textarea name="intro" class="intro" cols="auto" rows="5" placeholder="Enter Brief Description"></textarea required>
             </div>
             <div class="form-section__heading">
                 <h3>3: Add Recipe Ingredients</h3>
@@ -96,15 +96,15 @@
             <div class="additional-container">
                 <div>
                     <label for="prep-time">Prep Time (Mins)</label>
-                    <input type="number" name="prep-time">
+                    <input type="number" name="prep-time" required>
                 </div>
                 <div>
                     <label for="cook-time">Cook Time (Mins)</label>
-                    <input type="number" name="cook-time">
+                    <input type="number" name="cook-time" required>
                 </div>
                 <div class="additional-select">
                     <label for="category">Select Category</label>
-                    <select name="category" id="category">
+                    <select name="category" id="category" required>
                         <option value="" selected disabled hidden>Select Category</option>
                         {% for category in categories %}
                         <option value="{{ category.name }}">{{ category.name | capitalize}}</option>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="additional-select">
                     <label for="cuisine">Select Cuisine</label>
-                    <select name="cuisine" id="cuisine">
+                    <select name="cuisine" id="cuisine" required>
                         <option value="" selected disabled hidden>Select Cuisine</option>
                         {% for genre in cuisine_options %}
                         <option value="{{ genre.cuisine }}">{{ genre.cuisine | capitalize }}</option>
@@ -126,7 +126,7 @@
             </div>
             <div class="upload-image mx-auto; my-2 p-5">
                 <label for="file" hidden>Upload Image</label>
-                <input type="file" name="file" id="image-uploader">
+                <input type="file" name="file" id="image-uploader" required>
             </div>
             <div class="button-container">
                 <button type="submit" class="btn" id="add-recipe__submit-button">
