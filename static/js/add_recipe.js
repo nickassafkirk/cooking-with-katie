@@ -97,6 +97,7 @@ function enableDragSorting(selector){
     new Sortable(dragArea, {
         draggable: allowDragOn,
         animation: 350,
+        filter: ".fa-trash-alt",
         onSort: function(){
             console.log("Test")
             reorderLabels(allowDragOn)
