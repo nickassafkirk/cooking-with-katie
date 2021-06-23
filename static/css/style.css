@@ -702,6 +702,10 @@ header .navbar .nav-link{
 
 /* add-recipe */
 
+.add-recipe__container{
+    padding: 0;
+}
+
 #add_recipe-form{
     margin: 0% auto;
     padding: 0% 2% 2% 2%;
@@ -768,6 +772,9 @@ header .navbar .nav-link{
 
 .instruction-n{
     position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
     width: 100%;
     background-color: var(--mint);
     padding: 1%;
@@ -776,12 +783,29 @@ header .navbar .nav-link{
     cursor: move;
 }
 
+.instruction-area{
+    flex-basis: 80%;
+}
+
+.delete-row{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+
+.delete-row span{
+    color: var(--txt-dark);
+    font-size: 1.2rem;
+}
+
 .instruction-n label{
     margin-left: 5%;
     cursor: text;
+    font-family: var(--font-2);
 }
 
-.delete-row, .reorder-row{
+/* .delete-row, .reorder-row{
     position: absolute;
     cursor: pointer;
     font-size: 1rem;
@@ -813,6 +837,8 @@ header .navbar .nav-link{
 .reorder-row span{
     background: var(--mint);
 }
+
+*/
 
 #additional-container{
     display: flex;
@@ -1412,6 +1438,6 @@ footer a:hover, footer .footer-icons a:hover{
 
     .add-recipe__container{
         width: 50vw;
-        padding: 5%;
     }
+
 }
