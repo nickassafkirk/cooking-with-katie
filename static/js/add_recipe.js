@@ -2,8 +2,8 @@ let lastIngredientIndex = document.querySelectorAll(".ingredient-n").length;
 let lastIngredientInput = document.querySelector(`input[name="ingredient-${lastIngredientIndex}"]`);
 lastIngredientInput.addEventListener("change", addMoreRows);
 
-const addIngredientsButton = document.getElementById("add-ingredients-button");
-addIngredientsButton.addEventListener("click", addMoreRows);
+const addIngredientsButton = document.querySelectorAll(".add-ingredients-button");
+addIngredientsButton.forEach(button => button.addEventListener("click", addMoreRows));
 
 function addMoreRows() {
     let numberOfIngredients = document.querySelectorAll(".ingredient-n").length;
@@ -32,13 +32,13 @@ function addMoreRows() {
                             ${newSelect}
                         </select>
                     </div>`;  
-    const ingredientsContainer = document.getElementById("ingredients-container");
+    const ingredientsContainer = document.querySelector(".ingredients-container");
     ingredientsContainer.insertBefore(newIngredientRow, document.querySelector(".button-container"));
-    enableDeleteButton("#ingredientsContainer", "click")
+    enableDeleteButton(".ingredients-container", "click")
 };
 
-const addInstructionsButton = document.getElementById("add-instructions-button");
-addInstructionsButton.addEventListener("click", addInstructionRows);
+const addInstructionsButton = document.querySelectorAll(".add-instructions-button");
+addInstructionsButton.forEach(button => button.addEventListener("click", addInstructionRows));
 
 function addInstructionRows(){
     let numberOfInstructions = document.querySelectorAll(".instruction-n").length;
@@ -54,9 +54,9 @@ function addInstructionRows(){
         <label for="step" class="instructions-n__label">Step ${numberOfInstructions + 1}:</label>
         <textarea name="step-${numberOfInstructions + 1}" id="step-${numberOfInstructions + 1}" cols="50" rows="1"></textarea>`
 
-    const instructionsContainer = document.getElementById("instructions-container");
+    const instructionsContainer = document.querySelector(".instructions-container");
     instructionsContainer.insertBefore(newInstructionRow, document.querySelectorAll(".button-container")[1]);
-    enableDeleteButton("#instructions-container", "click")
+    enableDeleteButton(".instructions-container", "click")
 };
 
 function enableDeleteButton(parentContainer, listener) {
@@ -76,8 +76,11 @@ function deleteRow() {
     reorderLabels(classname);
 }
 
-enableDragSorting("#instructions-container");
-enableDragSorting("#ingredients-container");
+
+enableDragSorting(".instructions-container")
+enableDragSorting(".ingredients-container")
+
+
 
 /**
  * Allows drag and drop sorting on selected html elements
@@ -89,9 +92,9 @@ enableDragSorting("#ingredients-container");
 function enableDragSorting(selector){
     let dragArea = document.querySelector(selector);
     let allowDragOn;
-    if (selector == "#instructions-container") {
+    if (selector == ".instructions-container") {
         allowDragOn = ".instruction-n"
-    } else if (selector == "#ingredients-container") {
+    } else if (selector == ".ingredients-container") {
         allowDragOn = ".ingredient-n"
     }
     new Sortable(dragArea, {
@@ -170,12 +173,16 @@ function reorderLabels(targetElements) {
 
 
 const addRecipeSubmitButton = document.querySelector("#add-recipe__submit-button")
-addRecipeSubmitButton.addEventListener('click', takeOff);
+addRecipeSubmitButton?.addEventListener('click', takeOff);
+
+const editRecipeSubmitButton = document.querySelector("#edit-recipe__submit-button")
+editRecipeSubmitButton?.addEventListener('click', takeOff);
 
 function takeOff(event){
     event.preventDefault();
-    const spinner = document.querySelector("#add-recipe__submit-button i")
+    const spinner = document.querySelector(`#${this.id} i`)
     spinner.classList.add("take-off")
-    form = document.querySelector('#add-recipe-form')
+    
+    form = this.parentNode.parentNode
     form.submit();
 }

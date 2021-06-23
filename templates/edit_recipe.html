@@ -7,25 +7,25 @@
                 <h3>Edit your Recipe</h3>
             </div>
         </div>
-<form action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" method="POST" enctype="multipart/form-data" id="add_recipe-form">
+<form action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" method="POST" enctype="multipart/form-data" id="edit-recipe-form">
     <div>
         <label for="title" class="form-label">
             <h3>1: Edit Recipe Title</h3>
         </label>
-        <input type="text" name="title" id="title" value="{{ recipe.title }}">
+        <input type="text" name="title" class="title" value="{{ recipe.title }}">
     </div>
     <div>
         <label for="intro" class="form-label">
             <h3>2: Edit Recipe Description</h3>
         </label>
-        <textarea name="intro" id="intro" cols="auto" rows="5"
+        <textarea name="intro" class="intro" cols="auto" rows="5"
             placeholder="Enter Brief Description">{{ recipe.intro }}</textarea>
     </div>
     <div class="form-section__heading">
         <h3>3: Edit Recipe Ingredients</h3>
     </div>
 
-    <div id="ingredientsContainer">
+    <div class="ingredients-container">
         {% if recipe.ingredients | length > 0 %}
         {% for ingredient in recipe.ingredients %}
         <div class="ingredient-n row">
@@ -78,7 +78,7 @@
         </div>
         {% endif %}
         <div class="button-container">
-            <p class="btn" id="addIngredientsButton">
+            <p class="btn" class="add-ingredients-button">
                 Add more ingredients
             </p>
         </div>
@@ -87,7 +87,7 @@
     <div class="form-section__heading">
         <h3>4: Edit Cooking Instructions</h3>
     </div>
-    <div id="instructionsContainer">
+    <div class="instructions-container">
         {% for instruction in recipe.instructions %}
         <div class="instruction-n">
             <label for="step-{{ loop.index | int }}" class="instructions-n__label">Step {{ loop.index | int }}:</label>
@@ -96,7 +96,7 @@
         </div>
         {% endfor %}
         <div class="button-container">
-            <p class="btn" id="addInstructionsButton">
+            <p class="btn" class="add-instructions-button">
                 Add more instructions
             </p>
         </div>
@@ -104,7 +104,7 @@
     <div class="form-section__heading">
         <h3>5: Edit Additional Information</h3>
     </div>
-    <div id="additional-container">
+    <div class="additional-container">
         <div>
             <label for="prep-time">Prep Time (Mins)</label>
             <input type="number" name="prep-time" value="{{ recipe.prep_time }}">
@@ -148,14 +148,11 @@
         <div class="upload-image">
                 <label for="file" hidden>Upload Image</label>
                 <input type="file" name="file" id="image-uploader">
-                <div class="fake-image-input">
-                    <i class="fas fa-plus"></i>
-                </div>
             </div>
         </div>
     <div class="button-container mt-5">
-        <button type="submit" class="btn" id="add-recipe__submit-button">
-            Update Recipe
+        <button type="submit" class="btn" id="edit-recipe__submit-button">
+            <i class="fas fa-paper-plane"></i> Update Recipe
         </button>
     </div>
 </form>

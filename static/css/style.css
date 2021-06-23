@@ -706,18 +706,18 @@ header .navbar .nav-link{
     padding: 0;
 }
 
-#add-recipe-form{
+#add-recipe-form, #edit-recipe-form{
     margin: 0% auto;
     padding: 0% 2% 2% 2%;
     background-color: #f5fffa;
 }
 
-#add-recipe-form label{
+#add-recipe-form label, #edit-recipe-form label{
     display: block;
     padding: 2% 0;
 }
 
-#add-recipe-form h3{
+#add-recipe-form h3, #edit-recipe-form h3{
     padding-top: 5%;
     text-shadow: 2px 2px var(--txt-light);
     text-align: center;
@@ -728,7 +728,8 @@ header .navbar .nav-link{
     border-top: 1px solid var(--mint)
 }
 
-#add-recipe-form input[type=text], #add-recipe-form input[type=number], #add-recipe-form textarea, #add-recipe-form select{
+#add-recipe-form input[type=text], #add-recipe-form input[type=number], #add-recipe-form textarea, #add-recipe-form select,
+#edit-recipe-form input[type=text], #edit-recipe-form input[type=number], #edit-recipe-form textarea, #edit-recipe-form select{
     display: block;
     margin: 0 auto 5% auto;
     width: 90%;
@@ -739,17 +740,17 @@ header .navbar .nav-link{
     border-radius: 5px;
 }
 
-*::placeholder, #add-recipe-form select option{
+*::placeholder, #add-recipe-form select option, #edit-recipe-form select option{
     padding-left: 0.5rem;
     font-size: 0.9rem;
     color: grey;
 }
 
-#add-recipe-form input, #add-recipe-form select{
+#add-recipe-form input, #add-recipe-form select, #edit-recipe-form input, #edit-recipe-form select{
     height: 3em;
 }
 
-#ingredients-container, #instructions-container, #additional-container, #image-container{
+.ingredients-container, .instructions-container, .additional-container, .image-container{
     display: flex;
     flex-direction: column;
     border-radius: 5px;
@@ -807,7 +808,7 @@ header .navbar .nav-link{
     font-family: var(--font-2);
 }
 
-#additional-container{
+.additional-container{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -817,16 +818,16 @@ header .navbar .nav-link{
     padding: 2%;
 }
 
-#additional-container label{
+.additional-container label{
     font-family: var(--font-2);
 }
 
-#additional-container div{
+.additional-container div{
     flex-basis: 50%;
     flex-grow: 0;
 }
 
-#additional-container div.additional-select{
+.additional-container div.additional-select{
     flex-basis: 100%;
     flex-grow: 0;
 }
@@ -843,7 +844,7 @@ header .navbar .nav-link{
     object-fit: cover;
 }
 
-#add-recipe-form p{
+#add-recipe-form p, #edit-recipe-form p{
     margin: 2% auto 0 auto;
     padding: 2%;
     width: 90%;
@@ -852,7 +853,7 @@ header .navbar .nav-link{
     color: var(--txt-light);
 }
 
- #add-recipe__submit-button{
+ #add-recipe__submit-button, #edit-recipe__submit-button{
      padding: 5%;
      max-width: 75%;
      color: var(--txt-light);
@@ -1361,7 +1362,7 @@ footer a:hover, footer .footer-icons a:hover{
         flex-shrink: 3;
     }
 
-    #add-recipe__submit-button{
+    #add-recipe__submit-button, #edit-recipe__submit-button{
         font-size: 2rem;
     }
 }
@@ -1452,7 +1453,7 @@ footer a:hover, footer .footer-icons a:hover{
         width: 50vw;
     }
 
-    #add_recipe-form h3{
+    #add_recipe-form h3, #edit-recipe__submit-button{
         font-size: 2.2rem;
     }
 

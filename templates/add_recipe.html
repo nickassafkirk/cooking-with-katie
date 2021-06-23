@@ -13,19 +13,19 @@
                 <label for="title" class="form-label">
                     <h3>1: Add Recipe Title</h3>
                 </label>
-                <input type="text" name="title" id="title" placeholder="Enter Recipe Title">
+                <input type="text" name="title" class="title" placeholder="Enter Recipe Title">
             </div>
             <div>
                 <label for="intro" class="form-label">
                     <h3>2: Add Recipe Description</h3>
                 </label>
-                <textarea name="intro" id="intro" cols="auto" rows="5" placeholder="Enter Brief Description"></textarea>
+                <textarea name="intro" class="intro" cols="auto" rows="5" placeholder="Enter Brief Description"></textarea>
             </div>
             <div class="form-section__heading">
                 <h3>3: Add Recipe Ingredients</h3>
             </div>
 
-            <div id="ingredients-container">
+            <div class="ingredients-container">
                 {% for row in range(5) %}
                 <div class="ingredient-n row">
                     <div class="col-12 delete-row">
@@ -58,7 +58,7 @@
                 </div>
                 {% endfor %}
                 <div class="button-container">
-                <p class="btn" id="add-ingredients-button">
+                <p class="btn" class="add-ingredients-button">
                     <i class="fas fa-plus-circle"></i> Add more ingredients
                 </p>
             </div>
@@ -68,7 +68,7 @@
             <div class="form-section__heading">
                 <h3>4: Add Cooking Instructions</h3>
             </div>
-            <div id="instructions-container">
+            <div class="instructions-container">
                 {% for row in range(5) %}
                 <div class="instruction-n">
                     <div class="delete-row">
@@ -84,7 +84,7 @@
                 </div>
                 {% endfor %}
                 <div class="button-container">
-                    <p class="btn" id="add-instructions-button">
+                    <p class="btn" class="add-instructions-button">
                         <i class="fas fa-plus-circle"></i> Add more steps
                     </p>
                 </div>
@@ -93,7 +93,7 @@
             <div class="form-section__heading">
                 <h3>5: Additional Information</h3>
             </div>
-            <div id="additional-container">
+            <div class="additional-container">
                 <div>
                     <label for="prep-time">Prep Time (Mins)</label>
                     <input type="number" name="prep-time">
