@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid" id="contact-us-container">
+    <form action="{{ url_for('contact_us') }}" method="POST" class="row" id="contact-form">
+        <div class="col-12 form-heading">
+            <h3>Contact Us</h3>
+        </div>
+        <div class="col-md-6">
+            <label for="contact-fname" class="form-label">First name</label>
+            <input type="text" class="form-control" name="contact-fname" required>
+        </div>
+        <div class="col-md-6">
+            <label for="contact-lname" class="form-label">Last name</label>
+            <input type="text" class="form-control" name="contact-fname" required>
+        </div>
+        <div class="col-md-6">
+            <label for="email-sign-up" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email-sign-up" name="email-sign-up" required> 
+        </div>
+        <div class="col-md-6">
+            <label for="contact-phone" class="form-label">Phone Number</label>
+                <input type="phone" class="form-control" name="contact-phone"> 
+        </div>
+        <div class="col-12">
+            <label for="contact-message" class="form-label">Your Message</label>
+            <textarea name="contact-message" class="form-control" cols="30" rows="10" required>Enter Your Message</textarea>
+        </div>
+        <div class="col-12 text-center py-3">
+            <button class="btn btn-custom brand w-50" type="submit">Send Message</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
