@@ -739,7 +739,7 @@ header .navbar .nav-link{
     border-radius: 5px;
 }
 
-*::placeholder, #add_recipe-form select option[disabled=true]{
+*::placeholder, #add_recipe-form select option{
     padding-left: 0.5rem;
     font-size: 0.9rem;
     color: grey;
@@ -852,13 +852,13 @@ header .navbar .nav-link{
     color: var(--txt-light);
 }
 
- #add_recipe-form button{
+ #add-recipe__submit-button{
      padding: 5%;
      max-width: 75%;
      color: var(--txt-light);
      font-family: var(--font-3);
      background: var(--txt-cute);
-     font-size: 2rem;
+     font-size: 1rem;
      margin: 10% auto 0 auto;
      position: relative;
      display: block;
@@ -1363,6 +1363,10 @@ footer a:hover, footer .footer-icons a:hover{
         margin-top: 0%;
         flex-basis: 30%;
         flex-shrink: 3;
+    }
+
+    #add-recipe__submit-button{
+        font-size: 2rem;
     }
 }
 
