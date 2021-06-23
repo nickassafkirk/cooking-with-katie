@@ -81,8 +81,8 @@ function deleteRow() {
     reorderLabels(classname);
 }
 
-enableDragSorting(".instructions-container")
-enableDragSorting(".ingredients-container")
+enableDragSorting(".instructions-container", ".instruction-n")
+enableDragSorting(".ingredients-container", ".ingredient-n")
 
 /**
  * Allows drag and drop sorting on selected html elements
@@ -91,22 +91,14 @@ enableDragSorting(".ingredients-container")
  * use of draggable and onsort methods were figured out by reading official documentation
  * https://github.com/SortableJS/Sortable
  */
-function enableDragSorting(selector){
-    let dragArea = document.querySelector(selector);
-    let allowDragOn;
-    if (selector == ".instructions-container") {
-        allowDragOn = ".instruction-n"
-    } else if (selector == ".ingredients-container") {
-        allowDragOn = ".ingredient-n"
-    } else {
-        console.log("error")
-    }
+function enableDragSorting(parentContainer, draggableElement){
+    let dragArea = document.querySelector(parentContainer);
     new Sortable(dragArea, {
-        draggable: allowDragOn,
+        draggable: draggableElement,
         handle: ".my-handle",
         animation: 350,
         onSort: function(){
-            reorderLabels(allowDragOn)
+            reorderLabels(draggableElement)
         }});
 }
 
