@@ -102,6 +102,7 @@ body{
 
 .btn-custom{
     color: var(--txt-light);
+    font-family: var(--font-2);
     padding: 1%;
     text-align: center;
     margin: 0 auto;
@@ -1130,6 +1131,18 @@ header .navbar .nav-link{
 .edit-categories-wrapper form:last-child input, .edit-users-wrapper form:last-child input{
     display: none;
 }
+
+.form-switch{
+    flex-basis: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+
 
 #confirm-popup{
     position: fixed;
