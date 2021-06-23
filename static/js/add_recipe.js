@@ -84,21 +84,36 @@ enableDragSorting("#ingredientsContainer");
  */
 function enableDragSorting(selector){
     let dragArea = document.querySelector(selector);
-    new Sortable(dragArea, {animation: 350});
+    let allowDragOn;
+    if (selector == "#instructionsContainer") {
+        allowDragOn = ".instruction-n"
+    } else if (selector == "#ingredientsContainer") {
+        allowDragOn = ".ingredient-n"
+    }
+    new Sortable(dragArea, {
+        draggable: allowDragOn,
+        animation: 350,
+        onSort: function(){
+            console.log("Test")
+            reorderLabels(allowDragOn)
+
+        }});
 }
 
 /**
  * event listener to rename reordered form instructions
  */
+
+ /*
 const instructionRows = document.querySelectorAll("#instructionsContainer .instruction-n");
 instructionRows.forEach(row => row.addEventListener("drop", function(event){
     console.log(EventTarget)
     event.preventDefault();
-    let parent = event.target.parentNode;
+    let parent = event.target.parentNode.parentNode;
     parentClass = "." + parent.classList[0];
     console.log(parentClass)
     reorderLabels(parentClass);
-}));
+})); */
 
 /**
  * event listener to rename reordered form ingredients
@@ -119,10 +134,11 @@ function reorderLabels(targetElements) {
     let allTargetElements = document.querySelectorAll(targetElements);
     if (targetElements == ".instruction-n") {
         for (i = 0; i < allTargetElements.length; i++) {
-            let targetLabel = allTargetElements[i].children[1];
+            let targetLabel = allTargetElements[i].children[1].children[0];
+            console.log(targetLabel);
             targetLabel.innerText = `Step ${i + 1}`;
             targetLabel.setAttribute('for', `Step-${i + 1}`)
-            let targetInput = allTargetElements[i].children[2];
+            let targetInput = allTargetElements[i].children[1].children[1];
             targetInput.setAttribute('name', `Step-${i + 1}`);
             targetInput.setAttribute('id', `Step-${i + 1}`);
         }
