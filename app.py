@@ -164,7 +164,7 @@ def update_user(user_id):
     user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
     if request.method == "POST":
         update_user = {
-            "username": user['username'],
+            "username": request.form.get('username').lower(),
             "password": user['password'],
             "first_name": request.form.get('fname-update').lower(),
             "last_name": request.form.get('lname-update').lower(),
@@ -175,7 +175,7 @@ def update_user(user_id):
         }
         mongo.db.users.update({"_id": ObjectId(user_id)}, update_user)
         flash("Account Details Updated successfully")
-        return redirect(url_for('account', username=user['username']))
+        return redirect(url_for('account', username=update_user['username']))
 
 
 @app.route("/change_password", methods=["GET", "POST"])
@@ -324,7 +324,8 @@ def add_recipe():
 
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe successfully uploaded")
-        return redirect(url_for('add_recipe'))
+        return redirect(url_for('recipe', recipe=recipe['title']))
+
     # cuisine options
     categories = list(mongo.db.categories.find())
     cuisine_options = list(mongo.db.cuisine.find())
@@ -341,7 +342,6 @@ def edit_recipe(recipe_id):
 
     # get static values
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    recipe_title = recipe["title"]
     categories = list(mongo.db.categories.find())
     cuisine_options = list(mongo.db.cuisine.find())
     unit_options = list(mongo.db.units.find())
@@ -401,7 +401,7 @@ def edit_recipe(recipe_id):
         }
 
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update)
-        return redirect(url_for('recipe', recipe=recipe_title))
+        return redirect(url_for('recipe', recipe=update['title']))
 
     return render_template(
         "edit_recipe.html", recipe=recipe, cuisine_options=cuisine_options,

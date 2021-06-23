@@ -6,6 +6,9 @@ lastIngredientInput?.addEventListener("change", addMoreRows);
 const addIngredientsButton = document.querySelector("#add-ingredients-button");
 addIngredientsButton?.addEventListener("click", addMoreRows);
 
+const editIngredientsButton = document.querySelector("#edit-ingredients-button");
+editIngredientsButton?.addEventListener("click", addMoreRows);
+
 function addMoreRows() {
     let numberOfIngredients = document.querySelectorAll(".ingredient-n").length;
     let selectOptions = document.querySelector("[name=unit-1]");
@@ -39,8 +42,10 @@ function addMoreRows() {
 };
 
 const addInstructionsButton = document.querySelector("#add-instructions-button");
-addInstructionsButton.addEventListener("click", addInstructionRows);
+addInstructionsButton?.addEventListener("click", addInstructionRows);
 
+const editInstructionsButton = document.querySelector('#edit-instructions-button')
+editInstructionsButton?.addEventListener("click", addInstructionRows);
 
 function addInstructionRows(){
     let numberOfInstructions = document.querySelectorAll(".instruction-n").length;
