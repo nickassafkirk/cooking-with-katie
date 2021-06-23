@@ -162,3 +162,12 @@ function reorderLabels(targetElements) {
         }
     }
 }
+
+const addRecipeSubmitButton = document.querySelector("#add-recipe__submit-button")
+addRecipeSubmitButton.addEventListener('click', function(event){
+    event.preventDefault();
+    const spinner = document.querySelector(".spinner-custom")
+    spinner.classList.add("take-off")
+    form = document.querySelector('#add_recipe-form')
+    form.submit();
+})
