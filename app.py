@@ -265,6 +265,7 @@ def get_todays_date():
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 @cross_origin()
+@login_required
 def add_recipe():
     # initiate cloudnary API
     cloudinary.config(cloud_name=os.environ.get(
