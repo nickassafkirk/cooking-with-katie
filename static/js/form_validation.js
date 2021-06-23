@@ -4,7 +4,7 @@ changePasswordConfirm?.addEventListener('change', checkPassword);
 const newPasswordConfirm = document.querySelector('#confirm-new-password');  
 newPasswordConfirm?.addEventListener('change', checkPassword);
 const signUpPasswordConfirm = document.querySelector('#confirm-sign-up-password')
-signUpPasswordConfirm.addEventListener('change', checkPassword);
+signUpPasswordConfirm?.addEventListener('change', checkPassword);
 
 /**
  * Checks a password form input and a confirm password form input for equality.
