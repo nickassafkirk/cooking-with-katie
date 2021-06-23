@@ -16,7 +16,7 @@ function addMoreRows() {
                         <span class="delete-button">
                             <i class="fas fa-trash-alt"></i>
                         </span>
-                        <span class="reorder-button"><i class="fas fa-arrows-alt"></i></span>
+                        <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
                     </div>
                     <div class="col-12 col-md-4">
                         <label for="ingredient-${numberOfIngredients + 1}" class="form-label">Ingredient ${numberOfIngredients + 1}</label>
@@ -49,7 +49,7 @@ function addInstructionRows(){
                         <span class="delete-button">
                             <i class="fas fa-trash-alt"></i>
                         </span>
-                        <span class="reorder-button"><i class="fas fa-arrows-alt"></i></span>
+                        <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
                     </div>
         <label for="step" class="instructions-n__label">Step ${numberOfInstructions + 1}:</label>
         <textarea name="step-${numberOfInstructions + 1}" id="step-${numberOfInstructions + 1}" cols="50" rows="1"></textarea>`
@@ -95,13 +95,14 @@ function enableDragSorting(selector){
         allowDragOn = ".ingredient-n"
     }
     new Sortable(dragArea, {
+        
         draggable: allowDragOn,
+        handle: ".my-handle",
         animation: 350,
         filter: ".fa-trash-alt",
         onSort: function(){
             console.log("Test")
             reorderLabels(allowDragOn)
-
         }});
 }
 
