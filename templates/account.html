@@ -202,7 +202,7 @@
         <div class="row">
             <div class="col-12 insert-popup">
                 <div class="edit-categories-wrapper">
-                    <form action="{{ url_for('edit_category') }}" method="POST" class="mb-2">
+                    <form action="{{ url_for('edit_category') }}" method="POST" class="mb-2" id="edit-category-form">
                         <input type="text" name="{{category.name}}" class="form-control" value="{{category.name}}">
                         <button type="button" class="btn btn-custom mint-dark p-3 m-0 ms-1" id="btn-{{ loop.index }}"><i
                                 class="far fa-edit"></i></button>

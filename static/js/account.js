@@ -34,12 +34,12 @@ let editButtons = document.querySelectorAll("#account-categories form button[typ
 editButtons.forEach(button => button.addEventListener('click', confirmChoice));
 
 function confirmChoice(event) {
+    editButtons.forEach(button => button.removeEventListener('click', confirmChoice, true));
     form = event.target.parentNode.parentNode
-
     let confirmPopUp = document.createElement('div');
     confirmPopUp.setAttribute("id",'confirm-popup');
     confirmPopUp.innerHTML = `<div>
-                                  <p>Are you Sure you?</p>
+                                  <h4>Are you Sure You?</h4>
                                   <div>
                                       <button type="button" id="confirmation-button" class="btn btn-success">Yes</button>
                                       <button type="button" id="cancel-button" class="btn btn-danger">Cancel</button>
@@ -51,7 +51,7 @@ function confirmChoice(event) {
 
     let confirmationButton = document.querySelector('#confirmation-button')
     let cancelButton = document.querySelector('#cancel-button')
-    cancelButton.addEventListener('click', cancel)
+    cancelButton.addEventListener('click', cancel);
     confirmationButton.addEventListener('click', update)
 
     function cancel() {
@@ -62,6 +62,7 @@ function confirmChoice(event) {
     function update() {
         form.submit();
     }
+    return editButtons.forEach(button => button.addEventListener('click', confirmChoice));
 };
 
 const accountMenuLinks = document.querySelectorAll("#account-menu a");
