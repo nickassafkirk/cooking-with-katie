@@ -527,6 +527,11 @@ def delete_category():
         return redirect(url_for("account", username=session["user"]))
 
 
+@app.route("/contact_us", methods=["GET", "POST"])
+def contact_us():
+    return render_template('contact_us.html')
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=(os.environ.get("PORT")),

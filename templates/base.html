@@ -64,6 +64,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('add_recipe') }}">Add Recipe</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('contact_us') }}">Contact Us</a>
+                        </li>
                         {% if session.user %}
                         <li class="nav-item d-inline d-lg-none">
                             <a href="{{ url_for('account', username=session['user']) }}" class="nav-link">My Account <i class="fas fa-user-alt"></i></a>
@@ -107,6 +110,7 @@
             <nav class="col-12 footer-links">
                 <a href="{{url_for('recipes')}}"><i class="fas fa-search"></i> Explore Recipes</a>
                 <a href="{{url_for('add_recipe')}}">Add A Recipe <i class="fas fa-plus-circle"></i></a>
+                <a href="{{ url_for('contact_us') }}"><i class="fas fa-envelope"></i> Contact Us</a>
                 {% if session.user %}
                 <a href="{{ url_for('account', username=session['user']) }}"><i class="fas fa-user-alt"></i> My Account</a>
                 <a href="{{ url_for('logout')}}">Logout <i class="fas fa-sign-out-alt"></i></a>               
