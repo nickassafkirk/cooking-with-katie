@@ -18,8 +18,11 @@ function clipParagraph(selector, maxLength) {
     };
 }; 
 
+/**
+ * Click each star button to submit a rating
+ */
 const ratingFormButtons = document.querySelectorAll(".rating-button");
-ratingFormButtons.forEach(button => button.addEventListener('click', selectRating))
+ratingFormButtons.forEach(button => button.addEventListener('click', selectRating));
     
 function selectRating(){
     let buttonId = this.id
