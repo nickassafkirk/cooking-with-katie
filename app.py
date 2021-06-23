@@ -429,14 +429,15 @@ def rating(recipe_id):
 
         else:
             mongo.db.recipes.find_one_and_update(
-                {"_id": ObjectId(recipe_id)}, {"$push": {"rating": user_rating}})
+                {"_id": ObjectId(recipe_id)},
+                {"$push": {"rating": user_rating}})
             recipe_rating = recipe['rating']
             average = round(sum(recipe_rating)/len(recipe_rating))
             mongo.db.recipes.find_one_and_update(
-                {"_id": ObjectId(recipe_id)}, {"$set": {"avg_rating": average}})
-            flash('Thank you for submittingyour Rating')
+                {"_id": ObjectId(recipe_id)},
+                {"$set": {"avg_rating": average}})
+            flash('Thank you for submitting your Rating')
             return redirect(url_for("recipes"))
-            
 
 
 @app.route('/new_subscriber', methods=["POST"])
