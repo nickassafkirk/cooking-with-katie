@@ -155,7 +155,8 @@ The surface motif focuses on impactful imagery of relevant content to communciat
 palette which utilises muted, earthy tones to put the focus on images and interactive site elements. 
 
 #### Fonts
-Three fonts are utilised for this project: 
+All fonts utilised for this project were sourced using [Google Fonts](https://fonts.google.com/)    
+Three fonts are utilised for this project:  
 1. [Dancing Script](https://fonts.google.com/specimen/Dancing+Script?query=dancing+script)
 Dancing script is a custive, handwritten styled font that is used for the site heading/logo anf on form and section headings.
 The font-weight has been increased to prviode more impact in headings. 
