@@ -506,7 +506,7 @@ header .navbar .nav-link{
     padding: 0%;
     height: 100%;
     width: 100%;
-    z-index: 5;
+    z-index: 4;
     color: var(--txt-light);
     text-align: center;
     text-transform: uppercase;
