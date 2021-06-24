@@ -113,11 +113,14 @@ body{
 }
 
 .flash-message{
-    width: 100vw;
+    width: 90vw;
     margin: 5% auto;
+    padding: 3%;
     font-family: var(--font-2);
     font-size: 2rem;
-    color: var(--txt-cute);
+    color: rgb(218, 29, 29);
+    border-top: 3px solid rgb(218, 29, 29);
+    border-bottom: 3px solid rgb(218, 29, 29);
     text-align: center;
     background: var(--txt-light);
 }
