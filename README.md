@@ -91,18 +91,54 @@ please note: This site has been created for education purposes only. The busines
 ### Structure
 
   #### Pages
-  1. [Homepage](/index.html)
-  1. [Recipes Page](/index.html)
-  1. [Single_recipe Template](/index.html)
-  1. [Create_recipe Page](/index.html)
-  1. [Account Page](/index.html)
+  1. [Homepage](https://cooking-with-katie.herokuapp.com/)
+  1. [Recipes Page](https://cooking-with-katie.herokuapp.com/recipes)
+  1. [Single_recipe Template](https://cooking-with-katie.herokuapp.com/recipe/Katie%27s%20Quick%20%26%20Easy%20Pad%20Th)
+  1. [Add_recipe Page](https://cooking-with-katie.herokuapp.com/add_recipe)
+  1. [Edit_recipe Page](https://cooking-with-katie.herokuapp.com/edit_recipe/60beb683ba94a1001968b633)
+  1. [Account Page](https://cooking-with-katie.herokuapp.com/admin)
   1. [About Page](/index.html)
-  1. [Contact Page](/index.html)
+  1. [Contact Page](http://cooking-with-katie.herokuapp.com/contact_us)
 
 ---
 ### Skeleton
  
   #### Navigation
+  
+  Main Navigation:  
+  The primary navigation menu for this site is located in the header of the site on all pages. Hover and touch effects are used to
+  indicate that navigation links are clickable and bright colors are chosen to ensure navigation links stand out from the surrounding background.
+  Links to each important site page are included in the main navigation menu.
+  On smaller devices the main navigation menu collapses and is denoted using the standard 'burger stack' toggler icon. 
+  The main navigation menu expands to take up the entire screen on smaller devices to provide a profeessional look and feel. 
+
+  Login Section:    
+  The login section appears in the top right hand corener of the site header on medium and larger screenwidths. 
+  The login area provides quick access to a users account whn logged in or encourages users to sign in or sign up when there is no user signed in. 
+  This is intended to encourage users to sign in to unlock additional site content and functionality and provides immediate feedback that the site is
+  dynamic and can be interacted with by the user.
+  On medium and smaller devices, the login area is contained within the collapsible main navigation menu in order to condense header information and 
+  put emphasis on the brand logo.
+
+  Footer Navigation:    
+  Links to imortant site pages and sections are mirrored in the site footer. This consistent footer navigation menu is displayed on all site pages to 
+  encourage users to explore additional pages once they have scrolled ot the bottom and read all content on the current page. 
+
+  The footer also includes links to the businesses social media accounts to encourage further off-site interactions by users and to imporve credibility.
+  As this is a fake business imagined for demonstration purposes, the social media links currently direct to rthe relevant social media home pages. 
+  To encourage user retention all links to external sites will open in a new tab/window.
+
+  Images as links:
+  Images are used as links to improve navigation primarily on touch devices. This is utilised mainly on recipe thumbnail cards on the homepage, recipes page
+  and in the re3cipes section in the account.
+
+  Buttons as Links:  
+  Buttons and pseudo buttons are used throughout the site to boldly demonstrate a clickable site element. Clear labels and icons are used to indicate a 
+  buttons purpose or intended destination to imporove first time learning and site useability. On the homepage buttons are used to bring users to the add recipe page.
+  When a contact form is submitted a return home button is present oj the response page, to redirect users to the site home. 
+  When used on forms, buttons are used for submission of information but redirects are also utilised upon form submission to transport
+  the user to the page where the result of their input is displayed. This is to provide clear feedback to a user with the result of their input and
+  to encourage ongoing interaction from users once one interaction has been completed.
 
   #### Wireframes
 
