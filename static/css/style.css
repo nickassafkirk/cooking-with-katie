@@ -349,24 +349,13 @@ header .navbar .nav-link{
     font-size: 2em;
 }
 
-.carousel-indicators{
-    background-color: none;
-    border: none;
-}
-
-.carousel-indicators button{
-    background-color: none;
-    border: none;
-}
-
-.carousel-control-next, .carousel-control-prev{
-    background: none;
-    border: none;
-
-}
-
-.carousel-indicators::before, .carousel-indicators::after{
-    background: none;
+.carousel-indicators, 
+.carousel-indicators button,  
+.carousel-control-next, 
+.carousel-control-prev, 
+.carousel-indicators::before,
+.carousel-indicators::after{
+    background-color: transparent;
     border: none;
 }
 
@@ -435,16 +424,15 @@ header .navbar .nav-link{
 }
 
 .subscribe-index-container div{
-    width: 90;
+    width: 90%;
     margin: 0 auto;
     padding: 5%;
     background-color: #fff;
-    border: 1px solid #fff;
     border-radius: 5px;
     text-align: center;
     font-size: 0.9rem;
     -webkit-box-shadow: 0px 10px 10px 10px rgba(0,0,0,0.5);
-            box-shadow: 0px 10px 10px 10px rgba(0,0,0,0.5);
+    box-shadow: 0px 10px 10px 10px rgba(0,0,0,0.5);
 }
 
 .subscribe-index-container h3{
@@ -675,7 +663,7 @@ header .navbar .nav-link{
 }
 
 #search-area h3{
-    font-family: var(font-3);
+    font-family: var(--font-3);
 }
 
 #search-recipes-form{
@@ -1025,7 +1013,7 @@ header .navbar .nav-link{
     bottom: 0;
     background-image: -webkit-gradient(linear, left top, right top, from(var(--mint)), to(var(--dark-blue)));
     background-image: -o-linear-gradient(left, var(--mint), var(--dark-blue));
-    background-image: linear-gradient(to right, var(--mint), var(--dark-blue));
+    background-image: linear-gradient(to right, #B9E2DA, #11141b);
     -webkit-transform: skewY(-11deg);
         -ms-transform: skewY(-11deg);
             transform: skewY(-11deg);
@@ -1077,7 +1065,7 @@ header .navbar .nav-link{
             transform-origin: bottom right;
     background-image: -webkit-gradient(linear, left top, right top, from(var(--mint)), to(var(--dark-blue)));
     background-image: -o-linear-gradient(left, var(--mint), var(--dark-blue));
-    background-image: linear-gradient(to right, var(--mint), var(--dark-blue));
+    background-image: linear-gradient(to right, #B9E2DA, #11141b);
 }
 
 .content{
