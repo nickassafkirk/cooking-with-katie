@@ -29,10 +29,6 @@ please note: This site has been created for education purposes only. The busines
   interacting with other users.
   * The ideal user will be looking to purchase food, bevarage and cooking related products, accessories and services.
 
-
-  #### - User Goals:
-
-
   #### - User Stories:
   * As a new user I want to understand the site's intention immediately.
   * As a new user I want to be able to navigate between site pages and sections easily.
@@ -49,7 +45,6 @@ please note: This site has been created for education purposes only. The busines
   * As a current user I want to be able to logout easily to secure my account.
   * As an ongoing user I want to be able to save my favourite recipes.
   * As an existing user I want to be able to rate recipes that I've tried myself.
-
 
 
 ---
@@ -173,6 +168,56 @@ further communicate the hierarchy of information on the page.
 
 #### Colors
 
+A muted earthy color palette was designated for this project as a metaphor or rference to the site's connection to food, good ingredients and the earth/land. 
+Bright colors are used to highlight areas of interest or where a user interaction can occur. Variables were used throughout to allow quick changes to the 
+color theme.
+
+##### Text Colors
+There are three main txt colors used:
+--txt-light: #efefef; - This is an off-white color used on dark and darker colored backgrounds or when text needs to stand out. 
+--txt-dark: #111; - This is a very dark grey color used to improve readability on larger bodies of text and to allow suitable contrast on areas with lighter backgrounds.
+--txt-cute: #bd4f4f; - This is a rusty brown/red color which is used for branding and as an accent for headings, button back grounds and other areas
+                       which denote important information or an area of user interest.
+
+##### Background and Accent Colors:
+A handful of accent colors are utilised to generate a consistent color them across the site. 
+
+--dark-blue: #11141b;   
+This is an almost black color used in the site header and footer and for eaqch recipe cards heading. 
+This was chosen as a bold color to give the homepage intense impact.    
+
+--txt-cute: #bd4f4f;    
+This is primarily used as a text color but is also used throughout as the main button background
+color associated with negative user action (cancel, delete etc...). Except where it is used as a positive 
+associated action button color where the mint colors are used as a background. 
+
+--terracota-dark: #74322f;   
+This is a slightly darker version of --txt-cute used for the mobile main nav background. These colors were chosen
+as they are reminiscent of cooking spices like paprika, cayenne pepper etc...
+
+--mint: #B9E2DA; --mint-dark: #89b0a9; --mint-light: #edffff;     
+Three variants of mint hues are used primarily for form, heading and button background colors. Mint colors were chosen
+as a nice light accent color on the dark blacks and reds without being harsh. They were also selected as a reference 
+to popular cooking herbs like mint, oregano etc... The mint dark color is chosen throughout the site as the priomary button color 
+for form buttons with positive conatation (submit, send, enter etc...)
+
+--red-gradient: linear-gradient(to right, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));   
+This was used as a subtle way to tie the reds and greens and blacks utilised across the site together
+on the add and edit recipe forms. 
+
+#### Icons
+Icons have been used throughout this project as metaphors to reinforce heading and button meaning. All icons utilised for this project
+were sourced from [fontawesome.com](https://fontawesome.com/)
+
+#### Images
+Images have been used throughout the project to provide site context and to be visually appealing. As users can upload their own
+images, measures have been taken to try and ensure that images crop correctly if necessary. 
+
+#### Animations
+Due to a slight delay when the add recipe form is submitted an animation was added to the submit button where the airplane icon
+moves diagonally across it's housing button. This was chosen as a pseudo-spinner, to provide feedback that an action has been
+registered and something is happening.
+
 ---
 ## Testing
 ---
@@ -185,9 +230,30 @@ link to testing.md file
 ---
 ### Technologies used
 
+- HTML  
+        Html is used to add content such as text and images to the site as well as to create the raw structure of site elements.
+- CSS   
+        CSS is used to add color, styling, advanced layout and animations to the html content in order to improve the user experience. 
+- Javascript    
+        Javascript is used to add interactivity to the site and to control, validate and prevent incorrect user inputs. 
+        JS is also used to add dynamic styling to page elements. 
+- Python    
+        Python is used to handle backend logic, routing and to interact with the chosen database to store, sendm retrieve and update user data. 
+
+Frameworks/Libraries/Packages
+- [Bootstrap](https://getbootstrap.com/) - Bootsrap is used to apply responsive styles and layout quickly and easily to enhance the visual appeal and user experience on the site.
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/) - Flask is used to handle routing, login/logout and security, and interface with the database to create, read, update and delete data from 
+                                                         the databse. 
+- [Sortable](https://github.com/SortableJS/Sortable) - Sortable is used to enable drag and drob sorting of the add and edit forms. 
+
+Database & File Storage
+- [MongoDB](https://www.mongodb.com/) - Mongo DB was chosen to store user and site data necessary to allow dynamic rendering of site pages.
+- [Cloudinary](https://cloudinary.com/home-6-4-video-b) - Cloudinary is used to host user images. Once user images are uploaded to cloudinary,]
+their URLs are stored in the Database allowing thm to be easily read and rendered on the site.
+
 ### Vendor Prefixes
 
-Vendor prefixes were added to the main stylesheet using autoprefixer to ensure styles are applied as consistently as possible across different browse
+Vendor prefixes were added to the main stylesheet using [autoprefixer](https://autoprefixer.github.io/) to ensure styles are applied as consistently as possible across different browsers.
 
 ---
 ## Database
@@ -195,9 +261,23 @@ Vendor prefixes were added to the main stylesheet using autoprefixer to ensure s
 
 This data-driven project uses MongoDB to store and manage user and site data. 
 There are three main data objects for this project:
-1. Users
-1. Recipes
-1. Categories
+1. Users  - This stores user details such as contact details, password, owned recipes etc... It is created upon sign_up
+            and some fields can subsequently be updated consciously by users in their account portal or automatically by the user's 
+            interactions with the site.
+1. Recipes - This stores the key information for each user recipe, including intro, title, images, ingredients etc...
+             each recipe DB object is created upon successful completion of the add recipe form. The recipe can subsequently be
+             updated using the edit recipe form or deleted using the the delete button.
+1. Categories - These are the categories used to sort and order recipes by meal type eg breakfast, dessert etc... 
+1. Cuisine - These are the cuisines/genres of food that are used to sort and order recipes by cuisine.
+1. Units - These are the accepted unit types for ingredient quantities when adding and editing recipes.
+1. Subscribers - This is where clients who have elected to subscribe to the newsletter's information is stored. It is sepparate to
+                 the user object so clients can sign up without having an account. 
+1. Ingredients - This is where each featured ingredient to be inserted onto the homepage featured ingredient section can be stored.
+                 This was created with the intention of creating a dedicated section in the admin account to upload, edit and change the featured
+                 ingredient. It includes an ingredient name, image, an array of it's in season months and a boolean value to elect if it is displayed
+                 or not. In future development cycles, I wish to dynamically insert featured ingredients to the site based on when they are in season.
+
+                 
 
 ### Schema
 ---
@@ -210,26 +290,50 @@ There are three main data objects for this project:
    last_name: varchar (50)  
    user_favourites: list    
    user_recipes: list   
-   is_admin: boolean    
+   is_admin: boolean
+   favourites: list
+   user_recipes: list    
 
 2. #### Recipes:
    recipe_id: varchar auto  
    created_by: varchar (username)
+   date_created: datetime
    title: varchar(30)   
    intro: varchar(250)  
-   ingredients:list of objects [{"ingredient": value, "quantity": value},... ]   
+   ingredients:list of objects [{"number": int, "name": string, "quantity": int, "unit": string},... ]   
    instructions: list of objects[{"step[n]": instruction},...]   
-   meal_type: varchar (10)   
+   category: varchar (10)   
    cuisine: varchar (20)    
    prep_time: int   
    cook_time: int   
-   rating: int
+   rating: array
+   avg_rating: int
+   image: string (image url)
 
 3. #### Categories:
-   category: id 
-   cuisine: varchar(20)  
-   meal_type: varchar(20)    
+   category_id: varchar auto 
+   name: varchar(20)
 
+4. #### Cuisine:
+   cuisine_id: varchar auto 
+   cuisine: varchar(20)
+     
+5. #### Units
+   unit_id: varchar auto
+   unit_name: varchar
+   unit_symbol: varchar
+
+6. #### Subscribers
+   subscriber_id: varchar auto
+   email_address: varchar
+   has_account: boolean
+
+7. #### Ingredients
+   ingredient_id: varchar auto
+   name: varchar
+   in_season: array/list
+   image: string
+   featured: boolean
   
 ---
 ## Credits
