@@ -54,50 +54,57 @@ function checkPassword(event) {
 
 // contact form validation
 
-const contactSubmit = document.querySelector('#contact-us');
+const contactSubmit = document.querySelector('#contact-form');
+contactSubmit?.addEventListener('submit', validate)
 
 function validate(event) {
     event.preventDefault();
-    fname = document.querySelector("#contact-fname");
-    email = document.querySelector("#contact-email");
-    message = document.querySelector("#contact-message");
+    let fname = document.querySelector("#contact-fname");
+    const fnameMessage = fname.parentNode.lastElementChild;
+    let email = document.querySelector("#contact-email");
+    const emailMessage = email.parentNode.lastElementChild;
+    let message = document.querySelector("#contact-message");
+    const messageMessage = message.parentNode.lastElementChild;
 
     if (fname.value === "") {
         fname.classList.add('invalid-field')
-        alert('You need to add your name')
-        fname.focus();
+        fnameMessage.innerText = "You need to add your name"
         return false;
     } else if (fname.value.length < 3 || fname.value.length > 30 ){
         fname.classList.add('invalid-field')
-        alert("Your name must be more than 3 charachters and less than 30");
-        fname.focus();
+        fnameMessage.innerText = "Your name must be more than 3 charachters and less than 30";
         return false;
     } else {
+        fnameMessage.innerText = ""
+        fname.classList.remove('invalid-field');
         fname.classList.add('valid-field');
     }
 
     if (!emailIsValid(email.value)) {
         email.classList.add('invalid-field')
-        alert('Please enter a valid email address')
-        email.focus()
+        emailMessage.innerText = 'Please enter a valid email address'
         return false;
     } else {
-        email.classList.add("valid-field");
+        emailMessage.innerText = ""
+        email.classList.remove('invalid-field');
+        email.classList.add('valid-field');
     }
 
     if (message.value === "") {
         message.classList.add('invalid-field')
-        alert('You forgot to add a message')
-        message.focus();
+        messageMessage.innerText = 'You forgot to add a message'
         return false;
-    } else if (message.value.length > 10){
+    } else if (message.value.length > 500) {
         message.classList.add('invalid-field')
-        alert('Your message is too long: max 500 charachters')
-        message.focus();
+        messageMessage.innerText = 'Your message is too long: max 500 charachters'
         return false;
+    } else {
+        messageMessage.innerText = ""
+        message.classList.remove('invalid-field');
+        message.classList.add('valid-field');
     }
 
-    return true; // Can submit the form data to the server
+    contactSubmit.submit();
 
 }
 
@@ -105,4 +112,4 @@ function emailIsValid(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-contactSubmit?.addEventListener('click', validate)
+
