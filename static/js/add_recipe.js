@@ -133,6 +133,11 @@ function enableDragSorting(parentContainer, draggableElement){
  */
 function reorderLabels(targetElements) {
     let allTargetElements = document.querySelectorAll(targetElements);
+    targetClass = targetElements;
+    let parentForm = document.querySelector(targetElements).parentNode.parentNode;
+    parentFormId = parentForm.id;
+    parentFormPrefix = parentForm.id.split("-")[0];
+    console.log(parentFormPrefix)
     let targetChildren;
     let deleteRow;
     if (targetElements == ".instruction-n") {
@@ -140,7 +145,7 @@ function reorderLabels(targetElements) {
             targetChildren = allTargetElements[i];
             deleteRow = allTargetElements[i].children[0].children[0]
             deleteRow.classList.remove('d-none');
-            deleteRow.setAttribute('id', `add-instruction-delete-button-${i + 1}`)
+            deleteRow.setAttribute('id', `${parentFormPrefix}-instruction-delete-button-${i + 1}`)
             let targetLabel = allTargetElements[i].children[1].children[0];
             targetLabel.innerText = `Step ${i + 1}`;
             targetLabel.setAttribute('for', `Step-${i + 1}`)
@@ -148,7 +153,7 @@ function reorderLabels(targetElements) {
             targetInput.setAttribute('name', `Step-${i + 1}`);
             targetInput.setAttribute('id', `Step-${i + 1}`);
         }
-        let firstInstructionDeleteButton = document.getElementById("add-instruction-delete-button-1")
+        let firstInstructionDeleteButton = document.getElementById(`${parentFormPrefix}-instruction-delete-button-1`)
         firstInstructionDeleteButton.classList.add("d-none");
 
     } else if (targetElements == ".ingredient-n"){
@@ -156,7 +161,7 @@ function reorderLabels(targetElements) {
             targetChildren = allTargetElements[i];
             deleteRow = targetChildren.children[0].children[0]
             deleteRow.classList.remove('d-none');
-            deleteRow.setAttribute('id', `add-ingredient-delete-button-${i + 1}`)
+            deleteRow.setAttribute('id', `${parentFormPrefix}-ingredient-delete-button-${i + 1}`)
             console.log(deleteRow);
             /* ingredient input + label */
             let col1 = targetChildren.children[1].children;
@@ -173,7 +178,7 @@ function reorderLabels(targetElements) {
             col3[0].setAttribute('for', `unit-${i + 1}`)
             col3[1].setAttribute('name', `unit-${i + 1}`)
         }
-        let firstIngredientDeleteButton = document.getElementById("add-ingredient-delete-button-1")
+        let firstIngredientDeleteButton = document.getElementById(`${parentFormPrefix}-ingredient-delete-button-1`)
         firstIngredientDeleteButton.classList.add("d-none");
     }
 }
