@@ -974,23 +974,23 @@ header .navbar .nav-link{
 
 /* sign_up.html */
 
-#sign-up-container, #sign-in-container{
+#sign-up-container, #sign-in-container, #contact-us-container{
     width: 98%;
-    padding: 0;
+    padding: 2%;
     margin: 1% auto;
 }
 
-#sign-up-container form, #sign-in-container form{
+#sign-up-container form, #sign-in-container form, #contact-us-container form{
     width: 100%;
     background: var(--off-white);
     margin: 2% auto;
 }
 
-#sign-up-container form div, #sign-in-container form div{
+#sign-up-container form div, #sign-in-container form div, #contact-us-container form div{
     padding: 1%;
 }
 
-#sign-up-container form label, #sign-in-container form label{
+#sign-up-container form label, #sign-in-container form label, #contact-us-container form label{
     font-family: var(--font-2);
 }
 
@@ -1378,6 +1378,10 @@ footer a:hover, footer .footer-icons a:hover{
     #add-recipe__submit-button, #edit-recipe__submit-button{
         font-size: 2rem;
     }
+
+    #sign-up-container, #sign-in-container, #contact-us-container{
+        width: 75%;
+    }
 }
 
 @media screen and (min-width: 992px) {
@@ -1436,7 +1440,7 @@ footer a:hover, footer .footer-icons a:hover{
         font-size: 1.6rem;
     }
 
-    #sign-up-container, #sign-in-container{
+    #sign-up-container, #sign-in-container, #contact-us-container{
         width: 50%;
         margin: 2% auto;
     }
