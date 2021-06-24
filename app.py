@@ -279,8 +279,7 @@ def add_recipe():
             upload_result = cloudinary.uploader.upload(file_to_upload)
             image_url = upload_result["url"]
         else:
-            flash("You must include an image")
-            return redirect(url_for('add_recipe'))
+            image_url = "http://res.cloudinary.com/dokqnhuin/image/upload/v1624552609/fjnkn5hjunvkx0zdslfm.png"
 
         # create ingredient object
         instructions = []
