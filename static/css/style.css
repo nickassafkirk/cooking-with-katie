@@ -534,7 +534,6 @@ header .navbar .nav-link{
     margin: 0;
     padding: 5%;
     background: var(--dark-blue);
-    align-self: stretch;
 }
 
 .recipe-thumbnail__title a{
@@ -668,6 +667,10 @@ header .navbar .nav-link{
 
 .add-recipe__container{
     padding: 0;
+    background: var(--mint-light);
+    background-size:  100%;
+    background-position: left;
+    background-repeat: no-repeat;
 }
 
 #add-recipe-form, #edit-recipe-form{
@@ -707,7 +710,7 @@ header .navbar .nav-link{
 *::placeholder, #add-recipe-form select option, #edit-recipe-form select option{
     padding-left: 0.5rem;
     font-size: 0.9rem;
-    color: grey;
+    color: var(--grey-dark);
 }
 
 #add-recipe-form input, #add-recipe-form select, #edit-recipe-form input, #edit-recipe-form select{
@@ -750,6 +753,7 @@ header .navbar .nav-link{
 .delete-row{
     display: flex;
     flex-direction: row;
+    justify-items: end;
     justify-content: space-between;
     margin: 0 auto;
     flex-basis: 100%;
@@ -831,6 +835,8 @@ header .navbar .nav-link{
      overflow: hidden;
  }
 
+
+ /* Airplane takeoff animation */
  .fa-paper-plane{
      position: relative;
  }
@@ -852,6 +858,9 @@ header .navbar .nav-link{
      75% {z-index: 1; top: 75% ; left: 35%;}
      100% {z-index: 1; top: 50% ; left: 63%;}
  }
+
+
+ /* Decorative form wrapper */
 
 .diagonal-split, .diagonal-split-reverse{
     position: relative;
@@ -926,13 +935,6 @@ header .navbar .nav-link{
     text-shadow: 2px 2px var(--txt-dark);
     padding: 2%;
     z-index: 4;
-}
-
-.add-recipe__container{
-    background: var(--mint-light);
-    background-size:  100%;
-    background-position: left;
-    background-repeat: no-repeat;
 }
 
 /* sign_up.html */
@@ -1035,7 +1037,6 @@ header .navbar .nav-link{
     font-family: var(--font-2);
 }
 
-
 .account-heading{
     font-family: var(--font-3);
     color: var(--txt-cute);
@@ -1044,15 +1045,23 @@ header .navbar .nav-link{
     margin-bottom: 5%;
 }
 
-
 .account-recipe{
-    flex-basis: 40%;
+    display: flex;
+    align-self: stretch;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
     padding: 0%;
-    margin: 2% 0;
+    margin: 2% auto;
     text-align: center;
     background-color:var(--grey-light);
     border: 2px solid var(--grey);
     border-radius: 3px;
+}
+
+.account-recipe .button-row{
+    display: flex;
+    flex-direction: row;
 }
 
 .thumbnail-img{

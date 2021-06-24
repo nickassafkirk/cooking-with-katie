@@ -114,10 +114,11 @@
                     <h5 class="recipe-thumbnail__title">
                         <a href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a>
                     </h5>
-                    <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img">
-                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-custom mint-dark">Edit Recipe</a>
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-custom brand">Delete
-                        Recipe</a>
+                    <a href="{{ url_for('recipe', recipe=recipe.title) }}"><img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img"></a>
+                    <div class="button-row">
+                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-custom mint-dark">Edit Recipe</a>
+                        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-custom brand">Delete Recipe</a>
+                    </div>
                 </div>
             </div>
             {% endfor %}
@@ -132,13 +133,16 @@
             {% for recipe in user_recipes %}
             <div class="col-12 col-md-6 col-xl-4">
                 <div class="account-recipe">
-                    <h5 class="recipe-thumbnail__title"><a
-                            href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a></h5>
-                    <div><img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img"></div>
-                    <p class="recipe-intro">{{ recipe.intro }}</p>
-                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-success">Edit Recipe</a>
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-danger">Delete
-                        Recipe</a>
+                    <h5 class="recipe-thumbnail__title">
+                        <a href="{{ url_for('recipe', recipe=recipe.title) }}">{{ recipe.title | capitalize }}</a>
+                    </h5>
+                    <a href="{{ url_for('recipe', recipe=recipe.title) }}">
+                        <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="thumbnail-img">
+                    </a>
+                    <div class="button-row">
+                        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id )}}" class="btn btn-custom mint-dark">Edit Recipe</a>
+                        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id )}}" class="btn btn-custom brand">Delete Recipe</a>
+                    </div>
                 </div>
             </div>
             {% endfor %}
