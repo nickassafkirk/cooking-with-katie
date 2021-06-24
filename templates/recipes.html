@@ -30,9 +30,9 @@
                     <form action="{{ url_for('rating', recipe_id=recipe._id) }}" method="POST" id="rating-form-{{ recipe._id }}" class="rating-form">
                         {% for button in range(5) %}
                           {% if button < recipe.avg_rating | int %}
-                            <button name="{{ loop.index }}-{{ recipe._id }}-star" id="{{ loop.index }}-{{ recipe._id }}-star" class="rating-button" number="{{ loop.index }}" type="button"><i class="fas fa-star"></i></button>
+                            <button name="{{ loop.index }}-{{ recipe._id }}-star" id="{{ loop.index }}-{{ recipe._id }}-star" class="rating-button" rating="{{ loop.index }}" type="button"><i class="fas fa-star"></i></button>
                           {% else %}
-                            <button name="{{ loop.index }}-{{ recipe._id }}-star" id="{{ loop.index }}-{{ recipe._id }}-star" class="rating-button" number="{{ loop.index }}" type="button"><i class="far fa-star"></i></button>
+                            <button name="{{ loop.index }}-{{ recipe._id }}-star" id="{{ loop.index }}-{{ recipe._id }}-star" class="rating-button" rating="{{ loop.index }}" type="button"><i class="far fa-star"></i></button>
                           {% endif %}
                         {% endfor %}  ( {{recipe.rating|length}} )
                         <div id="button-goes-here"></div>

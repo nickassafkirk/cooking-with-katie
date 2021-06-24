@@ -32,7 +32,7 @@ function selectRating(){
     let originalRating = document.querySelectorAll(`${formId} .fas`).length;
     formChildren = document.querySelectorAll(`${formId} .rating-button`);
     for (i = 0; i < 5; i++ ){
-        let buttonNumber = formChildren[i].getAttribute("number");
+        let buttonNumber = formChildren[i].getAttribute("rating");
         if (buttonNumber <= rating) {
             formChildren[i].classList.add("gold-star")
             formChildren[i].innerHTML = `<i class="fas fa-star"></i>`
@@ -58,7 +58,7 @@ function addSubmitButton(formId, formChildren, originalRating, rating) {
         submitButton.setAttribute("name", "submit-button");
         submitButton.setAttribute("value", rating);
         submitButton.innerHTML = "Submit Rating";
-        let cancelButton = document.createElement("button");
+        const cancelButton = document.createElement("button");
         cancelButton.setAttribute("class", "cancel-button");
         cancelButton.setAttribute("type", "button"); 
         cancelButton.innerHTML = "Cancel";
@@ -79,7 +79,7 @@ function addSubmitButton(formId, formChildren, originalRating, rating) {
     /* If submit button exists just update it's rating value */
     } else {
         submitButtonExists.setAttribute("value", rating);
-        cancelButton.addEventListener("click", function(){
+        cancelButton?.addEventListener("click", function(){
         for (i = 0; i < 5; i++ ){
             formChildren[i].classList.remove("gold-star");
             if (i < originalRating){
