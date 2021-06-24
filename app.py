@@ -552,6 +552,8 @@ def contact_us():
 @app.route('/contact_confirmation')
 def contact_confirmation():
     message = session['message']
+    if not message:
+        return redirect(url_for('index'))
     return render_template('contact_confirmation.html', message=message)
 
 
