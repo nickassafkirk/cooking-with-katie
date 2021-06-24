@@ -529,6 +529,19 @@ def delete_category():
 
 @app.route("/contact_us", methods=["GET", "POST"])
 def contact_us():
+    if request.method == "POST":
+        contact_details = {
+            "first_name": request.form.get('contact-fname'),
+            "last_name": request.form.get('contact-lname'),
+            "email": request.form.get('contact-email'),
+            "phone": request.form.get('contact-phone'),
+            "message": request.form.get('contact-message')
+        }
+
+        if contact_details:
+            session['message'] = contact_details
+            return redirect(url_for('contact_confirmation', message_details=session['message']))
+
     return render_template('contact_us.html')
 
 
