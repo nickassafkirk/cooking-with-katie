@@ -1,7 +1,7 @@
 # Cooking with Katie - An online recipe sharing website
 
 Cooking with Katie is an online recipe website designed to provide users with delicous food receipes to try at home. The cooking with Katie site is
-also a platform where users can share their own recipes with the sites communitym add ratings and interact in other ways. 
+also a platform where users can share their own recipes with the sites community, add ratings and interact in other ways. 
 
 ![Deployed site screenshot](/static/img/readme/cwk_responsive_screenshot.png)
 [see the deployed site here](http://cooking-with-katie.herokuapp.com/index)
