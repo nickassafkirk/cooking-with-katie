@@ -4,14 +4,6 @@
     
     /* Main Bg colors */
     --bg-main: #efebe9;
-    --bg-sunset: #ecdbb2;
-    --sunset-light: #ffffe4;
-    --sunset-gradient: linear-gradient(to right,#B9E2DA, #ecdbb2,#ffc1fe);
-    --sunset-gradient-reverse: linear-gradient(to left,#B9E2DA, #ecdbb2,#f3ae2e);
-    --blue-gradient: linear-gradient(to right, rgb(254, 255, 255), rgb(184, 207, 221));
-    --blue-gradient-reverse: linear-gradient(to bottom,rgb(184, 207, 221), rgb(254, 255, 255) , rgb(184, 207, 221)) 50%;
-    --pistachio: #cbd4bb;
-    --purple: #8f568f;
     --off-white: #e0dbd9;
 
     /* Text colors */
@@ -24,15 +16,10 @@
     --grey: #bcbcbc;
     --grey-light: #eeeeee;
     --grey-dark: #8c8c8c;
-    --pink: #e290cb;
-    --pink-light: #e9c9e8;
-    --pink-dark: #af619a;
     --mint: #B9E2DA;
     --mint-dark: #89b0a9;
     --mint-light: #edffff;
     --green: #00685b;
-    --green-dark: #115246;
-    --green-light: #439688;
     --terracota-dark: rgb(116, 50, 47);
     --red-gradient: linear-gradient(to right, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));
     --dark-blue: #11141b;
@@ -45,15 +32,7 @@
 
 /* color classes */
 
-.pink{
-    background-color: var(--pink);
-}
-.pink-dark{
-    background-color: var(--pink-dark);
-}
-.pink-light{
-    background-color: var(--pink-light);
-}
+
 
 .mint{
     background-color: var(--mint);
@@ -71,14 +50,6 @@
 
 .brand{
     background: var(--txt-cute);
-}
-
-.pistachio{
-    background: var(--pistachio);
-}
-
-.purple{
-    background: var(--purple);
 }
 
 .dark-blue{
@@ -270,16 +241,6 @@ header .navbar .nav-link{
 
 
 /* index.html */
-
-.page-title{
-    margin: 1% auto;
-    width: 100%;
-    padding: 2%;
-    text-align: center;
-    text-transform: uppercase;
-    background-color: var(--bg-sunset);
-    color: var(--txt-light)
-}
 
 .page-content-container{
     width: 98%;
