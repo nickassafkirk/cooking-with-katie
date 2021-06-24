@@ -55,8 +55,12 @@ function checkPassword(event) {
 // contact form validation
 
 const contactSubmit = document.querySelector('#contact-form');
-contactSubmit?.addEventListener('submit', validate)
+contactSubmit?.addEventListener('submit', validate);
 
+/**
+ * form validation for contact page
+ * @param {e} event 
+ */
 function validate(event) {
     event.preventDefault();
     let fname = document.querySelector("#contact-fname");
@@ -75,9 +79,7 @@ function validate(event) {
         fnameMessage.innerText = "Your name must be more than 3 charachters and less than 30";
         return false;
     } else {
-        fnameMessage.innerText = ""
-        fname.classList.remove('invalid-field');
-        fname.classList.add('valid-field');
+        removeValMessage(fname)
     }
 
     if (!emailIsValid(email.value)) {
@@ -85,9 +87,7 @@ function validate(event) {
         emailMessage.innerText = 'Please enter a valid email address'
         return false;
     } else {
-        emailMessage.innerText = ""
-        email.classList.remove('invalid-field');
-        email.classList.add('valid-field');
+        removeValMessage(email)
     }
 
     if (message.value === "") {
@@ -99,15 +99,28 @@ function validate(event) {
         messageMessage.innerText = 'Your message is too long: max 500 charachters'
         return false;
     } else {
-        messageMessage.innerText = ""
-        message.classList.remove('invalid-field');
-        message.classList.add('valid-field');
+        removeValMessage(message)
     }
 
     contactSubmit.submit();
-
 }
 
+
+/**
+ * Helper function removes negative validation messages.
+ */
+function removeValMessage(identifier){
+    `${identifier}Message`.innerText = ""
+    identifier.classList.remove('invalid-field');
+    identifier.classList.add('valid-field');
+}
+
+
+/**
+ * Helper function to check email is formatted correctly
+ * credit: Tyler McGinnis: https://ui.dev/validate-email-address-javascript/
+ * @param {string} email 
+ */
 function emailIsValid(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
