@@ -72,14 +72,14 @@
                 {% for row in range(5) %}
                 <div class="instruction-n">
                     <div class="delete-row">
-                        <span class="delete-button">
+                        <span class="delete-button" id="add-instruction-delete-button-{{loop.index}}">
                             <i class="fas fa-trash-alt"></i>
                         </span>
                         <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
                     </div>
                     <div class="instruction-area">
                         <label for="step-{{ loop.index }}" class="instructions-n__label">Step {{ loop.index }}:</label>
-                        <textarea name="step-{{ loop.index }}" id="add-recipe-instruction-{{ loop.index }}" cols="50" rows="2"></textarea>
+                        <textarea name="step-{{ loop.index }}" id="add-recipe-instruction-{{loop.index}}" cols="50" rows="2"></textarea>
                     </div>
                 </div>
                 {% endfor %}
