@@ -30,7 +30,7 @@
         {% for ingredient in recipe.ingredients %}
         <div class="ingredient-n row">
             <div class="col-12 delete-row">
-                    <span class="delete-button">
+                    <span class="delete-button" id="edit-ingredient-delete-button-{{loop.index}}">
                         <i class="fas fa-trash-alt"></i>
                     </span>
                 <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
@@ -63,6 +63,12 @@
         {% endfor %}
         {% else %}
         <div class="ingredient-n row">
+            <div class="col-12 delete-row">
+                    <span class="delete-button" id="edit-ingredient-delete-button-{{loop.index}}">
+                        <i class="fas fa-trash-alt"></i>
+                    </span>
+                <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
+            </div>
             <div class="col-12 col-md-4">
                 <label for="ingredient-1" class="form-label">Ingredient</label>
                 <input type="text" name="ingredient-1">
@@ -97,7 +103,7 @@
         {% for instruction in recipe.instructions %}
         <div class="instruction-n">
             <div class="delete-row">
-                <span class="delete-button">
+                <span class="delete-button" id="edit-instruction-delete-button-{{loop.index}}">
                     <i class="fas fa-trash-alt"></i>
                 </span>
                 <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
