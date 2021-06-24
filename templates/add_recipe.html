@@ -13,13 +13,13 @@
                 <label for="title" class="form-label">
                     <h3>1: Add Recipe Title</h3>
                 </label>
-                <input type="text" name="title" class="title" placeholder="Enter Recipe Title" required>
+                <input type="text" name="title" id="add-recipe-title" class="title" placeholder="Enter Recipe Title" required>
             </div>
             <div>
                 <label for="intro" class="form-label">
                     <h3>2: Add Recipe Description</h3>
                 </label>
-                <textarea name="intro" class="intro" cols="auto" rows="5" placeholder="Enter Brief Description"></textarea required>
+                <textarea name="intro" class="intro" id="add-recipe-intro" cols="auto" rows="5" placeholder="Enter Brief Description"></textarea required>
             </div>
             <div class="form-section__heading">
                 <h3>3: Add Recipe Ingredients</h3>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-12 col-lg-4 order-1">
                         <label for="ingredient-{{ loop.index }}" class="form-label">Ingredient {{ loop.index }}</label>
-                        <input type="text" name="ingredient-{{ loop.index }}">
+                        <input type="text" name="ingredient-{{ loop.index }}" id="add-recipe-ingredient-{{ loop.index }}">
                     </div>
                     <div class="col-6 col-lg-4 order-2">
                         <label for="quantity-{{ loop.index }}" class="form-label">Quantity</label>
@@ -79,7 +79,7 @@
                     </div>
                     <div class="instruction-area">
                         <label for="step-{{ loop.index }}" class="instructions-n__label">Step {{ loop.index }}:</label>
-                        <textarea name="step-{{ loop.index }}" cols="50" rows="2"></textarea>
+                        <textarea name="step-{{ loop.index }}" id="add-recipe-instruction-{{ loop.index }}" cols="50" rows="2"></textarea>
                     </div>
                 </div>
                 {% endfor %}
@@ -96,15 +96,15 @@
             <div class="additional-container">
                 <div>
                     <label for="prep-time">Prep Time (Mins)</label>
-                    <input type="number" name="prep-time" required>
+                    <input type="number" name="prep-time" id="add-recipe-prep-time">
                 </div>
                 <div>
                     <label for="cook-time">Cook Time (Mins)</label>
-                    <input type="number" name="cook-time" required>
+                    <input type="number" name="cook-time" id="add-recipe-cook-time">
                 </div>
                 <div class="additional-select">
                     <label for="category">Select Category</label>
-                    <select name="category" id="category" required>
+                    <select name="category" id="add-recipe-category">
                         <option value="" selected disabled hidden>Select Category</option>
                         {% for category in categories %}
                         <option value="{{ category.name }}">{{ category.name | capitalize}}</option>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="additional-select">
                     <label for="cuisine">Select Cuisine</label>
-                    <select name="cuisine" id="cuisine" required>
+                    <select name="cuisine" id="add-recipe-cuisine">
                         <option value="" selected disabled hidden>Select Cuisine</option>
                         {% for genre in cuisine_options %}
                         <option value="{{ genre.cuisine }}">{{ genre.cuisine | capitalize }}</option>
@@ -126,7 +126,7 @@
             </div>
             <div class="upload-image mx-auto; my-2 p-5">
                 <label for="file" hidden>Upload Image</label>
-                <input type="file" name="file" id="image-uploader" required>
+                <input type="file" name="file" id="add-recipe-image-upload">
             </div>
             <div class="button-container">
                 <button type="submit" class="btn" id="add-recipe__submit-button">
