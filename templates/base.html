@@ -109,14 +109,14 @@
         <div class="row">
             <nav class="col-12 footer-links">
                 <a href="{{url_for('recipes')}}"><i class="fas fa-search"></i> Explore Recipes</a>
-                <a href="{{url_for('add_recipe')}}">Add A Recipe <i class="fas fa-plus-circle"></i></a>
+                <a href="{{url_for('add_recipe')}}"><i class="fas fa-plus-circle"></i> Add A Recipe</a>
                 <a href="{{ url_for('contact_us') }}"><i class="fas fa-envelope"></i> Contact Us</a>
                 {% if session.user %}
                 <a href="{{ url_for('account', username=session['user']) }}"><i class="fas fa-user-alt"></i> My Account</a>
-                <a href="{{ url_for('logout')}}">Logout <i class="fas fa-sign-out-alt"></i></a>               
+                <a href="{{ url_for('logout')}}"><i class="fas fa-sign-out-alt"></i> Logout</a>               
                 {% else %}
-                <a href="{{ url_for('sign_up') }}">Sign Up <i class="fas fa-edit"></i></a> 
-                <a href="{{ url_for('sign_in') }}">Sign In <i class="fas fa-user-alt"></i></a>
+                <a href="{{ url_for('sign_up') }}"><i class="fas fa-edit"></i> Sign Up</a> 
+                <a href="{{ url_for('sign_in') }}"><i class="fas fa-user-alt"></i> Sign In</a>
                 {% endif %}
             </nav>
             <div class="col-12 footer__social-icons">
