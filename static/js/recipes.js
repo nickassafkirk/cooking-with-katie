@@ -32,7 +32,7 @@ function selectRating(){
     let originalRating = document.querySelectorAll(`${formId} .fas`).length;
     formChildren = document.querySelectorAll(`${formId} .rating-button`);
     for (i = 0; i < 5; i++ ){
-        let buttonNumber = formChildren[i].getAttribute("rating");
+        let buttonNumber = formChildren[i].getAttribute("id")[0];
         if (buttonNumber <= rating) {
             formChildren[i].classList.add("gold-star")
             formChildren[i].innerHTML = `<i class="fas fa-star"></i>`
