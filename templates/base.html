@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="Description" content="Cooking with Katie a food blog and recipe sharing platform for food lovers everywhere" />
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="shortcut icon" href="{{url_for('static',filename='favicon.ico')}}">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
         integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
     <title>Cooking With Katie</title>
 </head>
 
@@ -24,19 +24,19 @@
                 <div class="login-area d-none d-lg-block w-100">
                     {% if session.user %}
                     <div class="account__mini">
-                        <a href="{{ url_for('account', username=session['user']) }}"><i class="fas fa-user-alt"></i> My
+                        <a href="{{url_for('account', username=session['user'])}}"><i class="fas fa-user-alt"></i> My
                             Account</a>
-                        | <a href="{{ url_for('logout')}}">Logout <i class="fas fa-sign-out-alt"></i></a>
+                        | <a href="{{url_for('logout')}}">Logout <i class="fas fa-sign-out-alt"></i></a>
                     </div>
                     {% else %}
                     <div class="login__mini">
-                        <a href="{{ url_for('sign_up') }}">Sign Up <i class="fas fa-edit"></i></a> | <a
-                            href="{{ url_for('sign_in') }}">Sign In <i class="fas fa-user-alt"></i></a>
+                        <a href="{{url_for('sign_up')}}">Sign Up <i class="fas fa-edit"></i></a> | <a
+                            href="{{url_for('sign_in')}}">Sign In <i class="fas fa-user-alt"></i></a>
                     </div>
                     {% endif %}
                 </div>
                 <div class="brand-container">
-                    <a class="navbar-brand" href="{{ url_for('index') }}">Cooking With Katie</a>
+                    <a class="navbar-brand" href="{{url_for('index')}}">Cooking With Katie</a>
                 </div>
                 <a class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
@@ -57,30 +57,30 @@
                         
                         
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
+                            <a class="nav-link active" aria-current="page" href="{{url_for('index')}}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('recipes') }}">Recipes</a>
+                            <a class="nav-link" href="{{url_for('recipes')}}">Recipes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('add_recipe') }}">Add Recipe</a>
+                            <a class="nav-link" href="{{url_for('add_recipe')}}">Add Recipe</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('contact_us') }}">Contact Us</a>
+                            <a class="nav-link" href="{{url_for('contact_us')}}">Contact Us</a>
                         </li>
                         {% if session.user %}
                         <li class="nav-item d-inline d-lg-none">
-                            <a href="{{ url_for('account', username=session['user']) }}" class="nav-link">My Account <i class="fas fa-user-alt"></i></a>
+                            <a href="{{url_for('account', username=session['user'])}}" class="nav-link">My Account <i class="fas fa-user-alt"></i></a>
                         </li>
                         <li class="nav-item d-inline d-lg-none">
-                            <a href="{{ url_for('logout')}}" class="nav-link">Logout <i class="fas fa-sign-out-alt"></i></a>
+                            <a href="{{url_for('logout')}}" class="nav-link">Logout <i class="fas fa-sign-out-alt"></i></a>
                         </li>
                         {% else %}
                         <li class="nav-item d-inline d-lg-none">
-                            <a href="{{ url_for('sign_up') }}" class="nav-link">Sign Up <i class="fas fa-edit"></i></a>
+                            <a href="{{url_for('sign_up')}}" class="nav-link">Sign Up <i class="fas fa-edit"></i></a>
                         </li>
                         <li class="nav-item d-inline d-lg-none">
-                            <a href="{{ url_for('sign_in') }}" class="nav-link">Sign In <i class="fas fa-user-alt"></i></a>
+                            <a href="{{url_for('sign_in')}}" class="nav-link">Sign In <i class="fas fa-user-alt"></i></a>
                         </li> 
                         {% endif %}
                     </ul>
@@ -111,13 +111,13 @@
             <nav class="col-12 footer-links">
                 <a href="{{url_for('recipes')}}"><i class="fas fa-search"></i> Explore Recipes</a>
                 <a href="{{url_for('add_recipe')}}"><i class="fas fa-plus-circle"></i> Add A Recipe</a>
-                <a href="{{ url_for('contact_us') }}"><i class="fas fa-envelope"></i> Contact Us</a>
+                <a href="{{url_for('contact_us')}}"><i class="fas fa-envelope"></i> Contact Us</a>
                 {% if session.user %}
-                <a href="{{ url_for('account', username=session['user']) }}"><i class="fas fa-user-alt"></i> My Account</a>
-                <a href="{{ url_for('logout')}}"><i class="fas fa-sign-out-alt"></i> Logout</a>               
+                <a href="{{url_for('account',username=session['user'])}}"><i class="fas fa-user-alt"></i> My Account</a>
+                <a href="{{url_for('logout')}}"><i class="fas fa-sign-out-alt"></i> Logout</a>               
                 {% else %}
-                <a href="{{ url_for('sign_up') }}"><i class="fas fa-edit"></i> Sign Up</a> 
-                <a href="{{ url_for('sign_in') }}"><i class="fas fa-user-alt"></i> Sign In</a>
+                <a href="{{url_for('sign_up')}}"><i class="fas fa-edit"></i> Sign Up</a> 
+                <a href="{{url_for('sign_in')}}"><i class="fas fa-user-alt"></i> Sign In</a>
                 {% endif %}
             </nav>
             <div class="col-12 footer__social-icons">

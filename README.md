@@ -1,10 +1,12 @@
 # Cooking with Katie - An online recipe website
 
 Cooking with Katie is an online recipe website designed to provide users with delicous food receipes to try at home. The cooking with Katie site is
-also a platform where users can share their own recipes with the sites community.
+also a platform where users can share their own recipes with the sites communitym add ratings and interact in other ways. 
 
 ![Deployed site screenshot](placeholder_url)
-[see the deployed site here]()
+[see the deployed site here](http://cooking-with-katie.herokuapp.com/index)
+
+please note: This site has been created for education purposes only. The businesses and individuals mentioned are ficticious.
 
 ---
 ## Ux Design
@@ -13,8 +15,6 @@ also a platform where users can share their own recipes with the sites community
   #### - Site Owner Goals:
 
   * The site owner wishes to increase their online awareness and attract new users to their site. 
-  * The site owner want's to commercialize the site by exposing users to targetted advertising banners.
-  * The site owner wishes to increase revenues by selling advertising space to advertising partners.
   * The site owner wishes to increase their social media followers by linking to their social media accounts.
   * The site owner wishes to create an engaged user group by attracting users to create accounts and subscribe to newsletter.
   * The site owner wants to increase the sites traffic and credibility by allowing users to submit their own recipes. 
@@ -26,7 +26,7 @@ also a platform where users can share their own recipes with the sites community
   * The ideal user will have access to a good quality camera or smartphone.
   * The ideal user will be english speaking.
   * The ideal user will be active on social media and comfortable posting updates, uploading images and
-  interacting with user users.
+  interacting with other users.
   * The ideal user will be looking to purchase food, bevarage and cooking related products, accessories and services.
 
 
@@ -40,7 +40,7 @@ also a platform where users can share their own recipes with the sites community
   * As a new user I want to learn about the business owner's background.
   * As a user I expect to be able to view lot's of different recipes.
   * As a user I want to be able to search and filter recipes by specific criteria.
-  * As a user I expect recipes to be ;abelled and categorised by an intuitive taxonomy.
+  * As a user I expect recipes to be labelled and categorised by an intuitive taxonomy.
   * As a user I expect recipes to be easy to read, understand and reproduce at home.
   * As a user I want to be able to add my recipes to the site to share with other users.
   * As a return user I want to be able to update and delete my submitted recipes.
@@ -56,8 +56,36 @@ also a platform where users can share their own recipes with the sites community
 ### Scope
  
   #### Features
+  In the initial iteration of this project, the key functionality to be added for this project is as follows:
+  1. A striking homepage with relevant image sections to communicate the site's primary purpose.
+  1. A homepage section featuring popular recipes to allow quick access to the recipes section.
+  1. An about homepage section which improves site credibility.
+  1. A contact page to improve credibility and allow user contact.
+  1. A contact confirmation page to improve ux by providing feedback that their email has been received.
+  1. A Recipes page where all the sites recipes can be viewed.
+  1. A individual recipe page which displays the detailed information for each recipe.
+  1. A search bar to allow convenient navigation to a desired user search.
+  1. A a sign up form to allow new users to sign up and create an account.
+  1. A a sign in form to allow existing users to access their account.
+  1. The means for a user to add their own recipe to the site.
+  1. The means for a user to edit one of their existing recipes.
+  1. The means for a user to delete on their existing recipes.
+  1. An account section where users can see their account information and recipes.
+  1. The functionality for an existing user to edit their contact information.
+  1. The functionality for an existing user to change their password.
+  1. A subscribe form where users can sign up to the site's newsletter.
+  
   
   #### Features/Functionality to be added
+  1. cache unsubmitted form data in case form reloads before submission. 
+  1. Add Advertising space to site to add commercial opportunity.
+  1. Allow upload of multiple images.
+  1. Allow drag and drop image upload from users computer.
+  1. Refactor code to enable username to be edited.
+  1. Add tooltips to improve first time learning and user experience.
+  1. Add working contact email functionality, so user emails are directed to an elected email address.
+  1. Add a working forgot password link that will allow users to reset their password from a link sent to their email address. 
+
 
 ---
 ### Structure
