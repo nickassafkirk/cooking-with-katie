@@ -27,14 +27,16 @@ enableDragSorting(".ingredients-container", ".ingredient-n")
  * Adds a new add recipe ingredients row
  */
 function addMoreRows() {
-    let numberOfIngredients = document.querySelectorAll(".ingredient-n").length;
+    let formprefix = findFormPrefix(".ingredient-n")
+    let ingredients = document.querySelectorAll(".ingredient-n")
+    let numberOfIngredients = ingredients.length;
     let selectOptions = document.querySelector("[name=unit-1]");
     let newSelect = selectOptions.innerHTML;
     let newIngredientRow = document.createElement("div");
     newIngredientRow.setAttribute("class", "ingredient-n row");
     newIngredientRow.innerHTML= `
                     <div class="col-12 delete-row">
-                        <span class="delete-button" id="add-ingredient-delete-button-${numberOfIngredients + 1}">
+                        <span class="delete-button" id="${formprefix}-ingredient-delete-button-${numberOfIngredients + 1}">
                             <i class="fas fa-trash-alt"></i>
                         </span>
                         <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
@@ -62,12 +64,13 @@ function addMoreRows() {
  * Adds a new add recipe instruction row
  */
 function addInstructionRows(){
+    let formprefix = findFormPrefix(".instruction-n")
     let numberOfInstructions = document.querySelectorAll(".instruction-n").length;
     let newInstructionRow = document.createElement("div");
     newInstructionRow.setAttribute("class", "instruction-n")
     newInstructionRow.innerHTML = `
         <div class="delete-row">
-                        <span class="delete-button" id="add-instruction-delete-button-{{loop.index}}">
+                        <span class="delete-button" id="${formprefix}-instruction-delete-button-{{loop.index}}">
                             <i class="fas fa-trash-alt"></i>
                         </span>
                         <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
@@ -133,11 +136,7 @@ function enableDragSorting(parentContainer, draggableElement){
  */
 function reorderLabels(targetElements) {
     let allTargetElements = document.querySelectorAll(targetElements);
-    targetClass = targetElements;
-    let parentForm = document.querySelector(targetElements).parentNode.parentNode;
-    parentFormId = parentForm.id;
-    parentFormPrefix = parentForm.id.split("-")[0];
-    console.log(parentFormPrefix)
+    findFormPrefix(targetElements)
     let targetChildren;
     let deleteRow;
     if (targetElements == ".instruction-n") {
@@ -162,7 +161,6 @@ function reorderLabels(targetElements) {
             deleteRow = targetChildren.children[0].children[0]
             deleteRow.classList.remove('d-none');
             deleteRow.setAttribute('id', `${parentFormPrefix}-ingredient-delete-button-${i + 1}`)
-            console.log(deleteRow);
             /* ingredient input + label */
             let col1 = targetChildren.children[1].children;
             /* quantity input + label */
@@ -183,8 +181,12 @@ function reorderLabels(targetElements) {
     }
 }
 
-function disableDeletionOfFirstRow(){
-
+function findFormPrefix(rowClass){
+    let parentForm = document.querySelector(rowClass).parentNode.parentNode;
+    parentFormId = parentForm.id;
+    parentFormPrefix = parentForm.id.split("-")[0];
+    console.log(parentFormPrefix)
+    return parentFormPrefix
 }
 
 /**
