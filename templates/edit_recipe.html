@@ -37,7 +37,7 @@
             </div>
             <div class="col-12 col-md-4">
                 <label for="ingredient-{{ loop.index }}" class="form-label">Ingredient</label>
-                <input type="text" name="ingredient-{{ loop.index }}" value="{{ ingredient.name }}">
+                <input type="text" name="ingredient-{{ loop.index }}" value="{{ ingredient.name }}" id="edit-recipe-ingredient-{{ loop.index }}">
             </div>
             <div class="col-6 col-md-4">
                 <label for="quantity-{{ loop.index }}" class="form-label">Quantity</label>
@@ -100,6 +100,22 @@
         <h3>4: Edit Cooking Instructions</h3>
     </div>
     <div class="instructions-container">
+        {% if recipe.instructions | length < 1 %}
+        <div class="instruction-n">
+            <div class="delete-row">
+                <span class="delete-button" id="edit-instruction-delete-button-1">
+                    <i class="fas fa-trash-alt"></i>
+                </span>
+                <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
+            </div>
+            <div class="instruction-area">
+                <label for="step-1" class="instructions-n__label">Step 1:</label>
+                <textarea name="step-1" cols="50"
+                rows="auto" id="edit-recipe-instruction-1"></textarea>
+            </div>
+        </div>
+
+        {% else %}
         {% for instruction in recipe.instructions %}
         <div class="instruction-n">
             <div class="delete-row">
@@ -109,12 +125,13 @@
                 <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
             </div>
             <div class="instruction-area">
-                <label for="step-{{ loop.index | int }}" class="instructions-n__label">Step {{ loop.index | int }}:</label>
-                <textarea name="step-{{ loop.index | int }}" cols="50"
-                rows="auto">{{ instruction }}</textarea>
+                <label for="step-{{ loop.index }}" class="instructions-n__label">Step {{ loop.index | int }}:</label>
+                <textarea name="step-{{ loop.index }}" cols="50"
+                rows="auto" id="edit-recipe-instruction-{{ loop.index }}">{{ instruction }}</textarea>
             </div>
         </div>
         {% endfor %}
+        {% endif %}
         <div class="button-container">
             <p class="btn" id="edit-instructions-button">
                 Add more instructions

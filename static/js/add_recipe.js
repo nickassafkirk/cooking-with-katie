@@ -147,10 +147,10 @@ function reorderLabels(targetElements) {
             deleteRow.setAttribute('id', `${parentFormPrefix}-instruction-delete-button-${i + 1}`)
             let targetLabel = allTargetElements[i].children[1].children[0];
             targetLabel.innerText = `Step ${i + 1}`;
-            targetLabel.setAttribute('for', `Step-${i + 1}`)
+            targetLabel.setAttribute('for', `step-${i + 1}`)
             let targetInput = allTargetElements[i].children[1].children[1];
-            targetInput.setAttribute('name', `Step-${i + 1}`);
-            targetInput.setAttribute('id', `Step-${i + 1}`);
+            targetInput.setAttribute('name', `step-${i + 1}`);
+            targetInput.setAttribute('id', `${parentFormPrefix}-recipe-instruction-${i + 1}`);
         }
         let firstInstructionDeleteButton = document.getElementById(`${parentFormPrefix}-instruction-delete-button-1`)
         firstInstructionDeleteButton.classList.add("d-none");
@@ -171,6 +171,7 @@ function reorderLabels(targetElements) {
             col1[0].setAttribute('for', `ingredient-${i + 1}`)
             col1[0].innerText = `ingredient ${i + 1}`
             col1[1].setAttribute('name', `ingredient-${i + 1}`)
+            col1[1].setAttribute('id', `${parentFormPrefix}-recipe-ingredient-${i + 1}`)
             col2[0].setAttribute('for', `quantity-${i + 1}`)
             col2[1].setAttribute('name', `quantity-${i + 1}`)
             col3[0].setAttribute('for', `unit-${i + 1}`)
