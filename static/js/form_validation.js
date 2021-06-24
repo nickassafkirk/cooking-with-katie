@@ -51,3 +51,58 @@ function checkPassword(event) {
         validationMessage.innerText = "Passwords Don't Match";
     }
 } 
+
+// contact form validation
+
+const contactSubmit = document.querySelector('#contact-us');
+
+function validate(event) {
+    event.preventDefault();
+    fname = document.querySelector("#contact-fname");
+    email = document.querySelector("#contact-email");
+    message = document.querySelector("#contact-message");
+
+    if (fname.value === "") {
+        fname.classList.add('invalid-field')
+        alert('You need to add your name')
+        fname.focus();
+        return false;
+    } else if (fname.value.length < 3 || fname.value.length > 30 ){
+        fname.classList.add('invalid-field')
+        alert("Your name must be more than 3 charachters and less than 30");
+        fname.focus();
+        return false;
+    } else {
+        fname.classList.add('valid-field');
+    }
+
+    if (!emailIsValid(email.value)) {
+        email.classList.add('invalid-field')
+        alert('Please enter a valid email address')
+        email.focus()
+        return false;
+    } else {
+        email.classList.add("valid-field");
+    }
+
+    if (message.value === "") {
+        message.classList.add('invalid-field')
+        alert('You forgot to add a message')
+        message.focus();
+        return false;
+    } else if (message.value.length > 10){
+        message.classList.add('invalid-field')
+        alert('Your message is too long: max 500 charachters')
+        message.focus();
+        return false;
+    }
+
+    return true; // Can submit the form data to the server
+
+}
+
+function emailIsValid(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+contactSubmit?.addEventListener('click', validate)
