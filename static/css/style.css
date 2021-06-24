@@ -1317,6 +1317,40 @@ footer a:hover, footer .footer-icons a:hover{
     line-height: 3rem;
 }
 
+.confirmation-container{
+    max-width: 90%;
+    margin: 5% auto;
+    background: var(--mint-dark);
+    text-align: center;
+    padding: 5%;
+    border: 1px solid var(--mint-dark);
+    border-radius: 5px;
+}
+
+.confirmation-container h3{
+    font-family: var(--font-2);
+    color: var(--txt-light);
+    margin-bottom: 2%;
+    text-shadow: 1px 1px var(--txt-dark);
+    
+}
+
+.confirmation-container h4{
+    font-family: var(--font-3);
+    color: var(--txt-cute);
+    font-weight: 700;
+    font-size: 2rem;
+    text-shadow: 1px 1px var(--txt-dark);
+}
+
+.your-message{
+    background: var(--off-white);
+    border-radius: 5px;
+    padding: 5%;
+    margin: 2% auto;
+}
+
+
 @media screen and (min-width: 768px) {
 
     .hero-main {

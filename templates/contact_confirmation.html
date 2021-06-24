@@ -1,6 +1,24 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h4> Thanks for getting in touch!</h4>
+<div class="container-fluid page-content-container confirmation-container mint">
+
+    <h3> Hi {{message.first_name}} Thanks for getting in touch!</h3>
+    <p> We've received your email and will be in touch shortly</p>
+    <h4>Here's your message:</h4>
+    
+    <div class="your-message">
+        
+        <p>
+            {{ message.message }}
+        </p>
+    </div>
+    
+    <a href="{{url_for('index')}}" class="btn btn-custom brand p-3">Return Home</a>
+
+
+</div>
+
+
 
 {% endblock %}
