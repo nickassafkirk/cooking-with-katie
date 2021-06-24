@@ -14,7 +14,7 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-
+## configuration
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -24,13 +24,14 @@ app.secret_key = os.environ.get("SECRET_KEY")
 app.config["ACCEPTED_IMG_EXTENSIONS"] = ["PNG", "JPG", "JPEG", "GIF"]
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
+## DB Credentials
 mongo = PyMongo(app)
 MONGO_URI = os.environ.get("MONGO_URI")
 DATABASE = os.environ.get("MONGO_DBNAME")
 USER_UPLOADS = os.environ.get("USER_UPLOADS")
 RECIPES = "recipes"
 
-
+## https://flask.palletsprojects.com/en/2.0.x/patterns/viewdecorators/
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -41,12 +42,7 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
-
 @app.route("/")
-def load_home():
-    return render_template('index.html')
-
-
 @app.route("/index")
 def index():
     recipes = list(mongo.db.recipes.find())
@@ -54,7 +50,7 @@ def index():
     return render_template(
         'index.html', recipes=recipes, ingredients=ingredients)
 
-
+# allows user account creation
 @app.route("/sign_up", methods=["GET", "POST"])
 def sign_up():
     if request.method == "POST":
@@ -99,7 +95,7 @@ def sign_up():
         return redirect(url_for('account', username=session["user"]))
     return render_template("sign_up.html")
 
-
+# Allows existing user account access
 @app.route("/sign_in", methods=["GET", "POST"])
 def sign_in():
     if request.method == "POST":
@@ -125,7 +121,7 @@ def sign_in():
 
     return render_template("sign_in.html")
 
-
+# allows user to access personal info
 @app.route("/account/<username>", methods=["GET", "POST"])
 @login_required
 def account(username):
@@ -148,7 +144,7 @@ def account(username):
 
     return redirect(url_for("sign_in"))
 
-
+# deletes session cookie and logs user out
 @app.route("/logout")
 @login_required
 def logout():
@@ -157,7 +153,7 @@ def logout():
     session.pop("user")
     return redirect(url_for("sign_in"))
 
-
+# updates user info
 @app.route("/update_user/<user_id>", methods=["GET", "POST"])
 @login_required
 def update_user(user_id):
@@ -177,7 +173,7 @@ def update_user(user_id):
         flash("Account Details Updated successfully")
         return redirect(url_for('account', username=user['username']))
 
-
+# faciliatates user password change
 @app.route("/change_password", methods=["GET", "POST"])
 @login_required
 def change_password():
@@ -221,20 +217,20 @@ def change_password():
         flash("Password Updated Successfully")
         return redirect(url_for("account", username=existing_user['username']))
 
-
+# loads all recipes
 @app.route("/recipes")
 def recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
 
-
+# allows user recipe search
 @app.route("/search_recipes", methods=["GET", "POST"])
 def search_recipes():
     search = request.form.get("search_recipe")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": search}}))
     return render_template("recipes.html", recipes=recipes)
 
-
+# displays single recipe page
 @app.route("/recipe/<recipe>")
 def recipe(recipe):
     recipe = mongo.db.recipes.find_one({"title": recipe})
@@ -276,6 +272,10 @@ def add_recipe():
     if request.method == "POST":
         file_to_upload = request.files['file']
         if file_to_upload:
+            valid_img = check_image_extension(file_to_upload.filename)
+            if not valid_img:
+                flash("File must be an image")
+                return redirect(request.url)
             upload_result = cloudinary.uploader.upload(file_to_upload)
             image_url = upload_result["url"]
         else:
@@ -358,6 +358,10 @@ def edit_recipe(recipe_id):
     if request.method == "POST":
         file_to_upload = request.files['file']
         if file_to_upload:
+            valid_img = check_image_extension(file_to_upload.filename)
+            if not valid_img:
+                flash("File must be an image")
+                return redirect(request.url)
             upload_result = cloudinary.uploader.upload(file_to_upload)
             image_url = upload_result["url"]
         else:
