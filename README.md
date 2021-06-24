@@ -150,6 +150,28 @@ please note: This site has been created for education purposes only. The busines
 ---
 ### Surface
 
+The goal when implementing the site surface components was to implement a casual but recogniseable style. 
+The surface motif focuses on impactful imagery of relevant content to communciate the site's purpose and a neutral color 
+palette which utilises muted, earthy tones to put the focus on images and interactive site elements. 
+
+#### Fonts
+Three fonts are utilised for this project: 
+1. [Dancing Script](https://fonts.google.com/specimen/Dancing+Script?query=dancing+script)
+Dancing script is a custive, handwritten styled font that is used for the site heading/logo anf on form and section headings.
+The font-weight has been increased to prviode more impact in headings. 
+
+2. [Fjalla One](https://fonts.google.com/specimen/Fjalla+One?query=Fjalla+One#license)
+Fjalla one is the primary font used for headings where increased impact and readability is needed on brighter or colored backgrounds. 
+This font is used throughout the prpject on form and section headings, buttons and links and is used to copmmunciate the hierarchy of site information.
+
+3. [Montserrat](https://fonts.google.com/specimen/Montserrat)
+Montserrat is the main body font style used for paragraphs and larger sections of text. It has a slim appearance which is great for condensing
+larger bodies of text on small screen widths while maintaining good readabilty. This very understated sans-serif font was specifically chosen
+to provide a professional appearance and establish noticeable contrast between body text, headings and the signature 'dancing script' font to
+further communicate the hierarchy of information on the page.
+
+#### Colors
+
 ---
 ## Testing
 ---
