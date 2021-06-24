@@ -234,7 +234,8 @@ CSS - The site styles were validated using the [w3 css validator](https://jigsaw
     - The remaing warnings were due to the use of vendor prefixes
 All of the above qwarnings can be ignored as the W3C validator does not support variables or vendor prefixes
 
-
+HTML:
+Index: No errors, no warnings
 ---
 ## Code
 ---
