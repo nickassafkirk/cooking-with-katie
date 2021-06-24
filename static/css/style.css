@@ -1319,7 +1319,7 @@ footer a:hover, footer .footer-icons a:hover{
     line-height: 3rem;
 }
 
-.confirmation-container{
+.confirmation-container, .error-container{
     max-width: 90%;
     margin: 5% auto;
     background: var(--mint-dark);
@@ -1329,7 +1329,7 @@ footer a:hover, footer .footer-icons a:hover{
     border-radius: 5px;
 }
 
-.confirmation-container h3{
+.confirmation-container h3, .error-container h3{
     font-family: var(--font-2);
     color: var(--txt-light);
     margin-bottom: 2%;
