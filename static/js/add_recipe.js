@@ -1,6 +1,4 @@
-let lastIngredientIndex = document.querySelectorAll(".ingredient-n").length;
-let lastIngredientInput = document.querySelector(`input[name="ingredient-${lastIngredientIndex}"]`);
-lastIngredientInput?.addEventListener("change", addMoreRows);
+
 
 
 const addIngredientsButton = document.querySelector("#add-ingredients-button");
