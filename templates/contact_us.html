@@ -9,28 +9,35 @@
         </div>
         <div class="col-md-6">
             <label for="contact-fname" class="form-label">First name</label>
-            <input type="text" class="form-control" name="contact-fname" required>
+            <input type="text" class="form-control" name="contact-fname" id="contact-fname">
+            <span class="validation-message"></span>
         </div>
         <div class="col-md-6">
             <label for="contact-lname" class="form-label">Last name</label>
-            <input type="text" class="form-control" name="contact-fname" required>
+            <input type="text" class="form-control" name="contact-lname" id="contact-lname" placeholder="Optional">
         </div>
         <div class="col-md-6">
-            <label for="email-sign-up" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email-sign-up" name="email-sign-up" required> 
+            <label for="contact-email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="contact-email" name="contact-email">
+            <span class="validation-message"></span>
         </div>
         <div class="col-md-6">
             <label for="contact-phone" class="form-label">Phone Number</label>
-                <input type="phone" class="form-control" name="contact-phone"> 
+            <input type="tel" class="form-control" name="contact-phone" placeholder="Optional">
         </div>
         <div class="col-12">
             <label for="contact-message" class="form-label">Your Message</label>
-            <textarea name="contact-message" class="form-control" cols="30" rows="10" required>Enter Your Message</textarea>
+            <textarea name="contact-message" id="contact-message" class="form-control" cols="30" rows="10" placeholder="Enter Your Message"></textarea>
+            <span class="validation-message"></span>
         </div>
         <div class="col-12 text-center py-3">
-            <button class="btn btn-custom brand w-50" type="submit">Send Message</button>
+            <button class="btn btn-custom brand w-50" type="submit" id="contact-us">Send Message</button>
         </div>
     </form>
 </div>
 
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/form_validation.js') }}"></script>
 {% endblock %}
