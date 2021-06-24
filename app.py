@@ -404,6 +404,7 @@ def edit_recipe(recipe_id):
         }
 
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update)
+        flash("Recipe Updated Successfully!")
         return redirect(url_for('recipe', recipe=update['title']))
 
     return render_template(
