@@ -412,9 +412,8 @@ header .navbar .nav-link{
 }
 
 .txt-half__inner{
-    max-height: 40vh;
-    overflow-y: scroll;
     padding: 5%;
+    text-align: justify;
     background-color: var(--txt-light);
     border: 1px solid var(--txt-light);
     border-radius: 5px;
@@ -422,7 +421,7 @@ header .navbar .nav-link{
 }
 
 .half__inner{
-    background-color: var(--txt-cute);
+    background-color: var(--off-white);
 }
 
 .half__inner img{
