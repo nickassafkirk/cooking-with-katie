@@ -42,6 +42,13 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated_function
 
+
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('error.html'), 404
+
+
 @app.route("/")
 @app.route("/index")
 def index():
