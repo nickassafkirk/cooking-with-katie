@@ -540,14 +540,15 @@ def contact_us():
 
         if contact_details:
             session['message'] = contact_details
-            return redirect(url_for('contact_confirmation', message_details=session['message']))
+            return redirect(url_for('contact_confirmation'))
 
     return render_template('contact_us.html')
 
 
 @app.route('/contact_confirmation')
 def contact_confirmation():
-    return render_template('contact_confirmation.html')
+    message = session['message']
+    return render_template('contact_confirmation.html', message=message)
 
 
 if __name__ == "__main__":
