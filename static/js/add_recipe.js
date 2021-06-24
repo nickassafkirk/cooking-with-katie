@@ -139,8 +139,11 @@ function reorderLabels(targetElements) {
             col3[1].setAttribute('name', `unit-${i + 1}`)
         }
     }
-    let firstIngredientDeleteButton = document.getElementById("add-instruction-delete-button-1")
+    let firstIngredientDeleteButton = document.getElementById("add-ingredient-delete-button-1")
     firstIngredientDeleteButton.remove();
+
+    let firstInstructionDeleteButton = document.getElementById("add-instruction-delete-button-1")
+    firstInstructionDeleteButton.remove();
 }
 
 const addRecipeSubmitButton = document.querySelector("#add-recipe__submit-button")
