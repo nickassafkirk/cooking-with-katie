@@ -545,6 +545,11 @@ def contact_us():
     return render_template('contact_us.html')
 
 
+@app.route('/contact_confirmation')
+def contact_confirmation():
+    return render_template('contact_confirmation.html')
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=(os.environ.get("PORT")),
