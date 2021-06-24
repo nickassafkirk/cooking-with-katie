@@ -1,12 +1,31 @@
-
-
-
 const addIngredientsButton = document.querySelector("#add-ingredients-button");
 addIngredientsButton?.addEventListener("click", addMoreRows);
 
 const editIngredientsButton = document.querySelector("#edit-ingredients-button");
 editIngredientsButton?.addEventListener("click", addMoreRows);
 
+const addInstructionsButton = document.querySelector("#add-instructions-button");
+addInstructionsButton?.addEventListener("click", addInstructionRows);
+
+const editInstructionsButton = document.querySelector('#edit-instructions-button')
+editInstructionsButton?.addEventListener("click", addInstructionRows);
+
+let deleteButton = document.querySelectorAll('.delete-button');
+deleteButton.forEach(button => button.addEventListener('click', deleteRow))
+
+
+const addRecipeSubmitButton = document.querySelector("#add-recipe__submit-button")
+addRecipeSubmitButton?.addEventListener('click', takeOff);
+
+const editRecipeSubmitButton = document.querySelector("#edit-recipe__submit-button")
+editRecipeSubmitButton?.addEventListener('click', takeOff);
+
+enableDragSorting(".instructions-container", ".instruction-n")
+enableDragSorting(".ingredients-container", ".ingredient-n")
+
+/**
+ * Adds a new add recipe ingredients row
+ */
 function addMoreRows() {
     let numberOfIngredients = document.querySelectorAll(".ingredient-n").length;
     let selectOptions = document.querySelector("[name=unit-1]");
@@ -39,12 +58,9 @@ function addMoreRows() {
     enableDeleteButton(".ingredients-container", "click")
 };
 
-const addInstructionsButton = document.querySelector("#add-instructions-button");
-addInstructionsButton?.addEventListener("click", addInstructionRows);
-
-const editInstructionsButton = document.querySelector('#edit-instructions-button')
-editInstructionsButton?.addEventListener("click", addInstructionRows);
-
+/**
+ * Adds a new add recipe instruction row
+ */
 function addInstructionRows(){
     let numberOfInstructions = document.querySelectorAll(".instruction-n").length;
     let newInstructionRow = document.createElement("div");
@@ -67,15 +83,10 @@ function addInstructionRows(){
     enableDeleteButton(".instructions-container", "click")
 };
 
-function enableDeleteButton(parentContainer, listener) {
-    deleteButtons = document.querySelectorAll(`${parentContainer} .delete-button`);
-    newDeleteButton = deleteButtons[((deleteButtons.length)-1)];
-    newDeleteButton.addEventListener(listener, deleteRow);
-}
-
-let deleteButton = document.querySelectorAll('.delete-button');
-deleteButton.forEach(button => button.addEventListener('click', deleteRow))
-
+/**
+ * this deletes an ingredient or instruction row
+ * when the thrash icon is pressed
+ */
 function deleteRow() {
     targetRow = this.parentNode.parentNode;
     classes = targetRow.classList;
@@ -84,8 +95,18 @@ function deleteRow() {
     reorderLabels(classname);
 }
 
-enableDragSorting(".instructions-container", ".instruction-n")
-enableDragSorting(".ingredients-container", ".ingredient-n")
+/**
+ * This is a helper function which adds an event listener
+ * To enable deletion of dynamically created ingredient or instruction
+ * row elements
+ * @param {string} parentContainer class name of container 
+ * @param {string} listener type of listener required ('click', 'change' etc...)
+ */
+function enableDeleteButton(parentContainer, listener) {
+    deleteButtons = document.querySelectorAll(`${parentContainer} .delete-button`);
+    newDeleteButton = deleteButtons[((deleteButtons.length)-1)];
+    newDeleteButton.addEventListener(listener, deleteRow);
+}
 
 /**
  * Allows drag and drop sorting on selected html elements
@@ -105,6 +126,11 @@ function enableDragSorting(parentContainer, draggableElement){
         }});
 }
 
+/**
+ * This function reorders the ingredient or instruction rows.
+ * It is called each time a row is dragged to reorder or deleted.
+ * @param {string} targetElements classname of elements to reorder
+ */
 function reorderLabels(targetElements) {
     let allTargetElements = document.querySelectorAll(targetElements);
     let targetChildren;
@@ -144,12 +170,10 @@ function reorderLabels(targetElements) {
     firstInstructionDeleteButton.remove();
 }
 
-const addRecipeSubmitButton = document.querySelector("#add-recipe__submit-button")
-addRecipeSubmitButton?.addEventListener('click', takeOff);
-
-const editRecipeSubmitButton = document.querySelector("#edit-recipe__submit-button")
-editRecipeSubmitButton?.addEventListener('click', takeOff);
-
+/**
+ * Animation to provide feedback that form has been submitted
+ * @param {*} event 
+ */
 function takeOff(event){
     event.preventDefault();
     const spinner = document.querySelector(`#${this.id} i`)
