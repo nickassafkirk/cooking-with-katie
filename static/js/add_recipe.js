@@ -134,9 +134,13 @@ function enableDragSorting(parentContainer, draggableElement){
 function reorderLabels(targetElements) {
     let allTargetElements = document.querySelectorAll(targetElements);
     let targetChildren;
+    let deleteRow;
     if (targetElements == ".instruction-n") {
         for (i = 0; i < allTargetElements.length; i++) {
             targetChildren = allTargetElements[i];
+            deleteRow = allTargetElements[i].children[0].children[0]
+            deleteRow.classList.remove('d-none');
+            deleteRow.setAttribute('id', `add-instruction-delete-button-${i + 1}`)
             let targetLabel = allTargetElements[i].children[1].children[0];
             targetLabel.innerText = `Step ${i + 1}`;
             targetLabel.setAttribute('for', `Step-${i + 1}`)
@@ -144,15 +148,22 @@ function reorderLabels(targetElements) {
             targetInput.setAttribute('name', `Step-${i + 1}`);
             targetInput.setAttribute('id', `Step-${i + 1}`);
         }
+        let firstInstructionDeleteButton = document.getElementById("add-instruction-delete-button-1")
+        firstInstructionDeleteButton.classList.add("d-none");
+
     } else if (targetElements == ".ingredient-n"){
         for (i = 0; i < allTargetElements.length; i++) {
             targetChildren = allTargetElements[i];
+            deleteRow = targetChildren.children[0].children[0]
+            deleteRow.classList.remove('d-none');
+            deleteRow.setAttribute('id', `add-ingredient-delete-button-${i + 1}`)
+            console.log(deleteRow);
             /* ingredient input + label */
             let col1 = targetChildren.children[1].children;
             /* quantity input + label */
-            col2 = targetChildren.children[2].children;
+            let col2 = targetChildren.children[2].children;
             /* unit select + label */
-            col3 = targetChildren.children[3].children;
+            let col3 = targetChildren.children[3].children;
 
             col1[0].setAttribute('for', `ingredient-${i + 1}`)
             col1[0].innerText = `ingredient ${i + 1}`
@@ -162,12 +173,13 @@ function reorderLabels(targetElements) {
             col3[0].setAttribute('for', `unit-${i + 1}`)
             col3[1].setAttribute('name', `unit-${i + 1}`)
         }
+        let firstIngredientDeleteButton = document.getElementById("add-ingredient-delete-button-1")
+        firstIngredientDeleteButton.classList.add("d-none");
     }
-    let firstIngredientDeleteButton = document.getElementById("add-ingredient-delete-button-1")
-    firstIngredientDeleteButton.remove();
+}
 
-    let firstInstructionDeleteButton = document.getElementById("add-instruction-delete-button-1")
-    firstInstructionDeleteButton.remove();
+function disableDeletionOfFirstRow(){
+
 }
 
 /**
