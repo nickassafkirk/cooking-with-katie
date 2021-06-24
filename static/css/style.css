@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap&family=Abril+Fatface&family=Fjalla+One&family=Montserrat&display=swap');
 
 :root{
@@ -11,6 +18,7 @@
     --txt-dark: #111;
     --txt-cute: #bd4f4f;
     --txt-gold: #ffc107;
+    --bright-red: #da1d1d;
 
     /* Accent colors */
     --grey: #bcbcbc;
@@ -45,6 +53,8 @@
 }
 
 .red-gradient{
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 0,0, 0.5)), to(rgba(125, 0, 0, 0.5)));
+    background-image: -o-linear-gradient(left, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));
     background-image: linear-gradient(to right, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));
 }
 
@@ -89,9 +99,9 @@ body{
     padding: 3%;
     font-family: var(--font-2);
     font-size: 2rem;
-    color: rgb(218, 29, 29);
-    border-top: 3px solid rgb(218, 29, 29);
-    border-bottom: 3px solid rgb(218, 29, 29);
+    color: var(--bright-red);
+    border-top: 3px solid var(--bright-red);
+    border-bottom: 3px solid var(--bright-red);
     text-align: center;
     background: var(--txt-light);
 }
@@ -145,9 +155,15 @@ header a:hover{
 /* Navbar styles */ 
 
 .navbar{
-    justify-content: center;
-    flex-direction: column;
-    flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     z-index: 1000;
 }
 
@@ -201,7 +217,9 @@ transition: height 0.2s ease;
     width: 50%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%)
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%)
 }
 
 header .navbar .nav-link{
@@ -285,7 +303,8 @@ header .navbar .nav-link{
 .hero-main__img{
   height: 100%; 
   width: 100%; 
-  object-fit: cover;
+  -o-object-fit: cover; 
+     object-fit: cover;
 }
 
 .hero-main::after, .hero-split::after{
@@ -308,7 +327,8 @@ header .navbar .nav-link{
 .hero-split__img{
   height: 100%; 
   width: 100%; 
-  object-fit: cover;
+  -o-object-fit: cover; 
+     object-fit: cover;
 }
 
 .hero-caption{
@@ -317,7 +337,9 @@ header .navbar .nav-link{
     top: 50%;
     left: 50%;
     z-index: 5;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     color: var(--txt-light);
     text-align: center;
     padding: 4%;
@@ -354,6 +376,8 @@ header .navbar .nav-link{
     margin: 0;
     padding: 0% 2% 2% 2%;
     background: var(--off-white);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -378,7 +402,9 @@ header .navbar .nav-link{
     background-color: var(--txt-light);
     border: 1px solid var(--txt-light);
     border-radius: 5px;
-    align-self: stretch;
+    -ms-flex-item-align: stretch;
+        -ms-grid-row-align: stretch;
+        align-self: stretch;
 }
 
 .half__inner{
@@ -388,11 +414,13 @@ header .navbar .nav-link{
 .half__inner img{
     height: 40vh;
     width: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 .index-container{
-    box-shadow: 0px 10px 10px 10px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 10px 10px 10px rgba(0,0,0,0.5);
+            box-shadow: 0px 10px 10px 10px rgba(0,0,0,0.5);
 }
 
 /* subscribe form */
@@ -402,7 +430,8 @@ header .navbar .nav-link{
     background-repeat: no-repeat;
     padding: 5%;
     margin: 10% auto;
-    box-shadow: 0px 5px 5px 5px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 5px 5px 5px rgba(0,0,0,0.5);
+            box-shadow: 0px 5px 5px 5px rgba(0,0,0,0.5);
 }
 
 .subscribe-index-container div{
@@ -414,7 +443,8 @@ header .navbar .nav-link{
     border-radius: 5px;
     text-align: center;
     font-size: 0.9rem;
-    box-shadow: 0px 10px 10px 10px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 10px 10px 10px rgba(0,0,0,0.5);
+            box-shadow: 0px 10px 10px 10px rgba(0,0,0,0.5);
 }
 
 .subscribe-index-container h3{
@@ -458,7 +488,8 @@ header .navbar .nav-link{
 .top-recipes img{
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     z-index: 2;
 }
 
@@ -481,7 +512,9 @@ header .navbar .nav-link{
     width: 80%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     font-family: var(--font-3);
     text-transform: capitalize;
     font-size: 1.8rem;
@@ -510,17 +543,29 @@ header .navbar .nav-link{
 /* Recipes.html */
 
 .recipes-wrapper{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: stretch;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
     padding: 0;
     margin: 0;
 }
 
 .recipe-thumbnail{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     justify-items: stretch;
     padding: 0;
     text-align: center;
@@ -551,8 +596,10 @@ header .navbar .nav-link{
     height: 25vh;
     margin: 2% 0;
     padding: 0;
-    object-fit: cover;
-    object-position: center;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
 }
 
 .recipe-intro{
@@ -567,10 +614,18 @@ header .navbar .nav-link{
 }
 
 .recipe-thumbnail__metadata{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     font-size: 0.9rem;
 }
 
@@ -624,17 +679,29 @@ header .navbar .nav-link{
 }
 
 #search-recipes-form{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: baseline;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
     padding: 2%;
     margin: 0% auto;
 }
 
 .input-area{
-    flex-basis: 100%;
-    flex-grow: 3;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    -webkit-box-flex: 3;
+        -ms-flex-positive: 3;
+            flex-grow: 3;
 }
 
 #search_recipe{
@@ -652,8 +719,10 @@ header .navbar .nav-link{
     padding: 0;
     margin-top: 5%;
     text-align: center;
-    flex-basis: 100%;
-    flex-shrink: 3;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    -ms-flex-negative: 3;
+        flex-shrink: 3;
 }
 
 .button-area > *{
@@ -707,6 +776,30 @@ header .navbar .nav-link{
     border-radius: 5px;
 }
 
+*::-webkit-input-placeholder{
+    padding-left: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--grey-dark);
+}
+
+*::-moz-placeholder{
+    padding-left: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--grey-dark);
+}
+
+*:-ms-input-placeholder{
+    padding-left: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--grey-dark);
+}
+
+*::-ms-input-placeholder{
+    padding-left: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--grey-dark);
+}
+
 *::placeholder, #add-recipe-form select option, #edit-recipe-form select option{
     padding-left: 0.5rem;
     font-size: 0.9rem;
@@ -718,8 +811,13 @@ header .navbar .nav-link{
 }
 
 .ingredients-container, .instructions-container, .additional-container, .image-container{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     border-radius: 5px;
     padding: 2%;
 }
@@ -751,12 +849,20 @@ header .navbar .nav-link{
 }
 
 .delete-row{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     justify-items: end;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     margin: 0 auto;
-    flex-basis: 100%;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
 }
 
 .delete-row span{
@@ -777,12 +883,22 @@ header .navbar .nav-link{
 }
 
 .additional-container{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     text-align: center;
-    align-items: stretch;
-    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     padding: 2%;
 }
 
@@ -791,13 +907,19 @@ header .navbar .nav-link{
 }
 
 .additional-container div{
-    flex-basis: 50%;
-    flex-grow: 0;
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
 }
 
 .additional-container div.additional-select{
-    flex-basis: 100%;
-    flex-grow: 0;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
 }
 
 .button-container{
@@ -809,13 +931,16 @@ header .navbar .nav-link{
 .img-preview{
     width: 250px;
     height: 250px;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 #add-recipe-form p, #edit-recipe-form p{
     margin: 2% auto 0 auto;
     padding: 2%;
     width: 90%;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 0,0, 0.5)), to(rgba(125, 0, 0, 0.5)));
+    background-image: -o-linear-gradient(left, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));
     background-image: linear-gradient(to right, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));
     text-transform: uppercase;
     color: var(--txt-light);
@@ -848,7 +973,16 @@ header .navbar .nav-link{
      left: 63%;
      margin-left: -1rem;
      margin-top: -1rem;
-     animation: take-off 5s linear infinite; 
+     -webkit-animation: take-off 5s linear infinite;
+             animation: take-off 5s linear infinite; 
+ }
+
+ @-webkit-keyframes take-off{
+     0% {top: 50% ; left: 63%;}
+     50% {top: 0%; left: 100%;}
+     51% {z-index: -1; top: 100%; left: 0%;}
+     75% {z-index: 1; top: 75% ; left: 35%;}
+     100% {z-index: 1; top: 50% ; left: 63%;}
  }
 
  @keyframes take-off{
@@ -889,15 +1023,27 @@ header .navbar .nav-link{
     left: 0;
     right: 0;
     bottom: 0;
+    background-image: -webkit-gradient(linear, left top, right top, from(var(--mint)), to(var(--dark-blue)));
+    background-image: -o-linear-gradient(left, var(--mint), var(--dark-blue));
     background-image: linear-gradient(to right, var(--mint), var(--dark-blue));
-    transform: skewY(-11deg);
-    transform-origin: bottom left;
+    -webkit-transform: skewY(-11deg);
+        -ms-transform: skewY(-11deg);
+            transform: skewY(-11deg);
+    -webkit-transform-origin: bottom left;
+        -ms-transform-origin: bottom left;
+            transform-origin: bottom left;
     z-index: 0;
 }
 
 .diagonal-split-reverse::before{
-    transform: skewY(25deg);
-    transform-origin: bottom left;
+    -webkit-transform: skewY(25deg);
+        -ms-transform: skewY(25deg);
+            transform: skewY(25deg);
+    -webkit-transform-origin: bottom left;
+        -ms-transform-origin: bottom left;
+            transform-origin: bottom left;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 0,0, 0.5)), to(rgba(125, 0, 0, 0.5)));
+    background-image: -o-linear-gradient(left, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));
     background-image: linear-gradient(to right, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));
     z-index: 2;
 }
@@ -910,15 +1056,27 @@ header .navbar .nav-link{
     left: 0;
     right: 0;
     bottom: 0;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 0,0, 0.5)), to(rgba(125, 0, 0, 0.5)));
+    background-image: -o-linear-gradient(left, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));
     background-image: linear-gradient(to right, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));
-    transform: skewY(25deg);
-    transform-origin: bottom right;
+    -webkit-transform: skewY(25deg);
+        -ms-transform: skewY(25deg);
+            transform: skewY(25deg);
+    -webkit-transform-origin: bottom right;
+        -ms-transform-origin: bottom right;
+            transform-origin: bottom right;
     z-index: 1;
 }
 
 .diagonal-split-reverse::after{
-    transform: skewY(-11deg);
-    transform-origin: bottom right;
+    -webkit-transform: skewY(-11deg);
+        -ms-transform: skewY(-11deg);
+            transform: skewY(-11deg);
+    -webkit-transform-origin: bottom right;
+        -ms-transform-origin: bottom right;
+            transform-origin: bottom right;
+    background-image: -webkit-gradient(linear, left top, right top, from(var(--mint)), to(var(--dark-blue)));
+    background-image: -o-linear-gradient(left, var(--mint), var(--dark-blue));
     background-image: linear-gradient(to right, var(--mint), var(--dark-blue));
 }
 
@@ -926,7 +1084,9 @@ header .navbar .nav-link{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     width: 100%;
 	margin: 0 auto;
     font-family: var(--font-2);
@@ -990,10 +1150,18 @@ header .navbar .nav-link{
 /* Account styles */
 
 #account-menu{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin-top: 2%;
 }
 
@@ -1002,9 +1170,13 @@ header .navbar .nav-link{
     background: var(--dark-blue);
     padding: 2%;
     margin: 0 auto;
-    flex-basis: 15%;
-    flex-grow: 1;
-    flex-shrink: 1;
+    -ms-flex-preferred-size: 15%;
+        flex-basis: 15%;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
     text-align: center;
     font-family: var(--font-2);
     text-transform: capitalize;
@@ -1046,11 +1218,21 @@ header .navbar .nav-link{
 }
 
 .account-recipe{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-self: stretch;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+    -ms-flex-item-align: stretch;
+        align-self: stretch;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: 0%;
     margin: 2% auto;
     text-align: center;
@@ -1060,8 +1242,13 @@ header .navbar .nav-link{
 }
 
 .account-recipe .button-row{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
 }
 
 .thumbnail-img{
@@ -1069,7 +1256,8 @@ header .navbar .nav-link{
     height: 20vmax;
     width: 50vmin;
     max-width: 100%;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 .account-recipe .btn{
@@ -1078,26 +1266,46 @@ header .navbar .nav-link{
 }
 
 .edit-categories-wrapper, .edit-users-wrapper{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
     justify-items: center;
-    align-items: center;
-    align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
 }
 
 .edit-categories-wrapper form, .edit-users-wrapper form{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    flex-basis: 5%;
-    flex-shrink: 3;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -ms-flex-preferred-size: 5%;
+        flex-basis: 5%;
+    -ms-flex-negative: 3;
+        flex-shrink: 3;
     position: relative;
 }
 
 .edit-categories-wrapper form:first-child, .edit-users-wrapper form:first-child{
-    flex-basis: 100%;
-    flex-grow: 3;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    -webkit-box-flex: 3;
+        -ms-flex-positive: 3;
+            flex-grow: 3;
 }
 
 .edit-categories-wrapper form:last-child input, .edit-users-wrapper form:last-child input{
@@ -1105,11 +1313,21 @@ header .navbar .nav-link{
 }
 
 .form-switch{
-    flex-basis: 25%;
+    -ms-flex-preferred-size: 25%;
+        flex-basis: 25%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin: 0 auto;
     padding: 0;
     text-align: center;
@@ -1135,7 +1353,9 @@ header .navbar .nav-link{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 }
 
 /* Form Validation */
@@ -1194,17 +1414,26 @@ footer a:hover, footer .footer-icons a:hover{
 .banner__container{
     padding-top: 1%;
     padding-bottom: 2%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
 }
 
 .flex-empty{
-    flex-basis: 20%;
+    -ms-flex-preferred-size: 20%;
+        flex-basis: 20%;
 }
 
 .banner__inner{
-    flex-basis: 60%;
+    -ms-flex-preferred-size: 60%;
+        flex-basis: 60%;
     position: relative;
     background-color: var(--bg-main);
     color: var(--txt-dark);
@@ -1243,7 +1472,8 @@ footer a:hover, footer .footer-icons a:hover{
     height: 100%;
     width: 100%;
     z-index: 3;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 .upload-image {
@@ -1371,14 +1601,19 @@ footer a:hover, footer .footer-icons a:hover{
     }
 
     .input-area{
-    flex-basis: 70%;
-    flex-grow: 3;
+    -ms-flex-preferred-size: 70%;
+        flex-basis: 70%;
+    -webkit-box-flex: 3;
+        -ms-flex-positive: 3;
+            flex-grow: 3;
     }
 
     .button-area{
         margin-top: 0%;
-        flex-basis: 30%;
-        flex-shrink: 3;
+        -ms-flex-preferred-size: 30%;
+            flex-basis: 30%;
+        -ms-flex-negative: 3;
+            flex-shrink: 3;
     }
 
     #add-recipe__submit-button, #edit-recipe__submit-button{
@@ -1393,20 +1628,32 @@ footer a:hover, footer .footer-icons a:hover{
 @media screen and (min-width: 992px) {
 
     .navbar-collapse{
-        justify-content: flex-end;
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end;
         padding: 0;
         margin-right: 5%;
         margin-left: auto;
-        flex-grow: 0;
+        -webkit-box-flex: 0;
+            -ms-flex-positive: 0;
+                flex-grow: 0;
         height: auto;
     }
 
     .navbar-nav{
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
     width: 100%;
     }
 
