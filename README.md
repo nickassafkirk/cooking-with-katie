@@ -203,7 +203,7 @@ as a nice light accent color on the dark blacks and reds without being harsh. Th
 to popular cooking herbs like mint, oregano etc... The mint dark color is chosen throughout the site as the priomary button color 
 for form buttons with positive conatation (submit, send, enter etc...)
 
-**--red-gradient: linear-gradient(to right, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));** 
+**--red-gradient: linear-gradient(to right, rgba(255, 0,0, 0.5), rgba(125, 0, 0, 0.5));**   
 This was used as a subtle way to tie the reds and greens and blacks utilised across the site together
 on the add and edit recipe forms. 
 
@@ -226,6 +226,14 @@ registered and something is happening.
 link to testing.md file
 
 ### validaton
+
+CSS - The site styles were validated using the [w3 css validator](https://jigsaw.w3.org/css-validator/validator):
+- No errors were found.
+- 235 warnings were logged: 
+    - 20 warnings were due to use of variables
+    - The remaing warnings were due to the use of vendor prefixes
+All of the above qwarnings can be ignored as the W3C validator does not support variables or vendor prefixes
+
 
 ---
 ## Code
@@ -380,6 +388,8 @@ Content was copied from https://www.bbcgoodfood.com/recipes/easy-pancakes
 11. [Carrots Header Image](https://unsplash.com/photos/0_90J7szLxI)
      Credit Heather Gill from [Unsplash.com](https://unsplash.com/)
 
+12. [Cheesecake recipe image](https://unsplash.com/photos/TB0Ao4CQRqc)
+    Credit Waranya Mooldee from [Unsplash.com](https://unsplash.com/)
 ### Code Credits
 
 1. Simple Image Upload Functionality:    
