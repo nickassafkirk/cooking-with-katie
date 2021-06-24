@@ -34,7 +34,7 @@ function addMoreRows() {
     newIngredientRow.setAttribute("class", "ingredient-n row");
     newIngredientRow.innerHTML= `
                     <div class="col-12 delete-row">
-                        <span class="delete-button">
+                        <span class="delete-button" id="add-ingredient-delete-button-${numberOfIngredients + 1}">
                             <i class="fas fa-trash-alt"></i>
                         </span>
                         <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
@@ -67,7 +67,7 @@ function addInstructionRows(){
     newInstructionRow.setAttribute("class", "instruction-n")
     newInstructionRow.innerHTML = `
         <div class="delete-row">
-                        <span class="delete-button">
+                        <span class="delete-button" id="add-instruction-delete-button-{{loop.index}}">
                             <i class="fas fa-trash-alt"></i>
                         </span>
                         <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
