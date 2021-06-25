@@ -7,28 +7,27 @@ editIngredientsButton?.addEventListener("click", addMoreRows);
 const addInstructionsButton = document.querySelector("#add-instructions-button");
 addInstructionsButton?.addEventListener("click", addInstructionRows);
 
-const editInstructionsButton = document.querySelector('#edit-instructions-button')
+const editInstructionsButton = document.querySelector('#edit-instructions-button');
 editInstructionsButton?.addEventListener("click", addInstructionRows);
 
 let deleteButton = document.querySelectorAll('.delete-button');
-deleteButton.forEach(button => button.addEventListener('click', deleteRow))
+deleteButton.forEach(button => button.addEventListener('click', deleteRow));
 
-
-const addRecipeSubmitButton = document.querySelector("#add-recipe__submit-button")
+const addRecipeSubmitButton = document.querySelector("#add-recipe__submit-button");
 addRecipeSubmitButton?.addEventListener('click', takeOff);
 
-const editRecipeSubmitButton = document.querySelector("#edit-recipe__submit-button")
+const editRecipeSubmitButton = document.querySelector("#edit-recipe__submit-button");
 editRecipeSubmitButton?.addEventListener('click', takeOff);
 
-enableDragSorting(".instructions-container", ".instruction-n")
-enableDragSorting(".ingredients-container", ".ingredient-n")
+enableDragSorting(".instructions-container", ".instruction-n");
+enableDragSorting(".ingredients-container", ".ingredient-n");
 
 /**
  * Adds a new add recipe ingredients row
  */
 function addMoreRows() {
-    let formprefix = findFormPrefix(".ingredient-n")
-    let ingredients = document.querySelectorAll(".ingredient-n")
+    let formprefix = findFormPrefix(".ingredient-n");
+    let ingredients = document.querySelectorAll(".ingredient-n");
     let numberOfIngredients = ingredients.length;
     let selectOptions = document.querySelector("[name=unit-1]");
     let newSelect = selectOptions.innerHTML;
@@ -57,17 +56,17 @@ function addMoreRows() {
                     </div>`;  
     let ingredientsContainer = document.querySelector(`.ingredients-container`);
     ingredientsContainer.insertBefore(newIngredientRow, document.querySelector(`.button-container`));
-    enableDeleteButton(".ingredients-container", "click")
-};
+    enableDeleteButton(".ingredients-container", "click");
+}
 
 /**
  * Adds a new add recipe instruction row
  */
 function addInstructionRows(){
-    let formprefix = findFormPrefix(".instruction-n")
+    let formprefix = findFormPrefix(".instruction-n");
     let numberOfInstructions = document.querySelectorAll(".instruction-n").length;
     let newInstructionRow = document.createElement("div");
-    newInstructionRow.setAttribute("class", "instruction-n")
+    newInstructionRow.setAttribute("class", "instruction-n");
     newInstructionRow.innerHTML = `
         <div class="delete-row">
                         <span class="delete-button" id="${formprefix}-instruction-delete-button-{{loop.index}}">
@@ -78,22 +77,20 @@ function addInstructionRows(){
                         <div class="instruction-area">
                         <label for="${formprefix}-step-${numberOfInstructions + 1}" class="instructions-n__label">Step ${numberOfInstructions + 1}:</label>
                         <textarea name="step-${numberOfInstructions + 1}" id="${formprefix}-step-${numberOfInstructions + 1}" cols="50" rows="2"></textarea>
-                    </div>`
+                    </div>`;
         
-
     const instructionsContainer = document.querySelector(".instructions-container");
     instructionsContainer.insertBefore(newInstructionRow, document.querySelector(".instructions-container .button-container"));
-    enableDeleteButton(".instructions-container", "click")
-};
+    enableDeleteButton(".instructions-container", "click");
+}
 
 /**
  * this deletes an ingredient or instruction row
  * when the thrash icon is pressed
  */
 function deleteRow() {
-    targetRow = this.parentNode.parentNode;
-    classes = targetRow.classList;
-    classname = "." + targetRow.classList[0];
+    let targetRow = this.parentNode.parentNode;
+    let classname = "." + targetRow.classList[0];
     targetRow.remove();
     reorderLabels(classname);
 }
@@ -106,8 +103,8 @@ function deleteRow() {
  * @param {string} listener type of listener required ('click', 'change' etc...)
  */
 function enableDeleteButton(parentContainer, listener) {
-    deleteButtons = document.querySelectorAll(`${parentContainer} .delete-button`);
-    newDeleteButton = deleteButtons[((deleteButtons.length)-1)];
+    let deleteButtons = document.querySelectorAll(`${parentContainer} .delete-button`);
+    let newDeleteButton = deleteButtons[((deleteButtons.length)-1)];
     newDeleteButton.addEventListener(listener, deleteRow);
 }
 
@@ -125,7 +122,7 @@ function enableDragSorting(parentContainer, draggableElement){
         handle: ".my-handle",
         animation: 350,
         onSort: function(){
-            reorderLabels(draggableElement)
+            reorderLabels(draggableElement);
         }});
 }
 
@@ -136,31 +133,31 @@ function enableDragSorting(parentContainer, draggableElement){
  */
 function reorderLabels(targetElements) {
     let allTargetElements = document.querySelectorAll(targetElements);
-    findFormPrefix(targetElements)
+    let currentFormPrefix = findFormPrefix(targetElements);
     let targetChildren;
     let deleteRow;
     if (targetElements == ".instruction-n") {
-        for (i = 0; i < allTargetElements.length; i++) {
+        for (let i = 0; i < allTargetElements.length; i++) {
             targetChildren = allTargetElements[i];
-            deleteRow = allTargetElements[i].children[0].children[0]
+            deleteRow = allTargetElements[i].children[0].children[0];
             deleteRow.classList.remove('d-none');
-            deleteRow.setAttribute('id', `${parentFormPrefix}-instruction-delete-button-${i + 1}`)
+            deleteRow.setAttribute('id', `${currentFormPrefix}-instruction-delete-button-${i + 1}`);
             let targetLabel = allTargetElements[i].children[1].children[0];
             targetLabel.innerText = `Step ${i + 1}`;
-            targetLabel.setAttribute('for', `step-${i + 1}`)
+            targetLabel.setAttribute('for', `step-${i + 1}`);
             let targetInput = allTargetElements[i].children[1].children[1];
             targetInput.setAttribute('name', `step-${i + 1}`);
-            targetInput.setAttribute('id', `${parentFormPrefix}-recipe-instruction-${i + 1}`);
+            targetInput.setAttribute('id', `${currentFormPrefix}-recipe-instruction-${i + 1}`);
         }
-        let firstInstructionDeleteButton = document.getElementById(`${parentFormPrefix}-instruction-delete-button-1`)
+        let firstInstructionDeleteButton = document.getElementById(`${currentFormPrefix}-instruction-delete-button-1`);
         firstInstructionDeleteButton.classList.add("d-none");
 
     } else if (targetElements == ".ingredient-n"){
-        for (i = 0; i < allTargetElements.length; i++) {
+        for (let i = 0; i < allTargetElements.length; i++) {
             targetChildren = allTargetElements[i];
-            deleteRow = targetChildren.children[0].children[0]
+            deleteRow = targetChildren.children[0].children[0];
             deleteRow.classList.remove('d-none');
-            deleteRow.setAttribute('id', `${parentFormPrefix}-ingredient-delete-button-${i + 1}`)
+            deleteRow.setAttribute('id', `${currentFormPrefix}-ingredient-delete-button-${i + 1}`);
             /* ingredient input + label */
             let col1 = targetChildren.children[1].children;
             /* quantity input + label */
@@ -168,20 +165,19 @@ function reorderLabels(targetElements) {
             /* unit select + label */
             let col3 = targetChildren.children[3].children;
 
-            col1[0].setAttribute('for', `ingredient-${i + 1}`)
-            col1[0].innerText = `ingredient ${i + 1}`
-            col1[1].setAttribute('name', `ingredient-${i + 1}`)
-            col1[1].setAttribute('id', `${parentFormPrefix}-recipe-ingredient-${i + 1}`)
-            col2[0].setAttribute('for', `quantity-${i + 1}`)
-            col2[1].setAttribute('name', `quantity-${i + 1}`)
-            col3[0].setAttribute('for', `unit-${i + 1}`)
-            col3[1].setAttribute('name', `unit-${i + 1}`)
+            col1[0].setAttribute('for', `ingredient-${i + 1}`);
+            col1[0].innerText = `ingredient ${i + 1}`;
+            col1[1].setAttribute('name', `ingredient-${i + 1}`);
+            col1[1].setAttribute('id', `${currentFormPrefix}-recipe-ingredient-${i + 1}`);
+            col2[0].setAttribute('for', `quantity-${i + 1}`);
+            col2[1].setAttribute('name', `quantity-${i + 1}`);
+            col3[0].setAttribute('for', `unit-${i + 1}`);
+            col3[1].setAttribute('name', `unit-${i + 1}`);
         }
-        let firstIngredientDeleteButton = document.getElementById(`${parentFormPrefix}-ingredient-delete-button-1`)
+        let firstIngredientDeleteButton = document.getElementById(`${currentFormPrefix}-ingredient-delete-button-1`);
         firstIngredientDeleteButton.classList.add("d-none");
     }
 }
-
 
 /**
  * A helper function that strips the add or edit
@@ -192,9 +188,8 @@ function reorderLabels(targetElements) {
  */
 function findFormPrefix(rowClass){
     let parentForm = document.querySelector(rowClass).parentNode.parentNode;
-    parentFormId = parentForm.id;
-    parentFormPrefix = parentForm.id.split("-")[0];
-    return parentFormPrefix
+    let parentFormPrefix = parentForm.id.split("-")[0];
+    return parentFormPrefix;
 }
 
 /**
@@ -202,53 +197,53 @@ function findFormPrefix(rowClass){
  * Due to time constraints alerts have been used this will be improved in the future.
  */
 function validateForm(){
-    let formprefix = findFormPrefix(".instruction-n")
-    let title = document.querySelector(`#${formprefix}-recipe-title`)
+    let formprefix = findFormPrefix(".instruction-n");
+    let title = document.querySelector(`#${formprefix}-recipe-title`);
     if (title.value == ""){
-        alert("You need to add a title")
-        return false
+        alert("You need to add a title");
+        return false;
     } else if ( title.value.length < 5 || title.value.length > 50) {
-        alert("Your Title must be between 5 and 50 charachters long")
-        return false
+        alert("Your Title must be between 5 and 50 charachters long");
+        return false;
     } 
 
-    let ingredients = document.querySelectorAll(".ingredient-n input")
+    let ingredients = document.querySelectorAll(".ingredient-n input");
     if(ingredients[0].value === "" || !ingredients[0].value){
-        alert("You need at least one ingredient")
-        return false
+        alert("You need at least one ingredient");
+        return false;
     }
 
-    let instructions = document.querySelectorAll(".instruction-n textarea")
+    let instructions = document.querySelectorAll(".instruction-n textarea");
     if(instructions[0].value === "" || !instructions[0].value){
-        alert("You need at least one instruction")
-        return false
+        alert("You need at least one instruction");
+        return false;
     }
 
-    let prepTime = document.querySelector(`#${formprefix}-recipe-prep-time`)
+    let prepTime = document.querySelector(`#${formprefix}-recipe-prep-time`);
     if(prepTime.value === ""){
-        alert("You need add estimated preparation time")
-        return false
+        alert("You need add estimated preparation time");
+        return false;
     }
 
-    let cookTime = document.querySelector(`#${formprefix}-recipe-cook-time`)
+    let cookTime = document.querySelector(`#${formprefix}-recipe-cook-time`);
     if(cookTime.value === ""){
-        alert("You need add estimated cooking time")
-        return false
+        alert("You need add estimated cooking time");
+        return false;
     }
 
-    let category = document.querySelector(`#${formprefix}-recipe-category`)
+    let category = document.querySelector(`#${formprefix}-recipe-category`);
     if(category.value === ""){
-        alert("Please select a category")
-        return false
+        alert("Please select a category");
+        return false;
     }
 
-    let cuisine = document.querySelector(`#${formprefix}-recipe-cuisine`)
+    let cuisine = document.querySelector(`#${formprefix}-recipe-cuisine`);
     if(cuisine.value === ""){
-        alert("Please select the closest cuisine")
-        return false
+        alert("Please select the closest cuisine");
+        return false;
     } 
 
-    return true
+    return true;
 }
 
 /**
@@ -258,12 +253,12 @@ function validateForm(){
 function takeOff(event){
     event.preventDefault();
     if (validateForm() === false) {
-        return false
+        return false;
     }
-    const spinner = document.querySelector(`#${this.id} i`)
-    spinner.classList.add("take-off")
+    const spinner = document.querySelector(`#${this.id} i`);
+    spinner.classList.add("take-off");
     
-    form = this.parentNode.parentNode
+    let form = this.parentNode.parentNode;
     form.submit();
 }
 
