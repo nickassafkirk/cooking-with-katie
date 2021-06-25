@@ -155,11 +155,6 @@ as expected. Clicking the cancel button will revert to the original rating which
 which may or may not change depending on the new user rating and number of previous ratings. This is a positive use experience and satisfies the user story.
 
 
-### Summary;
-Based on the user story testing above, I am satisfied that the project meets the reasonable requirements for most users and provides a good user experience. 
-While some minor bugs and potential improvements have been identified via this user story and manual testing procedures, they are minor fixes and additional functionalities which will improve the user expereince, first time learning and accessibility.
-Unfortunately due to the proect deadline, these issues could not be rectified now, however, it is my ambition to roll out these improvents in the future.
-
 ---
 ## Manual Testing
 ---
@@ -168,6 +163,52 @@ For manual testing each page was viewed, each clickable element was clicked, eac
 These tests were then repeated on a mobile, in dev tools and with a responsive browser window before being tested again using the browsers listed above.
 
 A summary of the manual testing procedure can be seen below:
+
+For the homepage each nav link was clicked and the redirect was observed. All nav links are routing to the correct site pages. 
+The Homepage login area buttons link to their corresponding pages and and the sign and sign up form validate and submit correctly.
+On smaller devices the navbar expands and collapses as intended. The close button works. For both navbars the links are created dynamically depending on
+if a user is logged in or not. The Main navigation works as intended and is consistent on all site pages.
+
+On sign up a new user is created and successfully inserted into the database. 
+On sign in an existing user is read from the database and their stored details are returned.
+
+Returning to the homepage, the featured recipes were clicked and route correctly to their specific recipe page. The Javascript mouseover animation also
+works as intended. 
+
+the homepage about section is readable on all screen sizes and formats evenly. The button in the featured ingredient section links to add a new recipe when a user is logged in
+or to sign in when they are not.
+
+The subscribe form works as intended when an email address is submitted. It reads the existing subscribers and returns an already signed up message if the email is already subscribed
+or it creates a new entry in the database if it is not and displays a success message. 
+
+The footer links route correctly and social icons link to corresponding social media site homepages.
+
+On the recipes page all recipes thumbnails display the required information. In the future styles will need to be adjusted to ensure that recipe thumbnail cards
+are of equal proportions.
+
+Clicking each recipe links to the correct page. Submitting and cancelling a recipe rating using the 5 star form also works as intended.
+
+On each recipe page all sections display as intended. The edit and delete buttons link to the correct pages.
+
+On the addpage form the functionality works as inteded the delete nad reorder buttons work. The create new rows buttons work. The first row is not deleteable. The form validates
+correctly and prevent submission if required fields are missed. The image is uploaded succesfully top cloudinary on submit, if no image is submitted a placeholder imnage is utilised.
+
+The page redirects on the new recipe upon successful submission. The edit recipe form also works in a similar manner allowing the user to update their existing recipe. Only the reipe owner or the admin can edit or delete recipes. 
+The recipe delte button works as intended removing the recipe from the databse.
+
+The contact form handles user contacts as intended. A template of the user message is printed to a confirmation page upon submission.
+
+In the account section an admin user has access to all the site recipes where as a standard user willonly see there own recipes. An admin user can also create and edit 
+the catgory database options although a bug was found on firefox. The sub navigation menu works for the menu section however on page refresh the default page section is loaded instead of the lst visited section.
+This was not possible to correct within the available timeframe.
+
+The edit details form works. the form is disabled by default and is enabled by clicking the enable button. This finds the user in the databse and updates their details apprpriately. 
+
+The update password section also checks the curent password for a user in the database and updates it if necessary. All account sections are working and provide varying crud operations for users and admins.
+
+finally a 404 page is displayed when errors occur. This has a working link to home.
+
+
 
 ---
 ## Bugs
@@ -191,4 +232,10 @@ dyring future development of this project.
 To remedy this I could create new pages with a dedicated rout for each page. Or I could use session cookies to store the last visited page section. Unfortunately due to time onstraints
 this could not be resolved before the project was due to be submitted.
 
-1. 
+1. On firefox: The edit categories section in the admin account is not allowing the form to submit when deleting a row.
+It works on chrome and other browser. I ran out of time to fisx this error.
+   
+### Summary;
+Based on the user story testing above, I am satisfied that the project meets the reasonable requirements for most users and provides a good user experience. 
+While some minor bugs and potential improvements have been identified via this user story and manual testing procedures, they are minor fixes and additional functionalities which will improve the user expereince, first time learning and accessibility.
+Unfortunately due to the proect deadline, these issues could not be rectified now, however, it is my ambition to roll out these improvents in the future.

@@ -43,8 +43,10 @@
             <li class="p-2"><strong>{{ ingredient.name }}</strong>
                 {% if ingredient.quantity %}
                 - {{ ingredient.quantity }}
-                {% if ingredient.unit != "na" %}
+                {% if ingredient.unit != "na" or ingredient.unit != "none" or ingredient.unit != "None" or ingredient.unit != "number" %}
+                
                 {{ ingredient.unit }}
+                {% else %}
                 {% endif %}
                 {% endif %}
             </li>
