@@ -182,6 +182,14 @@ function reorderLabels(targetElements) {
     }
 }
 
+
+/**
+ * A helper function that strips the add or edit
+ * portion from the appropriate form to allow functionality to
+ * work on the add and edit recipe forms.
+ * The rowClass arguement is the draggable row classname 'ingredient-n' or 'instruction-n'
+ * @param {string} rowClass 
+ */
 function findFormPrefix(rowClass){
     let parentForm = document.querySelector(rowClass).parentNode.parentNode;
     parentFormId = parentForm.id;
@@ -189,7 +197,10 @@ function findFormPrefix(rowClass){
     return parentFormPrefix
 }
 
-
+/**
+ * A very basic validation for the Add_recipe and edit_recipe forms
+ * Due to time constraints alerts have been used this will be improved in the future.
+ */
 function validateForm(){
     let formprefix = findFormPrefix(".instruction-n")
     let title = document.querySelector(`#${formprefix}-recipe-title`)
@@ -202,14 +213,12 @@ function validateForm(){
     } 
 
     let ingredients = document.querySelectorAll(".ingredient-n input")
-    console.log(ingredients[0].value)
     if(ingredients[0].value === "" || !ingredients[0].value){
         alert("You need at least one ingredient")
         return false
     }
 
     let instructions = document.querySelectorAll(".instruction-n textarea")
-    console.log(instructions[0].value)
     if(instructions[0].value === "" || !instructions[0].value){
         alert("You need at least one instruction")
         return false
