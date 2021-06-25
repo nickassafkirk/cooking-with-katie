@@ -70,7 +70,7 @@
         {% else %}
         <div class="ingredient-n row">
             <div class="col-12 delete-row">
-                    <span class="delete-button" id="edit-ingredient-delete-button-{{loop.index}}">
+                    <span class="delete-button" id="edit-ingredient-delete-button-1">
                         <i class="fas fa-trash-alt"></i>
                     </span>
                 <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
@@ -182,11 +182,11 @@
     <div class="form-section__heading">
         <h3>6: Edit Images</h3>
     </div>
-    <div class="d-flex flex-row">
+    <div class="d-block mx-auto text-center">
         <div>
             <img src="{{ recipe.image }}" alt="existing image" class="img-preview">
         </div>
-        <div class="upload-image">
+        <div class="upload-image my-3">
                 <label for="edit-image-upload">Upload Image</label>
                 <input type="file" name="file" id="edit-image-upload">
             </div>
