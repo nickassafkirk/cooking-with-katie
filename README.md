@@ -275,8 +275,7 @@ The code in the main app.py file was checked for pep8 comliance using
 All Javascript files have been validated using [jshint.com](jshint.com). No errors were recorded. Warnings have
 been documented below.
 
-- The add_recipe.js file returned 13 warnings 12 of which were due to use of optional chaining which is only compatible with es11
-   The one other warning was due to the use of new when declaring Sortable but the sortable document required it so it must be ignored. 
+- The add_recipe.js file returned 12 warnings 12 of which were due to use of optional chaining which is only compatible with es11
 
 - The account.js file returned 4 warnings which were again due to the use of optional chaining and have been ignored.
 
