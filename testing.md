@@ -129,19 +129,49 @@ form fields making it convenient to make edits. The drag and reorder sections en
 delete row buttons makes it simple to delete existing rows. The existing image is previewed, making it easy to decide wether to change it or not.
 By replicating the actions carried out when adding a new recipe a user can easiily update an existing recipe. 
 The delete button is obvious and easy to operate. It deletes a recipe on click and provides a clear feedback message. It would be expected that a confirmation messaege be displated prior to deletion
-but this was not achievable due to running out of time.
+but this was not achievable due to running out of time. As a user I am satisfied that the edit recipe form satisfies the user story above and provides a good user experience.
+
+* As a new user I want to create an account easily.
+Upon landing on the site a prominent sign_up section is evident in the top right hand corner of the header or in the footer and main navigation menu when on smaller devices. clicking this link takes me to a simple form whcih enables me to quickly fill out the required fields.
+If a mandatory field is forgotten, the form will not submit and an error message is displayed. Upon successful completion of the form the user is redirected to their new account page
+which as a new user is an expected response. As such I am satified that the site fulfils the users neds to creat ean account.
+
+* As a return user I want to be able to log into my account conveniently.
+As an existing user the sign-in link is locatred conveniently in the header area, main navigation bar and in the footer. If I try to access a site page which I have previously visited which requires a user to be logged i
+then I am redirected to the sign in page, which is convenient and a predictable response. The sign-in form is very simple and notifies the user if
+the username or password is not entered and will not allow submission. If the sign in is successful, the user is redirected to the account page. If the username or password is incorrect the sign-in form will
+reload with a non-descriptive error message for security reasons. This is a predictable and convenient user experience and thus satisfies the user story.
+
+* As a current user I want to be able to logout easily to secure my account.
+When Logged in an apparent logout button is visible in the header login in area, the footer and in the main bavigation menu on tablet and mobile devices.
+Clicking the logout button logs the user out and redirects to the sign-in page. This is easily satisfies the user story.
+
+* As an existing user I want to be able to rate recipes that I've tried myself.
+On each recipe thumnail, there is a rating form. Which is displayed as 5 stars. The stars are filled in to denote the rating out of 5. There is a number in brackets beside the rating that
+indicates the number of reviews. A Tooltip or similar would be preferable to be added to this number to indicate that it reprsents the number of reviews submitted.
+If a user hovers their cursor over a star button, it is highlighted in gold, this indicates an input is allowed. Once a rating button has been clicked, the button is filled in and highlighted in gold.
+A submit and cancel button are displayed giving the user the option to submit the rating or cancel their input. Clicking another rating button while one is selected will change the selection 
+as expected. Clicking the cancel button will revert to the original rating which is expected behaviour. Submitting the rating will increment the rating number and calculate a new rating, 
+which may or may not change depending on the new user rating and number of previous ratings. This is a positive use experience and satisfies the user story.
 
 
- 
-  * As a new user I want to create an account easily.
-  * As a return user I want to be able to log into my account conveniently.
-  * As a current user I want to be able to logout easily to secure my account.
-  * As an ongoing user I want to be able to save my favourite recipes.
-  * As an existing user I want to be able to rate recipes that I've tried myself.
+### Summary;
+Based on the user story testing above, I am satisfied that the project meets the reasonable requirements for most users and provides a good user experience. 
+While some minor bugs and potential improvements have been identified via this user story and manual testing procedures, they are minor fixes and additional functionalities which will improve the user expereince, first time learning and accessibility.
+Unfortunately due to the proect deadline, these issues could not be rectified now, however, it is my ambition to roll out these improvents in the future.
 
+---
 ## Manual Testing
+---
 
+For manual testing each page was viewed, each clickable element was clicked, each link or navigation element was tested to ensure it linked ot the correct page or page section. The layouts and text sections were analysed to ensure no overflow, overlap and poor readbility is occuring.
+These tests were then repeated on a mobile, in dev tools and with a responsive browser window before being tested again using the browsers listed above.
+
+A summary of the manual testing procedure can be seen below:
+
+---
 ## Bugs
+---
 
 #### Anonymous user rating submission error.
 - Attribute error when user leaves rating but is not logged in. If no session['user] cookie exist page crashed when an anonymous user tried to leave a rating.

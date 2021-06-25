@@ -225,10 +225,13 @@ Due to a slight delay when the add recipe form is submitted an animation was add
 moves diagonally across it's housing button. This was chosen as a pseudo-spinner, to provide feedback that an action has been
 registered and something is happening.
 
+#### Favicon
+[https://favicon.io/favicon-converter/](https://favicon.io/favicon-converter/) was used to convert a custom image I made into a favicon. 
+
 ---
 ## Testing
 ---
-link to testing.md file
+A full write up of the testing procedure can be found in the [testing.md file](testing.md)
 
 ### validaton
 
