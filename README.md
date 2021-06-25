@@ -271,7 +271,22 @@ The code in the main app.py file was checked for pep8 comliance using
   The Prettier linting extension was also used and there are no other warnings or linting issues apart
   from the issue described above.
 
-Your code
+#### Javascript:
+All Javascript files have been validated using [jshint.com](jshint.com). No errors were recorded. Warnings have
+been documented below.
+
+- The add_recipe.js file returned 13 warnings 12 of which were due to use of optional chaining which is only compatible with es11
+   The one other warning was due to the use of new when declaring Sortable but the sortable document required it so it must be ignored. 
+
+- The account.js file returned 4 warnings which were again due to the use of optional chaining and have been ignored.
+
+- The form_vaidation.js file returned 8 warnings which were again due to the use of optional chaining and have been ignored.
+
+- The Index.js file returned no warnings or errors.
+
+- The recipes.js file returned 2 warnings which were again due to the use of optional chaining and have been ignored.
+
+
 ---
 ## Code
 ---
@@ -549,6 +564,12 @@ scripts to achieve a very basic validation.
 
 10. Various aspects of the set up and basic flask operations were inspired by Tim Nelson's Thorin and Co, Flask code along project.
  Tim also suggested the use of the @login_required decorator during a tutor session which has been utilised to improve security for this project.
+
+ 11. This snippet of code was use regeX to ensure email addresses are formatted in the correct manner.  
+        ```function emailIsValid(email) {
+               return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }```
+     Credit Tyler McGinnis: [https://ui.dev/validate-email-address-javascript/](https://ui.dev/validate-email-address-javascript/)
 
 ---
 ## Deployment
