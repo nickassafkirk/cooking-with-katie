@@ -246,6 +246,9 @@ def recipes():
 def search_recipes():
     search = request.form.get("search_recipe")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": search}}))
+    if not recipes:
+        flash("No recipes found try a different search term")
+        return redirect(url_for('recipes', recipes=recipes))
     return render_template("recipes.html", recipes=recipes)
 
 
