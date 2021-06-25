@@ -4,11 +4,10 @@ accountDetails?.addEventListener("click", enableForm);
 function enableForm(){
     accountDetails.classList.add("d-none");
     const formInputs = document.querySelectorAll("#account-update-form input");
-    console.log(formInputs);
     formInputs.forEach(input => input.disabled = false);
-    updateAccountButton = document.querySelector("#update_account_button");
+    let updateAccountButton = document.querySelector("#update_account_button");
     updateAccountButton.classList.remove("d-none");
-    cancelUpdateButton = document.querySelector("#cancel_update_button");
+    let cancelUpdateButton = document.querySelector("#cancel_update_button");
     cancelUpdateButton.classList.remove("d-none");
     /* Disable form and revert changes on cancel */
     cancelUpdateButton.addEventListener("click", function() {
@@ -17,16 +16,16 @@ function enableForm(){
         accountDetails.classList.remove("d-none");
         formInputs.forEach(input => input.disabled = true);
     });
-};
+}
 
 const addCategory = document.querySelector("#add-category");
-addCategory?.addEventListener("change", addNewInput)
+addCategory?.addEventListener("change", addNewInput);
 
 function addNewInput(){
     let inputParent = document.querySelector("#add-category-parent");
     let num = document.querySelectorAll(".new-category-input").length;
     let newRow = document.createElement('input');
-    newRow.innerHTML = `<input type="text" name="new-category-${num + 1}" class="new-category-input" id="add-category-${num + 1}">`
+    newRow.innerHTML = `<input type="text" name="new-category-${num + 1}" class="new-category-input" id="add-category-${num + 1}">`;
     inputParent.appendChild(newRow);
 }
 
@@ -35,7 +34,7 @@ editButtons.forEach(button => button.addEventListener('click', confirmChoice));
 
 function confirmChoice(event) {
     editButtons.forEach(button => button.removeEventListener('click', confirmChoice, true));
-    form = event.target.parentNode.parentNode
+    let form = event.target.parentNode.parentNode;
     let confirmPopUp = document.createElement('div');
     confirmPopUp.setAttribute("id",'confirm-popup');
     confirmPopUp.innerHTML = `<div>
@@ -44,15 +43,15 @@ function confirmChoice(event) {
                                       <button type="button" id="confirmation-button" class="btn btn-success">Yes</button>
                                       <button type="button" id="cancel-button" class="btn btn-danger">Cancel</button>
                                   </div>
-                               </div>`
+                               </div>`;
     
-    parentContainer = document.querySelector(".insert-popup")
+    let parentContainer = document.querySelector(".insert-popup");
     parentContainer.appendChild(confirmPopUp);
 
-    let confirmationButton = document.querySelector('#confirmation-button')
-    let cancelButton = document.querySelector('#cancel-button')
+    let confirmationButton = document.querySelector('#confirmation-button');
+    let cancelButton = document.querySelector('#cancel-button');
     cancelButton.addEventListener('click', cancel);
-    confirmationButton.addEventListener('click', update)
+    confirmationButton.addEventListener('click', update);
 
     function cancel() {
         form.reset();
@@ -63,16 +62,17 @@ function confirmChoice(event) {
         form.submit();
     }
     return editButtons.forEach(button => button.addEventListener('click', confirmChoice));
-};
+}
 
 const accountMenuLinks = document.querySelectorAll("#account-menu a");
 accountMenuLinks.forEach(link => link.addEventListener("click", goToAccountSection));
 
 function goToAccountSection(event){
-    let accountSections = document.querySelectorAll(".account-container")
+    let accountSections = document.querySelectorAll(".account-container");
     accountSections.forEach(section => section.classList.add("d-none"));
-    selectedMenuLink = event.target.getAttribute('href');
-    let revealSection = document.querySelector(selectedMenuLink).classList.remove("d-none")
+    let selectedMenuLink = event.target.getAttribute('href');
+    let revealSection = document.querySelector(selectedMenuLink);
+    revealSection.classList.remove("d-none");
 }
 
 

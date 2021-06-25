@@ -79,7 +79,7 @@ function addSubmitButton(formId, formChildren, originalRating, rating) {
     /* If submit button exists just update it's rating value */
     } else {
         submitButtonExists.setAttribute("value", rating);
-        let cancelButton = document.querySelector(`${formId} .cancel-button`)
+        let cancelButton = document.querySelector(`${formId} .cancel-button`);
         cancelButton?.addEventListener("click", function(){
         for (let i = 0; i < 5; i++ ){
             formChildren[i].classList.remove("gold-star");

@@ -3,7 +3,7 @@ const changePasswordConfirm = document.querySelector('#confirm-existing-password
 changePasswordConfirm?.addEventListener('change', checkPassword);
 const newPasswordConfirm = document.querySelector('#confirm-new-password');  
 newPasswordConfirm?.addEventListener('change', checkPassword);
-const signUpPasswordConfirm = document.querySelector('#confirm-sign-up-password')
+const signUpPasswordConfirm = document.querySelector('#confirm-sign-up-password');
 signUpPasswordConfirm?.addEventListener('change', checkPassword);
 
 /**
@@ -18,36 +18,30 @@ function checkPassword(event) {
     let confirmFieldId;
     let passWordFieldId;
     if (targetFieldId.includes("confirm-")) {
-        confirmField = event.target
-        confirmFieldId = confirmField.id
+        confirmField = event.target;
+        confirmFieldId = confirmField.id;
         passWordFieldId = confirmFieldId.split("confirm-").pop();
-        passwordField = document.querySelector(`#${passWordFieldId}`)
+        passwordField = document.querySelector(`#${passWordFieldId}`);
     } else {
         passwordField = event.target;
         confirmFieldId = "confirm-" + passwordField.id;
-        console.log(confirmFieldId)
         confirmField = document.querySelector(`#${confirmFieldId}`);
     }
     
-    console.log(confirmField)
-    console.log(passwordField)
     let password1 = passwordField.value;
     let password2 = confirmField.value;
     let validationMessage = confirmField.nextElementSibling;
-    console.log(validationMessage)
 
     if (password1 === password2) {
-        console.log("match")
-        confirmField.classList.remove("invalid-field")
+        confirmField.classList.remove("invalid-field");
         validationMessage.innerText = "Passwords Match";
-        passwordField.classList.add("valid-field")
-        confirmField.classList.add("valid-field")
+        passwordField.classList.add("valid-field");
+        confirmField.classList.add("valid-field");
         passwordField.addEventListener('change', checkPassword);
     } else {
-        console.log("no match")
-        passwordField.classList.remove("valid-field")
-        confirmField.classList.remove("valid-field")
-        confirmField.classList.add("invalid-field")
+        passwordField.classList.remove("valid-field");
+        confirmField.classList.remove("valid-field");
+        confirmField.classList.add("invalid-field");
         validationMessage.innerText = "Passwords Don't Match";
     }
 } 
@@ -71,35 +65,35 @@ function validate(event) {
     const messageMessage = message.parentNode.lastElementChild;
 
     if (fname.value === "") {
-        fname.classList.add('invalid-field')
-        fnameMessage.innerText = "You need to add your name"
+        fname.classList.add('invalid-field');
+        fnameMessage.innerText = "You need to add your name";
         return false;
     } else if (fname.value.length < 3 || fname.value.length > 30 ){
-        fname.classList.add('invalid-field')
+        fname.classList.add('invalid-field');
         fnameMessage.innerText = "Your name must be more than 3 charachters and less than 30";
         return false;
     } else {
-        removeValMessage(fname)
+        removeValMessage(fname);
     }
 
     if (!emailIsValid(email.value)) {
-        email.classList.add('invalid-field')
-        emailMessage.innerText = 'Please enter a valid email address'
+        email.classList.add('invalid-field');
+        emailMessage.innerText = 'Please enter a valid email address';
         return false;
     } else {
-        removeValMessage(email)
+        removeValMessage(email);
     }
 
     if (message.value === "") {
-        message.classList.add('invalid-field')
-        messageMessage.innerText = 'You forgot to add a message'
+        message.classList.add('invalid-field');
+        messageMessage.innerText = 'You forgot to add a message';
         return false;
     } else if (message.value.length > 500) {
-        message.classList.add('invalid-field')
-        messageMessage.innerText = 'Your message is too long: max 500 charachters'
+        message.classList.add('invalid-field');
+        messageMessage.innerText = 'Your message is too long: max 500 charachters';
         return false;
     } else {
-        removeValMessage(message)
+        removeValMessage(message);
     }
 
     contactSubmit.submit();
@@ -110,7 +104,7 @@ function validate(event) {
  * Helper function removes negative validation messages.
  */
 function removeValMessage(identifier){
-    `${identifier}Message`.innerText = ""
+    `${identifier}Message`.innerText = "";
     identifier.classList.remove('invalid-field');
     identifier.classList.add('valid-field');
 }
