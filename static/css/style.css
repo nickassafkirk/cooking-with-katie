@@ -723,6 +723,9 @@ header .navbar .nav-link{
 /* add-recipe */
 
 .add-recipe__container{
+    margin: 0 auto;
+    max-width: 100vw;
+    overflow: hidden;
     padding: 0;
     background: var(--mint-light);
     background-size:  100%;

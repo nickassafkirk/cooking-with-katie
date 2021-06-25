@@ -117,13 +117,14 @@ function enableDeleteButton(parentContainer, listener) {
  */
 function enableDragSorting(parentContainer, draggableElement){
     let dragArea = document.querySelector(parentContainer);
-    new Sortable(dragArea, {
+    let sortable = new Sortable(dragArea, {
         draggable: draggableElement,
         handle: ".my-handle",
         animation: 350,
         onSort: function(){
             reorderLabels(draggableElement);
         }});
+    return sortable;
 }
 
 /**
