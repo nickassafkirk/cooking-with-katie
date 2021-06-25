@@ -3,11 +3,13 @@
 Cooking with Katie is an online recipe website designed to provide users with delicous food receipes to try at home. The cooking with Katie site is
 also a platform where users can share their own recipes with the sites community, add ratings and interact in other ways. 
 
-![Deployed site screenshot](/static/img/readme/cwk_responsive_screenshot.png)
-[see the deployed site here](http://cooking-with-katie.herokuapp.com/index)
-[See the github repository for this project here](https://github.com/nickassafkirk/cooking-with-katie)
+![Deployed site screenshot](/static/img/readme/cwk_responsive_screenshot.png)   
 
-please note: This site has been created for education purposes only. The businesses and individuals mentioned are ficticious.
+[see the deployed site here](http://cooking-with-katie.herokuapp.com/index) 
+
+[See the github repository for this project here](https://github.com/nickassafkirk/cooking-with-katie)  
+
+* Please note: This site has been created for education purposes only. The businesses and individuals mentioned are ficticious.
 
 ---
 ## Ux Design
@@ -135,8 +137,6 @@ please note: This site has been created for education purposes only. The busines
   the user to the page where the result of their input is displayed. This is to provide clear feedback to a user with the result of their input and
   to encourage ongoing interaction from users once one interaction has been completed.
 
-  #### Wireframes
-
   #### Mockups
   ![Deployed site screenshot](/static/img/readme/cwk_responsive_screenshot.png)
 
@@ -228,14 +228,16 @@ link to testing.md file
 
 ### validaton
 
-CSS - The site styles were validated using the [w3 css validator](https://jigsaw.w3.org/css-validator/validator):
+#### CSS
+
+The site styles were validated using the [w3 css validator](https://jigsaw.w3.org/css-validator/validator):
 - No errors were found.
 - 235 warnings were logged: 
     - 20 warnings were due to use of variables
     - The remaing warnings were due to the use of vendor prefixes
-All of the above qwarnings can be ignored as the W3C validator does not support variables or vendor prefixes
+All of the above warnings can be ignored as the W3C validator does not support variables or vendor prefixes
 
-HTML:
+#### HTML:
 
 All html pages were tested using the [W3 markup validator](https://validator.w3.org/)
 All pages passed validation with no errors or warnings. 
@@ -252,6 +254,20 @@ All pages passed validation with no errors or warnings.
 - sign_in.html: no errors, no warnings
 - sign_up.html: no errors, no warnings
 
+
+#### Python:
+
+The code in the main app.py file was checked for pep8 comliance using
+[pep8online.com](http://pep8online.com/checkresult)
+- One warning was returned for line to long on line 301
+        "line too long (111 > 79 characters)"
+  Unfortunately this is an image URL name which cannot be split or indented and therefore
+  this recommendation must be ignored. This does not impact the functionality of the site.
+
+  The Prettier linting extension was also used and there are no other warnings or linting issues apart
+  from the issue described above.
+
+Your code
 ---
 ## Code
 ---
@@ -368,7 +384,10 @@ There are three main data objects for this project:
 ### Content Credits
 
 1. [Pancake recipe](https://www.bbcgoodfood.com/recipes/easy-pancakes)
-Content was copied from https://www.bbcgoodfood.com/recipes/easy-pancakes
+    Content was copied from https://www.bbcgoodfood.com/recipes/easy-pancakes
+
+2. [Cheesecake recipe](https://thehappypear.ie/recipes/easy-5-ingredient-cheesecake/)
+    This recipe was copied from [this happy pear recipe](https://thehappypear.ie/recipes/easy-5-ingredient-cheesecake/)
 
 ### Image/Media Credits
 
@@ -499,6 +518,21 @@ Content was copied from https://www.bbcgoodfood.com/recipes/easy-pancakes
             transition: height .5s ease;
         }
 
+8. Prevent form submission on enter:
+   - The default behaviour for form is that the form is submitted on enter. This caused a poor user experience as form could submit before user had filled out form completely.
+   To fix this issue, I utilised the following code dubmitted by Daniel Trebbien:
+        ```<form action="...">
+                <!-- Prevent implicit submission of the form -->
+                <button type="submit" disabled style="display: none" aria-hidden="true"></button>```
+   Which I found at [this stackOverflow post](https://stackoverflow.com/questions/895171/prevent-users-from-submitting-a-form-by-hitting-enter)
+
+9. To carry out basic form validation on various site forms I used the basic techniques described in this 
+[www.freecodecamp.org article](https://www.freecodecamp.org/news/basic-form-validation-in-javascript/) and wrote custom
+scripts to achieve a very basic validation. 
+
+10. Various aspects of the set up and basic flask operations were inspired by Tim Nelson's Thorin and Co, Flask code along project.
+ Tim also suggested the use of the @login_required decorator during a tutor session which has been utilised to improve security for this project.
+
 ---
 ## Deployment
 ---
@@ -541,3 +575,10 @@ this section again when you're done.
 ---
 ## Acknowledgement
 ---
+
+I'd Like to thank my friends Scott Condron and Paul O'Sullivan for their help and advice on this project.
+Both Scott and Paul were extremley generous with their feedback, helped me test the site functionality and
+provide their opinions on how to approach a problem when I wanted a second opinion on what way to approach a problem.
+
+I'd also like to thank my Mentor Nishant who was extremly generous with his time and advice and provide brilliant suggestions 
+and encouragement as always.
