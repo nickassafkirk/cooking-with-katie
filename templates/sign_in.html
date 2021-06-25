@@ -21,7 +21,13 @@
             <button class="btn btn-custom w-50" type="submit">Sign In</button>
         </div>
     </form>
+    <div class="p-5 my-4 mx-auto mint-dark text-center">
+    <h4 class="logo">Don't have an account yet?</h4>
+    <a href="{{url_for('sign_up')}}">Sign Up Here!</a>
+    <p>To unlock many member only features.</p>
+    </div>
 </div>
+
 {% endblock %}
 {% block scripts %}
 <script src="{{ url_for('static', filename='js/form_validation.js') }}"></script>
