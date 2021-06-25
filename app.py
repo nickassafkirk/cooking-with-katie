@@ -7,12 +7,12 @@ from flask import (
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
-if os.path.exists("env.py"):
-    import env
 from flask_cors import cross_origin
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+if os.path.exists("env.py"):
+    import env
 
 
 # configuration
