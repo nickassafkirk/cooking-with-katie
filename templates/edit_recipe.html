@@ -147,16 +147,16 @@
     </div>
     <div class="additional-container">
         <div>
-            <label for="edit-prep-time">Prep Time (Mins)</label>
-            <input type="number" name="prep-time" id="edit-prep-time" value="{{ recipe.prep_time }}">
+            <label for="edit-recipe-prep-time">Prep Time (Mins)</label>
+            <input type="number" name="prep-time" id="edit-recipe-prep-time" value="{{ recipe.prep_time }}">
         </div>
         <div>
-            <label for="edit-cook-time">Cook Time (Mins)</label>
-            <input type="number" name="cook-time" id="edit-cook-time" value="{{ recipe.cook_time }}">
+            <label for="edit-recipe-cook-time">Cook Time (Mins)</label>
+            <input type="number" name="cook-time" id="edit-recipe-cook-time" value="{{ recipe.cook_time }}">
         </div>
         <div>
-            <label for="edit-category">Select Category</label>
-            <select name="category" id="edit-category">
+            <label for="edit-recipe-category">Select Category</label>
+            <select name="category" id="edit-recipe-category">
                 {% for category in categories %}
                 {% if recipe.category == category.name %}
                 <option value="{{ recipe.category }}" selected>{{ recipe.category | capitalize }}</option>
@@ -167,8 +167,8 @@
             </select>
         </div>
         <div>
-            <label for="edit-cuisine">Select Cuisine</label>
-            <select name="cuisine" id="edit-cuisine">
+            <label for="edit-recipe-cuisine">Select Cuisine</label>
+            <select name="cuisine" id="edit-recipe-cuisine">
                 {% for genre in cuisine_options %}
                 {% if recipe.cuisine == genre.cuisine %}
                 <option value="{{ recipe.cuisine }}" selected>{{ recipe.cuisine | capitalize }}</option>
