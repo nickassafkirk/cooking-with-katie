@@ -1088,6 +1088,48 @@ header .navbar .nav-link{
     z-index: 4;
 }
 
+/* Recipe.html */
+
+.recipe-container h2{
+    background: var(--dark-blue);
+    color: var(--txt-light);
+    font-family: var(--font-2);
+    font-size: 1.8em;
+    padding: 2%;
+    margin: 4% auto;
+}
+
+.recipe-main-img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.ingredient-section{
+    background: var(--off-white);
+    margin: 3% auto;
+    padding: 2%;
+}
+
+.ingredient-section h3{
+    font-family: var(--font-3);
+    color: var(--txt-cute);
+    font-weight: 700;
+}
+
+.ingredient-list{
+    list-style-type: none;
+}
+
+.ingredient-section table td{
+    padding-bottom: 2%;
+    border-bottom: 2px solid var(--grey);
+}
+
+.ingredient-section table th{
+    font-family: var(--font-2)
+}
+
 /* sign_up.html */
 
 #sign-up-container, #sign-in-container, #contact-us-container{
@@ -1641,7 +1683,7 @@ footer a:hover, footer .footer-icons a:hover{
         font-size: 1.6rem;
     }
 
-    #sign-up-container, #sign-in-container, #contact-us-container{
+    #sign-up-container, #sign-in-container, #contact-us-container, .recipe-container{
         width: 50%;
         margin: 2% auto;
     }
