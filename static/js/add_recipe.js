@@ -186,8 +186,60 @@ function findFormPrefix(rowClass){
     let parentForm = document.querySelector(rowClass).parentNode.parentNode;
     parentFormId = parentForm.id;
     parentFormPrefix = parentForm.id.split("-")[0];
-    console.log(parentFormPrefix)
     return parentFormPrefix
+}
+
+
+function validateForm(){
+    let formprefix = findFormPrefix(".instruction-n")
+    let title = document.querySelector(`#${formprefix}-recipe-title`)
+    if (title.value == ""){
+        alert("You need to add a title")
+        return false
+    } else if ( title.value.length < 5 || title.value.length > 50) {
+        alert("Your Title must be between 5 and 50 charachters long")
+        return false
+    } 
+
+    let ingredients = document.querySelectorAll(".ingredient-n input")
+    console.log(ingredients[0].value)
+    if(ingredients[0].value === "" || !ingredients[0].value){
+        alert("You need at least one ingredient")
+        return false
+    }
+
+    let instructions = document.querySelectorAll(".instruction-n textarea")
+    console.log(instructions[0].value)
+    if(instructions[0].value === "" || !instructions[0].value){
+        alert("You need at least one instruction")
+        return false
+    }
+
+    let prepTime = document.querySelector(`#${formprefix}-recipe-prep-time`)
+    if(prepTime.value === ""){
+        alert("You need add estimated preparation time")
+        return false
+    }
+
+    let cookTime = document.querySelector(`#${formprefix}-recipe-cook-time`)
+    if(cookTime.value === ""){
+        alert("You need add estimated cooking time")
+        return false
+    }
+
+    let category = document.querySelector(`#${formprefix}-recipe-category`)
+    if(category.value === ""){
+        alert("Please select a category")
+        return false
+    }
+
+    let cuisine = document.querySelector(`#${formprefix}-recipe-cuisine`)
+    if(cuisine.value === ""){
+        alert("Please select the closest cuisine")
+        return false
+    } 
+
+    return true
 }
 
 /**
@@ -196,6 +248,9 @@ function findFormPrefix(rowClass){
  */
 function takeOff(event){
     event.preventDefault();
+    if (validateForm() === false) {
+        return false
+    }
     const spinner = document.querySelector(`#${this.id} i`)
     spinner.classList.add("take-off")
     
