@@ -42,16 +42,16 @@ function addMoreRows() {
                         <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
                     </div>
                     <div class="col-12 col-lg-4">
-                        <label for="ingredient-${numberOfIngredients + 1}" class="form-label">Ingredient ${numberOfIngredients + 1}</label>
-                        <input type="text" name="ingredient-${numberOfIngredients + 1}">
+                        <label for="${formprefix}-ingredient-${numberOfIngredients + 1}" class="form-label">Ingredient ${numberOfIngredients + 1}</label>
+                        <input type="text" name="ingredient-${numberOfIngredients + 1}" id="${formprefix}-ingredient-${numberOfIngredients + 1}">
                     </div>
                     <div class="col-6 col-lg-4">
-                        <label for="quantity-${numberOfIngredients + 1}" class="form-label">Quantity</label>
-                        <input type="text" name="quantity-${numberOfIngredients + 1}" placeholder="Optional">
+                        <label for="${formprefix}-quantity-${numberOfIngredients + 1}" class="form-label">Quantity</label>
+                        <input type="text" name="quantity-${numberOfIngredients + 1}" id="${formprefix}-quantity-${numberOfIngredients + 1}" placeholder="Optional">
                     </div>
                     <div class="col-6 col-lg-4">
-                        <label for="unit-${numberOfIngredients + 1}" class="form-label">Unit</label>
-                        <select name="unit-${numberOfIngredients + 1}">
+                        <label for="${formprefix}-unit-${numberOfIngredients + 1}" class="form-label">Unit</label>
+                        <select name="unit-${numberOfIngredients + 1}" id="${formprefix}-unit-${numberOfIngredients + 1}">
                             ${newSelect}
                         </select>
                     </div>`;  
@@ -76,8 +76,8 @@ function addInstructionRows(){
                         <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
                     </div>
                         <div class="instruction-area">
-                        <label for="step-${numberOfInstructions + 1}" class="instructions-n__label">Step ${numberOfInstructions + 1}:</label>
-                        <textarea name="step-${numberOfInstructions + 1}" cols="50" rows="1"></textarea>
+                        <label for="${formprefix}-step-${numberOfInstructions + 1}" class="instructions-n__label">Step ${numberOfInstructions + 1}:</label>
+                        <textarea name="step-${numberOfInstructions + 1}" id="${formprefix}-step-${numberOfInstructions + 1}" cols="50" rows="2"></textarea>
                     </div>`
         
 

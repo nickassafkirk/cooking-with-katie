@@ -14,7 +14,8 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-## configuration
+
+# configuration
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -24,14 +25,16 @@ app.secret_key = os.environ.get("SECRET_KEY")
 app.config["ACCEPTED_IMG_EXTENSIONS"] = ["PNG", "JPG", "JPEG", "GIF"]
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
-## DB Credentials
+
+# DB Credentials
 mongo = PyMongo(app)
 MONGO_URI = os.environ.get("MONGO_URI")
 DATABASE = os.environ.get("MONGO_DBNAME")
 USER_UPLOADS = os.environ.get("USER_UPLOADS")
 RECIPES = "recipes"
 
-## https://flask.palletsprojects.com/en/2.0.x/patterns/viewdecorators/
+
+# https://flask.palletsprojects.com/en/2.0.x/patterns/viewdecorators/
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -56,6 +59,7 @@ def index():
     ingredients = list(mongo.db.ingredients.find())
     return render_template(
         'index.html', recipes=recipes, ingredients=ingredients)
+
 
 # allows user account creation
 @app.route("/sign_up", methods=["GET", "POST"])
@@ -102,6 +106,7 @@ def sign_up():
         return redirect(url_for('account', username=session["user"]))
     return render_template("sign_up.html")
 
+
 # Allows existing user account access
 @app.route("/sign_in", methods=["GET", "POST"])
 def sign_in():
@@ -128,6 +133,7 @@ def sign_in():
 
     return render_template("sign_in.html")
 
+
 # allows user to access personal info
 @app.route("/account/<username>", methods=["GET", "POST"])
 @login_required
@@ -151,6 +157,7 @@ def account(username):
 
     return redirect(url_for("sign_in"))
 
+
 # deletes session cookie and logs user out
 @app.route("/logout")
 @login_required
@@ -159,6 +166,7 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("sign_in"))
+
 
 # updates user info
 @app.route("/update_user/<user_id>", methods=["GET", "POST"])
@@ -179,6 +187,7 @@ def update_user(user_id):
         mongo.db.users.update({"_id": ObjectId(user_id)}, update_user)
         flash("Account Details Updated successfully")
         return redirect(url_for('account', username=user['username']))
+
 
 # faciliatates user password change
 @app.route("/change_password", methods=["GET", "POST"])
@@ -224,11 +233,13 @@ def change_password():
         flash("Password Updated Successfully")
         return redirect(url_for("account", username=existing_user['username']))
 
+
 # loads all recipes
 @app.route("/recipes")
 def recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
+
 
 # allows user recipe search
 @app.route("/search_recipes", methods=["GET", "POST"])
@@ -236,6 +247,7 @@ def search_recipes():
     search = request.form.get("search_recipe")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": search}}))
     return render_template("recipes.html", recipes=recipes)
+
 
 # displays single recipe page
 @app.route("/recipe/<recipe>")

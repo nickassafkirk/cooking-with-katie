@@ -16,9 +16,6 @@
         {% if user.is_admin %}
 
         <a href="#account-categories">Edit Categories</a>
-
-        <a href="#account-users">Edit Users</a>
-
         {% endif %}
 
     </nav>
@@ -34,8 +31,8 @@
         <form action="{{url_for('update_user', user_id=user._id)}}" method="POST" class="row g-3"
             id="account-update-form">
             <div class="col-12">
-                <label for="username" class="form-label">Username</label>
-                <p class="form-control" name="username" disabled>{{ user.username }}</p>
+                <p class="form-label">Username</p>
+                <p class="form-control">{{ user.username }}</p>
             </div>
             <div class="col-md-6">
                 <label for="fname-update" class="form-label">First name</label>
@@ -208,7 +205,7 @@
                 <div class="edit-categories-wrapper">
                     <form action="{{ url_for('edit_category') }}" method="POST" class="mb-2" id="edit-category-form-{{category.name}}">
                         <input type="text" name="{{category.name}}" class="form-control" value="{{category.name}}">
-                        <button type="button" class="btn btn-custom mint-dark p-3 m-0 ms-1" id="btn-{{ loop.index }}"><i
+                        <button type="button" class="btn btn-custom mint-dark p-3 m-0 ms-1" id="btn-{{category.name}}-{{ loop.index }}"><i
                                 class="far fa-edit"></i></button>
                     </form>
                     <form action="{{url_for('delete_category')}}" method="POST" class="mb-2">
@@ -226,9 +223,9 @@
                 <h4 class="account-heading">Add Categories</h4>
             </div>
         </div>
-        <form action="{{ url_for('add_category') }}" method="POST" id="" class="row">
-            <div class="col-9" id="">
-                <label for="" class="form-label d-none">new-category</label>
+        <form action="{{ url_for('add_category') }}" method="POST" class="row">
+            <div class="col-9">
+                <label for="add-category" class="form-label d-none">new-category</label>
                 <input type="text" name="add-category" class="form-control" id="add-category" placeholder="Enter New Category"
                     required>
             </div>
@@ -236,43 +233,6 @@
                 <button type="submit" class="btn btn-custom w-50 w-md-25 mint-dark">Add Category</button>
             </div>
         </form>
-    </div>
-
-
-    <div class="container-fluid account-container d-none" id="account-users">
-        <div class="row">
-            <div class="col-12">
-                <h4 class="account-heading">Edit Users</h4>
-            </div>
-        </div>
-
-        <div>
-
-        </div>
-
-        {% for user in users %}
-        <div class="row">
-            <div class="col-12 insert-popup">
-                <div class="edit-users-wrapper">
-                    <form action="" method="POST" class="mb-2">
-                        <input type="text" name="{{ user.username }}" class="form-control" value="{{ user.username }}">
-                        <div class="form-check form-switch">
-                            <label class="form-check-label" for="flexSwitchCheckDefault">Admin</label>
-                            <input class="form-check-input" type="checkbox" id="admin-switch-{{loop.index}}">
-                        </div>
-                        <button type="button" class="btn btn-custom mint-dark p-3 m-0 ms-1" id="btn-{{ user.username }}"><i
-                                class="far fa-edit"></i></button>
-                    </form>
-                    <form action="" method="POST" class="mb-2">
-                        <input type="text" name="{{ user.username }}" class="form-control" value="{{ user.username }}">
-                        <button type="button" class="btn btn-custom brand p-3 m-0 ms-1"><i
-                                class="fas fa-trash-alt"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-
     </div>
 </div>
             

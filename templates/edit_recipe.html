@@ -9,16 +9,20 @@
         </div>
 <form action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" method="POST" enctype="multipart/form-data" id="edit-recipe-form">
     <div>
-        <label for="title" class="form-label">
-            <h3>1: Edit Recipe Title</h3>
-        </label>
-        <input type="text" name="title" class="title" value="{{ recipe.title }}">
+        <h3>
+            <label for="edit-recipe-title" class="form-label">
+            1: Edit Recipe Title
+            </label>
+        </h3>
+        <input type="text" name="title" class="title" id="edit-recipe-title" value="{{ recipe.title }}">
     </div>
     <div>
-        <label for="intro" class="form-label">
-            <h3>2: Edit Recipe Description</h3>
-        </label>
-        <textarea name="intro" class="intro" cols="auto" rows="5"
+        <h3>
+            <label for="edit-recipe-intro" class="form-label">
+            2: Edit Recipe Description
+            </label>
+        </h3>
+        <textarea name="intro" class="intro" rows="5" id="edit-recipe-intro"
             placeholder="Enter Brief Description">{{ recipe.intro }}</textarea>
     </div>
     <div class="form-section__heading">
@@ -36,16 +40,16 @@
                 <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
             </div>
             <div class="col-12 col-md-4">
-                <label for="ingredient-{{ loop.index }}" class="form-label">Ingredient</label>
+                <label for="edit-recipe-ingredient-{{ loop.index }}" class="form-label">Ingredient</label>
                 <input type="text" name="ingredient-{{ loop.index }}" value="{{ ingredient.name }}" id="edit-recipe-ingredient-{{ loop.index }}">
             </div>
             <div class="col-6 col-md-4">
-                <label for="quantity-{{ loop.index }}" class="form-label">Quantity</label>
-                <input type="text" name="quantity-{{ loop.index }}" value="{{ ingredient.quantity }}">
+                <label for="edit-quantity-{{ loop.index }}" class="form-label">Quantity</label>
+                <input type="text" name="quantity-{{ loop.index }}" id="edit-quantity-{{ loop.index }}" value="{{ ingredient.quantity }}">
             </div>
             <div class="col-6 col-md-4">
-                <label for="unit-{{ loop.index }}" class="form-label">Unit</label>
-                <select name="unit-{{ loop.index }}">
+                <label for="edit-unit-{{ loop.index }}" class="form-label">Unit</label>
+                <select name="unit-{{ loop.index }}" id="edit-unit-{{ loop.index }}">
                     {% for unit in unit_options %}
                         {% if ingredient.unit == unit.unit_name or ingredient.unit == unit.unit_symbol %}
                           {% if ingredient.unit == "na" or ingredient.unit == "none" %}
@@ -70,16 +74,16 @@
                 <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
             </div>
             <div class="col-12 col-md-4">
-                <label for="ingredient-1" class="form-label">Ingredient</label>
-                <input type="text" name="ingredient-1">
+                <label for="edit-ingredient-1" class="form-label">Ingredient</label>
+                <input type="text" name="edit-ingredient-1">
             </div>
             <div class="col-6 col-md-4">
-                <label for="quantity-1" class="form-label">Quantity</label>
+                <label for="edit-quantity-1" class="form-label">Quantity</label>
                 <input type="text" name="quantity-1">
             </div>
             <div class="col-6 col-md-4">
-                <label for="unit-1" class="form-label">Unit</label>
-                <select name="unit-1">
+                <label for="edit-unit-1" class="form-label">Unit</label>
+                <select name="unit-1" id="edit-unit-1">
                     {% for unit in unit_options %}
                 
                             <option value="{{ unit.unit_name }}">{{ unit.unit_name }}</option>
@@ -109,9 +113,8 @@
                 <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
             </div>
             <div class="instruction-area">
-                <label for="step-1" class="instructions-n__label">Step 1:</label>
-                <textarea name="step-1" cols="50"
-                rows="auto" id="edit-recipe-instruction-1"></textarea>
+                <label for="edit-recipe-instruction-1" class="instructions-n__label">Step 1:</label>
+                <textarea name="step-1" cols="50" id="edit-recipe-instruction-1"></textarea>
             </div>
         </div>
 
@@ -125,9 +128,8 @@
                 <span class="reorder-button my-handle"><i class="fas fa-arrows-alt"></i></span>
             </div>
             <div class="instruction-area">
-                <label for="step-{{ loop.index }}" class="instructions-n__label">Step {{ loop.index | int }}:</label>
-                <textarea name="step-{{ loop.index }}" cols="50"
-                rows="auto" id="edit-recipe-instruction-{{ loop.index }}">{{ instruction }}</textarea>
+                <label for="edit-recipe-instruction-{{ loop.index }}" class="instructions-n__label">Step {{ loop.index | int }}:</label>
+                <textarea name="step-{{ loop.index }}" cols="50" id="edit-recipe-instruction-{{ loop.index }}">{{ instruction }}</textarea>
             </div>
         </div>
         {% endfor %}
@@ -143,16 +145,16 @@
     </div>
     <div class="additional-container">
         <div>
-            <label for="prep-time">Prep Time (Mins)</label>
-            <input type="number" name="prep-time" value="{{ recipe.prep_time }}">
+            <label for="edit-prep-time">Prep Time (Mins)</label>
+            <input type="number" name="prep-time" id="edit-prep-time" value="{{ recipe.prep_time }}">
         </div>
         <div>
-            <label for="cook-time">Cook Time (Mins)</label>
-            <input type="number" name="cook-time" value="{{ recipe.cook_time }}">
+            <label for="edit-cook-time">Cook Time (Mins)</label>
+            <input type="number" name="cook-time" id="edit-cook-time" value="{{ recipe.cook_time }}">
         </div>
         <div>
-            <label for="category">Select Category</label>
-            <select name="category" id="category">
+            <label for="edit-category">Select Category</label>
+            <select name="category" id="edit-category">
                 {% for category in categories %}
                 {% if recipe.category == category.name %}
                 <option value="{{ recipe.category }}" selected>{{ recipe.category | capitalize }}</option>
@@ -163,8 +165,8 @@
             </select>
         </div>
         <div>
-            <label for="cuisine">Select Cuisine</label>
-            <select name="cuisine" id="cuisine">
+            <label for="edit-cuisine">Select Cuisine</label>
+            <select name="cuisine" id="edit-cuisine">
                 {% for genre in cuisine_options %}
                 {% if recipe.cuisine == genre.cuisine %}
                 <option value="{{ recipe.cuisine }}" selected>{{ recipe.cuisine | capitalize }}</option>
@@ -183,8 +185,8 @@
             <img src="{{ recipe.image }}" alt="existing image" class="img-preview">
         </div>
         <div class="upload-image">
-                <label for="file" hidden>Upload Image</label>
-                <input type="file" name="file">
+                <label for="edit-image-upload">Upload Image</label>
+                <input type="file" name="file" id="edit-image-upload">
             </div>
         </div>
     <div class="button-container mt-5">

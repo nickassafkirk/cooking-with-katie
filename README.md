@@ -235,7 +235,12 @@ CSS - The site styles were validated using the [w3 css validator](https://jigsaw
 All of the above qwarnings can be ignored as the W3C validator does not support variables or vendor prefixes
 
 HTML:
-Index: No errors, no warnings
+-Index: No errors, no warnings
+-recipes.html: No errors, no warnings
+-recipe.html: No errors, no warnings
+-add_recipe.html: no errors, no warnings
+-edit recipe.html: no errors, no warnings
+-contact_us.html: no errors, no warnings
 ---
 ## Code
 ---
