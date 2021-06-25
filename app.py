@@ -449,7 +449,11 @@ def rating(recipe_id):
 
         recipe_owner = recipe['created_by']
 
-        if recipe_owner == session['user']:
+        if "user" not in session:
+            flash('Sign In to leave a Rating')
+            return redirect(url_for("sign_in"))
+
+        elif recipe_owner == session['user']:
             flash("You can't rate your own recipe!")
             return redirect(url_for("recipes"))
 
