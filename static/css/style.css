@@ -1109,6 +1109,7 @@ header .navbar .nav-link{
     background: var(--off-white);
     margin: 3% auto;
     padding: 2%;
+    text-align: center;
 }
 
 .ingredient-section h3{
@@ -1124,10 +1125,14 @@ header .navbar .nav-link{
 .ingredient-section table td{
     padding-bottom: 2%;
     border-bottom: 2px solid var(--grey);
+    width: 100%;
+    text-align: center;
 }
 
 .ingredient-section table th{
-    font-family: var(--font-2)
+    font-family: var(--font-2);
+    width: 100%;
+    text-align: center;
 }
 
 /* sign_up.html */

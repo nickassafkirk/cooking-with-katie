@@ -54,12 +54,12 @@ function confirmChoice(event) {
     confirmationButton.addEventListener('click', update);
 
     function cancel() {
-        form.reset();
         confirmPopUp.remove();
+        return form.reset();
     }
 
     function update() {
-        form.submit();
+        return form.submit();
     }
     return editButtons.forEach(button => button.addEventListener('click', confirmChoice));
 }
