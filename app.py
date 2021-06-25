@@ -586,4 +586,4 @@ def contact_confirmation():
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=(os.environ.get("PORT")),
-            debug=false)  # change debug to false before deploying
+            debug=False)  # change debug to false before deploying
