@@ -202,3 +202,4 @@ function takeOff(event){
     form = this.parentNode.parentNode
     form.submit();
 }
+
