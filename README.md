@@ -5,6 +5,7 @@ also a platform where users can share their own recipes with the sites community
 
 ![Deployed site screenshot](/static/img/readme/cwk_responsive_screenshot.png)
 [see the deployed site here](http://cooking-with-katie.herokuapp.com/index)
+[See the github repository for this project here](https://github.com/nickassafkirk/cooking-with-katie)
 
 please note: This site has been created for education purposes only. The businesses and individuals mentioned are ficticious.
 
@@ -235,12 +236,22 @@ CSS - The site styles were validated using the [w3 css validator](https://jigsaw
 All of the above qwarnings can be ignored as the W3C validator does not support variables or vendor prefixes
 
 HTML:
--Index: No errors, no warnings
--recipes.html: No errors, no warnings
--recipe.html: No errors, no warnings
--add_recipe.html: no errors, no warnings
--edit recipe.html: no errors, no warnings
--contact_us.html: no errors, no warnings
+
+All html pages were tested using the [W3 markup validator](https://validator.w3.org/)
+All pages passed validation with no errors or warnings. 
+
+- Index.html: No errors, no warnings
+- recipes.html: No errors, no warnings
+- recipe.html: No errors, no warnings
+- add_recipe.html: no errors, no warnings
+- edit recipe.html: no errors, no warnings
+- contact_us.html: no errors, no warnings
+- account.html: no errors, no warnings
+- contact_confirmation.html: no errors, no warnings
+- error.html: no errors, no warnings
+- sign_in.html: no errors, no warnings
+- sign_up.html: no errors, no warnings
+
 ---
 ## Code
 ---
@@ -396,6 +407,10 @@ Content was copied from https://www.bbcgoodfood.com/recipes/easy-pancakes
 
 12. [Cheesecake recipe image](https://unsplash.com/photos/TB0Ao4CQRqc)
     Credit Waranya Mooldee from [Unsplash.com](https://unsplash.com/)
+
+13. [Cheese Toastie Recipe](https://unsplash.com/photos/_wA_5FSU4NQ)
+    Credit Nathan Dumlao from [Unsplash.com](https://unsplash.com/)
+
 ### Code Credits
 
 1. Simple Image Upload Functionality:    
@@ -487,6 +502,41 @@ Content was copied from https://www.bbcgoodfood.com/recipes/easy-pancakes
 ---
 ## Deployment
 ---
+
+This project was deployed using [heroku](https://id.heroku.com/login) and [Github](https://github.com/).
+To replicate deployment in this manner first create accounts for both services at the links above.
+[Mongo.DB](https://www.mongodb.com/) was chosen to store data for this project. You will also need to create an account.
+
+You also need to install the [Gitpod Extension for Chrome](https://www.gitpod.io/docs/browser-extension/)
+
+1. In Github, go to the [project repositiory](https://github.com/nickassafkirk/cooking-with-katie) Once in the repository click the green gitpod button within the code section to clone the project to your local Gitpod workspace.
+
+2. In our workspace we now want to install Flask. In the command line enter the command python3. Next enter the pip3 Install Flask command.
+3. Next create a file called requirements.txt in our root folder. This can be done with touch requirements.txt in the terminal.
+4. Now we can create our database by going to Mongo.DB signing up and creating a new cluster. In our new cluster we then want to make a new collection and within that our new databases. 
+5. The detailed structure and schema to replicate the database is described above.
+6. To connect to our database we then need to follow the connection instructions in mongoDb to connect using mongoDB's native drivers. To do so we will ned to create a number of 
+environmental variables. 
+7. Create and env.py file in our root folder if you haven't already done so. Next add the env.py file to your .gitignore file.
+8. In the env.py file create the following environmental variables using os.setDefault()
+        os.environ.setdefault("IP", "Your IP here"), 
+        os.environ.setdefault("PORT", "Your port here"), 
+        os.environ.setdefault("SECRET_KEY", "Your secret key here"), 
+        os.environ.setdefault("MONGO_URI", "Your mongo URI here"), 
+        os.environ.setdefault("MONGO_DBNAME", "Your database name from mongDB here").
+9. These are now available for use in our main app.py file.
+10. Next we can deploy our project ot heroku. First save the necessary requirements in the requirements.txt file using the command pip3 freeze --local > requirements.txt.
+This file will outline any dependencies we are using. 
+11. Next we create a procfile this will contain 'web: python app.py --local' without quotes.
+12. In your heroku account create a new app with a unique name and select your geographically closest region from the dropdown menu. 
+13. From the menu select deploy, in hte deployment method click github. Using the search bar find the repository you want to deploy. Select the branch you wish to deploy and connect. 
+14. Now we need to add the environmental variables we create in our app to the config cvars section. In Settings click reveal config vars. Enter each environmental variable and then hide 
+this section again when you're done. 
+15. Now we can commit the changes we've made to our app which should include the requirements file and procfile. 
+16. If we go back to the deploy section in heroku we can now enable automatic deployment. This will automatically deploy any changes we make to our project when we push our changes to github.
+17. Finally we can select the branch we wish to deploy, in this case the master branch and then click Deploy!.
+18. Our project is now deployed. We can visit the application by clicking the open app button in the top right corner. 
+19. It may take a few moments to build and deploy the app.
 
 ---
 ## Acknowledgement
