@@ -8,6 +8,8 @@
             </div>
         </div>
 <form action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" method="POST" enctype="multipart/form-data" id="edit-recipe-form">
+    <!-- Prevent implicit submission of the form -->
+    <button type="submit" disabled style="display: none" aria-hidden="true"></button>
     <div>
         <h3>
             <label for="edit-recipe-title" class="form-label">
