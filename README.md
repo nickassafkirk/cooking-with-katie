@@ -3,6 +3,9 @@
 Cooking with Katie is an online recipe website designed to provide users with delicous food receipes to try at home. The cooking with Katie site is
 also a platform where users can share their own recipes with the sites community, add ratings and interact in other ways. 
 
+The site is designed with two user groups in mind. Firsty client users who are standard site visitors looing to view, add, edit and delete recipes among other tasks.
+The second user group is Administrators who have additional site access to manage and delete all user recipes and info and to upload and edit the categories and other site options. 
+
 ![Deployed site screenshot](/static/img/readme/cwk_responsive_screenshot.png)   
 
 [see the deployed site here](http://cooking-with-katie.herokuapp.com/index) 
@@ -28,8 +31,7 @@ also a platform where users can share their own recipes with the sites community
   * The ideal user will be a professional chef or cooking enthusiast.
   * The ideal user will have access to a good quality camera or smartphone.
   * The ideal user will be english speaking.
-  * The ideal user will be active on social media and comfortable posting updates, uploading images and
-  interacting with other users.
+  * The ideal user will be active on social media and comfortable posting updates, uploading images and interacting with other users.
   * The ideal user will be looking to purchase food, bevarage and cooking related products, accessories and services.
 
   #### - User Stories:
@@ -74,14 +76,16 @@ also a platform where users can share their own recipes with the sites community
   
   
   #### Features/Functionality to be added
-  1. cache unsubmitted form data in case form reloads before submission. 
-  1. Add Advertising space to site to add commercial opportunity.
+  1. cache unsubmitted form data in case form reloads before submission to prevent loss of filled out form fields.
+  1. Add Advertising space to site to add commercial opportunity for business owner.
   1. Allow upload of multiple images.
-  1. Allow drag and drop image upload from users computer.
+  1. Display a preview of the users uploaded image upon file selection, instead of only after the form is submitted.
+  1. Allow drag and drop image upload from users computer to the file upload input on the add and edit forms.
   1. Refactor code to enable username to be edited.
-  1. Add tooltips to improve first time learning and user experience.
+  1. Add sitewide tooltips to improve first time learning and user experience.
   1. Add working contact email functionality, so user emails are directed to an elected email address.
   1. Add a working forgot password link that will allow users to reset their password from a link sent to their email address. 
+  1. Add an account admin section where an administrator can add, delete, update and assign users as admins. 
 
 
 ---
@@ -273,20 +277,24 @@ Your code
 ---
 ### Technologies used
 
-- HTML  
+#### HTML  
         Html is used to add content such as text and images to the site as well as to create the raw structure of site elements.
-- CSS   
+#### CSS   
         CSS is used to add color, styling, advanced layout and animations to the html content in order to improve the user experience. 
-- Javascript    
+#### Javascript    
         Javascript is used to add interactivity to the site and to control, validate and prevent incorrect user inputs. 
         JS is also used to add dynamic styling to page elements. 
-- Python    
+#### Python    
         Python is used to handle backend logic, routing and to interact with the chosen database to store, sendm retrieve and update user data. 
 
-Frameworks/Libraries/Packages
+#### Frameworks/Libraries/Packages
+
 - [Bootstrap](https://getbootstrap.com/) - Bootsrap is used to apply responsive styles and layout quickly and easily to enhance the visual appeal and user experience on the site.
+
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/) - Flask is used to handle routing, login/logout and security, and interface with the database to create, read, update and delete data from 
-                                                         the databse. 
+                                                         the database. The Jinja templating language was used to create dynamic page templates for this project and to provide convenient logical tests
+                                                         where necessary.
+
 - [Sortable](https://github.com/SortableJS/Sortable) - Sortable is used to enable drag and drob sorting of the add and edit forms. 
 
 Database & File Storage
@@ -303,18 +311,27 @@ Vendor prefixes were added to the main stylesheet using [autoprefixer](https://a
 ---
 
 This data-driven project uses MongoDB to store and manage user and site data. 
-There are three main data objects for this project:
+
+There are 2 main database objects for this project:
 1. Users  - This stores user details such as contact details, password, owned recipes etc... It is created upon sign_up
             and some fields can subsequently be updated consciously by users in their account portal or automatically by the user's 
             interactions with the site.
+
 1. Recipes - This stores the key information for each user recipe, including intro, title, images, ingredients etc...
              each recipe DB object is created upon successful completion of the add recipe form. The recipe can subsequently be
              updated using the edit recipe form or deleted using the the delete button.
+
+Other database objects used to a lesser extent are:
+
 1. Categories - These are the categories used to sort and order recipes by meal type eg breakfast, dessert etc... 
+
 1. Cuisine - These are the cuisines/genres of food that are used to sort and order recipes by cuisine.
+
 1. Units - These are the accepted unit types for ingredient quantities when adding and editing recipes.
+
 1. Subscribers - This is where clients who have elected to subscribe to the newsletter's information is stored. It is sepparate to
                  the user object so clients can sign up without having an account. 
+
 1. Ingredients - This is where each featured ingredient to be inserted onto the homepage featured ingredient section can be stored.
                  This was created with the intention of creating a dedicated section in the admin account to upload, edit and change the featured
                  ingredient. It includes an ingredient name, image, an array of it's in season months and a boolean value to elect if it is displayed
