@@ -39,7 +39,9 @@
                     </form>
                     
                 </div>
-                <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+                <a href="{{ url_for('recipe', recipe=recipe.title) }}">
+                    <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+                </a>
                 <p class="recipe-intro">{{ recipe.intro }}</p>
                 <hr>
                 <div class="recipe-thumbnail__metadata">
